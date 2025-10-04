@@ -15,3 +15,6 @@ wheels/
 # Logs
 logs/
 *.log
+
+# Patches
+patches/

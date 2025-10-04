@@ -95,7 +95,7 @@ class EvaluateTask(Task):
                 patches_file = (
                     PROJECT_ROOT
                     / "patches"
-                    / f"{self._evaluating_crash.id}.crash_patch"
+                    / f"{self._evaluating_crash.id}.json"
                 )
                 patches_file.parent.mkdir(parents=True, exist_ok=True)
                 with open(patches_file, "w") as f:
