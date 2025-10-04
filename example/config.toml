@@ -1,0 +1,9 @@
+[project]
+standard = "c11"
+executable = "example"
+
+[environment.runtime]
+SECRET = "welcome"
+
+[environment.build]
+AFL_QUIET = "1"

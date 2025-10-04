@@ -1,0 +1,11 @@
+The crash report is as follows:
+{crash_report}
+
+The code structure is as follows:
+{code_structure}
+
+The code you request before is as follows:
+{requested_code}
+
+The note you made before is as follows:
+{notes}
