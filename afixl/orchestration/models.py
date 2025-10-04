@@ -55,7 +55,6 @@ class Patch(BaseModel):
 class ProposedPatch(BaseModel):
     reason: str  # Reason for proposing the patch
     patches: list[Patch]  # List of patches to apply
-    confidence: float = 0.0  # Confidence score for the proposed patch
 
 
 class MakeNote(BaseModel):
