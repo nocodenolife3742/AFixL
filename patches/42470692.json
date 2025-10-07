@@ -1,0 +1,125 @@
+{
+  "id": "42470692",
+  "stage": "evaluate",
+  "repo_addr": "https://github.com/randombit/botan.git",
+  "fix_commit": "b859e175a0f2357dcfe2211ca487a7bde0e971b1",
+  "project": "botan",
+  "report": "RVJST1I6IEFkZHJlc3NTYW5pdGl6ZXI6IGhlYXAtYnVmZmVyLW92ZXJmbG93IG9uIGFkZHJlc3MgMHg2MDIwMDAwMDAwMGYgYXQgcGMgMHgwMDAwMDA1MzA3ZGIgYnAgMHg3ZmZmZmZmZmUwMDAgc3AgMHg3ZmZmZmZmZmRmZjgNClJFQUQgb2Ygc2l6ZSAxIGF0IDB4NjAyMDAwMDAwMDBmIHRocmVhZCBUMA0KU0NBUklORVNTOiAxMiAoMS1ieXRlLXJlYWQtaGVhcC1idWZmZXItb3ZlcmZsb3cpDQogICAgIzAgMHg1MzA3ZGEgaW4gcmVmX29uZWFuZHplcm9fdW5wYWQodW5zaWduZWQgY2hhciBjb25zdCosIHVuc2lnbmVkIGxvbmcpIC9zcmMvYm90YW4vLi9zcmMvZnV6emVyL21vZGVfcGFkZGluZy5jcHA6NjM6MTANCiAgICAjMSAweDUyZmYwOCBpbiBmdXp6KHVuc2lnbmVkIGNoYXIgY29uc3QqLCB1bnNpZ25lZCBsb25nKSAvc3JjL2JvdGFuLy4vc3JjL2Z1enplci9tb2RlX3BhZGRpbmcuY3BwOjEzOTozNA0KICAgICMyIDB4NTJmZDc0IGluIExMVk1GdXp6ZXJUZXN0T25lSW5wdXQgL3NyYy9ib3Rhbi8uL3NyYy9mdXp6ZXIvZnV6emVycy5oOjM5OjcNCiAgICAjMyAweDU1YmIxMSBpbiBFeGVjdXRlRmlsZXNPbnlCeU9uZShpbnQsIGNoYXIqKikgL3NyYy9saWJmdXp6ZXIvYWZsL2FmbF9kcml2ZXIuY3BwOjMwMTo1DQogICAgIzQgMHg1NWMwYmUgaW4gbWFpbiAvc3JjL2xpYmZ1enplci9hZmwvYWZsX2RyaXZlci5jcHA6MzM5OjEyDQogICAgIzUgMHg3ZmZmZjZlZTU4MmYgaW4gX19saWJjX3N0YXJ0X21haW4gKC9saWIveDg2XzY0LWxpbnV4LWdudS9saWJjLnNvLjYrMHgyMDgyZikNCiAgICAjNiAweDQxY2FiOCBpbiBfc3RhcnQgKC9vdXQvbW9kZV9wYWRkaW5nKzB4NDFjYWI4KQ0KDQpERURVUF9UT0tFTjogcmVmX29uZWFuZHplcm9fdW5wYWQodW5zaWduZWQgY2hhciBjb25zdCosIHVuc2lnbmVkIGxvbmcpLS1mdXp6KHVuc2lnbmVkIGNoYXIgY29uc3QqLCB1bnNpZ25lZCBsb25nKS0tTExWTUZ1enplclRlc3RPbmVJbnB1dA0KMHg2MDIwMDAwMDAwMGYgaXMgbG9jYXRlZCAxIGJ5dGVzIHRvIHRoZSBsZWZ0IG9mIDMtYnl0ZSByZWdpb24gWzB4NjAyMDAwMDAwMDEwLDB4NjAyMDAwMDAwMDEzKQ0KYWxsb2NhdGVkIGJ5IHRocmVhZCBUMCBoZXJlOg0KICAgICMwIDB4NTJiODM4IGluIG9wZXJhdG9yIG5ldyh1bnNpZ25lZCBsb25nKSAvc3JjL2xsdm0vcHJvamVjdHMvY29tcGlsZXItcnQvbGliL2FzYW4vYXNhbl9uZXdfZGVsZXRlLmNjOjEwNg0KICAgICMxIDB4NTViYTE4IGluIF9fbGliY3BwX2FsbG9jYXRlIC91c3IvbG9jYWwvYmluLy4uL2luY2x1ZGUvYysrL3YxL25ldzoyNTM6MTANCiAgICAjMiAweDU1YmExOCBpbiBhbGxvY2F0ZSAvdXNyL2xvY2FsL2Jpbi8uLi9pbmNsdWRlL2MrKy92MS9tZW1vcnk6MTgwMA0KICAgICMzIDB4NTViYTE4IGluIGFsbG9jYXRlIC91c3IvbG9jYWwvYmluLy4uL2luY2x1ZGUvYysrL3YxL21lbW9yeToxNTQ5DQogICAgIzQgMHg1NWJhMTggaW4gX192YWxsb2NhdGUgL3Vzci9sb2NhbC9iaW4vLi4vaW5jbHVkZS9jKysvdjEvdmVjdG9yOjk3Mg0KICAgICM1IDB4NTViYTE4IGluIHZlY3RvciAvdXNyL2xvY2FsL2Jpbi8uLi9pbmNsdWRlL2MrKy92MS92ZWN0b3I6MTExNQ0KICAgICM2IDB4NTViYTE4IGluIEV4ZWN1dGVGaWxlc09ueUJ5T25lKGludCwgY2hhcioqKSAvc3JjL2xpYmZ1enplci9hZmwvYWZsX2RyaXZlci5jcHA6Mjk4DQogICAgIzcgMHg1NWMwYmUgaW4gbWFpbiAvc3JjL2xpYmZ1enplci9hZmwvYWZsX2RyaXZlci5jcHA6MzM5OjEyDQogICAgIzggMHg3ZmZmZjZlZTU4MmYgaW4gX19saWJjX3N0YXJ0X21haW4gKC9saWIveDg2XzY0LWxpbnV4LWdudS9saWJjLnNvLjYrMHgyMDgyZikNCg0KREVEVVBfVE9LRU46IG9wZXJhdG9yIG5ldyh1bnNpZ25lZCBsb25nKS0tX19saWJjcHBfYWxsb2NhdGUtLWFsbG9jYXRlDQpTVU1NQVJZOiBBZGRyZXNzU2FuaXRpemVyOiBoZWFwLWJ1ZmZlci1vdmVyZmxvdyAvc3JjL2JvdGFuLy4vc3JjL2Z1enplci9tb2RlX3BhZGRpbmcuY3BwOjYzOjEwIGluIHJlZl9vbmVhbmR6ZXJvX3VucGFkKHVuc2lnbmVkIGNoYXIgY29uc3QqLCB1bnNpZ25lZCBsb25nKQ0KU2hhZG93IGJ5dGVzIGFyb3VuZCB0aGUgYnVnZ3kgYWRkcmVzczoNCiAgMHgwYzA0N2ZmZjdmYjA6IDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwDQogIDB4MGMwNDdmZmY3ZmMwOiAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMA0KICAweDBjMDQ3ZmZmN2ZkMDogMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDANCiAgMHgwYzA0N2ZmZjdmZTA6IDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwDQogIDB4MGMwNDdmZmY3ZmYwOiAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMA0KPT4weDBjMDQ3ZmZmODAwMDogZmFbZmFdMDMgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmENCiAgMHgwYzA0N2ZmZjgwMTA6IGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhDQogIDB4MGMwNDdmZmY4MDIwOiBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYQ0KICAweDBjMDQ3ZmZmODAzMDogZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmENCiAgMHgwYzA0N2ZmZjgwNDA6IGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhDQogIDB4MGMwNDdmZmY4MDUwOiBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYQ0KU2hhZG93IGJ5dGUgbGVnZW5kIChvbmUgc2hhZG93IGJ5dGUgcmVwcmVzZW50cyA4IGFwcGxpY2F0aW9uIGJ5dGVzKToNCiAgQWRkcmVzc2FibGU6ICAgICAgICAgICAwMA0KICBQYXJ0aWFsbHkgYWRkcmVzc2FibGU6IDAxIDAyIDAzIDA0IDA1IDA2IDA3IA0KICBIZWFwIGxlZnQgcmVkem9uZTogICAgICAgZmENCiAgRnJlZWQgaGVhcCByZWdpb246ICAgICAgIGZkDQogIFN0YWNrIGxlZnQgcmVkem9uZTogICAgICBmMQ0KICBTdGFjayBtaWQgcmVkem9uZTogICAgICAgZjINCiAgU3RhY2sgcmlnaHQgcmVkem9uZTogICAgIGYzDQogIFN0YWNrIGFmdGVyIHJldHVybjogICAgICBmNQ0KICBTdGFjayB1c2UgYWZ0ZXIgc2NvcGU6ICAgZjgNCiAgR2xvYmFsIHJlZHpvbmU6ICAgICAgICAgIGY5DQogIEdsb2JhbCBpbml0IG9yZGVyOiAgICAgICBmNg0KICBQb2lzb25lZCBieSB1c2VyOiAgICAgICAgZjcNCiAgQ29udGFpbmVyIG92ZXJmbG93OiAgICAgIGZjDQogIEFycmF5IGNvb2tpZTogICAgICAgICAgICBhYw0KICBJbnRyYSBvYmplY3QgcmVkem9uZTogICAgYmINCiAgQVNhbiBpbnRlcm5hbDogICAgICAgICAgIGZlDQogIExlZnQgYWxsb2NhIHJlZHpvbmU6ICAgICBjYQ0KICBSaWdodCBhbGxvY2EgcmVkem9uZTogICAgY2INCiAgU2hhZG93IGdhcDogICAgICAgICAgICAgIGNjDQpBQk9SVElORw==",
+  "requested_content": {
+    "/src/botan/./src/fuzzer/mode_padding.cpp": {
+      "33": "line   33 :    {",
+      "34": "line   34 :    if(len <= 2)",
+      "35": "line   35 :       return len;",
+      "36": "line   36 : ",
+      "37": "line   37 :    const size_t padding_length = in[len-1];",
+      "38": "line   38 : ",
+      "39": "line   39 :    if(padding_length == 0 || padding_length > len)",
+      "40": "line   40 :       return len;",
+      "41": "line   41 :    const size_t padding_start = len - padding_length;",
+      "42": "line   42 : ",
+      "43": "line   43 :    for(size_t i = padding_start; i != len - 1; ++i)",
+      "44": "line   44 :       {",
+      "45": "line   45 :       if(in[i] != 0)",
+      "46": "line   46 :          {",
+      "47": "line   47 :          return len;",
+      "48": "line   48 :          }",
+      "49": "line   49 :       }",
+      "50": "line   50 : ",
+      "51": "line   51 :    return len - padding_length;",
+      "52": "line   52 :    }",
+      "53": "line   53 : ",
+      "54": "line   54 : size_t ref_oneandzero_unpad(const uint8_t in[], size_t len)",
+      "55": "line   55 :    {",
+      "56": "line   56 :    if(len <= 2)",
+      "57": "line   57 :       return len;",
+      "58": "line   58 : ",
+      "59": "line   59 :    size_t idx = len - 1;",
+      "60": "line   60 : ",
+      "61": "line   61 :    while(idx >= 0)",
+      "62": "line   62 :       {",
+      "63": "line   63 :       if(in[idx] == 0)",
+      "64": "line   64 :          {",
+      "65": "line   65 :          idx -= 1;",
+      "66": "line   66 :          continue;",
+      "67": "line   67 :          }",
+      "68": "line   68 :       else if(in[idx] == 0x80)",
+      "69": "line   69 :          {",
+      "70": "line   70 :          return idx;",
+      "71": "line   71 :          }",
+      "72": "line   72 :       else",
+      "73": "line   73 :          return len;",
+      "74": "line   74 :       }",
+      "75": "line   75 : ",
+      "76": "line   76 :    return len;",
+      "77": "line   77 :    }",
+      "78": "line   78 : ",
+      "79": "line   79 : size_t ref_esp_unpad(const uint8_t in[], size_t len)",
+      "80": "line   80 :    {",
+      "81": "line   81 :    if(len <= 2)",
+      "82": "line   82 :       return len;",
+      "83": "line   83 : ",
+      "84": "line   84 :    const size_t padding_bytes = in[len - 1];",
+      "85": "line   85 : ",
+      "86": "line   86 :    if(padding_bytes == 0 || padding_bytes > len)",
+      "87": "line   87 :       {",
+      "88": "line   88 :       return len;",
+      "89": "line   89 :       }",
+      "90": "line   90 : ",
+      "91": "line   91 :    const size_t padding_start = len - padding_bytes;",
+      "92": "line   92 :    for(size_t i = padding_start; i != len; ++i)",
+      "152": "line  152 : <End of File>"
+    }
+  },
+  "note": [
+    "Reason for requesting line 63 of /src/botan/./src/fuzzer/mode_padding.cpp: To analyze the heap-buffer-overflow, I need to see the implementation of ref_oneandzero_unpad, specifically around line 63."
+  ],
+  "valid_patches": [
+    {
+      "file": "/src/botan/./src/fuzzer/mode_padding.cpp",
+      "diff": [
+        {
+          "line_number": 61,
+          "content": [
+            "    while(idx > 0)"
+          ]
+        },
+        {
+          "line_number": 65,
+          "content": [
+            "         idx--;"
+          ]
+        }
+      ]
+    }
+  ],
+  "retry_count": 2,
+  "history": [
+    {
+      "reason": "To analyze the heap-buffer-overflow, I need to see the implementation of ref_oneandzero_unpad, specifically around line 63.",
+      "line": 63,
+      "file": "/src/botan/./src/fuzzer/mode_padding.cpp"
+    },
+    {
+      "reason": "The `idx` variable, being of type `size_t`, is unsigned. In the `while` loop, when `idx` becomes 0 and `in[idx] == 0` is true, `idx -= 1` causes an unsigned integer underflow, making `idx` a very large positive number. Subsequent access `in[idx]` then results in a heap-buffer-overflow.",
+      "patches": [
+        {
+          "file": "/src/botan/./src/fuzzer/mode_padding.cpp",
+          "diff": [
+            {
+              "line_number": 61,
+              "content": [
+                "    while(idx > 0)"
+              ]
+            },
+            {
+              "line_number": 65,
+              "content": [
+                "         idx--;"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

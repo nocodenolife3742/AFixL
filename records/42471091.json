@@ -1,0 +1,161 @@
+{
+  "id": "42471091",
+  "stage": "repair",
+  "repo_addr": "https://github.com/harfbuzz/harfbuzz.git",
+  "fix_commit": "0f85edb7781f4d5ec2de676979be75a0f6559d80",
+  "project": "harfbuzz",
+  "note": [
+    "Reason for requesting line 138 of /src/harfbuzz/src/hb-buffer.cc: Investigate memory allocation and initialization in `hb_buffer_t::enlarge` to understand how uninitialized memory might be introduced."
+  ],
+  "valid_patches": null,
+  "history": [
+    {
+      "reason": "Investigate memory allocation and initialization in `hb_buffer_t::enlarge` to understand how uninitialized memory might be introduced.",
+      "line": 138,
+      "file": "/src/harfbuzz/src/hb-buffer.cc"
+    },
+    {
+      "reason": "The `realloc` call for `info` can return a larger memory block with uninitialized bytes. These uninitialized bytes are later accessed by `OT::IntType<unsigned short, 2u>::sanitize`, leading to a MemorySanitizer error. The fix is to zero-initialize the newly allocated portion of the `info` array to prevent reading uninitialized memory.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/hb-buffer.cc",
+          "diff": [
+            {
+              "line_number": 149,
+              "content": [
+                "  if (likely (new_info))",
+                "  {",
+                "    if (new_info != info && info)",
+                "      memset (new_info + allocated, 0, (new_allocated - allocated) * sizeof (new_info[0]));",
+                "    else if (!info)",
+                "      memset (new_info, 0, new_allocated * sizeof (new_info[0]));",
+                "    info = new_info;",
+                "  }"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `realloc` calls in `hb_buffer_t::enlarge` can return uninitialized memory when the buffer grows. This uninitialized memory is later accessed by the sanitizer, leading to a crash. The fix is to zero-initialize the newly allocated portions of `pos` and `info` arrays after successful reallocation.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/hb-buffer.cc",
+          "diff": [
+            {
+              "line_number": 149,
+              "content": [
+                "  if (likely (new_info))",
+                "  {",
+                "    unsigned int old_allocated = allocated;",
+                "    info = new_info;",
+                "    if (new_allocated > old_allocated)",
+                "      memset (info + old_allocated, 0, (new_allocated - old_allocated) * sizeof (info[0]));",
+                "  }",
+                "",
+                "  if (likely (new_pos))",
+                "  {",
+                "    unsigned int old_allocated = allocated; /* Use the same old_allocated as info, as pos and info are resized together */",
+                "    pos = new_pos;",
+                "    if (new_allocated > old_allocated)",
+                "      memset (pos + old_allocated, 0, (new_allocated - old_allocated) * sizeof (pos[0]));",
+                "  }"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `realloc` calls in `hb_buffer_t::enlarge` can return a larger block of memory with the newly added portion uninitialized. The crash report confirms a 'use-of-uninitialized-value' originating from these `realloc` calls during subsequent sanitization checks. The proposed fix initializes the newly allocated memory for `info` and `pos` to zero using `memset` after successful reallocation, preventing reads of uninitialized data.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/hb-buffer.cc",
+          "diff": [
+            {
+              "line_number": 149,
+              "content": [
+                "  if (likely (successful))",
+                "  {",
+                "    if (new_allocated > allocated)",
+                "    {",
+                "      memset (info + allocated, 0, (new_allocated - allocated) * sizeof (info[0]));",
+                "      memset (pos + allocated, 0, (new_allocated - allocated) * sizeof (pos[0]));",
+                "    }",
+                "    allocated = new_allocated;",
+                "  }",
+                ""
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `hb_buffer_t::enlarge` function reallocates memory for `pos` and `info` arrays. However, if `realloc` expands the memory block, the newly allocated portion is not initialized. This leads to `use-of-uninitialized-value` when these uninitialized parts of the buffer are later accessed and sanitized. The fix is to zero-initialize the newly added memory regions after successful reallocation.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/hb-buffer.cc",
+          "diff": [
+            {
+              "line_number": 146,
+              "content": [
+                "    pos = new_pos;",
+                "    if (new_allocated > old_allocated)",
+                "      memset (pos + old_allocated, 0, (new_allocated - old_allocated) * sizeof (pos[0]));"
+              ]
+            },
+            {
+              "line_number": 149,
+              "content": [
+                "    info = new_info;",
+                "    if (new_allocated > old_allocated)",
+                "      memset (info + old_allocated, 0, (new_allocated - old_allocated) * sizeof (info[0]));"
+              ]
+            },
+            {
+              "line_number": 151,
+              "content": [
+                "  out_info = separate_out ? (hb_glyph_info_t *) pos : info;",
+                "  if (likely (successful)) {",
+                "    old_allocated = allocated; /* save old value for memset above */",
+                "    allocated = new_allocated;",
+                "  }"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `realloc` calls in `hb_buffer_t::enlarge` can return memory that is uninitialized in the newly expanded portion. This leads to a `use-of-uninitialized-value` error when this uninitialized memory is later accessed by `sanitize` functions. The fix is to zero-initialize the newly allocated memory for both `info` and `pos` arrays after a successful reallocation.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/hb-buffer.cc",
+          "diff": [
+            {
+              "line_number": 148,
+              "content": [
+                "    info = new_info;",
+                "    if (new_allocated > old_allocated) {",
+                "        memset ((char *) info + old_allocated * sizeof (info[0]), 0, (new_allocated - old_allocated) * sizeof (info[0]));",
+                "    }"
+              ]
+            },
+            {
+              "line_number": 145,
+              "content": [
+                "    pos = new_pos;",
+                "    unsigned int old_allocated = allocated;",
+                "    if (new_allocated > old_allocated) {",
+                "        memset ((char *) pos + old_allocated * sizeof (pos[0]), 0, (new_allocated - old_allocated) * sizeof (pos[0]));",
+                "    }"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,502 @@
+{
+  "id": "42470953",
+  "stage": "evaluate",
+  "repo_addr": "https://github.com/openthread/wpantund",
+  "fix_commit": "bd1361434619a52b296e6a94c4188aae1a693179",
+  "project": "wpantund",
+  "report": "RVJST1I6IEFkZHJlc3NTYW5pdGl6ZXI6IGhlYXAtdXNlLWFmdGVyLWZyZWUgb24gYWRkcmVzcyAweDYwNjAwMDAyNzM5YyBhdCBwYyAweDAwMDAwMDYwYTc0ZiBicCAweDdmZmZmZmZmZDg1MCBzcCAweDdmZmZmZmZmZDg0OA0KUkVBRCBvZiBzaXplIDQgYXQgMHg2MDYwMDAwMjczOWMgdGhyZWFkIFQwDQpTQ0FSSU5FU1M6IDQ1ICg0LWJ5dGUtcmVhZC1oZWFwLXVzZS1hZnRlci1mcmVlKQ0KICAgICMwIDB4NjBhNzRlIGluIFR1bm5lbElQdjZJbnRlcmZhY2U6OnJlbW92ZV9hZGRyZXNzKGluNl9hZGRyIGNvbnN0KiwgaW50KSAvc3JjL3dwYW50dW5kL3NyYy93cGFudHVuZC8uLi91dGlsL1R1bm5lbElQdjZJbnRlcmZhY2UuY3BwOjQ1MToyDQogICAgIzEgMHg1ZDNmZjIgaW4gbmw6OndwYW50dW5kOjpOQ1BJbnN0YW5jZUJhc2U6OnVuaWNhc3RfYWRkcmVzc193YXNfcmVtb3ZlZChubDo6d3BhbnR1bmQ6Ok5DUEluc3RhbmNlQmFzZTo6T3JpZ2luLCBpbjZfYWRkciBjb25zdCYpIC9zcmMvd3BhbnR1bmQvc3JjL3dwYW50dW5kL05DUEluc3RhbmNlQmFzZS1BZGRyZXNzZXMuY3BwOjYyMzoyNA0KICAgICMyIDB4NWQ1M2I4IGluIG5sOjp3cGFudHVuZDo6TkNQSW5zdGFuY2VCYXNlOjpvbl9tZXNoX3ByZWZpeF93YXNfcmVtb3ZlZChubDo6d3BhbnR1bmQ6Ok5DUEluc3RhbmNlQmFzZTo6T3JpZ2luLCBpbjZfYWRkciBjb25zdCYsIHVuc2lnbmVkIGNoYXIsIHVuc2lnbmVkIGNoYXIsIGJvb2wsIHVuc2lnbmVkIHNob3J0LCBib29zdDo6ZnVuY3Rpb248dm9pZCAoaW50KT4pIC9zcmMvd3BhbnR1bmQvc3JjL3dwYW50dW5kL05DUEluc3RhbmNlQmFzZS1BZGRyZXNzZXMuY3BwOjkyMzo1DQogICAgIzMgMHg2NDZiNmYgaW4gbmw6OndwYW50dW5kOjpTcGluZWxOQ1BJbnN0YW5jZTo6aGFuZGxlX25jcF9zcGluZWxfdmFsdWVfaXNfT05fTUVTSF9ORVRTKHVuc2lnbmVkIGNoYXIgY29uc3QqLCB1bnNpZ25lZCBpbnQpIC9zcmMvd3BhbnR1bmQvc3JjL25jcC1zcGluZWwvU3BpbmVsTkNQSW5zdGFuY2UuY3BwOjM2ODM6NA0KICAgICM0IDB4NjRiM2Y2IGluIG5sOjp3cGFudHVuZDo6U3BpbmVsTkNQSW5zdGFuY2U6OmhhbmRsZV9uY3Bfc3BpbmVsX3ZhbHVlX2lzKHNwaW5lbF9wcm9wX2tleV90LCB1bnNpZ25lZCBjaGFyIGNvbnN0KiwgdW5zaWduZWQgaW50KSAvc3JjL3dwYW50dW5kL3NyYy9uY3Atc3BpbmVsL1NwaW5lbE5DUEluc3RhbmNlLmNwcDo0MjY1OjMNCiAgICAjNSAweDY1NDgwNCBpbiBubDo6d3BhbnR1bmQ6OlNwaW5lbE5DUEluc3RhbmNlOjpoYW5kbGVfbmNwX3NwaW5lbF9jYWxsYmFjayh1bnNpZ25lZCBpbnQsIHVuc2lnbmVkIGNoYXIgY29uc3QqLCB1bnNpZ25lZCBpbnQpIC9zcmMvd3BhbnR1bmQvc3JjL25jcC1zcGluZWwvU3BpbmVsTkNQSW5zdGFuY2UuY3BwOjQ3NDE6NQ0KICAgICM2IDB4Njc1NGM1IGluIG5sOjp3cGFudHVuZDo6U3BpbmVsTkNQSW5zdGFuY2U6Om5jcF90b19kcml2ZXJfcHVtcCgpIC9zcmMvd3BhbnR1bmQvc3JjL25jcC1zcGluZWwvU3BpbmVsTkNQSW5zdGFuY2UtRGF0YVB1bXAuY3BwOjMzMzo0DQogICAgIzcgMHg1ZTI0YTEgaW4gbmw6OndwYW50dW5kOjpOQ1BJbnN0YW5jZUJhc2U6OnByb2Nlc3MoKSAvc3JjL3dwYW50dW5kL3NyYy93cGFudHVuZC9OQ1BJbnN0YW5jZUJhc2UtQXN5bmNJTy5jcHA6MjQ0OjMNCiAgICAjOCAweDY1ODExMyBpbiBubDo6d3BhbnR1bmQ6OlNwaW5lbE5DUEluc3RhbmNlOjpwcm9jZXNzKCkgL3NyYy93cGFudHVuZC9zcmMvbmNwLXNwaW5lbC9TcGluZWxOQ1BJbnN0YW5jZS5jcHA6NTE3ODoxOQ0KICAgICM5IDB4NTM2YjEyIGluIE1haW5Mb29wOjpwcm9jZXNzKCkgL3NyYy93cGFudHVuZC9zcmMvd3BhbnR1bmQvLi93cGFudHVuZC5jcHA6NTQ1OjE3DQogICAgIzEwIDB4NTM1NzQ5IGluIE5DUElucHV0RnV6elRhcmdldCh1bnNpZ25lZCBjaGFyIGNvbnN0KiwgdW5zaWduZWQgbG9uZykgL3NyYy93cGFudHVuZC9zcmMvd3BhbnR1bmQvd3BhbnR1bmQtZnV6ei5jcHA6MTk5OjEzDQogICAgIzExIDB4NTM3Mjc2IGluIExMVk1GdXp6ZXJUZXN0T25lSW5wdXQgL3NyYy93cGFudHVuZC9zcmMvd3BhbnR1bmQvd3BhbnR1bmQtZnV6ei5jcHA6Mjc1OjEwDQogICAgIzEyIDB4NmQ1YmJlIGluIEV4ZWN1dGVGaWxlc09ueUJ5T25lKGludCwgY2hhcioqKSAvc3JjL2xpYmZ1enplci9hZmwvYWZsX2RyaXZlci5jcHA6MzAxOjUNCiAgICAjMTMgMHg2ZDYxMmUgaW4gbWFpbiAvc3JjL2xpYmZ1enplci9hZmwvYWZsX2RyaXZlci5jcHA6MzM5OjEyDQogICAgIzE0IDB4N2ZmZmY2Y2UyODJmIGluIF9fbGliY19zdGFydF9tYWluICgvbGliL3g4Nl82NC1saW51eC1nbnUvbGliYy5zby42KzB4MjA4MmYpDQogICAgIzE1IDB4NDFkODM4IGluIF9zdGFydCAoL291dC93cGFudHVuZC1mdXp6KzB4NDFkODM4KQ0KDQpERURVUF9UT0tFTjogVHVubmVsSVB2NkludGVyZmFjZTo6cmVtb3ZlX2FkZHJlc3MoaW42X2FkZHIgY29uc3QqLCBpbnQpLS1ubDo6d3BhbnR1bmQ6Ok5DUEluc3RhbmNlQmFzZTo6dW5pY2FzdF9hZGRyZXNzX3dhc19yZW1vdmVkKG5sOjp3cGFudHVuZDo6TkNQSW5zdGFuY2VCYXNlOjpPcmlnaW4sIGluNl9hZGRyIGNvbnN0JiktLW5sOjp3cGFudHVuZDo6TkNQSW5zdGFuY2VCYXNlOjpvbl9tZXNoX3ByZWZpeF93YXNfcmVtb3ZlZChubDo6d3BhbnR1bmQ6Ok5DUEluc3RhbmNlQmFzZTo6T3JpZ2luLCBpbjZfYWRkciBjb25zdCYsIHVuc2lnbmVkIGNoYXIsIHVuc2lnbmVkIGNoYXIsIGJvb2wsIHVuc2lnbmVkIHNob3J0LCBib29zdDo6ZnVuY3Rpb248dm9pZCAoaW50KT4pDQoweDYwNjAwMDAyNzM5YyBpcyBsb2NhdGVkIDI4IGJ5dGVzIGluc2lkZSBvZiA2NC1ieXRlIHJlZ2lvbiBbMHg2MDYwMDAwMjczODAsMHg2MDYwMDAwMjczYzApDQpmcmVlZCBieSB0aHJlYWQgVDAgaGVyZToNCiAgICAjMCAweDUyZDNiMCBpbiBvcGVyYXRvciBkZWxldGUodm9pZCopIC9zcmMvbGx2bS9wcm9qZWN0cy9jb21waWxlci1ydC9saWIvYXNhbi9hc2FuX25ld19kZWxldGUuY2M6MTY3DQogICAgIzEgMHg1ZDk5NjQgaW4gX19saWJjcHBfZGVhbGxvY2F0ZSAvdXNyL2xvY2FsL2Jpbi8uLi9pbmNsdWRlL2MrKy92MS9uZXc6MjczOjEwDQogICAgIzIgMHg1ZDk5NjQgaW4gZGVhbGxvY2F0ZSAvdXNyL2xvY2FsL2Jpbi8uLi9pbmNsdWRlL2MrKy92MS9tZW1vcnk6MTgwMw0KICAgICMzIDB4NWQ5OTY0IGluIGRlYWxsb2NhdGUgL3Vzci9sb2NhbC9iaW4vLi4vaW5jbHVkZS9jKysvdjEvbWVtb3J5OjE1NTcNCiAgICAjNCAweDVkOTk2NCBpbiBzdGQ6Ol9fMTo6X190cmVlPHN0ZDo6X18xOjpfX3ZhbHVlX3R5cGU8aW42X2FkZHIsIG5sOjp3cGFudHVuZDo6TkNQSW5zdGFuY2VCYXNlOjpVbmljYXN0QWRkcmVzc0VudHJ5Piwgc3RkOjpfXzE6Ol9fbWFwX3ZhbHVlX2NvbXBhcmU8aW42X2FkZHIsIHN0ZDo6X18xOjpfX3ZhbHVlX3R5cGU8aW42X2FkZHIsIG5sOjp3cGFudHVuZDo6TkNQSW5zdGFuY2VCYXNlOjpVbmljYXN0QWRkcmVzc0VudHJ5Piwgc3RkOjpfXzE6Omxlc3M8aW42X2FkZHI-LCB0cnVlPiwgc3RkOjpfXzE6OmFsbG9jYXRvcjxzdGQ6Ol9fMTo6X192YWx1ZV90eXBlPGluNl9hZGRyLCBubDo6d3BhbnR1bmQ6Ok5DUEluc3RhbmNlQmFzZTo6VW5pY2FzdEFkZHJlc3NFbnRyeT4gPiA-OjplcmFzZShzdGQ6Ol9fMTo6X190cmVlX2NvbnN0X2l0ZXJhdG9yPHN0ZDo6X18xOjpfX3ZhbHVlX3R5cGU8aW42X2FkZHIsIG5sOjp3cGFudHVuZDo6TkNQSW5zdGFuY2VCYXNlOjpVbmljYXN0QWRkcmVzc0VudHJ5Piwgc3RkOjpfXzE6Ol9fdHJlZV9ub2RlPHN0ZDo6X18xOjpfX3ZhbHVlX3R5cGU8aW42X2FkZHIsIG5sOjp3cGFudHVuZDo6TkNQSW5zdGFuY2VCYXNlOjpVbmljYXN0QWRkcmVzc0VudHJ5Piwgdm9pZCo-KiwgbG9uZz4pIC91c3IvbG9jYWwvYmluLy4uL2luY2x1ZGUvYysrL3YxL19fdHJlZToyNTIxDQogICAgIzUgMHg1ZGJlNzIgaW4gdW5zaWduZWQgbG9uZyBzdGQ6Ol9fMTo6X190cmVlPHN0ZDo6X18xOjpfX3ZhbHVlX3R5cGU8aW42X2FkZHIsIG5sOjp3cGFudHVuZDo6TkNQSW5zdGFuY2VCYXNlOjpVbmljYXN0QWRkcmVzc0VudHJ5Piwgc3RkOjpfXzE6Ol9fbWFwX3ZhbHVlX2NvbXBhcmU8aW42X2FkZHIsIHN0ZDo6X18xOjpfX3ZhbHVlX3R5cGU8aW42X2FkZHIsIG5sOjp3cGFudHVuZDo6TkNQSW5zdGFuY2VCYXNlOjpVbmljYXN0QWRkcmVzc0VudHJ5Piwgc3RkOjpfXzE6Omxlc3M8aW42X2FkZHI-LCB0cnVlPiwgc3RkOjpfXzE6OmFsbG9jYXRvcjxzdGQ6Ol9fMTo6X192YWx1ZV90eXBlPGluNl9hZGRyLCBubDo6d3BhbnR1bmQ6Ok5DUEluc3RhbmNlQmFzZTo6VW5pY2FzdEFkZHJlc3NFbnRyeT4gPiA-OjpfX2VyYXNlX3VuaXF1ZTxpbjZfYWRkcj4oaW42X2FkZHIgY29uc3QmKSAvdXNyL2xvY2FsL2Jpbi8uLi9pbmNsdWRlL2MrKy92MS9fX3RyZWU6MjU0Mjo1DQogICAgIzYgMHg1ZDNmN2EgaW4gZXJhc2UgL3Vzci9sb2NhbC9iaW4vLi4vaW5jbHVkZS9jKysvdjEvbWFwOjEyNjk6MjUNCiAgICAjNyAweDVkM2Y3YSBpbiBubDo6d3BhbnR1bmQ6Ok5DUEluc3RhbmNlQmFzZTo6dW5pY2FzdF9hZGRyZXNzX3dhc19yZW1vdmVkKG5sOjp3cGFudHVuZDo6TkNQSW5zdGFuY2VCYXNlOjpPcmlnaW4sIGluNl9hZGRyIGNvbnN0JikgL3NyYy93cGFudHVuZC9zcmMvd3BhbnR1bmQvTkNQSW5zdGFuY2VCYXNlLUFkZHJlc3Nlcy5jcHA6NjIwDQogICAgIzggMHg1ZDUzYjggaW4gbmw6OndwYW50dW5kOjpOQ1BJbnN0YW5jZUJhc2U6Om9uX21lc2hfcHJlZml4X3dhc19yZW1vdmVkKG5sOjp3cGFudHVuZDo6TkNQSW5zdGFuY2VCYXNlOjpPcmlnaW4sIGluNl9hZGRyIGNvbnN0JiwgdW5zaWduZWQgY2hhciwgdW5zaWduZWQgY2hhciwgYm9vbCwgdW5zaWduZWQgc2hvcnQsIGJvb3N0OjpmdW5jdGlvbjx2b2lkIChpbnQpPikgL3NyYy93cGFudHVuZC9zcmMvd3BhbnR1bmQvTkNQSW5zdGFuY2VCYXNlLUFkZHJlc3Nlcy5jcHA6OTIzOjUNCiAgICAjOSAweDY0NmI2ZiBpbiBubDo6d3BhbnR1bmQ6OlNwaW5lbE5DUEluc3RhbmNlOjpoYW5kbGVfbmNwX3NwaW5lbF92YWx1ZV9pc19PTl9NRVNIX05FVFModW5zaWduZWQgY2hhciBjb25zdCosIHVuc2lnbmVkIGludCkgL3NyYy93cGFudHVuZC9zcmMvbmNwLXNwaW5lbC9TcGluZWxOQ1BJbnN0YW5jZS5jcHA6MzY4Mzo0DQogICAgIzEwIDB4NjRiM2Y2IGluIG5sOjp3cGFudHVuZDo6U3BpbmVsTkNQSW5zdGFuY2U6OmhhbmRsZV9uY3Bfc3BpbmVsX3ZhbHVlX2lzKHNwaW5lbF9wcm9wX2tleV90LCB1bnNpZ25lZCBjaGFyIGNvbnN0KiwgdW5zaWduZWQgaW50KSAvc3JjL3dwYW50dW5kL3NyYy9uY3Atc3BpbmVsL1NwaW5lbE5DUEluc3RhbmNlLmNwcDo0MjY1OjMNCiAgICAjMTEgMHg2NTQ4MDQgaW4gbmw6OndwYW50dW5kOjpTcGluZWxOQ1BJbnN0YW5jZTo6aGFuZGxlX25jcF9zcGluZWxfY2FsbGJhY2sodW5zaWduZWQgaW50LCB1bnNpZ25lZCBjaGFyIGNvbnN0KiwgdW5zaWduZWQgaW50KSAvc3JjL3dwYW50dW5kL3NyYy9uY3Atc3BpbmVsL1NwaW5lbE5DUEluc3RhbmNlLmNwcDo0NzQxOjUNCiAgICAjMTIgMHg2NzU0YzUgaW4gbmw6OndwYW50dW5kOjpTcGluZWxOQ1BJbnN0YW5jZTo6bmNwX3RvX2RyaXZlcl9wdW1wKCkgL3NyYy93cGFudHVuZC9zcmMvbmNwLXNwaW5lbC9TcGluZWxOQ1BJbnN0YW5jZS1EYXRhUHVtcC5jcHA6MzMzOjQNCiAgICAjMTMgMHg1ZTI0YTEgaW4gbmw6OndwYW50dW5kOjpOQ1BJbnN0YW5jZUJhc2U6OnByb2Nlc3MoKSAvc3JjL3dwYW50dW5kL3NyYy93cGFudHVuZC9OQ1BJbnN0YW5jZUJhc2UtQXN5bmNJTy5jcHA6MjQ0OjMNCiAgICAjMTQgMHg2NTgxMTMgaW4gbmw6OndwYW50dW5kOjpTcGluZWxOQ1BJbnN0YW5jZTo6cHJvY2VzcygpIC9zcmMvd3BhbnR1bmQvc3JjL25jcC1zcGluZWwvU3BpbmVsTkNQSW5zdGFuY2UuY3BwOjUxNzg6MTkNCiAgICAjMTUgMHg1MzZiMTIgaW4gTWFpbkxvb3A6OnByb2Nlc3MoKSAvc3JjL3dwYW50dW5kL3NyYy93cGFudHVuZC8uL3dwYW50dW5kLmNwcDo1NDU6MTcNCiAgICAjMTYgMHg1MzU3NDkgaW4gTkNQSW5wdXRGdXp6VGFyZ2V0KHVuc2lnbmVkIGNoYXIgY29uc3QqLCB1bnNpZ25lZCBsb25nKSAvc3JjL3dwYW50dW5kL3NyYy93cGFudHVuZC93cGFudHVuZC1mdXp6LmNwcDoxOTk6MTMNCiAgICAjMTcgMHg1MzcyNzYgaW4gTExWTUZ1enplclRlc3RPbmVJbnB1dCAvc3JjL3dwYW50dW5kL3NyYy93cGFudHVuZC93cGFudHVuZC1mdXp6LmNwcDoyNzU6MTANCiAgICAjMTggMHg2ZDViYmUgaW4gRXhlY3V0ZUZpbGVzT255QnlPbmUoaW50LCBjaGFyKiopIC9zcmMvbGliZnV6emVyL2FmbC9hZmxfZHJpdmVyLmNwcDozMDE6NQ0KICAgICMxOSAweDZkNjEyZSBpbiBtYWluIC9zcmMvbGliZnV6emVyL2FmbC9hZmxfZHJpdmVyLmNwcDozMzk6MTINCiAgICAjMjAgMHg3ZmZmZjZjZTI4MmYgaW4gX19saWJjX3N0YXJ0X21haW4gKC9saWIveDg2XzY0LWxpbnV4LWdudS9saWJjLnNvLjYrMHgyMDgyZikNCg0KREVEVVBfVE9LRU46IG9wZXJhdG9yIGRlbGV0ZSh2b2lkKiktLV9fbGliY3BwX2RlYWxsb2NhdGUtLWRlYWxsb2NhdGUNCnByZXZpb3VzbHkgYWxsb2NhdGVkIGJ5IHRocmVhZCBUMCBoZXJlOg0KICAgICMwIDB4NTJjNWI4IGluIG9wZXJhdG9yIG5ldyh1bnNpZ25lZCBsb25nKSAvc3JjL2xsdm0vcHJvamVjdHMvY29tcGlsZXItcnQvbGliL2FzYW4vYXNhbl9uZXdfZGVsZXRlLmNjOjEwNg0KICAgICMxIDB4NWRiYmM3IGluIF9fbGliY3BwX2FsbG9jYXRlIC91c3IvbG9jYWwvYmluLy4uL2luY2x1ZGUvYysrL3YxL25ldzoyNTM6MTANCiAgICAjMiAweDVkYmJjNyBpbiBhbGxvY2F0ZSAvdXNyL2xvY2FsL2Jpbi8uLi9pbmNsdWRlL2MrKy92MS9tZW1vcnk6MTgwMA0KICAgICMzIDB4NWRiYmM3IGluIGFsbG9jYXRlIC91c3IvbG9jYWwvYmluLy4uL2luY2x1ZGUvYysrL3YxL21lbW9yeToxNTQ5DQogICAgIzQgMHg1ZGJiYzcgaW4gc3RkOjpfXzE6OnVuaXF1ZV9wdHI8c3RkOjpfXzE6Ol9fdHJlZV9ub2RlPHN0ZDo6X18xOjpfX3ZhbHVlX3R5cGU8aW42X2FkZHIsIG5sOjp3cGFudHVuZDo6TkNQSW5zdGFuY2VCYXNlOjpVbmljYXN0QWRkcmVzc0VudHJ5Piwgdm9pZCo-LCBzdGQ6Ol9fMTo6X190cmVlX25vZGVfZGVzdHJ1Y3RvcjxzdGQ6Ol9fMTo6YWxsb2NhdG9yPHN0ZDo6X18xOjpfX3RyZWVfbm9kZTxzdGQ6Ol9fMTo6X192YWx1ZV90eXBlPGluNl9hZGRyLCBubDo6d3BhbnR1bmQ6Ok5DUEluc3RhbmNlQmFzZTo6VW5pY2FzdEFkZHJlc3NFbnRyeT4sIHZvaWQqPiA-ID4gPiBzdGQ6Ol9fMTo6X190cmVlPHN0ZDo6X18xOjpfX3ZhbHVlX3R5cGU8aW42X2FkZHIsIG5sOjp3cGFudHVuZDo6TkNQSW5zdGFuY2VCYXNlOjpVbmljYXN0QWRkcmVzc0VudHJ5Piwgc3RkOjpfXzE6Ol9fbWFwX3ZhbHVlX2NvbXBhcmU8aW42X2FkZHIsIHN0ZDo6X18xOjpfX3ZhbHVlX3R5cGU8aW42X2FkZHIsIG5sOjp3cGFudHVuZDo6TkNQSW5zdGFuY2VCYXNlOjpVbmljYXN0QWRkcmVzc0VudHJ5Piwgc3RkOjpfXzE6Omxlc3M8aW42X2FkZHI-LCB0cnVlPiwgc3RkOjpfXzE6OmFsbG9jYXRvcjxzdGQ6Ol9fMTo6X192YWx1ZV90eXBlPGluNl9hZGRyLCBubDo6d3BhbnR1bmQ6Ok5DUEluc3RhbmNlQmFzZTo6VW5pY2FzdEFkZHJlc3NFbnRyeT4gPiA-OjpfX2NvbnN0cnVjdF9ub2RlPHN0ZDo6X18xOjpwaWVjZXdpc2VfY29uc3RydWN0X3QgY29uc3QmLCBzdGQ6Ol9fMTo6dHVwbGU8aW42X2FkZHIgY29uc3QmPiwgc3RkOjpfXzE6OnR1cGxlPD4gPihzdGQ6Ol9fMTo6cGllY2V3aXNlX2NvbnN0cnVjdF90IGNvbnN0Jiwgc3RkOjpfXzE6OnR1cGxlPGluNl9hZGRyIGNvbnN0Jj4mJiwgc3RkOjpfXzE6OnR1cGxlPD4mJikgL3Vzci9sb2NhbC9iaW4vLi4vaW5jbHVkZS9jKysvdjEvX190cmVlOjIyMjENCiAgICAjNSAweDVkYjhlMSBpbiBzdGQ6Ol9fMTo6cGFpcjxzdGQ6Ol9fMTo6X190cmVlX2l0ZXJhdG9yPHN0ZDo6X18xOjpfX3ZhbHVlX3R5cGU8aW42X2FkZHIsIG5sOjp3cGFudHVuZDo6TkNQSW5zdGFuY2VCYXNlOjpVbmljYXN0QWRkcmVzc0VudHJ5Piwgc3RkOjpfXzE6Ol9fdHJlZV9ub2RlPHN0ZDo6X18xOjpfX3ZhbHVlX3R5cGU8aW42X2FkZHIsIG5sOjp3cGFudHVuZDo6TkNQSW5zdGFuY2VCYXNlOjpVbmljYXN0QWRkcmVzc0VudHJ5Piwgdm9pZCo-KiwgbG9uZz4sIGJvb2w-IHN0ZDo6X18xOjpfX3RyZWU8c3RkOjpfXzE6Ol9fdmFsdWVfdHlwZTxpbjZfYWRkciwgbmw6OndwYW50dW5kOjpOQ1BJbnN0YW5jZUJhc2U6OlVuaWNhc3RBZGRyZXNzRW50cnk-LCBzdGQ6Ol9fMTo6X19tYXBfdmFsdWVfY29tcGFyZTxpbjZfYWRkciwgc3RkOjpfXzE6Ol9fdmFsdWVfdHlwZTxpbjZfYWRkciwgbmw6OndwYW50dW5kOjpOQ1BJbnN0YW5jZUJhc2U6OlVuaWNhc3RBZGRyZXNzRW50cnk-LCBzdGQ6Ol9fMTo6bGVzczxpbjZfYWRkcj4sIHRydWU-LCBzdGQ6Ol9fMTo6YWxsb2NhdG9yPHN0ZDo6X18xOjpfX3ZhbHVlX3R5cGU8aW42X2FkZHIsIG5sOjp3cGFudHVuZDo6TkNQSW5zdGFuY2VCYXNlOjpVbmljYXN0QWRkcmVzc0VudHJ5PiA-ID46Ol9fZW1wbGFjZV91bmlxdWVfa2V5X2FyZ3M8aW42X2FkZHIsIHN0ZDo6X18xOjpwaWVjZXdpc2VfY29uc3RydWN0X3QgY29uc3QmLCBzdGQ6Ol9fMTo6dHVwbGU8aW42X2FkZHIgY29uc3QmPiwgc3RkOjpfXzE6OnR1cGxlPD4gPihpbjZfYWRkciBjb25zdCYsIHN0ZDo6X18xOjpwaWVjZXdpc2VfY29uc3RydWN0X3QgY29uc3QmLCBzdGQ6Ol9fMTo6dHVwbGU8aW42X2FkZHIgY29uc3QmPiYmLCBzdGQ6Ol9fMTo6dHVwbGU8PiYmKSAvdXNyL2xvY2FsL2Jpbi8uLi9pbmNsdWRlL2MrKy92MS9fX3RyZWU6MjE2NzoyOQ0KICAgICM2IDB4NWQzY2ZkIGluIHN0ZDo6X18xOjptYXA8aW42X2FkZHIsIG5sOjp3cGFudHVuZDo6TkNQSW5zdGFuY2VCYXNlOjpVbmljYXN0QWRkcmVzc0VudHJ5LCBzdGQ6Ol9fMTo6bGVzczxpbjZfYWRkcj4sIHN0ZDo6X18xOjphbGxvY2F0b3I8c3RkOjpfXzE6OnBhaXI8aW42X2FkZHIgY29uc3QsIG5sOjp3cGFudHVuZDo6TkNQSW5zdGFuY2VCYXNlOjpVbmljYXN0QWRkcmVzc0VudHJ5PiA-ID46Om9wZXJhdG9yW10oaW42X2FkZHIgY29uc3QmKSAvdXNyL2xvY2FsL2Jpbi8uLi9pbmNsdWRlL2MrKy92MS9tYXA6MTQyMDoyMA0KICAgICM3IDB4NWQzOTE3IGluIG5sOjp3cGFudHVuZDo6TkNQSW5zdGFuY2VCYXNlOjp1bmljYXN0X2FkZHJlc3Nfd2FzX2FkZGVkKG5sOjp3cGFudHVuZDo6TkNQSW5zdGFuY2VCYXNlOjpPcmlnaW4sIGluNl9hZGRyIGNvbnN0JiwgdW5zaWduZWQgY2hhciwgdW5zaWduZWQgaW50LCB1bnNpZ25lZCBpbnQpIC9zcmMvd3BhbnR1bmQvc3JjL3dwYW50dW5kL05DUEluc3RhbmNlQmFzZS1BZGRyZXNzZXMuY3BwOjU5MTozDQogICAgIzggMHg1ZDRiNzUgaW4gbmw6OndwYW50dW5kOjpOQ1BJbnN0YW5jZUJhc2U6Om9uX21lc2hfcHJlZml4X3dhc19hZGRlZChubDo6d3BhbnR1bmQ6Ok5DUEluc3RhbmNlQmFzZTo6T3JpZ2luLCBpbjZfYWRkciBjb25zdCYsIHVuc2lnbmVkIGNoYXIsIHVuc2lnbmVkIGNoYXIsIGJvb2wsIHVuc2lnbmVkIHNob3J0LCBib29zdDo6ZnVuY3Rpb248dm9pZCAoaW50KT4pIC9zcmMvd3BhbnR1bmQvc3JjL3dwYW50dW5kL05DUEluc3RhbmNlQmFzZS1BZGRyZXNzZXMuY3BwOjg4NDozDQogICAgIzkgMHg2NDY4NjkgaW4gbmw6OndwYW50dW5kOjpTcGluZWxOQ1BJbnN0YW5jZTo6aGFuZGxlX25jcF9zcGluZWxfdmFsdWVfaXNfT05fTUVTSF9ORVRTKHVuc2lnbmVkIGNoYXIgY29uc3QqLCB1bnNpZ25lZCBpbnQpIC9zcmMvd3BhbnR1bmQvc3JjL25jcC1zcGluZWwvU3BpbmVsTkNQSW5zdGFuY2UuY3BwOjM2NzE6NA0KICAgICMxMCAweDY0YjNmNiBpbiBubDo6d3BhbnR1bmQ6OlNwaW5lbE5DUEluc3RhbmNlOjpoYW5kbGVfbmNwX3NwaW5lbF92YWx1ZV9pcyhzcGluZWxfcHJvcF9rZXlfdCwgdW5zaWduZWQgY2hhciBjb25zdCosIHVuc2lnbmVkIGludCkgL3NyYy93cGFudHVuZC9zcmMvbmNwLXNwaW5lbC9TcGluZWxOQ1BJbnN0YW5jZS5jcHA6NDI2NTozDQogICAgIzExIDB4NjU0ODA0IGluIG5sOjp3cGFudHVuZDo6U3BpbmVsTkNQSW5zdGFuY2U6OmhhbmRsZV9uY3Bfc3BpbmVsX2NhbGxiYWNrKHVuc2lnbmVkIGludCwgdW5zaWduZWQgY2hhciBjb25zdCosIHVuc2lnbmVkIGludCkgL3NyYy93cGFudHVuZC9zcmMvbmNwLXNwaW5lbC9TcGluZWxOQ1BJbnN0YW5jZS5jcHA6NDc0MTo1DQogICAgIzEyIDB4Njc1NGM1IGluIG5sOjp3cGFudHVuZDo6U3BpbmVsTkNQSW5zdGFuY2U6Om5jcF90b19kcml2ZXJfcHVtcCgpIC9zcmMvd3BhbnR1bmQvc3JjL25jcC1zcGluZWwvU3BpbmVsTkNQSW5zdGFuY2UtRGF0YVB1bXAuY3BwOjMzMzo0DQogICAgIzEzIDB4NWUyNGExIGluIG5sOjp3cGFudHVuZDo6TkNQSW5zdGFuY2VCYXNlOjpwcm9jZXNzKCkgL3NyYy93cGFudHVuZC9zcmMvd3BhbnR1bmQvTkNQSW5zdGFuY2VCYXNlLUFzeW5jSU8uY3BwOjI0NDozDQogICAgIzE0IDB4NjU4MTEzIGluIG5sOjp3cGFudHVuZDo6U3BpbmVsTkNQSW5zdGFuY2U6OnByb2Nlc3MoKSAvc3JjL3dwYW50dW5kL3NyYy9uY3Atc3BpbmVsL1NwaW5lbE5DUEluc3RhbmNlLmNwcDo1MTc4OjE5DQogICAgIzE1IDB4NTM2YjEyIGluIE1haW5Mb29wOjpwcm9jZXNzKCkgL3NyYy93cGFudHVuZC9zcmMvd3BhbnR1bmQvLi93cGFudHVuZC5jcHA6NTQ1OjE3DQogICAgIzE2IDB4NTM1NzQ5IGluIE5DUElucHV0RnV6elRhcmdldCh1bnNpZ25lZCBjaGFyIGNvbnN0KiwgdW5zaWduZWQgbG9uZykgL3NyYy93cGFudHVuZC9zcmMvd3BhbnR1bmQvd3BhbnR1bmQtZnV6ei5jcHA6MTk5OjEzDQogICAgIzE3IDB4NTM3Mjc2IGluIExMVk1GdXp6ZXJUZXN0T25lSW5wdXQgL3NyYy93cGFudHVuZC9zcmMvd3BhbnR1bmQvd3BhbnR1bmQtZnV6ei5jcHA6Mjc1OjEwDQogICAgIzE4IDB4NmQ1YmJlIGluIEV4ZWN1dGVGaWxlc09ueUJ5T25lKGludCwgY2hhcioqKSAvc3JjL2xpYmZ1enplci9hZmwvYWZsX2RyaXZlci5jcHA6MzAxOjUNCiAgICAjMTkgMHg2ZDYxMmUgaW4gbWFpbiAvc3JjL2xpYmZ1enplci9hZmwvYWZsX2RyaXZlci5jcHA6MzM5OjEyDQogICAgIzIwIDB4N2ZmZmY2Y2UyODJmIGluIF9fbGliY19zdGFydF9tYWluICgvbGliL3g4Nl82NC1saW51eC1nbnUvbGliYy5zby42KzB4MjA4MmYpDQoNCkRFRFVQX1RPS0VOOiBvcGVyYXRvciBuZXcodW5zaWduZWQgbG9uZyktLV9fbGliY3BwX2FsbG9jYXRlLS1hbGxvY2F0ZQ0KU1VNTUFSWTogQWRkcmVzc1Nhbml0aXplcjogaGVhcC11c2UtYWZ0ZXItZnJlZSAvc3JjL3dwYW50dW5kL3NyYy93cGFudHVuZC8uLi91dGlsL1R1bm5lbElQdjZJbnRlcmZhY2UuY3BwOjQ1MToyIGluIFR1bm5lbElQdjZJbnRlcmZhY2U6OnJlbW92ZV9hZGRyZXNzKGluNl9hZGRyIGNvbnN0KiwgaW50KQ0KU2hhZG93IGJ5dGVzIGFyb3VuZCB0aGUgYnVnZ3kgYWRkcmVzczoNCiAgMHgwYzBjN2ZmZmNlMjA6IGZkIGZkIGZkIGZkIGZhIGZhIGZhIGZhIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwDQogIDB4MGMwYzdmZmZjZTMwOiBmYSBmYSBmYSBmYSAwMCAwMCAwMCAwMCAwMCAwMCAwMCBmYSBmYSBmYSBmYSBmYQ0KICAweDBjMGM3ZmZmY2U0MDogMDAgMDAgMDAgMDAgMDAgMDAgMDAgZmEgZmEgZmEgZmEgZmEgMDAgMDAgMDAgMDANCiAgMHgwYzBjN2ZmZmNlNTA6IDAwIDAwIDAwIGZhIGZhIGZhIGZhIGZhIGZkIGZkIGZkIGZkIGZkIGZkIGZkIGZhDQogIDB4MGMwYzdmZmZjZTYwOiBmYSBmYSBmYSBmYSBmZCBmZCBmZCBmZCBmZCBmZCBmZCBmZCBmYSBmYSBmYSBmYQ0KPT4weDBjMGM3ZmZmY2U3MDogZmQgZmQgZmRbZmRdZmQgZmQgZmQgZmQgZmEgZmEgZmEgZmEgMDAgMDAgMDAgMDANCiAgMHgwYzBjN2ZmZmNlODA6IDAwIDAwIDAwIGZhIGZhIGZhIGZhIGZhIDAwIDAwIDAwIDAwIDAwIDAwIDAwIGZhDQogIDB4MGMwYzdmZmZjZTkwOiBmYSBmYSBmYSBmYSBmZCBmZCBmZCBmZCBmZCBmZCBmZCBmZCBmYSBmYSBmYSBmYQ0KICAweDBjMGM3ZmZmY2VhMDogZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmENCiAgMHgwYzBjN2ZmZmNlYjA6IGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhDQogIDB4MGMwYzdmZmZjZWMwOiBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYQ0KU2hhZG93IGJ5dGUgbGVnZW5kIChvbmUgc2hhZG93IGJ5dGUgcmVwcmVzZW50cyA4IGFwcGxpY2F0aW9uIGJ5dGVzKToNCiAgQWRkcmVzc2FibGU6ICAgICAgICAgICAwMA0KICBQYXJ0aWFsbHkgYWRkcmVzc2FibGU6IDAxIDAyIDAzIDA0IDA1IDA2IDA3IA0KICBIZWFwIGxlZnQgcmVkem9uZTogICAgICAgZmENCiAgRnJlZWQgaGVhcCByZWdpb246ICAgICAgIGZkDQogIFN0YWNrIGxlZnQgcmVkem9uZTogICAgICBmMQ0KICBTdGFjayBtaWQgcmVkem9uZTogICAgICAgZjINCiAgU3RhY2sgcmlnaHQgcmVkem9uZTogICAgIGYzDQogIFN0YWNrIGFmdGVyIHJldHVybjogICAgICBmNQ0KICBTdGFjayB1c2UgYWZ0ZXIgc2NvcGU6ICAgZjgNCiAgR2xvYmFsIHJlZHpvbmU6ICAgICAgICAgIGY5DQogIEdsb2JhbCBpbml0IG9yZGVyOiAgICAgICBmNg0KICBQb2lzb25lZCBieSB1c2VyOiAgICAgICAgZjcNCiAgQ29udGFpbmVyIG92ZXJmbG93OiAgICAgIGZjDQogIEFycmF5IGNvb2tpZTogICAgICAgICAgICBhYw0KICBJbnRyYSBvYmplY3QgcmVkem9uZTogICAgYmINCiAgQVNhbiBpbnRlcm5hbDogICAgICAgICAgIGZlDQogIExlZnQgYWxsb2NhIHJlZHpvbmU6ICAgICBjYQ0KICBSaWdodCBhbGxvY2EgcmVkem9uZTogICAgY2INCiAgU2hhZG93IGdhcDogICAgICAgICAgICAgIGNjDQpBQk9SVElORw==",
+  "requested_content": {
+    "/src/wpantund/src/wpantund/../util/TunnelIPv6Interface.cpp": {
+      "421": "line  421 : \tif (mUnicastAddresses.count(*addr)) {",
+      "422": "line  422 : \t\tret = true;",
+      "423": "line  423 : \t\tgoto bail;",
+      "424": "line  424 : \t}",
+      "425": "line  425 : ",
+      "426": "line  426 : \tif (is_online()) {",
+      "427": "line  427 : \t\tsyslog(LOG_INFO, \"Adding address \\\"%s/%d\\\" to interface \\\"%s\\\"\",",
+      "428": "line  428 : \t\t       in6_addr_to_string(*addr).c_str(), prefixlen, mInterfaceName.c_str());",
+      "429": "line  429 : ",
+      "430": "line  430 : \t\trequire_noerr_action(",
+      "431": "line  431 : \t\t\tnetif_mgmt_add_ipv6_address(mNetifMgmtFD, mInterfaceName.c_str(), addr->s6_addr, prefixlen),",
+      "432": "line  432 : \t\t\tbail,",
+      "433": "line  433 : \t\t\tmLastError = errno",
+      "434": "line  434 : \t\t);",
+      "435": "line  435 : \t\tmUnicastAddresses[*addr] = Entry(Entry::kWaitingForAddConfirm, prefixlen);",
+      "436": "line  436 : \t} else {",
+      "437": "line  437 : \t\tmUnicastAddresses[*addr] = Entry(Entry::kWaitingToAdd, prefixlen);",
+      "438": "line  438 : \t}",
+      "439": "line  439 : ",
+      "440": "line  440 : \tret = true;",
+      "441": "line  441 : ",
+      "442": "line  442 : bail:",
+      "443": "line  443 : \treturn ret;",
+      "444": "line  444 : }",
+      "445": "line  445 : ",
+      "446": "line  446 : bool",
+      "447": "line  447 : TunnelIPv6Interface::remove_address(const struct in6_addr *addr, int prefixlen)",
+      "448": "line  448 : {",
+      "449": "line  449 : \tbool ret = false;",
+      "450": "line  450 : ",
+      "451": "line  451 : \trequire_action(!IN6_IS_ADDR_UNSPECIFIED(addr), bail, mLastError = EINVAL);",
+      "452": "line  452 : ",
+      "453": "line  453 : \tif (mUnicastAddresses.count(*addr)) {",
+      "454": "line  454 : \t\tmUnicastAddresses.erase(*addr);",
+      "455": "line  455 : \t}",
+      "456": "line  456 : ",
+      "457": "line  457 : \tif (netif_mgmt_remove_ipv6_address(mNetifMgmtFD, mInterfaceName.c_str(), addr->s6_addr) != 0) {",
+      "458": "line  458 : \t\tmLastError = errno;",
+      "459": "line  459 : \t\tgoto bail;",
+      "460": "line  460 : \t}",
+      "461": "line  461 : ",
+      "462": "line  462 : \tsyslog(LOG_INFO,\"Removing address \\\"%s\\\" from interface \\\"%s\\\"\",",
+      "463": "line  463 : \t       in6_addr_to_string(*addr).c_str(), mInterfaceName.c_str());",
+      "464": "line  464 : \tret = true;",
+      "465": "line  465 : ",
+      "466": "line  466 : bail:",
+      "467": "line  467 : \treturn ret;",
+      "468": "line  468 : }",
+      "469": "line  469 : ",
+      "470": "line  470 : bool",
+      "471": "line  471 : TunnelIPv6Interface::join_multicast_address(const struct in6_addr *addr)",
+      "472": "line  472 : {",
+      "473": "line  473 : \tbool ret = false;",
+      "474": "line  474 : ",
+      "475": "line  475 : \trequire_action(!IN6_IS_ADDR_UNSPECIFIED(addr), bail, mLastError = EINVAL);",
+      "476": "line  476 : ",
+      "477": "line  477 : \tif (is_online()) {",
+      "478": "line  478 : \t\tif (netif_mgmt_join_ipv6_multicast_address(mNetifMgmtFD, mInterfaceName.c_str(), addr->s6_addr) != 0) {",
+      "479": "line  479 : \t\t\tmLastError = errno;",
+      "480": "line  480 : \t\t\tgoto bail;",
+      "595": "line  595 : <End of File>"
+    },
+    "/src/wpantund/src/wpantund/NCPInstanceBase-Addresses.cpp": {
+      "590": "line  590 : ",
+      "591": "line  591 : \t\tmUnicastAddresses[address] = entry;",
+      "592": "line  592 : \t\tsyslog(LOG_INFO, \"UnicastAddresses: Adding %s\", entry.get_description(address).c_str());",
+      "593": "line  593 : ",
+      "594": "line  594 : \t\t// Add the address on NCP or primary interface (depending on origin).",
+      "595": "line  595 : ",
+      "596": "line  596 : \t\tif ((origin == kOriginThreadNCP) || (origin == kOriginUser)) {",
+      "597": "line  597 : \t\t\tmPrimaryInterface->add_address(&address, prefix_len);",
+      "598": "line  598 : \t\t}",
+      "599": "line  599 : ",
+      "600": "line  600 : \t\tif (((origin == kOriginPrimaryInterface) && mAutoUpdateInterfaceIPv6AddrsOnNCP) || (origin == kOriginUser)) {",
+      "601": "line  601 : \t\t\tadd_address_on_ncp_and_update_prefixes(address, entry);",
+      "602": "line  602 : \t\t}",
+      "603": "line  603 : \t}",
+      "604": "line  604 : ",
+      "605": "line  605 : bail:",
+      "606": "line  606 : \treturn;",
+      "607": "line  607 : }",
+      "608": "line  608 : ",
+      "609": "line  609 : void",
+      "610": "line  610 : NCPInstanceBase::unicast_address_was_removed(Origin origin, const struct in6_addr &address)",
+      "611": "line  611 : {",
+      "612": "line  612 : \tif (mUnicastAddresses.count(address)) {",
+      "613": "line  613 : \t\tUnicastAddressEntry entry = mUnicastAddresses[address];",
+      "614": "line  614 : ",
+      "615": "line  615 : \t\t// Allow address remove if origin is user, or if it matches the",
+      "616": "line  616 : \t\t// originator of the entry (when it was previously added).",
+      "617": "line  617 : ",
+      "618": "line  618 : \t\tif ((origin == kOriginUser) || (origin == entry.get_origin())) {",
+      "619": "line  619 : \t\t\tsyslog(LOG_INFO, \"UnicastAddresses: Removing %s\", entry.get_description(address).c_str());",
+      "620": "line  620 : \t\t\tmUnicastAddresses.erase(address);",
+      "621": "line  621 : ",
+      "622": "line  622 : \t\t\tif ((origin == kOriginThreadNCP) || (origin == kOriginUser)) {",
+      "623": "line  623 : \t\t\t\tmPrimaryInterface->remove_address(&address, entry.get_prefix_len());",
+      "624": "line  624 : \t\t\t}",
+      "625": "line  625 : ",
+      "626": "line  626 : \t\t\tif ((origin == kOriginPrimaryInterface) || (origin == kOriginUser)) {",
+      "627": "line  627 : \t\t\t\tremove_address_on_ncp_and_update_prefixes(address, entry);",
+      "628": "line  628 : \t\t\t}",
+      "629": "line  629 : \t\t}",
+      "630": "line  630 : \t}",
+      "631": "line  631 : }",
+      "632": "line  632 : ",
+      "633": "line  633 : void",
+      "634": "line  634 : NCPInstanceBase::add_address_on_ncp_and_update_prefixes(const in6_addr &address, const UnicastAddressEntry &entry)",
+      "635": "line  635 : {",
+      "636": "line  636 : \tadd_unicast_address_on_ncp(address, entry.get_prefix_len(),",
+      "637": "line  637 : \t\tboost::bind(&NCPInstanceBase::check_ncp_entry_update_status, this, _1, \"adding unicast address\", NilReturn()));",
+      "638": "line  638 : ",
+      "639": "line  639 : \t// Update the prefix if entry is not from NCP and",
+      "640": "line  640 : \t// if address is not link-local and prefix does not",
+      "641": "line  641 : \t// match mesh-local prefix.",
+      "642": "line  642 : ",
+      "643": "line  643 : \tif (!entry.is_from_ncp()",
+      "644": "line  644 : \t   && !IN6_IS_ADDR_LINKLOCAL(&address)",
+      "645": "line  645 : \t   && (!buffer_is_nonzero(mNCPV6Prefix, sizeof(mNCPV6Prefix)) || (0 != memcmp(mNCPV6Prefix, &address, sizeof(mNCPV6Prefix))))",
+      "646": "line  646 : \t) {",
+      "647": "line  647 : \t\tstruct in6_addr prefix = address;",
+      "648": "line  648 : \t\tuint8_t flags = OnMeshPrefixEntry::kFlagOnMesh",
+      "649": "line  649 : \t\t              | OnMeshPrefixEntry::kFlagPreferred;",
+      "1154": "line 1154 : <End of File>",
+      "893": "line  893 : \tOnMeshPrefixEntry entry(origin, flags, stable, rloc16);",
+      "894": "line  894 : \tstd::multimap<IPv6Prefix, OnMeshPrefixEntry>::iterator iter;",
+      "895": "line  895 : ",
+      "896": "line  896 : \titer = find_prefix_entry(prefix, entry);",
+      "897": "line  897 : ",
+      "898": "line  898 : \tif (iter != mOnMeshPrefixes.end()) {",
+      "899": "line  899 : \t\tsyslog(LOG_INFO, \"OnMeshPrefixes: Removing %s\", entry.get_description(prefix).c_str());",
+      "900": "line  900 : \t\tmOnMeshPrefixes.erase(iter);",
+      "901": "line  901 : ",
+      "902": "line  902 : \t\tif (origin != kOriginThreadNCP) {",
+      "903": "line  903 : \t\t\tremove_on_mesh_prefix_on_ncp(prefix.get_prefix(), prefix.get_length(),",
+      "904": "line  904 : \t\t\t\tentry.get_flags(), entry.is_stable(),",
+      "905": "line  905 : \t\t\t\tboost::bind(&NCPInstanceBase::check_ncp_entry_update_status, this, _1, \"removing on-mesh prefix\", cb));",
+      "906": "line  906 : \t\t} else {",
+      "907": "line  907 : \t\t\tcb(kWPANTUNDStatus_Ok);",
+      "908": "line  908 : \t\t}",
+      "909": "line  909 : ",
+      "910": "line  910 : \t\tif (entry.is_on_mesh() && entry.is_slaac() && prefix.get_length() == kSLAACPrefixLength",
+      "911": "line  911 : \t\t\t&& !has_slaac_on_mesh_prefix(prefix)",
+      "912": "line  912 : \t\t) {",
+      "913": "line  913 : \t\t\tstd::map<struct in6_addr, UnicastAddressEntry>::iterator addr_iter;",
+      "914": "line  914 : ",
+      "915": "line  915 : \t\t\t// Note that SLAAC addresses are added with origin NCP.",
+      "916": "line  916 : \t\t\taddr_iter = find_address_with_prefix(prefix, kOriginThreadNCP);",
+      "917": "line  917 : ",
+      "918": "line  918 : \t\t\tif (addr_iter != mUnicastAddresses.end()) {",
+      "919": "line  919 : \t\t\t\tconst struct in6_addr &address = addr_iter->first;",
+      "920": "line  920 : \t\t\t\tsyslog(LOG_NOTICE, \"Removing SLAAC address %s/%d from NCP\", in6_addr_to_string(address).c_str(), prefix_len);",
+      "921": "line  921 : \t\t\t\tremove_unicast_address_on_ncp(address, prefix_len,",
+      "922": "line  922 : \t\t\t\t\tboost::bind(&NCPInstanceBase::check_ncp_entry_update_status, this, _1, \"removing SLAAC address\", NilReturn()));",
+      "923": "line  923 : \t\t\t\tunicast_address_was_removed(kOriginThreadNCP, address);",
+      "924": "line  924 : \t\t\t}",
+      "925": "line  925 : \t\t}",
+      "926": "line  926 : \t} else {",
+      "927": "line  927 : \t\tcb(kWPANTUNDStatus_Ok);",
+      "928": "line  928 : \t}",
+      "929": "line  929 : }",
+      "930": "line  930 : ",
+      "931": "line  931 : // ========================================================================",
+      "932": "line  932 : // MARK: Route Management",
+      "933": "line  933 : ",
+      "934": "line  934 : // Searches for a given route entry in the `mOffMeshRoutes` multimap.",
+      "935": "line  935 : std::multimap<NCPInstanceBase::IPv6Prefix, NCPInstanceBase::OffMeshRouteEntry>::iterator",
+      "936": "line  936 : NCPInstanceBase::find_route_entry(const IPv6Prefix &route, const OffMeshRouteEntry &entry)",
+      "937": "line  937 : {",
+      "938": "line  938 : \tstd::multimap<IPv6Prefix, OffMeshRouteEntry>::iterator iter;",
+      "939": "line  939 : ",
+      "940": "line  940 : \titer = mOffMeshRoutes.lower_bound(route);",
+      "941": "line  941 : ",
+      "942": "line  942 : \tif (iter != mOffMeshRoutes.end()) {",
+      "943": "line  943 : \t\tstd::multimap<IPv6Prefix, OffMeshRouteEntry>::iterator upper_iter = mOffMeshRoutes.upper_bound(route);",
+      "944": "line  944 : ",
+      "945": "line  945 : \t\tfor (; iter != upper_iter; iter++) {",
+      "946": "line  946 : \t\t\tif (iter->second == entry) {",
+      "947": "line  947 : \t\t\t\tbreak;",
+      "948": "line  948 : \t\t\t}",
+      "949": "line  949 : \t\t}",
+      "950": "line  950 : ",
+      "951": "line  951 : \t\tif (iter == upper_iter) {",
+      "952": "line  952 : \t\t\titer = mOffMeshRoutes.end();"
+    }
+  },
+  "note": [
+    "Reason for requesting line 451 of /src/wpantund/src/wpantund/../util/TunnelIPv6Interface.cpp: To understand how the freed memory is being accessed after it has been deallocated.",
+    "Reason for requesting line 620 of /src/wpantund/src/wpantund/NCPInstanceBase-Addresses.cpp: To understand how `unicast_address_was_removed` frees memory and potentially causes a use-after-free in `TunnelIPv6Interface::remove_address`.",
+    "The `address` reference passed to `unicast_address_was_removed` can point to memory that is freed by `mUnicastAddresses.erase(address)`. Subsequent use of this `address` in `mPrimaryInterface->remove_address(&address, ...)` becomes a use-after-free.",
+    "Reason for requesting line 923 of /src/wpantund/src/wpantund/NCPInstanceBase-Addresses.cpp: To understand how the `address` argument is constructed and passed to `unicast_address_was_removed`, specifically if it refers to an object within the `mUnicastAddresses` map."
+  ],
+  "valid_patches": [
+    {
+      "file": "/src/wpantund/src/wpantund/NCPInstanceBase-Addresses.cpp",
+      "diff": [
+        {
+          "line_number": 610,
+          "content": [
+            "NCPInstanceBase::unicast_address_was_removed(Origin origin, const struct in6_addr &address_ref)"
+          ]
+        },
+        {
+          "line_number": 612,
+          "content": [
+            "\t// Create a local copy of the address to prevent use-after-free issues",
+            "\tconst struct in6_addr address = address_ref;",
+            "\tif (mUnicastAddresses.count(address)) {"
+          ]
+        },
+        {
+          "line_number": 613,
+          "content": [
+            "\t\tUnicastAddressEntry entry = mUnicastAddresses[address];"
+          ]
+        },
+        {
+          "line_number": 619,
+          "content": [
+            "\t\tsyslog(LOG_INFO, \"UnicastAddresses: Removing %s\", entry.get_description(address).c_str());"
+          ]
+        },
+        {
+          "line_number": 620,
+          "content": [
+            "\t\tmUnicastAddresses.erase(address);"
+          ]
+        },
+        {
+          "line_number": 623,
+          "content": [
+            "\t\t\t\tmPrimaryInterface->remove_address(&address, entry.get_prefix_len());"
+          ]
+        },
+        {
+          "line_number": 627,
+          "content": [
+            "\t\t\t\tremove_address_on_ncp_and_update_prefixes(address, entry);"
+          ]
+        }
+      ]
+    }
+  ],
+  "retry_count": 10,
+  "history": [
+    {
+      "reason": "To understand how the freed memory is being accessed after it has been deallocated.",
+      "line": 451,
+      "file": "/src/wpantund/src/wpantund/../util/TunnelIPv6Interface.cpp"
+    },
+    {
+      "reason": "To understand how `unicast_address_was_removed` frees memory and potentially causes a use-after-free in `TunnelIPv6Interface::remove_address`.",
+      "line": 620,
+      "file": "/src/wpantund/src/wpantund/NCPInstanceBase-Addresses.cpp"
+    },
+    {
+      "content": "The `address` reference passed to `unicast_address_was_removed` can point to memory that is freed by `mUnicastAddresses.erase(address)`. Subsequent use of this `address` in `mPrimaryInterface->remove_address(&address, ...)` becomes a use-after-free."
+    },
+    {
+      "reason": "The `address` reference in `unicast_address_was_removed` can point to memory that is freed by `mUnicastAddresses.erase(address)`. Subsequent use of this `address` in `mPrimaryInterface->remove_address(&address, ...)` leads to a use-after-free. To fix this, create a local copy of `address` before calling `erase` to ensure the argument passed to `remove_address` is always valid.",
+      "patches": [
+        {
+          "file": "/src/wpantund/src/wpantund/NCPInstanceBase-Addresses.cpp",
+          "diff": [
+            {
+              "line_number": 610,
+              "content": [
+                "void",
+                "NCPInstanceBase::unicast_address_was_removed(Origin origin, const struct in6_addr &address_ref)"
+              ]
+            },
+            {
+              "line_number": 612,
+              "content": [
+                "\tconst struct in6_addr address = address_ref;"
+              ]
+            },
+            {
+              "line_number": 613,
+              "content": [
+                "\tif (mUnicastAddresses.count(address)) {"
+              ]
+            },
+            {
+              "line_number": 614,
+              "content": [
+                "\t\tUnicastAddressEntry entry = mUnicastAddresses[address];"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `address` reference passed to `unicast_address_was_removed` can point to memory that is freed by `mUnicastAddresses.erase(address)`. A copy of `address` needs to be made before erasing it from the map to prevent use-after-free when `mPrimaryInterface->remove_address` is called.",
+      "patches": [
+        {
+          "file": "/src/wpantund/src/wpantund/NCPInstanceBase-Addresses.cpp",
+          "diff": [
+            {
+              "line_number": 610,
+              "content": [
+                "void",
+                "NCPInstanceBase::unicast_address_was_removed(Origin origin, const struct in6_addr &address_const_ref)"
+              ]
+            },
+            {
+              "line_number": 612,
+              "content": [
+                "\tconst struct in6_addr address = address_const_ref;"
+              ]
+            },
+            {
+              "line_number": 613,
+              "content": [
+                "\tif (mUnicastAddresses.count(address)) {"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "To understand how the `in6_addr_to_string` function is implemented and if it accesses the freed `addr` pointer.",
+      "line": 463,
+      "file": "/src/wpantund/src/wpantund/../util/TunnelIPv6Interface.cpp"
+    },
+    {
+      "reason": "The `address` reference passed to `unicast_address_was_removed` can point to memory that is freed by `mUnicastAddresses.erase(address)`. To fix this, create a local copy of the `in6_addr` before calling `mUnicastAddresses.erase`, ensuring the `remove_address` call uses valid memory.",
+      "patches": [
+        {
+          "file": "/src/wpantund/src/wpantund/NCPInstanceBase-Addresses.cpp",
+          "diff": [
+            {
+              "line_number": 610,
+              "content": [
+                "void",
+                "NCPInstanceBase::unicast_address_was_removed(Origin origin, const struct in6_addr &address_ref)"
+              ]
+            },
+            {
+              "line_number": 612,
+              "content": [
+                "\tif (mUnicastAddresses.count(address_ref)) {"
+              ]
+            },
+            {
+              "line_number": 613,
+              "content": [
+                "\t\tUnicastAddressEntry entry = mUnicastAddresses[address_ref];"
+              ]
+            },
+            {
+              "line_number": 618,
+              "content": [
+                "\t\tif ((origin == kOriginUser) || (origin == entry.get_origin())) {"
+              ]
+            },
+            {
+              "line_number": 619,
+              "content": [
+                "\t\t\tsyslog(LOG_INFO, \"UnicastAddresses: Removing %s\", entry.get_description(address_ref).c_str());"
+              ]
+            },
+            {
+              "line_number": 620,
+              "content": [
+                "\t\t\t// Create a copy of the address before erasing it from the map, as the",
+                "\t\t\t// reference might point to the map's internal key storage.",
+                "\t\t\tstruct in6_addr address = address_ref;",
+                "\t\t\tmUnicastAddresses.erase(address_ref);"
+              ]
+            },
+            {
+              "line_number": 623,
+              "content": [
+                "\t\t\t\tmPrimaryInterface->remove_address(&address, entry.get_prefix_len());"
+              ]
+            },
+            {
+              "line_number": 627,
+              "content": [
+                "\t\t\t\tremove_address_on_ncp_and_update_prefixes(address, entry);"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `address` parameter in `NCPInstanceBase::unicast_address_was_removed` is a reference to an object that is freed when `mUnicastAddresses.erase(address)` is called. Subsequent use of this `address` in `mPrimaryInterface->remove_address(&address, ...)` results in a use-after-free. To fix this, copy the `address` to a local variable before erasing it from the map.",
+      "patches": [
+        {
+          "file": "/src/wpantund/src/wpantund/NCPInstanceBase-Addresses.cpp",
+          "diff": [
+            {
+              "line_number": 610,
+              "content": [
+                "void",
+                "NCPInstanceBase::unicast_address_was_removed(Origin origin, const struct in6_addr &address_ref)"
+              ]
+            },
+            {
+              "line_number": 612,
+              "content": [
+                "\tif (mUnicastAddresses.count(address_ref)) {"
+              ]
+            },
+            {
+              "line_number": 613,
+              "content": [
+                "\t\tUnicastAddressEntry entry = mUnicastAddresses[address_ref];",
+                "\t\tconst struct in6_addr address = address_ref; // Make a copy of the address before potentially freeing its memory."
+              ]
+            },
+            {
+              "line_number": 619,
+              "content": [
+                "\t\tsyslog(LOG_INFO, \"UnicastAddresses: Removing %s\", entry.get_description(address).c_str());",
+                "\t\tmUnicastAddresses.erase(address);"
+              ]
+            },
+            {
+              "line_number": 623,
+              "content": [
+                "\t\t\tmPrimaryInterface->remove_address(&address, entry.get_prefix_len());"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "To understand how the `address` argument is constructed and passed to `unicast_address_was_removed`, specifically if it refers to an object within the `mUnicastAddresses` map.",
+      "line": 923,
+      "file": "/src/wpantund/src/wpantund/NCPInstanceBase-Addresses.cpp"
+    },
+    {
+      "reason": "The `address` reference passed to `unicast_address_was_removed` can point to memory within `mUnicastAddresses`. Erasing the entry from the map at line 620 deallocates this memory. Subsequently, the `address` is used at line 623 in the call to `mPrimaryInterface->remove_address`, leading to a use-after-free. To fix this, create a local copy of the `in6_addr` before erasing it from the map.",
+      "patches": [
+        {
+          "file": "/src/wpantund/src/wpantund/NCPInstanceBase-Addresses.cpp",
+          "diff": [
+            {
+              "line_number": 610,
+              "content": [
+                "NCPInstanceBase::unicast_address_was_removed(Origin origin, const struct in6_addr &address_ref)"
+              ]
+            },
+            {
+              "line_number": 612,
+              "content": [
+                "\t// Create a local copy of the address to prevent use-after-free issues",
+                "\tconst struct in6_addr address = address_ref;",
+                "\tif (mUnicastAddresses.count(address)) {"
+              ]
+            },
+            {
+              "line_number": 613,
+              "content": [
+                "\t\tUnicastAddressEntry entry = mUnicastAddresses[address];"
+              ]
+            },
+            {
+              "line_number": 619,
+              "content": [
+                "\t\tsyslog(LOG_INFO, \"UnicastAddresses: Removing %s\", entry.get_description(address).c_str());"
+              ]
+            },
+            {
+              "line_number": 620,
+              "content": [
+                "\t\tmUnicastAddresses.erase(address);"
+              ]
+            },
+            {
+              "line_number": 623,
+              "content": [
+                "\t\t\t\tmPrimaryInterface->remove_address(&address, entry.get_prefix_len());"
+              ]
+            },
+            {
+              "line_number": 627,
+              "content": [
+                "\t\t\t\tremove_address_on_ncp_and_update_prefixes(address, entry);"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

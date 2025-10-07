@@ -1,0 +1,248 @@
+{
+  "id": "42471374",
+  "stage": "repair",
+  "repo_addr": "https://github.com/harfbuzz/harfbuzz.git",
+  "fix_commit": "8d98c51d133b058a845ed7a84bfe8a43083bbb03",
+  "project": "harfbuzz",
+  "note": [
+    "Reason for requesting line 660 of /src/harfbuzz/src/./hb-machinery.hh: To understand the `BEInt` operator that triggered the crash.",
+    "Reason for requesting line 420 of /src/harfbuzz/src/./hb-ot-kern-table.hh: To understand how the `BEInt` object is accessed within this function, which leads to the heap-buffer-overflow.",
+    "Reason for requesting line 1 of /src/harfbuzz/src/./hb-ot-kern-table.hh: To understand the definition of `HBUINT8` and confirm it's an alias for `BEInt<unsigned char, 1>`.",
+    "The crash occurs when dereferencing a `BEInt<unsigned char, 1>` object that is out of bounds. This means the underlying `hb_array_t` from which this object is retrieved is not properly sized.",
+    "The crash is a heap-buffer-overflow during a read of a BEInt<unsigned char, 1> (HBUINT8) object. This indicates an out-of-bounds access to an hb_array_t. The `leftClass` and `rightClass` arrays are sized by `glyphCount` but the indices `left` and `right` can exceed this bound."
+  ],
+  "valid_patches": null,
+  "history": [
+    {
+      "reason": "To understand the `BEInt` operator that triggered the crash.",
+      "line": 660,
+      "file": "/src/harfbuzz/src/./hb-machinery.hh"
+    },
+    {
+      "reason": "To understand how the `BEInt` object is accessed within this function, which leads to the heap-buffer-overflow.",
+      "line": 420,
+      "file": "/src/harfbuzz/src/./hb-ot-kern-table.hh"
+    },
+    {
+      "reason": "To understand how `leftClass` and `rightClass` arrays are constructed and what their bounds are, especially concerning `glyphCount` and `hb_array_t`'s internal mechanism.",
+      "line": 416,
+      "file": "/src/harfbuzz/src/./hb-ot-kern-table.hh"
+    },
+    {
+      "reason": "To understand the definition of `HBUINT8` and confirm it's an alias for `BEInt<unsigned char, 1>`.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/./hb-ot-kern-table.hh"
+    },
+    {
+      "content": "The crash occurs when dereferencing a `BEInt<unsigned char, 1>` object that is out of bounds. This means the underlying `hb_array_t` from which this object is retrieved is not properly sized."
+    },
+    {
+      "reason": "To understand how leftClassCount and rightClassCount are defined and if they are used to size the `leftClass` and `rightClass` arrays, or if the `glyphCount` is indeed the correct size.",
+      "line": 449,
+      "file": "/src/harfbuzz/src/./hb-ot-kern-table.hh"
+    },
+    {
+      "reason": "The crash is a heap-buffer-overflow during a read operation within `BEInt<unsigned char, 1>::operator unsigned char()` because the index used to access `leftClass` or `rightClass` array is out of bounds. The `left` and `right` parameters (glyph IDs) can exceed the `glyphCount` which is used to size these arrays. The fix involves adding a bounds check for `left` and `right` against `glyphCount` to prevent out-of-bounds access.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/./hb-ot-kern-table.hh",
+          "diff": [
+            {
+              "line_number": 414,
+              "content": [
+                "  {",
+                "    if (unlikely (left >= glyphCount || right >= glyphCount)) return 0;",
+                "    hb_array_t<const FWORD> kernValue = kernValueZ.as_array (kernValueCount);"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "content": "The crash is a heap-buffer-overflow during a read of a BEInt<unsigned char, 1> (HBUINT8) object. This indicates an out-of-bounds access to an hb_array_t. The `leftClass` and `rightClass` arrays are sized by `glyphCount` but the indices `left` and `right` can exceed this bound."
+    },
+    {
+      "reason": "The crash is a heap-buffer-overflow due to out-of-bounds access to `leftClass` or `rightClass` arrays in `OT::KernSubTableFormat3::get_kerning`. The indices `left` and `right` are not checked against `glyphCount`, which defines the size of these arrays. Adding checks to ensure `left` and `right` are within `[0, glyphCount)` prevents this overflow.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/./hb-ot-kern-table.hh",
+          "diff": [
+            {
+              "line_number": 419,
+              "content": [
+                "    if (unlikely (left >= glyphCount || right >= glyphCount)) return 0;",
+                "    unsigned int i = leftClass[left] * rightClassCount + rightClass[right];"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The crash is a heap-buffer-overflow during a read of a `BEInt<unsigned char, 1>` (HBUINT8) object, which happens when accessing `leftClass[left]` or `rightClass[right]` without proper bounds checking. The `leftClass` and `rightClass` arrays are sized by `glyphCount`, but the `left` and `right` indices (hb_codepoint_t) are not constrained. This patch adds bounds checks to ensure `left` and `right` are within the valid range of `glyphCount` to prevent out-of-bounds reads.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/./hb-ot-kern-table.hh",
+          "diff": [
+            {
+              "line_number": 415,
+              "content": [
+                "    hb_array_t<const FWORD> kernValue = kernValueZ.as_array (kernValueCount);",
+                "    /* check for out-of-bounds access for left/right glyph IDs */",
+                "    if (unlikely (left >= glyphCount || right >= glyphCount)) return 0;"
+              ]
+            },
+            {
+              "line_number": 420,
+              "content": [
+                "    unsigned int i = leftClass[left] * rightClassCount + rightClass[right];"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The crash is a heap-buffer-overflow during a read of a `BEInt<unsigned char, 1>` (HBUINT8) object, occurring when `leftClass[left]` or `rightClass[right]` is accessed in `OT::KernSubTableFormat3::get_kerning`. The `left` and `right` indices, which represent glyph IDs, can exceed `glyphCount`, leading to out-of-bounds array access. The fix involves adding bounds checks for `left` and `right` against `glyphCount` to ensure safe array access. If an index is out of bounds, 0 is used as the class value.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/./hb-ot-kern-table.hh",
+          "diff": [
+            {
+              "line_number": 419,
+              "content": [
+                "    unsigned int left_class_val = left < glyphCount ? leftClass[left] : 0;",
+                "    unsigned int right_class_val = right < glyphCount ? rightClass[right] : 0;",
+                "    unsigned int i = left_class_val * rightClassCount + right_class_val;"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The crash is a heap-buffer-overflow caused by out-of-bounds access to `leftClass` or `rightClass` arrays in `OT::KernSubTableFormat3::get_kerning`. The indices `left` and `right` are `hb_codepoint_t` (unsigned int) and can exceed the array bounds which are sized by `glyphCount`. The fix is to add boundary checks for `left` and `right` against `glyphCount` to prevent out-of-bounds access.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/./hb-ot-kern-table.hh",
+          "diff": [
+            {
+              "line_number": 419,
+              "content": [
+                "    if (unlikely (left >= glyphCount || right >= glyphCount)) return 0;",
+                ""
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The crash is a heap-buffer-overflow during a read from `leftClass` or `rightClass` arrays. These arrays are sized by `glyphCount`, but the `left` and `right` indices (hb_codepoint_t) are not checked against `glyphCount` before access. The fix is to add bounds checking for `left` and `right` and use class 0 if they are out of bounds.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/./hb-ot-kern-table.hh",
+          "diff": [
+            {
+              "line_number": 420,
+              "content": [
+                "    unsigned int left_class_index = (left  < this->glyphCount) ? leftClass[left]  : 0;",
+                "    unsigned int right_class_index = (right < this->glyphCount) ? rightClass[right] : 0;",
+                "    unsigned int i = left_class_index * rightClassCount + right_class_index;"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The crash is a heap-buffer-overflow due to out-of-bounds access when retrieving elements from `leftClass` or `rightClass` arrays. The indices `left` and `right` (of type `hb_codepoint_t`) can exceed `glyphCount`, which is used to size these arrays. The fix adds bounds checking for `left` and `right` against `glyphCount` to prevent illegal memory access, returning 0 (no kerning) if indices are out of bounds.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/./hb-ot-kern-table.hh",
+          "diff": [
+            {
+              "line_number": 415,
+              "content": [
+                "    hb_array_t<const FWORD> kernValue = kernValueZ.as_array (kernValueCount);",
+                "    if (unlikely (left >= glyphCount || right >= glyphCount)) return 0;",
+                "    hb_array_t<const HBUINT8> leftClass = StructAfter<const UnsizedArrayOf<HBUINT8> > (kernValue).as_array (glyphCount);",
+                "    hb_array_t<const HBUINT8> rightClass = StructAfter<const UnsizedArrayOf<HBUINT8> > (leftClass).as_array (glyphCount);",
+                "    hb_array_t<const HBUINT8> kernIndex = StructAfter<const UnsizedArrayOf<HBUINT8> > (rightClass).as_array (leftClassCount * rightClassCount);"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The crash is a heap-buffer-overflow caused by out-of-bounds access to `leftClass` or `rightClass` arrays. The `left` and `right` indices (glyph IDs) can exceed `glyphCount`, which is used to size these arrays. The fix involves adding bounds checks for `left` and `right` against `glyphCount` before accessing the arrays. If an index is out of bounds, a default class value (0) is returned to prevent the crash and ensure safe behavior.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/./hb-ot-kern-table.hh",
+          "diff": [
+            {
+              "line_number": 415,
+              "content": [
+                "    hb_array_t<const FWORD> kernValue = kernValueZ.as_array (kernValueCount);"
+              ]
+            },
+            {
+              "line_number": 416,
+              "content": [
+                "    hb_array_t<const HBUINT8> leftClass = StructAfter<const UnsizedArrayOf<HBUINT8> > (kernValue).as_array (glyphCount);"
+              ]
+            },
+            {
+              "line_number": 417,
+              "content": [
+                "    hb_array_t<const HBUINT8> rightClass = StructAfter<const UnsizedArrayOf<HBUINT8> > (leftClass).as_array (glyphCount);"
+              ]
+            },
+            {
+              "line_number": 418,
+              "content": [
+                "    hb_array_t<const HBUINT8> kernIndex = StructAfter<const UnsizedArrayOf<HBUINT8> > (rightClass).as_array (leftClassCount * rightClassCount);"
+              ]
+            },
+            {
+              "line_number": 419,
+              "content": [
+                "",
+                "    unsigned int left_class_val = 0;"
+              ]
+            },
+            {
+              "line_number": 420,
+              "content": [
+                "    if (left < glyphCount) left_class_val = leftClass[left];",
+                "    unsigned int right_class_val = 0;"
+              ]
+            },
+            {
+              "line_number": 421,
+              "content": [
+                "    if (right < glyphCount) right_class_val = rightClass[right];",
+                "    unsigned int i = left_class_val * rightClassCount + right_class_val;"
+              ]
+            },
+            {
+              "line_number": 422,
+              "content": [
+                "    if (unlikely (i >= leftClassCount * rightClassCount)) return 0;"
+              ]
+            },
+            {
+              "line_number": 423,
+              "content": [
+                "    return kernValue[kernIndex[i]];",
+                "  }"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

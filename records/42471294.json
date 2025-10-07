@@ -1,0 +1,34 @@
+{
+  "id": "42471294",
+  "stage": "repair",
+  "repo_addr": "https://github.com/libgit2/libgit2",
+  "fix_commit": "41863a00f0d811c659c9ba87ae2cc0c3aae5a77f",
+  "project": "libgit2",
+  "note": [
+    "Reason for requesting line 86 of /src/libgit2/src/util.c: To understand the logic of `git__strntol64` and how it handles string parsing and length. This will help identify why a read past the buffer occurs."
+  ],
+  "valid_patches": null,
+  "history": [
+    {
+      "reason": "To understand the logic of `git__strntol64` and how it handles string parsing and length. This will help identify why a read past the buffer occurs.",
+      "line": 86,
+      "file": "/src/libgit2/src/util.c"
+    },
+    {
+      "reason": "The `git__strntol64` function performs a read past the end of the input buffer (`nptr`) because it does not properly respect the `nptr_len` parameter. The `while` loop at line 86 increments `p` and dereferences it without checking if `p` has exceeded the bounds defined by `nptr_len`.",
+      "patches": [
+        {
+          "file": "/src/libgit2/src/util.c",
+          "diff": [
+            {
+              "line_number": 86,
+              "content": [
+                "\twhile ((p - nptr) < nptr_len && git__isspace(*p))"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

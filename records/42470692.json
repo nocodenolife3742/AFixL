@@ -1,0 +1,40 @@
+{
+  "id": "42470692",
+  "stage": "repair",
+  "repo_addr": "https://github.com/randombit/botan.git",
+  "fix_commit": "b859e175a0f2357dcfe2211ca487a7bde0e971b1",
+  "project": "botan",
+  "note": [
+    "Reason for requesting line 63 of /src/botan/./src/fuzzer/mode_padding.cpp: To analyze the heap-buffer-overflow, I need to see the implementation of ref_oneandzero_unpad, specifically around line 63."
+  ],
+  "valid_patches": null,
+  "history": [
+    {
+      "reason": "To analyze the heap-buffer-overflow, I need to see the implementation of ref_oneandzero_unpad, specifically around line 63.",
+      "line": 63,
+      "file": "/src/botan/./src/fuzzer/mode_padding.cpp"
+    },
+    {
+      "reason": "The `idx` variable, being of type `size_t`, is unsigned. In the `while` loop, when `idx` becomes 0 and `in[idx] == 0` is true, `idx -= 1` causes an unsigned integer underflow, making `idx` a very large positive number. Subsequent access `in[idx]` then results in a heap-buffer-overflow.",
+      "patches": [
+        {
+          "file": "/src/botan/./src/fuzzer/mode_padding.cpp",
+          "diff": [
+            {
+              "line_number": 61,
+              "content": [
+                "    while(idx > 0)"
+              ]
+            },
+            {
+              "line_number": 65,
+              "content": [
+                "         idx--;"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

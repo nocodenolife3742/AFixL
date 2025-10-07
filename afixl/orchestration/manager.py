@@ -1,11 +1,7 @@
 import logging
-import pathlib
-import tomllib
 import time
 
-from afixl.orchestration.models import Config
 from afixl.backend.task import Task
-from afixl.backend.fuzz.task import FuzzTask
 from afixl.backend.repair.task import RepairTask
 from afixl.backend.replay.task import ReplayTask
 from afixl.backend.evaluate.task import EvaluateTask
@@ -20,7 +16,7 @@ class Manager:
     building, running, validating, and sanitizing them.
     """
 
-    def __init__(self, path: str, timeout: int):
+    def __init__(self, timeout: int):
         """
         Initialize the Manager with the path to the fuzz target directory.
 
@@ -38,7 +34,7 @@ class Manager:
         """
         # Initialize the Manager with the given path and timeout
         logger.info(
-            f"Initializing Manager from {path} with a timeout of {timeout} minutes."
+            f"Initializing Manager with a timeout of {timeout} minutes."
         )
         self._timeout = timeout
         self._start_time = time.time()
@@ -46,26 +42,11 @@ class Manager:
         # Initialize the crash repository
         self._crash_repository = CrashRepository()
 
-        # Check if the config file exists and load it
-        config_path = pathlib.Path(path) / "config.toml"
-        if not config_path.exists():
-            raise FileNotFoundError(f"Config file not found at {config_path}")
-        if not config_path.is_file():
-            raise NotADirectoryError(f"Config path is not a file: {config_path}")
-
-        # Load the configuration from the TOML file
-        with open(config_path, "rb") as f:
-            data = tomllib.load(f)
-        data["path"] = str(pathlib.Path(path).resolve())
-        self._config = Config.model_validate(data)
-        logger.info(f"Configuration loaded from {config_path}")
-
         # Initialize the task list
         self._tasks: list[Task] = [
-            FuzzTask(self._crash_repository, self._config, "fuzz"),
-            ReplayTask(self._crash_repository, self._config, "replay"),
-            RepairTask(self._crash_repository, self._config, "repair"),
-            EvaluateTask(self._crash_repository, self._config, "evaluate"),
+            ReplayTask(self._crash_repository, "replay"),
+            RepairTask(self._crash_repository, "repair"),
+            EvaluateTask(self._crash_repository, "evaluate"),
         ]
 
     def run(self):
@@ -81,7 +62,7 @@ class Manager:
         while (left_time := timeout_seconds - (time.time() - self._start_time)) > 0:
             for task in self._tasks:
                 task.run()
-            time.sleep(min(10, left_time))
+            time.sleep(min(1, left_time))
 
     def __enter__(self):
         """

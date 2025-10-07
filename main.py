@@ -15,12 +15,6 @@ if __name__ == "__main__":
         description="A Conversational Large Language Model Agent for Automated Program Repair Guided by Fuzzing"
     )
     parser.add_argument(
-        "--path",
-        type=str,
-        required=True,
-        help="Path to the target configuration directory.",
-    )
-    parser.add_argument(
         "--timeout",
         type=int,
         default=360,
@@ -29,5 +23,5 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # Run the Manager with the provided path and timeout
-    with Manager(args.path, args.timeout) as manager:
+    with Manager(args.timeout) as manager:
         manager.run()

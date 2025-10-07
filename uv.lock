@@ -8,6 +8,7 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "docker" },
+    { name = "google-genai" },
     { name = "pydantic" },
     { name = "pydantic-ai" },
     { name = "sqlite-vec" },
@@ -16,6 +17,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "docker", specifier = ">=7.1.0" },
+    { name = "google-genai", specifier = ">=1.41.0" },
     { name = "pydantic", specifier = ">=2.11.7" },
     { name = "pydantic-ai", specifier = ">=0.3.4" },
     { name = "sqlite-vec", specifier = ">=0.1.6" },

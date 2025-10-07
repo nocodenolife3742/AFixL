@@ -1,0 +1,182 @@
+{
+  "id": "42470702",
+  "stage": "replay",
+  "repo_addr": "https://github.com/OSGeo/gdal",
+  "fix_commit": "f5f6591df6196296b2b8395ae726946eac1f9942",
+  "project": "gdal",
+  "note": [
+    "Reason for requesting line 1061 of /src/gdal/curl/lib/urlapi.c: To understand what string is passed to strdup and why it might be too short.",
+    "Reason for requesting line 58 of /src/gdal/curl/lib/dotdot.c: To understand how Curl_dedotdotify allocates and handles strings, especially regarding null termination and size, which might lead to a heap-buffer-overflow when strdup is called later.",
+    "The heap-buffer-overflow occurs because Curl_dedotdotify can return a pointer to the cloned input string, which might have its query part nul-terminated. If this modified string is then passed to strdup, the original strlen of the input might not be sufficient to allocate the buffer for the string potentially re-including the query part.",
+    "The crash is a heap-buffer-overflow during `strdup`. `Curl_dedotdotify` allocates a buffer of `inlen + 1` bytes, where `inlen` is `strlen(input)`. If `input` has a '?', it's nul-terminated within `clone`. If `Curl_dedotdotify` returns `clone` (e.g., for an empty string input at dotdot.c:77), and this `clone` (which was `strdup(input)`) has `inlen=2` but conceptually represents a longer string for `strdup` in `urlapi.c:1061`, then the subsequent `strdup` can read beyond the 3-byte allocated buffer."
+  ],
+  "valid_patches": null,
+  "history": [
+    {
+      "reason": "To understand what string is passed to strdup and why it might be too short.",
+      "line": 1061,
+      "file": "/src/gdal/curl/lib/urlapi.c"
+    },
+    {
+      "reason": "To understand how Curl_dedotdotify allocates and handles strings, especially regarding null termination and size, which might lead to a heap-buffer-overflow when strdup is called later.",
+      "line": 58,
+      "file": "/src/gdal/curl/lib/dotdot.c"
+    },
+    {
+      "reason": "To understand how 'ptr' is assigned before being passed to strdup in curl_url_get.",
+      "line": 1058,
+      "file": "/src/gdal/curl/lib/urlapi.c"
+    },
+    {
+      "reason": "To understand how the 'ptr' variable is assigned before being passed to strdup at line 1061, as it's the source of the heap-buffer-overflow.",
+      "line": 1057,
+      "file": "/src/gdal/curl/lib/urlapi.c"
+    },
+    {
+      "reason": "To understand how 'ptr' is assigned and what value it holds before being passed to strdup, which is causing a heap-buffer-overflow.",
+      "line": 1058,
+      "file": "/src/gdal/curl/lib/urlapi.c"
+    },
+    {
+      "reason": "The `Curl_dedotdotify` function can return a `clone` of the input string, which might have been modified (e.g., null-terminated early by `queryp = 0`). If the original `input` was an empty string, `Curl_dedotdotify` allocates 1 byte for `out` but then returns `clone` (which is `strdup(input)`). When `input` is an empty string, `strdup(input)` will also allocate 1 byte. If the original `input` contains non-null data after the initial string (e.g., `input` points to a string `",
+      "patches": [
+        {
+          "file": "/src/gdal/curl/lib/dotdot.c",
+          "diff": [
+            {
+              "line_number": 77,
+              "content": [
+                "    return out;"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "content": "The heap-buffer-overflow occurs because Curl_dedotdotify can return a pointer to the cloned input string, which might have its query part nul-terminated. If this modified string is then passed to strdup, the original strlen of the input might not be sufficient to allocate the buffer for the string potentially re-including the query part."
+    },
+    {
+      "content": "The crash is a heap-buffer-overflow during `strdup`. `Curl_dedotdotify` allocates a buffer of `inlen + 1` bytes, where `inlen` is `strlen(input)`. If `input` has a '?', it's nul-terminated within `clone`. If `Curl_dedotdotify` returns `clone` (e.g., for an empty string input at dotdot.c:77), and this `clone` (which was `strdup(input)`) has `inlen=2` but conceptually represents a longer string for `strdup` in `urlapi.c:1061`, then the subsequent `strdup` can read beyond the 3-byte allocated buffer."
+    },
+    {
+      "reason": "The `Curl_dedotdotify` function in `dotdot.c` allocates memory using `malloc(inlen + 1)` and sometimes returns a `strdup`'d copy of the input string (`clone`) which was also based on `inlen`. If `inlen` is 0 (for an empty string), then `malloc(1)` is called for `out`, and `strdup(\"\")` for `clone`. Later, `Curl_dedotdotify` might return `clone` if the `input` is empty (dotdot.c:77). However, the critical issue is that `Curl_dedotdotify` might call `strdup` on `input` (dotdot.c:66) to create `clone`, and then if `input` had a '?' character, it modifies `clone` by null-terminating it earlier (`*queryp = 0;` at dotdot.c:86). But `Curl_dedotdotify` also has a path where it might return `clone` at dotdot.c:77. If `clone` (which was originally `strdup(input)`) is modified by `*queryp = 0;`, then `strlen(clone)` will be shorter than the originally allocated size for `clone`. When this (potentially truncated) `clone` is passed to `strdup` at `urlapi.c:1061`, and `Curl_dedotdotify` returns a pointer to the *original* `clone` buffer (which has the shorter `strlen`), but the function `seturl` expects a full URL part, `strdup` might read past the end of the buffer if the original `input` contained non-null characters after the '?' that were truncated by `*queryp = 0;`. This can happen if the `ptr` passed to `strdup` at `urlapi.c:1061` originated from `Curl_dedotdotify` returning the modified `clone` buffer. The overflow is due to `strdup` in `urlapi.c:1061` reading 4 bytes from a 3-byte allocation.",
+      "patches": [
+        {
+          "file": "/src/gdal/curl/lib/dotdot.c",
+          "diff": [
+            {
+              "line_number": 77,
+              "content": [
+                "    char *empty = strdup(\"\");",
+                "    free(out);",
+                "    return empty;"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `Curl_dedotdotify` function can return a pointer to its internally allocated `clone` buffer. This `clone` buffer might have been prematurely null-terminated if it contained a '?' character, effectively shortening the string. If `strdup` then tries to copy this potentially shortened buffer, but the calling context expects the full original length (which `strdup` will attempt to read based on `strlen`), it can lead to a heap-buffer-overflow. To fix this, `Curl_dedotdotify` should always return a newly allocated buffer that correctly represents the dedotdotified path, rather than returning a pointer to its modified internal buffer.",
+      "patches": [
+        {
+          "file": "/src/gdal/curl/lib/dotdot.c",
+          "diff": [
+            {
+              "line_number": 77,
+              "content": [
+                "    free(out);",
+                "    return strdup(\"\"); /* return empty string */"
+              ]
+            },
+            {
+              "line_number": 178,
+              "content": [
+                "  if(queryp)",
+                "    *queryp = '?'; /* restore the query part */",
+                "  free(orgclone);",
+                "  return out;"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The Curl_dedotdotify function can return a pointer to a string that has been truncated by a null byte if it contained a '?' character. This truncated string (originally allocated by strdup based on the full input length) can then be passed to another strdup, which will calculate its length based on the new, shorter string. However, if the Curl_dedotdotify function then returns this 'clone' pointer in certain edge cases (like when the string becomes empty after truncation), and if this truncated string is then used as input to strdup in curl_url_get, a heap-buffer-overflow can occur because the strdup operation might try to read past the new, shorter null terminator, into the original larger allocation. To fix this, Curl_dedotdotify should always ensure it returns a newly allocated string that is properly sized for its *current* content, rather than potentially returning a pointer to a modified internal buffer whose original allocation size might lead to confusion.",
+      "patches": [
+        {
+          "file": "/src/gdal/curl/lib/dotdot.c",
+          "diff": [
+            {
+              "line_number": 77,
+              "content": [
+                "    /* zero length string, return a new identical one */",
+                "    free(out);",
+                "    return strdup(clone);"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "To understand how the `ptr` variable is assigned before it is used in `strdup` at line 1061, as the overflow suggests `ptr` might point to a string that is conceptually longer than its allocated memory.",
+      "line": 1058,
+      "file": "/src/gdal/curl/lib/urlapi.c"
+    },
+    {
+      "reason": "The `Curl_dedotdotify` function can return the `clone` buffer (originally created by `strdup(input)`) in certain edge cases, such as when the input path is empty (`!*clone` at dotdot.c:74) or when the resulting path is the same as the input path but without query part (at dotdot.c:177). If the `input` string contains a query part, `*queryp = 0;` (dotdot.c:87) null-terminates the `clone` string *before* the query, effectively shrinking the string length visible to `strdup` at urlapi.c:1061. However, the original `strdup` in `Curl_dedotdotify` allocated `strlen(input) + 1` bytes. If this `clone` is returned and `urlapi.c:1061` later calls `strdup(ptr)` where `ptr` is this `clone` (which has been truncated by setting a null terminator), and the original string was `input`, then `strdup` will attempt to read up to `strlen(ptr) + 1` bytes. If `ptr` was truncated, `strlen(ptr)` would be smaller than the original `strlen(input)`. If `urlapi.c:1061` expects to copy the *original full length* of `input` but `ptr` is a truncated `clone` that has `inlen` bytes allocated but has been null-terminated prematurely, `strdup` will allocate `strlen(ptr) + 1` bytes, which might be less than `inlen + 1`. This leads to a heap-buffer-overflow when the content of `ptr` is copied into the newly allocated buffer by `strdup` because the source string `ptr` is conceptually longer than the current `strlen(ptr)` implies due to the original allocation size. The simplest fix is to always ensure that `Curl_dedotdotify` returns a newly allocated string that matches the length of the string it intends to represent, preventing any confusion about allocated size versus effective string length.",
+      "patches": [
+        {
+          "file": "/src/gdal/curl/lib/dotdot.c",
+          "diff": [
+            {
+              "line_number": 77,
+              "content": [
+                "    char *empty = strdup(\"\");",
+                "    free(out);",
+                "    free(clone);",
+                "    return empty;"
+              ]
+            },
+            {
+              "line_number": 177,
+              "content": [
+                "  if(outptr == out) {",
+                "    /* the output is identical to the input path part */",
+                "    free(out);",
+                "    free(clone);",
+                "    return strdup(input_path);",
+                "  }"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `Curl_dedotdotify` function can return the `clone` buffer when the input string is empty, or if the path becomes empty after processing. The `clone` buffer is allocated based on the original `strlen(input)` before any query string truncation. When this potentially truncated `clone` is later passed to `strdup` (e.g., in `curl_url_get`), the `strdup` operation might attempt to read beyond the original allocation size if the string it's duplicating has been modified to be conceptually shorter than its allocated buffer but the original data (including the truncated part) is still present. This fix ensures that when `Curl_dedotdotify` processes an empty path (after stripping dot segments and query), it duplicates the `out` buffer (which is guaranteed to be null-terminated and correctly sized for the processed path) rather than the `clone` buffer, preventing a heap-buffer-overflow.",
+      "patches": [
+        {
+          "file": "/src/gdal/curl/lib/dotdot.c",
+          "diff": [
+            {
+              "line_number": 77,
+              "content": [
+                "    free(clone);",
+                "    return out;"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "To understand how the 'ptr' variable is assigned before being passed to strdup at line 1061.",
+      "line": 1059,
+      "file": "/src/gdal/curl/lib/urlapi.c"
+    }
+  ]
+}

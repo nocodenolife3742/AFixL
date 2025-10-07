@@ -17,4 +17,7 @@ logs/
 *.log
 
 # Patches
-patches/
+# patches/
+
+# records
+# records/

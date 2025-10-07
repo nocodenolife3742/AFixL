@@ -1,0 +1,91 @@
+{
+  "id": "42470110",
+  "stage": "replay",
+  "repo_addr": "https://github.com/harfbuzz/harfbuzz.git",
+  "fix_commit": "2dde6c803a9e50c5bff74095187b0cb2e12eebdd",
+  "project": "harfbuzz",
+  "note": [
+    "Reason for requesting line 41 of /src/harfbuzz/src/./hb-ot-layout-gsub-table.hh: To understand how 'iter' is declared and used within this function, which is reported to create an uninitialized value.",
+    "Reason for requesting line 1 of /src/harfbuzz/src/./hb-ot-layout-common.hh: To understand how the Coverage::Iter is initialized and how 'get_glyph()' is implemented, as the crash reports an uninitialized value related to 'iter' being used to get 'glyph_id'.",
+    "Reason for requesting line 1 of /src/harfbuzz/src/./hb-ot-layout-gsubgpos.hh: To understand the definition of Coverage and Coverage::Iter, specifically their constructors and the `get_glyph()` method, as the uninitialized value originates from the 'iter' object.",
+    "Reason for requesting line 1 of /src/harfbuzz/src/./hb-set.hh: To understand the definition of Coverage and Coverage::Iter, specifically their constructors and the `get_glyph()` method, as the uninitialized value originates from the 'iter' object. Also, to understand hb_set_t::page_for and hb_set_t::has functions."
+  ],
+  "valid_patches": null,
+  "history": [
+    {
+      "reason": "To understand how 'iter' is declared and used within this function, which is reported to create an uninitialized value.",
+      "line": 41,
+      "file": "/src/harfbuzz/src/./hb-ot-layout-gsub-table.hh"
+    },
+    {
+      "reason": "To understand how the Coverage::Iter is initialized and how 'get_glyph()' is implemented, as the crash reports an uninitialized value related to 'iter' being used to get 'glyph_id'.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/./hb-ot-layout-common.hh"
+    },
+    {
+      "reason": "To understand the structure of SingleSubstFormat1 and the type of its 'coverage' member.",
+      "line": 38,
+      "file": "/src/harfbuzz/src/./hb-ot-layout-gsub-table.hh"
+    },
+    {
+      "reason": "To understand the definition of Coverage and Coverage::Iter, specifically their constructors and the `get_glyph()` method, as the uninitialized value originates from the 'iter' object.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/./hb-ot-layout-gsubgpos.hh"
+    },
+    {
+      "reason": "To understand how hb_auto_t and Coverage::Iter are defined and initialized, especially their constructors and the `get_glyph()` method, as the crash reports an uninitialized value originating from the 'iter' object in SingleSubstFormat1::closure.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/./hb-coverage.hh"
+    },
+    {
+      "reason": "To understand the definition of Coverage and Coverage::Iter, specifically their constructors and the `get_glyph()` method, as the uninitialized value originates from the 'iter' object.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/./hb-ot-layout-common.hh"
+    },
+    {
+      "reason": "To understand the definition of Coverage and Coverage::Iter, specifically their constructors and the `get_glyph()` method, as the uninitialized value originates from the 'iter' object. This file is included by hb-ot-layout-gsub-table.hh and is likely to contain the relevant definitions.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/./hb-ot-layout-gsubgpos.hh"
+    },
+    {
+      "reason": "To understand the definition of hb_auto_t and Coverage::Iter, specifically their constructors and the `get_glyph()` method, as the uninitialized value originates from the 'iter' object.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/./hb-shaper-private.hh"
+    },
+    {
+      "reason": "To understand the definition of Coverage and Coverage::Iter, specifically their constructors and the `get_glyph()` method, as the uninitialized value originates from the 'iter' object during its initialization with `this+coverage`.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/./hb-ot-layout-gsubgpos.hh"
+    },
+    {
+      "reason": "To understand the definition of 'Coverage' and 'Coverage::Iter', specifically their constructor which takes a 'Coverage' object, as well as the implementation of 'get_glyph()'. This is crucial for understanding why 'iter' might be uninitialized.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/./hb-ot-layout-common.hh"
+    },
+    {
+      "reason": "To understand the definition of Coverage and Coverage::Iter, specifically their constructors and the `get_glyph()` method, as the uninitialized value originates from the 'iter' object. Also, to understand hb_set_t::page_for and hb_set_t::has functions.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/./hb-set.hh"
+    },
+    {
+      "reason": "To understand the definition of Coverage::Iter and its constructor, as well as the implementation of get_glyph(), which is likely where the uninitialized value originates.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/./hb-ot-layout-common.hh"
+    },
+    {
+      "reason": "To understand the definition of 'Coverage' and 'Coverage::Iter', specifically their constructors and the 'get_glyph()' method, as the uninitialized value originates from the 'iter' object's construction and use. Also, to see the definition of `SingleSubstFormat1` to understand `this+coverage`.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/./hb-ot-layout-common.hh"
+    },
+    {
+      "reason": "To understand the structure of 'SingleSubstFormat1' and how 'coverage' is defined and initialized within it. This will clarify what 'this+coverage' refers to and why it might be uninitialized.",
+      "line": 38,
+      "file": "/src/harfbuzz/src/./hb-ot-layout-gsub-table.hh"
+    },
+    {
+      "reason": "To understand the structure of 'Coverage' and 'Coverage::Iter', especially their constructors and how 'get_glyph()' is implemented, as the uninitialized value originates from the 'iter' object initialized with 'this+coverage'.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/./hb-ot-layout-common.hh"
+    }
+  ]
+}

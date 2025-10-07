@@ -1,0 +1,35 @@
+{
+  "id": "42471519",
+  "stage": "repair",
+  "repo_addr": "https://github.com/openthread/openthread",
+  "fix_commit": "bf72fd8f8d4a898c019f279c8605e66fc0b42878",
+  "project": "openthread",
+  "note": [
+    "Reason for requesting line 1586 of /src/openthread/src/core/thread/mesh_forwarder.cpp: To understand the context of the 8-byte read causing the heap-buffer-overflow."
+  ],
+  "valid_patches": null,
+  "history": [
+    {
+      "reason": "To understand the context of the 8-byte read causing the heap-buffer-overflow.",
+      "line": 1586,
+      "file": "/src/openthread/src/core/thread/mesh_forwarder.cpp"
+    },
+    {
+      "reason": "The heap-buffer-overflow occurs because `memcpy` attempts to read 8 bytes (size of `Ip6::UdpHeader`) from `aFrame` after the IPv6 header, but `aFrameLength` (remaining length) is less than 8 bytes. The `VerifyOrExit` macro should check if `aFrameLength` is sufficient for the `Ip6::UdpHeader` before the `memcpy` operation.",
+      "patches": [
+        {
+          "file": "/src/openthread/src/core/thread/mesh_forwarder.cpp",
+          "diff": [
+            {
+              "line_number": 1586,
+              "content": [
+                "        VerifyOrExit(aFrameLength >= sizeof(Ip6::UdpHeader), error = OT_ERROR_PARSE);",
+                "        memcpy(&udpHeader, aFrame, sizeof(Ip6::UdpHeader));"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

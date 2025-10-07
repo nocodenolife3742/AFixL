@@ -1,10 +1,10 @@
 from typing import override
 import logging
 from pydantic_ai import Agent
+from pydantic_ai.models.google import GoogleModel, GoogleModelSettings
 import asyncio
 import threading
 import tarfile
-import pathlib
 
 from afixl.backend.task import Task
 from afixl.docker.instance import Instance
@@ -18,6 +18,8 @@ from afixl.config import PROJECT_ROOT
 
 logger = logging.getLogger(__name__)
 
+TIMES_THRESHOLD = 15  # Number of retries before giving up on a crash
+
 
 class RepairTask(Task):
     """
@@ -30,11 +32,7 @@ class RepairTask(Task):
         Initialize the repair task.
         This method should be called before running the task.
         """
-
-        self._instance = Instance(
-            source=pathlib.Path(self._config.path),
-            mode="build",
-        )
+        self._instance: Instance = None
 
         self._loop = asyncio.new_event_loop()
         self._loop_thread = threading.Thread(target=self._loop.run_forever, daemon=True)
@@ -46,11 +44,13 @@ class RepairTask(Task):
         ) as f:
             sys_prompt = f.read()
 
-        self._source_structure = self._get_source_structure("/src")
         self._llm_agent = Agent(
-            "google-gla:gemini-2.0-flash",
+            GoogleModel("gemini-2.5-flash"),
             output_type=ProposedPatch | RequestCode | MakeNote,
             system_prompt=sys_prompt,
+            model_settings=GoogleModelSettings(
+                google_thinking_config={"thinking_budget": 1000},
+            ),
         )
         self._output_handle = None
         self._fixing_crash: Crash | None = None
@@ -77,26 +77,40 @@ class RepairTask(Task):
         This method should contain the logic for executing the repair process.
         """
         crashes = self._crash_repository.get_crashes(
-            lambda c: c.stage == "replay" and c.reproducable is True and c.retry_count < 20
+            lambda c: c.stage == "replay" and c.retry_count < TIMES_THRESHOLD
         )
 
         if crashes and not self._output_handle:
             self._fixing_crash = crashes[0]
             logger.info(f"Repairing crash {self._fixing_crash.id}")
+            self._instance = Instance(
+                source=f"n132/arvo:{self._fixing_crash.id}-vul", mode="pull"
+            )
 
             with open(
                 PROJECT_ROOT / "afixl" / "backend" / "repair" / "prompts" / "user.txt",
                 "r",
             ) as f:
                 user_prompt = f.read()
+
+                requested_code = ""
+                for file, content in self._fixing_crash.requested_content.items():
+                    requested_code += f"- File: {file}\n"
+                    last = 0
+                    for line_num in sorted(content.keys()):
+                        if line_num > last + 1:
+                            requested_code += "...\n"
+                        requested_code += (
+                            content[line_num] + "\n"
+                            if content[line_num].strip()
+                            else "<No Content>\n"
+                        )
+                        last = line_num
+                    requested_code += "\n\n"
                 prompt = user_prompt.format(
                     crash_report=self._fixing_crash.report.decode("utf-8"),
-                    code_structure=self._source_structure,
-                    requested_code="\n\n".join(
-                        f"File: {path}\n{content.decode('utf-8')}"
-                        for path, content in self._fixing_crash.requested_content.items()
-                    ),
-                    notes="\n".join(self._fixing_crash.note),
+                    requested_code=requested_code.strip() or "None",
+                    notes="\n".join(self._fixing_crash.note) or "None",
                 )
             self._output_handle = self._request_llm(prompt)
 
@@ -105,45 +119,26 @@ class RepairTask(Task):
                 operation = self._output_handle.result().output
                 self._do_operation(operation)
             except Exception as e:
-                logger.error(f"LLM request failed: {e}")
+                logger.error(
+                    f"LLM request failed for crash {self._fixing_crash.id}: {e}"
+                )
             self._output_handle = None
             self._fixing_crash = None
+            self._instance.close()
+            self._instance = None
 
     def _request_llm(self, prompt: str):
-        return asyncio.run_coroutine_threadsafe(self._llm_agent.run(prompt), self._loop)
-
-    def _get_source_structure(self, path: str) -> str:
-        if not self._instance:
-            raise ValueError("Instance is not set.")
-
-        install_handle = self._instance.execute(
-            command="apt-get install -y tree",
-        )
-        while install_handle.running:
-            pass
-
-        if install_handle.exit_code != 0:
-            raise RuntimeError("Failed to install 'tree' command.")
-
-        handle = self._instance.execute(
-            command="tree",
-            workdir=path,
-            environment=self._config.environment.runtime,
+        return asyncio.run_coroutine_threadsafe(
+            self._llm_agent.run(prompt),
+            self._loop,
         )
 
-        while handle.running:
-            pass
-
-        if handle.exit_code != 0:
-            raise RuntimeError("Failed to get source structure.")
-
-        return f"path: {path}\n{handle.output.decode('utf-8')}"
-
-    def _get_file_content(self, file_path: str, raw: bool = False) -> str:
+    def _get_file_content(self, file_path: str, line_limit: int) -> dict[int, str]:
         """
         Read and return the content of a file.
         Args:
             file_path (str): The path to the file.
+            line_limit (int): The line number to retrieve (1-based). If -1, retrieve the entire file.
         Returns:
             str: The content of the file.
         """
@@ -167,26 +162,50 @@ class RepairTask(Task):
                 file = tar.extractfile(member)
                 if file:
                     raw_content = file.read().decode("utf-8")
-                    if raw:
-                        return raw_content
-                    content = "\n".join(
-                        f"{i + 1:4d} {line}"
+                    raw_content += "\n<End of File>"
+                    content = {
+                        i + 1: f"line {i + 1:4d} : {line}"
                         for i, line in enumerate(raw_content.splitlines())
-                    )
-                    return content
+                        if (i + 1 >= line_limit - 30 and i + 1 < line_limit + 30)
+                        or line == "<End of File>"
+                    }
+                    return {k: v for k, v in content.items()}
+
                 else:
                     raise ValueError(
                         f"Could not extract file from tar archive: {file_path}"
                     )
 
     def _do_operation(self, operation: RequestCode | ProposedPatch | MakeNote):
-        self._fixing_crash.retry_count += 1
         self._fixing_crash.history.append(operation)
         if isinstance(operation, RequestCode):
-            self._fixing_crash.requested_content[operation.file] = (
-                self._get_file_content(operation.file).encode("utf-8")
-            )
-            logger.info(f"Crash {self._fixing_crash.id} requested code {operation.file}")
+
+            if (
+                operation.file in self._fixing_crash.requested_content.keys()
+                and operation.line
+                in self._fixing_crash.requested_content[operation.file].keys()
+            ):
+                logger.warning(
+                    f"Crash {self._fixing_crash.id} made a redundant code request for {operation.file} at line {operation.line}"
+                )
+            else:
+                try:
+                    new_content = self._get_file_content(operation.file, operation.line)
+                    if operation.file not in self._fixing_crash.requested_content:
+                        self._fixing_crash.requested_content[operation.file] = {}
+                    self._fixing_crash.requested_content[operation.file].update(
+                        new_content
+                    )
+                    self._fixing_crash.note.append(
+                        f"Reason for requesting line {operation.line} of {operation.file}: {operation.reason}"
+                    )
+                    logger.info(
+                        f"Crash {self._fixing_crash.id} requested code {operation.file} at line {operation.line}"
+                    )
+                except Exception as e:
+                    logger.info(
+                        f"LLM failed to get requested code {operation.file} at line {operation.line} for crash {self._fixing_crash.id}"
+                    )
         elif isinstance(operation, ProposedPatch):
             self._fixing_crash.stage = "repair"
             logger.info(f"Crash {self._fixing_crash.id} proposed a patch")
@@ -196,3 +215,13 @@ class RepairTask(Task):
         else:
             raise ValueError(f"Unknown operation type: {type(operation)}")
         self._crash_repository.update_crash(self._fixing_crash)
+
+        # Save the crash to a file for record-keeping
+        record_file = PROJECT_ROOT / "records" / f"{self._fixing_crash.id}.json"
+        record_file.parent.mkdir(parents=True, exist_ok=True)
+        with open(record_file, "w") as f:
+            json = self._fixing_crash.model_dump_json(
+                indent=2, exclude={"retry_count", "requested_content", "report"}
+            )
+            f.write(json)
+        self._fixing_crash.retry_count += 1

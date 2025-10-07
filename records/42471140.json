@@ -1,0 +1,92 @@
+{
+  "id": "42471140",
+  "stage": "replay",
+  "repo_addr": "https://github.com/harfbuzz/harfbuzz.git",
+  "fix_commit": "68b705076808d4b0a4ac3bfa945b8f9ae23db1df",
+  "project": "harfbuzz",
+  "note": [
+    "Reason for requesting line 711 of /src/harfbuzz/src/./hb-machinery.hh: To understand the BEInt conversion operator and how it's accessing memory.",
+    "Reason for requesting line 257 of /src/harfbuzz/src/./hb-aat-layout-kerx-table.hh: To understand how the BEInt object is used and potentially misaligned or accessed out of bounds within the KerxSubTableFormat2::sanitize function.",
+    "Reason for requesting line 60 of /src/harfbuzz/src/hb.hh: To confirm the definition of HBUINT32.",
+    "Reason for requesting line 80 of /src/harfbuzz/src/hb-machinery.hh: To understand the definition of HBUINT32 and confirm it is a BEInt type, as the crash indicates BEInt<unsigned int, 4> is involved.",
+    "Reason for requesting line 680 of /src/harfbuzz/src/./hb-machinery.hh: To understand how BEInt::sanitize works and if it triggers the conversion operator directly, or if the conversion happens implicitly after sanitization."
+  ],
+  "valid_patches": null,
+  "history": [
+    {
+      "reason": "To understand the BEInt conversion operator and how it's accessing memory.",
+      "line": 711,
+      "file": "/src/harfbuzz/src/./hb-machinery.hh"
+    },
+    {
+      "reason": "To understand how the BEInt object is used and potentially misaligned or accessed out of bounds within the KerxSubTableFormat2::sanitize function.",
+      "line": 257,
+      "file": "/src/harfbuzz/src/./hb-aat-layout-kerx-table.hh"
+    },
+    {
+      "reason": "To confirm the definition of HBUINT32.",
+      "line": 60,
+      "file": "/src/harfbuzz/src/hb.hh"
+    },
+    {
+      "reason": "To understand how `BEInt<unsigned int, 4>` is instantiated and used within `KerxSubTableFormat2` to understand the memory layout leading to the overflow.",
+      "line": 278,
+      "file": "/src/harfbuzz/src/./hb-aat-layout-kerx-table.hh"
+    },
+    {
+      "reason": "To understand how the rowWidth member, which is of type HBUINT32 (BEInt<unsigned int, 4>), is constructed and potentially misaligned or placed such that its internal array accesses memory out of bounds.",
+      "line": 278,
+      "file": "/src/harfbuzz/src/./hb-aat-layout-kerx-table.hh"
+    },
+    {
+      "reason": "To understand the definition of HBUINT32 and confirm it is a BEInt type, as the crash indicates BEInt<unsigned int, 4> is involved.",
+      "line": 80,
+      "file": "/src/harfbuzz/src/hb-machinery.hh"
+    },
+    {
+      "reason": "To understand how rowWidth is used and its type definition. Given the overflow is 1 byte past an allocated region, it's possible rowWidth is defined as a 4-byte BEInt, and the access to it is reading one byte beyond the structure it's part of.",
+      "line": 278,
+      "file": "/src/harfbuzz/src/./hb-aat-layout-kerx-table.hh"
+    },
+    {
+      "reason": "To understand how BEInt::sanitize works and if it triggers the conversion operator directly, or if the conversion happens implicitly after sanitization.",
+      "line": 680,
+      "file": "/src/harfbuzz/src/./hb-machinery.hh"
+    },
+    {
+      "reason": "To understand how the `BEInt` type is defined, specifically the `sanitize` method, and if it directly involves the conversion operator that triggered the crash.",
+      "line": 278,
+      "file": "/src/harfbuzz/src/./hb-aat-layout-kerx-table.hh"
+    },
+    {
+      "reason": "To understand the definition of HBUINT32 and confirm it is a BEInt type, as the crash indicates BEInt<unsigned int, 4> is involved.",
+      "line": 278,
+      "file": "/src/harfbuzz/src/./hb-aat-layout-kerx-table.hh"
+    },
+    {
+      "reason": "To understand the definition of HBUINT32 and confirm its type, as the crash indicates BEInt<unsigned int, 4> is involved.",
+      "line": 278,
+      "file": "/src/harfbuzz/src/./hb-aat-layout-kerx-table.hh"
+    },
+    {
+      "reason": "To understand how `HBUINT32` is defined, especially if it is a `BEInt<unsigned int, 4>` type, as indicated by the crash report.",
+      "line": 278,
+      "file": "/src/harfbuzz/src/./hb-aat-layout-kerx-table.hh"
+    },
+    {
+      "reason": "To confirm the type of rowWidth and understand its usage, especially how its sanitize method is called.",
+      "line": 278,
+      "file": "/src/harfbuzz/src/./hb-aat-layout-kerx-table.hh"
+    },
+    {
+      "reason": "To understand how the 'rowWidth' member, which is a HBUINT32, is defined and how its 'sanitize' method (or the implicit conversion that leads to the crash) is implemented. This will clarify if HBUINT32 is indeed BEInt<unsigned int, 4> and how the sanitization process triggers the read.",
+      "line": 278,
+      "file": "/src/harfbuzz/src/./hb-aat-layout-kerx-table.hh"
+    },
+    {
+      "reason": "To understand how the 'array' member is defined and potentially sized within 'KerxSubTableFormat2' in hb-aat-layout-kerx-table.hh, as the crash is related to reading past an allocated buffer in the context of this table.",
+      "line": 285,
+      "file": "/src/harfbuzz/src/./hb-aat-layout-kerx-table.hh"
+    }
+  ]
+}

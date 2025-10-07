@@ -1,0 +1,135 @@
+{
+  "id": "42471317",
+  "stage": "repair",
+  "repo_addr": "https://github.com/libgit2/libgit2",
+  "fix_commit": "52f859fd534e3c16c2c03b9a2375f00a50f3996e",
+  "project": "libgit2",
+  "note": [
+    "Reason for requesting line 92 of /src/libgit2/src/util.c: To understand how `git__strntol64` and `git__strntol32` process the input string and its length, specifically looking at the line that caused the heap-buffer-overflow."
+  ],
+  "valid_patches": null,
+  "history": [
+    {
+      "reason": "To understand how `git__strntol64` and `git__strntol32` process the input string and its length, specifically looking at the line that caused the heap-buffer-overflow.",
+      "line": 92,
+      "file": "/src/libgit2/src/util.c"
+    },
+    {
+      "reason": "The `git__strntol64` function performs a heap-buffer-overflow because it increments `p` and dereferences `*p` without checking against the `nptr_len` boundary. The `while (git__isspace(*p))` loop at line 92 is the direct cause. Similar unchecked accesses occur later in the function. The proposed fix adds bounds checks to ensure `p` remains within the allocated buffer.",
+      "patches": [
+        {
+          "file": "/src/libgit2/src/util.c",
+          "diff": [
+            {
+              "line_number": 92,
+              "content": [
+                "\twhile ((p < nptr + nptr_len) && git__isspace(*p))"
+              ]
+            },
+            {
+              "line_number": 98,
+              "content": [
+                "\tif ((p < nptr + nptr_len) && (*p == '-' || *p == '+'))"
+              ]
+            },
+            {
+              "line_number": 99,
+              "content": [
+                "\t\tif (*p++ == '-')"
+              ]
+            },
+            {
+              "line_number": 106,
+              "content": [
+                "\tif ((p < nptr + nptr_len) && (*p != '0'))"
+              ]
+            },
+            {
+              "line_number": 110,
+              "content": [
+                "\t\t\tif (((p + 1) < nptr + nptr_len) && (p[1] == 'x' || p[1] == 'X'))"
+              ]
+            },
+            {
+              "line_number": 116,
+              "content": [
+                "\t\tif (((p + 1) < nptr + nptr_len) && (p[1] == 'x' || p[1] == 'X'))"
+              ]
+            },
+            {
+              "line_number": 121,
+              "content": [
+                "\twhile ((p < nptr + nptr_len) && (c = *p)) {"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `git__strntol64` function does not validate the input pointer `p` against `nptr_len` when advancing `p` in character processing loops, leading to a heap-buffer-overflow. The fix adds boundary checks to all `p` advancements to ensure `p` remains within the `nptr_len` limit.",
+      "patches": [
+        {
+          "file": "/src/libgit2/src/util.c",
+          "diff": [
+            {
+              "line_number": 92,
+              "content": [
+                " 0x6060000002fc is located 0 bytes to the right of 60-byte region [0x6060000002c0,0x6060000002fc)",
+                "    while ((p - nptr < nptr_len) && git__isspace(*p))"
+              ]
+            },
+            {
+              "line_number": 98,
+              "content": [
+                "    if ((p - nptr < nptr_len) && (*p == '-' || *p == '+'))"
+              ]
+            },
+            {
+              "line_number": 110,
+              "content": [
+                "            if ((p - nptr + 1 < nptr_len) && (p[1] == 'x' || p[1] == 'X')) {"
+              ]
+            },
+            {
+              "line_number": 116,
+              "content": [
+                "    } else if (base == 16 && (p - nptr < nptr_len) && *p == '0') {",
+                "        if ((p - nptr + 1 < nptr_len) && (p[1] == 'x' || p[1] == 'X'))"
+              ]
+            },
+            {
+              "line_number": 122,
+              "content": [
+                " 0x6060000002fc is located 0 bytes to the right of 60-byte region [0x6060000002c0,0x6060000002fc)",
+                "    while ((p - nptr < nptr_len) && (c = *p)) {"
+              ]
+            },
+            {
+              "line_number": 140,
+              "content": [
+                "            if (p == nptr || p - nptr >= nptr_len)"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `git__strntol64` function performs a read past the end of the input buffer `nptr` because the loop at line 92 `while (git__isspace(*p))` does not check `p` against the provided `nptr_len`. This causes a heap-buffer-overflow when processing a string that contains whitespace characters extending beyond the allocated buffer.",
+      "patches": [
+        {
+          "file": "/src/libgit2/src/util.c",
+          "diff": [
+            {
+              "line_number": 92,
+              "content": [
+                "\twhile (p < nptr + nptr_len && git__isspace(*p))"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

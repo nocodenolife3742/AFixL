@@ -38,7 +38,6 @@ class CrashRepository:
 
         # Add the crash to the list
         self._crashes.append(crash)
-        logger.info(f"Added crash with ID {crash.id} to the repository.")
 
     def get_crashes(self, filter: Callable[[Crash], bool] = None):
         """

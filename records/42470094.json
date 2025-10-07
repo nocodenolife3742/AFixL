@@ -1,0 +1,40 @@
+{
+  "id": "42470094",
+  "stage": "repair",
+  "repo_addr": "https://github.com/harfbuzz/harfbuzz.git",
+  "fix_commit": "2dde6c803a9e50c5bff74095187b0cb2e12eebdd",
+  "project": "harfbuzz",
+  "note": [
+    "Reason for requesting line 495 of /src/harfbuzz/src/./hb-dsalgs.hh: To understand the definition of `hb_auto_t` and how the variable `t1` is initialized.",
+    "Reason for requesting line 864 of /src/harfbuzz/src/./hb-ot-layout-common.hh: To understand how OT::CoverageFormat2::Iter is initialized and how 't1' is passed and potentially stored."
+  ],
+  "valid_patches": null,
+  "history": [
+    {
+      "reason": "To understand the definition of `hb_auto_t` and how the variable `t1` is initialized.",
+      "line": 495,
+      "file": "/src/harfbuzz/src/./hb-dsalgs.hh"
+    },
+    {
+      "reason": "To understand how OT::CoverageFormat2::Iter is initialized and how 't1' is passed and potentially stored.",
+      "line": 864,
+      "file": "/src/harfbuzz/src/./hb-ot-layout-common.hh"
+    },
+    {
+      "reason": "The `hb_auto_t` constructor for `OT::Coverage::Iter` takes `T1 t1` by value, creating a temporary object. The `OT::Coverage::Iter::init` method then stores a pointer (`c`) to a member of this temporary object. When the `hb_auto_t` constructor finishes, the temporary `t1` is destroyed, leading to a stack-use-after-return if `c` is accessed later. Changing the constructor to take `T1` by `const &` prevents the creation of a temporary and ensures the pointer remains valid as long as the object passed to `hb_auto_t` is alive.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/./hb-dsalgs.hh",
+          "diff": [
+            {
+              "line_number": 495,
+              "content": [
+                "  template <typename T1> hb_auto_t (const T1 &t1) { Type::init (t1); }"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

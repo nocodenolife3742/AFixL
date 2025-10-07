@@ -1,0 +1,260 @@
+{
+  "id": "42471111",
+  "stage": "evaluate",
+  "repo_addr": "https://github.com/libgit2/libgit2",
+  "fix_commit": "cb23c3efd22d34db279ceb39cc312473761db5ed",
+  "project": "libgit2",
+  "report": "RVJST1I6IEFkZHJlc3NTYW5pdGl6ZXI6IGhlYXAtYnVmZmVyLW92ZXJmbG93IG9uIGFkZHJlc3MgMHg2MDYwMDAwMDAzNWYgYXQgcGMgMHgwMDAwMDA3MjVhZTMgYnAgMHg3ZmZmZmZmZmRhODAgc3AgMHg3ZmZmZmZmZmRhNzgNClJFQUQgb2Ygc2l6ZSAxIGF0IDB4NjA2MDAwMDAwMzVmIHRocmVhZCBUMA0KU0NBUklORVNTOiAxMiAoMS1ieXRlLXJlYWQtaGVhcC1idWZmZXItb3ZlcmZsb3cpDQogICAgIzAgMHg3MjVhZTIgaW4gcHJlZml4Y21wIC9zcmMvbGliZ2l0Mi9zcmMvdXRpbC5jOjI2MjoyMg0KICAgICMxIDB4NzI1OWRkIGluIGdpdF9fcHJlZml4Y21wIC9zcmMvbGliZ2l0Mi9zcmMvdXRpbC5jOjI4Mjo5DQogICAgIzIgMHg2MWU2N2UgaW4gZ2l0X2NvbW1pdF9fcGFyc2VfcmF3IC9zcmMvbGliZ2l0Mi9zcmMvY29tbWl0LmM6NDIzOjY0DQogICAgIzMgMHg1ZGQwMTAgaW4gZ2l0X29iamVjdF9fZnJvbV9yYXcgL3NyYy9saWJnaXQyL3NyYy9vYmplY3QuYzo5NDoxNQ0KICAgICM0IDB4NWMwM2NiIGluIExMVk1GdXp6ZXJUZXN0T25lSW5wdXQgL3NyYy9saWJnaXQyL2J1aWxkLy4uL2Z1enplcnMvb2JqZWN0c19mdXp6ZXIuYzo0MDo3DQogICAgIzUgMHg1NWI3NjUgaW4gZnV6emVyOjpGdXp6ZXI6OkV4ZWN1dGVDYWxsYmFjayh1bnNpZ25lZCBjaGFyIGNvbnN0KiwgdW5zaWduZWQgbG9uZykgL3NyYy9saWJmdXp6ZXIvRnV6emVyTG9vcC5jcHA6NTcwOjE1DQogICAgIzYgMHg1MzE2NmQgaW4gZnV6emVyOjpSdW5PbmVUZXN0KGZ1enplcjo6RnV6emVyKiwgY2hhciBjb25zdCosIHVuc2lnbmVkIGxvbmcpIC9zcmMvbGliZnV6emVyL0Z1enplckRyaXZlci5jcHA6MjgwOjYNCiAgICAjNyAweDUzY2ViNiBpbiBmdXp6ZXI6OkZ1enplckRyaXZlcihpbnQqLCBjaGFyKioqLCBpbnQgKCopKHVuc2lnbmVkIGNoYXIgY29uc3QqLCB1bnNpZ25lZCBsb25nKSkgL3NyYy9saWJmdXp6ZXIvRnV6emVyRHJpdmVyLmNwcDo3MTM6OQ0KICAgICM4IDB4NTMwY2VjIGluIG1haW4gL3NyYy9saWJmdXp6ZXIvRnV6emVyTWFpbi5jcHA6MjA6MTANCiAgICAjOSAweDdmZmZmNmVlNTgyZiBpbiBfX2xpYmNfc3RhcnRfbWFpbiAoL2xpYi94ODZfNjQtbGludXgtZ251L2xpYmMuc28uNisweDIwODJmKQ0KICAgICMxMCAweDQxZDkxOCBpbiBfc3RhcnQgKC9vdXQvb2JqZWN0c19mdXp6ZXIrMHg0MWQ5MTgpDQoNCkRFRFVQX1RPS0VOOiBwcmVmaXhjbXAtLWdpdF9fcHJlZml4Y21wLS1naXRfY29tbWl0X19wYXJzZV9yYXcNCjB4NjA2MDAwMDAwMzVmIGlzIGxvY2F0ZWQgMCBieXRlcyB0byB0aGUgcmlnaHQgb2YgNjMtYnl0ZSByZWdpb24gWzB4NjA2MDAwMDAwMzIwLDB4NjA2MDAwMDAwMzVmKQ0KYWxsb2NhdGVkIGJ5IHRocmVhZCBUMCBoZXJlOg0KICAgICMwIDB4NTJjOTU4IGluIG9wZXJhdG9yIG5ld1tdKHVuc2lnbmVkIGxvbmcpIC9zcmMvbGx2bS9wcm9qZWN0cy9jb21waWxlci1ydC9saWIvYXNhbi9hc2FuX25ld19kZWxldGUuY2M6MTA5DQogICAgIzEgMHg1NWI1MTcgaW4gZnV6emVyOjpGdXp6ZXI6OkV4ZWN1dGVDYWxsYmFjayh1bnNpZ25lZCBjaGFyIGNvbnN0KiwgdW5zaWduZWQgbG9uZykgL3NyYy9saWJmdXp6ZXIvRnV6emVyTG9vcC5jcHA6NTU3OjIzDQogICAgIzIgMHg1MzE2NmQgaW4gZnV6emVyOjpSdW5PbmVUZXN0KGZ1enplcjo6RnV6emVyKiwgY2hhciBjb25zdCosIHVuc2lnbmVkIGxvbmcpIC9zcmMvbGliZnV6emVyL0Z1enplckRyaXZlci5jcHA6MjgwOjYNCiAgICAjMyAweDUzY2ViNiBpbiBmdXp6ZXI6OkZ1enplckRyaXZlcihpbnQqLCBjaGFyKioqLCBpbnQgKCopKHVuc2lnbmVkIGNoYXIgY29uc3QqLCB1bnNpZ25lZCBsb25nKSkgL3NyYy9saWJmdXp6ZXIvRnV6emVyRHJpdmVyLmNwcDo3MTM6OQ0KICAgICM0IDB4NTMwY2VjIGluIG1haW4gL3NyYy9saWJmdXp6ZXIvRnV6emVyTWFpbi5jcHA6MjA6MTANCiAgICAjNSAweDdmZmZmNmVlNTgyZiBpbiBfX2xpYmNfc3RhcnRfbWFpbiAoL2xpYi94ODZfNjQtbGludXgtZ251L2xpYmMuc28uNisweDIwODJmKQ0KDQpERURVUF9UT0tFTjogb3BlcmF0b3IgbmV3W10odW5zaWduZWQgbG9uZyktLWZ1enplcjo6RnV6emVyOjpFeGVjdXRlQ2FsbGJhY2sodW5zaWduZWQgY2hhciBjb25zdCosIHVuc2lnbmVkIGxvbmcpLS1mdXp6ZXI6OlJ1bk9uZVRlc3QoZnV6emVyOjpGdXp6ZXIqLCBjaGFyIGNvbnN0KiwgdW5zaWduZWQgbG9uZykNClNVTU1BUlk6IEFkZHJlc3NTYW5pdGl6ZXI6IGhlYXAtYnVmZmVyLW92ZXJmbG93IC9zcmMvbGliZ2l0Mi9zcmMvdXRpbC5jOjI2MjoyMiBpbiBwcmVmaXhjbXANClNoYWRvdyBieXRlcyBhcm91bmQgdGhlIGJ1Z2d5IGFkZHJlc3M6DQogIDB4MGMwYzdmZmY4MDEwOiAwMCAwMCAwMCAwMCAwMCAwMCAwNiBmYSBmYSBmYSBmYSBmYSAwMCAwMCAwMCAwMA0KICAweDBjMGM3ZmZmODAyMDogMDAgMDAgMDAgMDAgZmEgZmEgZmEgZmEgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDANCiAgMHgwYzBjN2ZmZjgwMzA6IGZhIGZhIGZhIGZhIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIGZhIGZhIGZhIGZhDQogIDB4MGMwYzdmZmY4MDQwOiAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCBmYSBmYSBmYSBmYSAwMCAwMCAwMCAwMA0KICAweDBjMGM3ZmZmODA1MDogMDAgMDAgMDAgMDAgZmEgZmEgZmEgZmEgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDcNCj0-MHgwYzBjN2ZmZjgwNjA6IGZhIGZhIGZhIGZhIDAwIDAwIDAwIDAwIDAwIDAwIDAwWzA3XWZhIGZhIGZhIGZhDQogIDB4MGMwYzdmZmY4MDcwOiAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYQ0KICAweDBjMGM3ZmZmODA4MDogZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmENCiAgMHgwYzBjN2ZmZjgwOTA6IGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhDQogIDB4MGMwYzdmZmY4MGEwOiBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYQ0KICAweDBjMGM3ZmZmODBiMDogZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmENClNoYWRvdyBieXRlIGxlZ2VuZCAob25lIHNoYWRvdyBieXRlIHJlcHJlc2VudHMgOCBhcHBsaWNhdGlvbiBieXRlcyk6DQogIEFkZHJlc3NhYmxlOiAgICAgICAgICAgMDANCiAgUGFydGlhbGx5IGFkZHJlc3NhYmxlOiAwMSAwMiAwMyAwNCAwNSAwNiAwNyANCiAgSGVhcCBsZWZ0IHJlZHpvbmU6ICAgICAgIGZhDQogIEZyZWVkIGhlYXAgcmVnaW9uOiAgICAgICBmZA0KICBTdGFjayBsZWZ0IHJlZHpvbmU6ICAgICAgZjENCiAgU3RhY2sgbWlkIHJlZHpvbmU6ICAgICAgIGYyDQogIFN0YWNrIHJpZ2h0IHJlZHpvbmU6ICAgICBmMw0KICBTdGFjayBhZnRlciByZXR1cm46ICAgICAgZjUNCiAgU3RhY2sgdXNlIGFmdGVyIHNjb3BlOiAgIGY4DQogIEdsb2JhbCByZWR6b25lOiAgICAgICAgICBmOQ0KICBHbG9iYWwgaW5pdCBvcmRlcjogICAgICAgZjYNCiAgUG9pc29uZWQgYnkgdXNlcjogICAgICAgIGY3DQogIENvbnRhaW5lciBvdmVyZmxvdzogICAgICBmYw0KICBBcnJheSBjb29raWU6ICAgICAgICAgICAgYWMNCiAgSW50cmEgb2JqZWN0IHJlZHpvbmU6ICAgIGJiDQogIEFTYW4gaW50ZXJuYWw6ICAgICAgICAgICBmZQ0KICBMZWZ0IGFsbG9jYSByZWR6b25lOiAgICAgY2ENCiAgUmlnaHQgYWxsb2NhIHJlZHpvbmU6ICAgIGNiDQogIFNoYWRvdyBnYXA6ICAgICAgICAgICAgICBjYw0KQUJPUlRJTkc=",
+  "requested_content": {
+    "/src/libgit2/src/util.c": {
+      "232": "line  232 : \tint al, bl;",
+      "233": "line  233 : ",
+      "234": "line  234 : \tdo {",
+      "235": "line  235 : \t\tal = (unsigned char)git__tolower(*a);",
+      "236": "line  236 : \t\tbl = (unsigned char)git__tolower(*b);",
+      "237": "line  237 : \t\t++a, ++b;",
+      "238": "line  238 : \t} while (--sz && al && al == bl);",
+      "239": "line  239 : ",
+      "240": "line  240 : \treturn al - bl;",
+      "241": "line  241 : }",
+      "242": "line  242 : ",
+      "243": "line  243 : void git__strntolower(char *str, size_t len)",
+      "244": "line  244 : {",
+      "245": "line  245 : \tsize_t i;",
+      "246": "line  246 : ",
+      "247": "line  247 : \tfor (i = 0; i < len; ++i) {",
+      "248": "line  248 : \t\tstr[i] = (char)git__tolower(str[i]);",
+      "249": "line  249 : \t}",
+      "250": "line  250 : }",
+      "251": "line  251 : ",
+      "252": "line  252 : void git__strtolower(char *str)",
+      "253": "line  253 : {",
+      "254": "line  254 : \tgit__strntolower(str, strlen(str));",
+      "255": "line  255 : }",
+      "256": "line  256 : ",
+      "257": "line  257 : GIT_INLINE(int) prefixcmp(const char *str, size_t str_n, const char *prefix, bool icase)",
+      "258": "line  258 : {",
+      "259": "line  259 : \tint s, p;",
+      "260": "line  260 : ",
+      "261": "line  261 : \twhile (str_n--) {",
+      "262": "line  262 : \t\ts = (unsigned char)*str++;",
+      "263": "line  263 : \t\tp = (unsigned char)*prefix++;",
+      "264": "line  264 : ",
+      "265": "line  265 : \t\tif (icase) {",
+      "266": "line  266 : \t\t\ts = git__tolower(s);",
+      "267": "line  267 : \t\t\tp = git__tolower(p);",
+      "268": "line  268 : \t\t}",
+      "269": "line  269 : ",
+      "270": "line  270 : \t\tif (!p)",
+      "271": "line  271 : \t\t\treturn 0;",
+      "272": "line  272 : ",
+      "273": "line  273 : \t\tif (s != p)",
+      "274": "line  274 : \t\t\treturn s - p;",
+      "275": "line  275 : \t}",
+      "276": "line  276 : ",
+      "277": "line  277 : \treturn (0 - *prefix);",
+      "278": "line  278 : }",
+      "279": "line  279 : ",
+      "280": "line  280 : int git__prefixcmp(const char *str, const char *prefix)",
+      "281": "line  281 : {",
+      "282": "line  282 : \treturn prefixcmp(str, SIZE_MAX, prefix, false);",
+      "283": "line  283 : }",
+      "284": "line  284 : ",
+      "285": "line  285 : int git__prefixncmp(const char *str, size_t str_n, const char *prefix)",
+      "286": "line  286 : {",
+      "287": "line  287 : \treturn prefixcmp(str, str_n, prefix, false);",
+      "288": "line  288 : }",
+      "289": "line  289 : ",
+      "290": "line  290 : int git__prefixcmp_icase(const char *str, const char *prefix)",
+      "291": "line  291 : {",
+      "869": "line  869 : <End of File>"
+    },
+    "/src/libgit2/src/commit.c": {
+      "393": "line  393 : \tgit_signature dummy_sig;",
+      "394": "line  394 : ",
+      "395": "line  395 : \tbuffer = buffer_start;",
+      "396": "line  396 : ",
+      "397": "line  397 : \t/* Allocate for one, which will allow not to realloc 90% of the time  */",
+      "398": "line  398 : \tgit_array_init_to_size(commit->parent_ids, 1);",
+      "399": "line  399 : \tGITERR_CHECK_ARRAY(commit->parent_ids);",
+      "400": "line  400 : ",
+      "401": "line  401 : \t/* The tree is always the first field */",
+      "402": "line  402 : \tif (git_oid__parse(&commit->tree_id, &buffer, buffer_end, \"tree \") < 0)",
+      "403": "line  403 : \t\tgoto bad_buffer;",
+      "404": "line  404 : ",
+      "405": "line  405 : \t/*",
+      "406": "line  406 : \t * TODO: commit grafts!",
+      "407": "line  407 : \t */",
+      "408": "line  408 : ",
+      "409": "line  409 : \twhile (git_oid__parse(&parent_id, &buffer, buffer_end, \"parent \") == 0) {",
+      "410": "line  410 : \t\tgit_oid *new_id = git_array_alloc(commit->parent_ids);",
+      "411": "line  411 : \t\tGITERR_CHECK_ALLOC(new_id);",
+      "412": "line  412 : ",
+      "413": "line  413 : \t\tgit_oid_cpy(new_id, &parent_id);",
+      "414": "line  414 : \t}",
+      "415": "line  415 : ",
+      "416": "line  416 : \tcommit->author = git__malloc(sizeof(git_signature));",
+      "417": "line  417 : \tGITERR_CHECK_ALLOC(commit->author);",
+      "418": "line  418 : ",
+      "419": "line  419 : \tif (git_signature__parse(commit->author, &buffer, buffer_end, \"author \", '\\n') < 0)",
+      "420": "line  420 : \t\treturn -1;",
+      "421": "line  421 : ",
+      "422": "line  422 : \t/* Some tools create multiple author fields, ignore the extra ones */",
+      "423": "line  423 : \twhile ((size_t)(buffer_end - buffer) >= strlen(\"author \") && !git__prefixcmp(buffer, \"author \")) {",
+      "424": "line  424 : \t\tif (git_signature__parse(&dummy_sig, &buffer, buffer_end, \"author \", '\\n') < 0)",
+      "425": "line  425 : \t\t\treturn -1;",
+      "426": "line  426 : ",
+      "427": "line  427 : \t\tgit__free(dummy_sig.name);",
+      "428": "line  428 : \t\tgit__free(dummy_sig.email);",
+      "429": "line  429 : \t}",
+      "430": "line  430 : ",
+      "431": "line  431 : \t/* Always parse the committer; we need the commit time */",
+      "432": "line  432 : \tcommit->committer = git__malloc(sizeof(git_signature));",
+      "433": "line  433 : \tGITERR_CHECK_ALLOC(commit->committer);",
+      "434": "line  434 : ",
+      "435": "line  435 : \tif (git_signature__parse(commit->committer, &buffer, buffer_end, \"committer \", '\\n') < 0)",
+      "436": "line  436 : \t\treturn -1;",
+      "437": "line  437 : ",
+      "438": "line  438 : \t/* Parse add'l header entries */",
+      "439": "line  439 : \twhile (buffer < buffer_end) {",
+      "440": "line  440 : \t\tconst char *eoln = buffer;",
+      "441": "line  441 : \t\tif (buffer[-1] == '\\n' && buffer[0] == '\\n')",
+      "442": "line  442 : \t\t\tbreak;",
+      "443": "line  443 : ",
+      "444": "line  444 : \t\twhile (eoln < buffer_end && *eoln != '\\n')",
+      "445": "line  445 : \t\t\t++eoln;",
+      "446": "line  446 : ",
+      "447": "line  447 : \t\tif (git__prefixcmp(buffer, \"encoding \") == 0) {",
+      "448": "line  448 : \t\t\tbuffer += strlen(\"encoding \");",
+      "449": "line  449 : ",
+      "450": "line  450 : \t\t\tcommit->message_encoding = git__strndup(buffer, eoln - buffer);",
+      "451": "line  451 : \t\t\tGITERR_CHECK_ALLOC(commit->message_encoding);",
+      "452": "line  452 : \t\t}",
+      "913": "line  913 : <End of File>"
+    }
+  },
+  "note": [
+    "Reason for requesting line 262 of /src/libgit2/src/util.c: To understand the logic leading to the heap-buffer-overflow in `prefixcmp` and its caller `git__prefixcmp`.",
+    "The `git__prefixcmp` function passes `SIZE_MAX` as `str_n` to `prefixcmp`, implying that `str` should be null-terminated. The crash occurs because `str` is not null-terminated, leading to a read beyond its allocated buffer in `prefixcmp`.",
+    "Reason for requesting line 423 of /src/libgit2/src/commit.c: To understand how 'str' is being passed to 'git__prefixcmp' and where its length information might be available or lost."
+  ],
+  "valid_patches": [
+    {
+      "file": "/src/libgit2/src/commit.c",
+      "diff": [
+        {
+          "line_number": 423,
+          "content": [
+            "\twhile ((size_t)(buffer_end - buffer) >= strlen(\"author \") && !git__prefixncmp(buffer, (size_t)(buffer_end - buffer), \"author \")) {"
+          ]
+        }
+      ]
+    }
+  ],
+  "retry_count": 8,
+  "history": [
+    {
+      "reason": "To understand the logic leading to the heap-buffer-overflow in `prefixcmp` and its caller `git__prefixcmp`.",
+      "line": 262,
+      "file": "/src/libgit2/src/util.c"
+    },
+    {
+      "reason": "The `git__prefixcmp` function passes `SIZE_MAX` as the length for `str` to `prefixcmp`. This allows `prefixcmp` to read beyond the bounds of `str` if `str` is not null-terminated within its allocated memory, leading to a heap-buffer-overflow. The fix is to ensure `prefixcmp` does not read past the null terminator of `str` by adding a check for `!s` (null terminator for `str`) similar to the check for `!p` (null terminator for `prefix`).",
+      "patches": [
+        {
+          "file": "/src/libgit2/src/util.c",
+          "diff": [
+            {
+              "line_number": 270,
+              "content": [
+                "\t\tif (!s || !p)"
+              ]
+            },
+            {
+              "line_number": 271,
+              "content": [
+                "\t\t\treturn s - p;"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `git__prefixcmp` function calls `prefixcmp` with `SIZE_MAX` for the `str_n` parameter, which is intended to be the length of `str`. This causes `prefixcmp` to read beyond the bounds of `str` if `prefix` is longer than `str` or if `str` is not null-terminated within `SIZE_MAX` characters. The fix is to use `strlen(str)` to correctly determine the length of `str` when calling `prefixcmp` from `git__prefixcmp`.",
+      "patches": [
+        {
+          "file": "/src/libgit2/src/util.c",
+          "diff": [
+            {
+              "line_number": 282,
+              "content": [
+                "\treturn prefixcmp(str, str != NULL ? strlen(str) : 0, prefix, false);"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "content": "The `git__prefixcmp` function passes `SIZE_MAX` as `str_n` to `prefixcmp`, implying that `str` should be null-terminated. The crash occurs because `str` is not null-terminated, leading to a read beyond its allocated buffer in `prefixcmp`."
+    },
+    {
+      "reason": "The `git__prefixcmp` function calls `prefixcmp` with `SIZE_MAX` for `str_n`, implying that `str` should be null-terminated. However, when `str` is not null-terminated (as can happen with fuzzer inputs), `prefixcmp` attempts to read beyond the bounds of `str` due to the `str_n--` loop condition not being met. The fix introduces an explicit check for the null terminator in `str` when `str_n` is `SIZE_MAX` to prevent heap-buffer-overflows.",
+      "patches": [
+        {
+          "file": "/src/libgit2/src/util.c",
+          "diff": [
+            {
+              "line_number": 261,
+              "content": [
+                "\twhile (str_n--) {",
+                "\t\tif (!*str)",
+                "\t\t\treturn (0 - *prefix);"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `prefixcmp` function, when called via `git__prefixcmp`, receives `SIZE_MAX` for `str_n`. This implies `str` should be null-terminated. However, if `str` is not null-terminated, the loop condition `str_n--` causes a heap-buffer-overflow by reading beyond the bounds of `str`. The fix adds an explicit check for the null terminator of `str` within the loop, ensuring that the function does not read out of bounds when `str_n` is effectively unlimited.",
+      "patches": [
+        {
+          "file": "/src/libgit2/src/util.c",
+          "diff": [
+            {
+              "line_number": 261,
+              "content": [
+                "\twhile (str_n--) {",
+                "\t\tif (!*str)",
+                "\t\t\treturn (0 - *prefix);"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "To understand how 'str' is being passed to 'git__prefixcmp' and where its length information might be available or lost.",
+      "line": 423,
+      "file": "/src/libgit2/src/commit.c"
+    },
+    {
+      "reason": "The `git__prefixcmp` function is called with a buffer that is not guaranteed to be null-terminated (`buffer` in `git_commit__parse_raw`). However, `git__prefixcmp` implicitly relies on null-termination by passing `SIZE_MAX` as the length to `prefixcmp`. This leads to a heap-buffer-overflow when `prefixcmp` reads beyond the allocated buffer if no null terminator is found within the valid bounds. The fix is to use `git__prefixncmp` instead, providing the actual remaining length of the buffer (`buffer_end - buffer`) to prevent out-of-bounds reads.",
+      "patches": [
+        {
+          "file": "/src/libgit2/src/commit.c",
+          "diff": [
+            {
+              "line_number": 423,
+              "content": [
+                "\twhile ((size_t)(buffer_end - buffer) >= strlen(\"author \") && !git__prefixncmp(buffer, (size_t)(buffer_end - buffer), \"author \")) {"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

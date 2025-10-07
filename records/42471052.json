@@ -1,0 +1,235 @@
+{
+  "id": "42471052",
+  "stage": "repair",
+  "repo_addr": "https://github.com/harfbuzz/harfbuzz.git",
+  "fix_commit": "1c76c8f6ff7877e486f6e94d04b2dc65348b26d5",
+  "project": "harfbuzz",
+  "note": [
+    "Reason for requesting line 138 of /src/harfbuzz/src/hb-buffer.cc: To understand how the buffer is managed and how glyphs are copied, specifically looking for uninitialized data issues when the buffer is enlarged or when glyphs are inserted/copied.",
+    "Reason for requesting line 251 of /src/harfbuzz/src/./hb-buffer.hh: To understand how glyph data is copied and if any uninitialized memory might be read during this process after the buffer is enlarged."
+  ],
+  "valid_patches": null,
+  "history": [
+    {
+      "reason": "To understand how the buffer is managed and how glyphs are copied, specifically looking for uninitialized data issues when the buffer is enlarged or when glyphs are inserted/copied.",
+      "line": 138,
+      "file": "/src/harfbuzz/src/hb-buffer.cc"
+    },
+    {
+      "reason": "The `hb_buffer_t::enlarge` function reallocates memory for `info` and `pos` arrays. When `realloc` expands the allocation, the new memory is uninitialized. Later operations, specifically `hb_buffer_t::copy_glyph()` and `hb_buffer_t::output_glyph()`, can read these uninitialized parts of the `info` array, leading to a MemorySanitizer error. The fix is to zero-initialize the newly allocated portions of both `info` and `pos` arrays.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/hb-buffer.cc",
+          "diff": [
+            {
+              "line_number": 139,
+              "content": [
+                "  new_info = (hb_glyph_info_t *) realloc (info, new_allocated * sizeof (info[0]));",
+                "",
+                "  if (likely (new_info) && new_allocated > allocated)",
+                "  {",
+                "    /* Zero-initialize new portion. */",
+                "    memset (new_info + allocated, 0, (new_allocated - allocated) * sizeof (new_info[0]));",
+                "  }",
+                "  if (likely (new_pos) && new_allocated > allocated)",
+                "  {",
+                "    /* Zero-initialize new portion. */",
+                "    memset (new_pos + allocated, 0, (new_allocated - allocated) * sizeof (new_pos[0]));",
+                "  }",
+                ""
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `hb_buffer_t::enlarge` function uses `realloc` for `info` (array of `hb_glyph_info_t`). When `realloc` increases the buffer size, the newly allocated portion is not initialized. This uninitialized memory is later accessed, leading to a MemorySanitizer error. The fix is to zero-initialize the newly added portion of the `info` array to prevent use of uninitialized values.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/hb-buffer.cc",
+          "diff": [
+            {
+              "line_number": 149,
+              "content": [
+                "  if (likely (new_info))",
+                "  {",
+                "    if (info != new_info) /* Realloc moved memory. */",
+                "    {",
+                "      info = new_info;",
+                "      /* Zero-initialize the newly allocated portion. */",
+                "      memset (info + old_allocated, 0, (new_allocated - old_allocated) * sizeof (info[0]));",
+                "    }",
+                "  }"
+              ]
+            },
+            {
+              "line_number": 122,
+              "content": [
+                "  unsigned int old_allocated = allocated;",
+                "  unsigned int new_allocated = allocated;"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `realloc` call for `info` on line 138 in `hb-buffer.cc` can return a larger memory block that is not initialized. When the buffer is enlarged, the newly allocated portion of `hb_glyph_info_t` array `info` needs to be zero-initialized to prevent `use-of-uninitialized-value` issues later when glyph information is copied or accessed. The patch adds a `memset` call to initialize the new part of the `info` array if it was successfully reallocated and grew in size.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/hb-buffer.cc",
+          "diff": [
+            {
+              "line_number": 149,
+              "content": [
+                "  if (likely (new_info))",
+                "  {",
+                "    if (new_allocated > allocated)",
+                "      memset ((char *) new_info + allocated * sizeof (new_info[0]), 0, (new_allocated - allocated) * sizeof (new_info[0]));",
+                "    info = new_info;",
+                "  }",
+                ""
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `hb_buffer_t::enlarge` function reallocates memory for `info` and `pos` arrays but does not initialize the newly allocated portions. This leads to use-of-uninitialized-value errors when these uninitialized parts are later accessed. The fix is to zero-initialize the newly allocated memory in both `info` and `pos` buffers after successful reallocation.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/hb-buffer.cc",
+          "diff": [
+            {
+              "line_number": 145,
+              "content": [
+                "    pos = new_pos;",
+                "    if (new_allocated > allocated) memset (pos + allocated, 0, (new_allocated - allocated) * sizeof (pos[0]));"
+              ]
+            },
+            {
+              "line_number": 148,
+              "content": [
+                "    info = new_info;",
+                "    if (new_allocated > allocated) memset (info + allocated, 0, (new_allocated - allocated) * sizeof (info[0]));"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "To understand how glyph data is copied and if any uninitialized memory might be read during this process after the buffer is enlarged.",
+      "line": 251,
+      "file": "/src/harfbuzz/src/./hb-buffer.hh"
+    },
+    {
+      "reason": "The `hb_buffer_t::enlarge` function reallocates memory for `pos` and `info` arrays. When `realloc` expands a memory block, the newly allocated portion is uninitialized. The code currently only assigns the `pos` and `info` pointers if `realloc` succeeds, but it does not initialize the newly allocated parts. This leads to uninitialized values being propagated when glyphs are copied or outputted, eventually causing a crash.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/hb-buffer.cc",
+          "diff": [
+            {
+              "line_number": 146,
+              "content": [
+                "    pos = new_pos;"
+              ]
+            },
+            {
+              "line_number": 147,
+              "content": [
+                "  if (likely (new_info))",
+                "    info = new_info;"
+              ]
+            },
+            {
+              "line_number": 149,
+              "content": [
+                "  if (likely (successful)) {",
+                "    /* If info and pos were separate, and become non-separate now, we just copied garbage into out_info.",
+                "     * That's fine, since next line fixes it.",
+                "     * If separate_out, out_info will be pointing to the old pos buffer, while it should be the new pos buffer. */",
+                "    if (separate_out && out_info == (hb_glyph_info_t *) pos)",
+                "      out_info = (hb_glyph_info_t *) new_pos;",
+                "    allocated = new_allocated;",
+                "    /* Zero-initialize the new allocated memory. */",
+                "    if (unlikely (old_allocated < new_allocated))",
+                "    {",
+                "      memset (info + old_allocated, 0, (new_allocated - old_allocated) * sizeof (info[0]));",
+                "      memset (pos + old_allocated, 0, (new_allocated - old_allocated) * sizeof (pos[0]));",
+                "    }",
+                "  } else {",
+                "    /* If new_pos or new_info is NULL, then it means they failed, and",
+                "     * we should be using the old value. Otherwise, we can use the new",
+                "     * value. */",
+                "    if (new_pos) pos = new_pos;",
+                "    if (new_info) info = new_info;",
+                "  }"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `hb_buffer_t::enlarge` function reallocates memory for `info` and `pos` arrays. If the buffer grows, the newly allocated memory is uninitialized. When `hb_buffer_t::copy_glyph` attempts to copy a glyph from the `info` array, it might read from this uninitialized memory, leading to a `use-of-uninitialized-value` crash. The fix is to zero-initialize the newly allocated portions of the `info` and `pos` arrays to prevent reading uninitialized data.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/hb-buffer.cc",
+          "diff": [
+            {
+              "line_number": 149,
+              "content": [
+                "  if (likely (new_info))",
+                "  {",
+                "    if (info != new_info) /* The realloc call returned a new pointer */",
+                "      info = new_info;",
+                "    /* Zero-initialize the newly allocated portion. */",
+                "    if (new_allocated > allocated)",
+                "      memset ((void *) (info + allocated), 0, (new_allocated - allocated) * sizeof (info[0]));",
+                "  }",
+                ""
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `realloc` function can return uninitialized memory if the allocated size is larger than the original size. The crash report indicates that uninitialized memory from `realloc` in `hb_buffer_t::enlarge` is later used. To prevent use-of-uninitialized-value, the newly allocated portion of the `info` and `pos` arrays must be zero-initialized when `realloc` increases their size.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/hb-buffer.cc",
+          "diff": [
+            {
+              "line_number": 145,
+              "content": [
+                "  if (likely (new_pos))",
+                "  {",
+                "    if (new_allocated > allocated) /* Zero-initialize new portion. */",
+                "      memset ((char *) new_pos + allocated * sizeof (new_pos[0]), 0, (new_allocated - allocated) * sizeof (new_pos[0]));",
+                "    pos = new_pos;",
+                "  }",
+                ""
+              ]
+            },
+            {
+              "line_number": 148,
+              "content": [
+                "  if (likely (new_info))",
+                "  {",
+                "    if (new_allocated > allocated) /* Zero-initialize new portion. */",
+                "      memset ((char *) new_info + allocated * sizeof (new_info[0]), 0, (new_allocated - allocated) * sizeof (new_info[0]));",
+                "    info = new_info;",
+                "  }",
+                ""
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

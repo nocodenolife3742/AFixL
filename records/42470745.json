@@ -1,0 +1,300 @@
+{
+  "id": "42470745",
+  "stage": "repair",
+  "repo_addr": "https://github.com/open62541/open62541.git",
+  "fix_commit": "21771329dd2f13568f458a925671f9db80bc8ade",
+  "project": "open62541",
+  "note": [
+    "Reason for requesting line 251 of /src/open62541/src/ua_workqueue.c: To understand the logic of how delayed tasks are processed and freed, and to identify why a freed memory region might be accessed again.",
+    "The crash is a use-after-free within the SIMPLEQ_FOREACH_SAFE macro at line 251. The memory is freed at line 255. The macro likely dereferences the 'next' pointer of a freed `UA_DelayedCallback` object during iteration."
+  ],
+  "valid_patches": null,
+  "history": [
+    {
+      "reason": "To understand the logic of how delayed tasks are processed and freed, and to identify why a freed memory region might be accessed again.",
+      "line": 251,
+      "file": "/src/open62541/src/ua_workqueue.c"
+    },
+    {
+      "content": "The crash is a use-after-free within the SIMPLEQ_FOREACH_SAFE macro at line 251. The memory is freed at line 255. The macro likely dereferences the 'next' pointer of a freed `UA_DelayedCallback` object during iteration."
+    },
+    {
+      "reason": "To understand the internal implementation of the SIMPLEQ_REMOVE_HEAD macro, as it might interact with the freed pointer in a way that causes the use-after-free during iteration.",
+      "line": 0,
+      "file": "/src/open62541/src/ua_types_list.h"
+    },
+    {
+      "reason": "The `UA_DelayedCallback` object `dc` is freed at line 255. However, the `SIMPLEQ_FOREACH_SAFE` macro, when advancing to the next iteration, might still access the `next` pointer of the `dc` object, which has already been freed. To fix this, the `UA_free(dc)` call should happen after the `dc_tmp` has been properly advanced to the next element, or more simply, after the loop if `dc_tmp` is not used in the next iteration for getting `dc->next`.",
+      "patches": [
+        {
+          "file": "/src/open62541/src/ua_workqueue.c",
+          "diff": [
+            {
+              "line_number": 252,
+              "content": [
+                "        if(dc->callback)",
+                "            dc->callback(dc->application, dc->data);",
+                "        UA_free(dc);",
+                "        SIMPLEQ_REMOVE_HEAD(&wq->delayedCallbacks, next);"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The SIMPLEQ_FOREACH_SAFE macro likely accesses `dc->next` after `dc` has been freed. The fix involves ensuring that the `next` pointer (`dc_tmp`) is correctly saved before `dc` is potentially freed and the loop continues, or restructuring the loop to explicitly advance `dc_tmp` before freeing `dc`. The issue stems from the macro's internal logic which seems to fetch the next element pointer from `dc` after `dc` is freed in the loop body. By explicitly taking the `next` pointer of `dc` *before* freeing `dc`, we ensure that the iteration can safely continue.",
+      "patches": [
+        {
+          "file": "/src/open62541/src/ua_workqueue.c",
+          "diff": [
+            {
+              "line_number": 251,
+              "content": [
+                "    UA_DelayedCallback *dc_next;"
+              ]
+            },
+            {
+              "line_number": 252,
+              "content": [
+                "    for (dc = SIMPLEQ_FIRST(&wq->delayedCallbacks); dc != NULL; dc = dc_next) {",
+                "        dc_next = SIMPLEQ_NEXT(dc, next);",
+                "        SIMPLEQ_REMOVE_HEAD(&wq->delayedCallbacks, next);"
+              ]
+            },
+            {
+              "line_number": 255,
+              "content": [
+                "        UA_free(dc);"
+              ]
+            },
+            {
+              "line_number": 256,
+              "content": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `SIMPLEQ_FOREACH_SAFE` macro first reads the `next` pointer of `dc` into `dc_tmp` for the *next* iteration before executing the loop body. If `dc` is freed within the loop body at line 255, and the `next` pointer of the *freed* `dc` is accessed for the next iteration (which occurs after the body completes), it results in a use-after-free. The fix is to ensure `dc` is removed from the queue before `dc_tmp` is assigned and `dc` is freed.",
+      "patches": [
+        {
+          "file": "/src/open62541/src/ua_workqueue.c",
+          "diff": [
+            {
+              "line_number": 251,
+              "content": [
+                "    UA_DelayedCallback *dc, *dc_tmp;",
+                "    dc = SIMPLEQ_FIRST(&wq->delayedCallbacks);",
+                "    while (dc != SIMPLEQ_END(&wq->delayedCallbacks)) {",
+                "        dc_tmp = SIMPLEQ_NEXT(dc, next);",
+                "        SIMPLEQ_REMOVE_HEAD(&wq->delayedCallbacks, next);",
+                "        if(dc->callback)",
+                "            dc->callback(dc->application, dc->data);",
+                "        UA_free(dc);",
+                "        dc = dc_tmp;",
+                "    }"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `SIMPLEQ_FOREACH_SAFE` macro is designed to iterate through a list safely, even if elements are removed during iteration. However, the current code removes the head of the queue (`SIMPLEQ_REMOVE_HEAD`) and then frees the current element (`dc`) within the loop. The `SIMPLEQ_REMOVE_HEAD` is redundant and can lead to issues if `dc` is not the head or if the head is removed by the `_SAFE` mechanism and then removed again. The fundamental issue is that `UA_free(dc)` is called, but the loop implicitly expects `dc` to be valid for obtaining the `next` pointer via `dc_tmp` for the *subsequent* iteration. By removing `SIMPLEQ_REMOVE_HEAD` and ensuring `dc_tmp` holds the next element before `dc` is freed, the use-after-free is resolved.",
+      "patches": [
+        {
+          "file": "/src/open62541/src/ua_workqueue.c",
+          "diff": [
+            {
+              "line_number": 252,
+              "content": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `UA_WorkQueue_manuallyProcessDelayed` function iterates through a list of `UA_DelayedCallback` objects and frees them. The `SIMPLEQ_FOREACH_SAFE` macro attempts to access the `next` pointer of the current element *before* the current element is freed. However, when `UA_free(dc)` is called inside the loop, the memory pointed to by `dc` is released. If `dc` is subsequently accessed (e.g., to retrieve its `next` pointer for the next iteration if the macro's internal implementation retrieves `dc->next` *after* the current loop body completes), it results in a use-after-free. The fix involves explicitly setting `dc` to `NULL` after freeing it to prevent any subsequent accidental dereferencing within the loop's continuation condition.",
+      "patches": [
+        {
+          "file": "/src/open62541/src/ua_workqueue.c",
+          "diff": [
+            {
+              "line_number": 255,
+              "content": [
+                "        UA_free(dc);",
+                "        dc = NULL; /* Prevent use-after-free in SIMPLEQ_FOREACH_SAFE if macro implementation accesses dc->next after free */"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `SIMPLEQ_FOREACH_SAFE` macro tries to read the `next` pointer of a `UA_DelayedCallback` object (`dc`) after it has been freed. The `SIMPLEQ_REMOVE_HEAD` operation is not strictly necessary inside the loop if all elements are being processed and freed, and it's safer to let the loop naturally terminate by advancing `dc` using `dc_tmp` after `dc` has been used, but before it is freed.",
+      "patches": [
+        {
+          "file": "/src/open62541/src/ua_workqueue.c",
+          "diff": [
+            {
+              "line_number": 252,
+              "content": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The crash is a use-after-free because `UA_WorkQueue_manuallyProcessDelayed` frees `dc` at line 255, but the `SIMPLEQ_FOREACH_SAFE` macro's `tvar` (dc_tmp) might still point to a subsequent element in the list that could have been freed by the `dc->callback` call. To prevent this, if the callback frees elements from the work queue, `dc_tmp` would become a dangling pointer. However, the stack trace indicates that the *same* element `dc` is freed and then later accessed. This usually happens if `UA_free(dc)` somehow frees not just `dc` but also its `next` pointer's target, or if the `dc` itself is freed twice or invalidated. Since `UA_WorkQueue_manuallyProcessDelayed` is called in `UA_WorkQueue_cleanup`, and also in `UA_Server_run_shutdown` via `LLVMFuzzerTestOneInput`, it's possible the work queue is processed multiple times. The immediate fix is to ensure that `dc` is not dereferenced after being freed. By removing the `dc` from the queue *before* the callback and freeing, we prevent `SIMPLEQ_FOREACH_SAFE` from attempting to access `dc->next` after it's freed if the callback itself does not interfere with the list structure. The most robust approach when freeing elements during iteration is to advance the iterator *before* freeing the current element.",
+      "patches": [
+        {
+          "file": "/src/open62541/src/ua_workqueue.c",
+          "diff": [
+            {
+              "line_number": 252,
+              "content": [
+                "        if(dc->callback)",
+                "            dc->callback(dc->application, dc->data);",
+                "        UA_free(dc);"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `SIMPLEQ_FOREACH_SAFE` macro reads the `next` pointer of the current element before the loop iteration completes and before the element is freed. Since `UA_free(dc)` is called inside the loop, the `next` pointer of the last freed element `dc` is read in the subsequent iteration, leading to a use-after-free. To fix this, the element `dc` should be removed from the queue and its `callback` executed, but not freed until `dc_tmp` has been assigned the value of `dc->next`.",
+      "patches": [
+        {
+          "file": "/src/open62541/src/ua_workqueue.c",
+          "diff": [
+            {
+              "line_number": 251,
+              "content": [
+                "    UA_DelayedCallback *dc, *dc_tmp;",
+                "    SIMPLEQ_FOREACH_SAFE(dc, &wq->delayedCallbacks, next, dc_tmp) {",
+                "        SIMPLEQ_REMOVE_HEAD(&wq->delayedCallbacks, next);",
+                "        if(dc->callback)",
+                "            dc->callback(dc->application, dc->data);",
+                "        UA_free(dc);",
+                "    }"
+              ]
+            },
+            {
+              "line_number": 251,
+              "content": [
+                "    UA_DelayedCallback *dc;",
+                "    while ((dc = SIMPLEQ_FIRST(&wq->delayedCallbacks)) != NULL) {",
+                "        SIMPLEQ_REMOVE_HEAD(&wq->delayedCallbacks, next);",
+                "        if (dc->callback)",
+                "            dc->callback(dc->application, dc->data);",
+                "        UA_free(dc);",
+                "    }"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `SIMPLEQ_REMOVE_HEAD` call always removes the head of the queue, not the currently iterated `dc` element. This causes `dc` to be freed but not removed from the queue, leading to a use-after-free when the `SIMPLEQ_FOREACH_SAFE` macro tries to access `dc->next` in the next iteration. The fix is to use `SIMPLEQ_REMOVE` to remove the specific `dc` element.",
+      "patches": [
+        {
+          "file": "/src/open62541/src/ua_workqueue.c",
+          "diff": [
+            {
+              "line_number": 252,
+              "content": [
+                "        SIMPLEQ_REMOVE(&wq->delayedCallbacks, dc, UA_DelayedCallback, next);"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "To understand how the SIMPLEQ_FOREACH_SAFE macro is defined and what specific operation at line 251 causes the use-after-free. This will help confirm if the `next` pointer is accessed after `dc` is freed.",
+      "line": 251,
+      "file": "/src/open62541/src/ua_workqueue.c"
+    },
+    {
+      "reason": "The crash is a use-after-free because `SIMPLEQ_FOREACH_SAFE` attempts to read the `next` pointer of an element (`dc`) that has already been freed in the previous iteration. The `dc_tmp` variable should hold the next element before `dc` is freed. To fix this, `UA_free(dc)` should be called after the loop has advanced to the next element, ensuring that `dc->next` is accessed before `dc` is deallocated. The correct pattern for `SIMPLEQ_FOREACH_SAFE` when freeing elements is to free the *previous* element after advancing the pointers.",
+      "patches": [
+        {
+          "file": "/src/open62541/src/ua_workqueue.c",
+          "diff": [
+            {
+              "line_number": 252,
+              "content": [
+                "        SIMPLEQ_REMOVE_HEAD(&wq->delayedCallbacks, next);",
+                "        UA_DelayedCallback *freed_dc = dc;",
+                "        if(dc->callback)",
+                "            dc->callback(dc->application, dc->data);"
+              ]
+            },
+            {
+              "line_number": 255,
+              "content": [
+                "        UA_free(freed_dc);",
+                "    }",
+                "    /* If there are any remaining elements, free them (e.g., if the loop was empty or partially processed) */",
+                "    while (!SIMPLEQ_EMPTY(&wq->delayedCallbacks)) {",
+                "        UA_DelayedCallback *remaining_dc = SIMPLEQ_FIRST(&wq->delayedCallbacks);",
+                "        SIMPLEQ_REMOVE_HEAD(&wq->delayedCallbacks, next);",
+                "        UA_free(remaining_dc);"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The crash is a use-after-free within the SIMPLEQ_FOREACH_SAFE macro. The macro dereferences `dc->next` to set `dc_tmp` for the next iteration. However, `dc` is freed at line 255 within the current iteration. This means that in the subsequent iteration, `dc_tmp` (which was already set by dereferencing the freed `dc->next`) might be used, or the evaluation of `SIMPLEQ_NEXT((var), field)` itself will be a use-after-free if `dc` was freed right after being removed from the list. To fix this, we must ensure that `dc` is not freed until `dc_tmp` (the pointer to the next element) has been safely retrieved.",
+      "patches": [
+        {
+          "file": "/src/open62541/src/ua_workqueue.c",
+          "diff": [
+            {
+              "line_number": 252,
+              "content": [
+                "        /* Store the next element before freeing the current one. */"
+              ]
+            },
+            {
+              "line_number": 253,
+              "content": [
+                "        UA_DelayedCallback *current_dc = dc;"
+              ]
+            },
+            {
+              "line_number": 254,
+              "content": [
+                "        SIMPLEQ_REMOVE_HEAD(&wq->delayedCallbacks, next);"
+              ]
+            },
+            {
+              "line_number": 255,
+              "content": [
+                "        if(current_dc->callback)"
+              ]
+            },
+            {
+              "line_number": 256,
+              "content": [
+                "            current_dc->callback(current_dc->application, current_dc->data);"
+              ]
+            },
+            {
+              "line_number": 257,
+              "content": [
+                "        UA_free(current_dc);"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

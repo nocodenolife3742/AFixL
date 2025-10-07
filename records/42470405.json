@@ -1,0 +1,130 @@
+{
+  "id": "42470405",
+  "stage": "repair",
+  "repo_addr": "https://github.com/harfbuzz/harfbuzz.git",
+  "fix_commit": "f8ccb545c47abe8f0f4ed318ff7b5bf176913893",
+  "project": "harfbuzz",
+  "note": [
+    "Reason for requesting line 18 of /src/harfbuzz/./test/fuzzing/hb-shape-fuzzer.cc: To understand how data is being added to the buffer in the fuzzer.",
+    "The crash is a use-of-uninitialized-value during a comparison, originating from uninitialized bytes copied into `text32` in the fuzzer's second code block. This data is then passed to `hb_buffer_add_utf32`, causing the issue when `hb_shape` processes it.",
+    "Reason for requesting line 71 of /src/harfbuzz/src/./hb-open-type.hh: To understand the definition of OT::IntType and its comparison operator, which is the site of the uninitialized value use.",
+    "Reason for requesting line 1534 of /src/harfbuzz/src/hb-buffer.cc: To understand how the buffer's glyph information is handled and potentially initialized after being resized or cleared. The crash originates from `hb_buffer_t::enlarge` which is called during `hb_buffer_add_utf8`.",
+    "Reason for requesting line 281 of /src/harfbuzz/src/./hb-buffer.hh: To check how hb_buffer_t::clear_context and ensure are implemented to identify where the uninitialized memory might be introduced during buffer operations, particularly for the context.",
+    "Reason for requesting line 58 of /src/harfbuzz/src/./hb-open-file.hh: To understand how the Tag type is defined and how it might interact with the comparison in IntType.",
+    "The issue stems from `hb_buffer_t::enlarge` allocating uninitialized memory. Although this happens during `hb_buffer_add_utf8`, the crash occurs later when this uninitialized data, potentially treated as font tables, is accessed and compared within `OT::IntType::cmp` during font processing.",
+    "Reason for requesting line 137 of /src/harfbuzz/src/hb-buffer.cc: To examine the implementation of hb_buffer_t::enlarge and determine where the uninitialized memory is allocated.",
+    "The issue is that `realloc` in `hb_buffer_t::enlarge` allocates uninitialized memory for `info` and `pos`. When the buffer is later used, specifically when it's interpreted as font tables, the uninitialized `hb_glyph_info_t` or `hb_glyph_position_t` data is accessed in `OT::IntType::cmp`, leading to a use-of-uninitialized-value crash.",
+    "The `realloc` calls in `hb_buffer_t::enlarge` allocate uninitialized memory. This uninitialized data, likely from `hb_glyph_info_t` or `hb_glyph_position_t`, is later used in `OT::IntType::cmp` during font table processing, leading to the use-of-uninitialized-value crash. The fix should initialize this memory."
+  ],
+  "valid_patches": null,
+  "history": [
+    {
+      "reason": "To understand how data is being added to the buffer in the fuzzer.",
+      "line": 18,
+      "file": "/src/harfbuzz/./test/fuzzing/hb-shape-fuzzer.cc"
+    },
+    {
+      "content": "The crash is a use-of-uninitialized-value during a comparison, originating from uninitialized bytes copied into `text32` in the fuzzer's second code block. This data is then passed to `hb_buffer_add_utf32`, causing the issue when `hb_shape` processes it."
+    },
+    {
+      "reason": "To understand the definition of OT::IntType and its comparison operator, which is the site of the uninitialized value use.",
+      "line": 71,
+      "file": "/src/harfbuzz/src/./hb-open-type.hh"
+    },
+    {
+      "reason": "To understand how the buffer's glyph information is handled and potentially initialized after being resized or cleared. The crash originates from `hb_buffer_t::enlarge` which is called during `hb_buffer_add_utf8`.",
+      "line": 1534,
+      "file": "/src/harfbuzz/src/hb-buffer.cc"
+    },
+    {
+      "reason": "To check how hb_buffer_t::clear_context and ensure are implemented to identify where the uninitialized memory might be introduced during buffer operations, particularly for the context.",
+      "line": 281,
+      "file": "/src/harfbuzz/src/./hb-buffer.hh"
+    },
+    {
+      "reason": "To understand how the Tag type is defined and how it might interact with the comparison in IntType.",
+      "line": 58,
+      "file": "/src/harfbuzz/src/./hb-open-file.hh"
+    },
+    {
+      "content": "The issue stems from `hb_buffer_t::enlarge` allocating uninitialized memory. Although this happens during `hb_buffer_add_utf8`, the crash occurs later when this uninitialized data, potentially treated as font tables, is accessed and compared within `OT::IntType::cmp` during font processing."
+    },
+    {
+      "reason": "To examine the implementation of hb_buffer_t::enlarge and determine where the uninitialized memory is allocated.",
+      "line": 137,
+      "file": "/src/harfbuzz/src/hb-buffer.cc"
+    },
+    {
+      "content": "The issue is that `realloc` in `hb_buffer_t::enlarge` allocates uninitialized memory for `info` and `pos`. When the buffer is later used, specifically when it's interpreted as font tables, the uninitialized `hb_glyph_info_t` or `hb_glyph_position_t` data is accessed in `OT::IntType::cmp`, leading to a use-of-uninitialized-value crash."
+    },
+    {
+      "content": "The `realloc` calls in `hb_buffer_t::enlarge` allocate uninitialized memory. This uninitialized data, likely from `hb_glyph_info_t` or `hb_glyph_position_t`, is later used in `OT::IntType::cmp` during font table processing, leading to the use-of-uninitialized-value crash. The fix should initialize this memory."
+    },
+    {
+      "reason": "The crash is a use-of-uninitialized-value originating from memory allocated by `realloc` in `hb_buffer_t::enlarge`. `realloc` does not guarantee initialization of newly extended memory. The fix is to zero-initialize the newly allocated portions of `hb_glyph_info_t` and `hb_glyph_position_t` buffers after `realloc` in `hb_buffer_t::enlarge` to prevent uninitialized data from being used later in comparisons.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/hb-buffer.cc",
+          "diff": [
+            {
+              "line_number": 149,
+              "content": [
+                "  if (likely (new_info))",
+                "  {",
+                "    if (info)",
+                "      memset (new_info + allocated, 0, (new_allocated - allocated) * sizeof (new_info[0]));",
+                "    info = new_info;",
+                "  }",
+                "",
+                "  out_info = separate_out ? (hb_glyph_info_t *) pos : info;"
+              ]
+            },
+            {
+              "line_number": 144,
+              "content": [
+                "  if (likely (new_pos))",
+                "  {",
+                "    if (pos)",
+                "      memset (new_pos + allocated, 0, (new_allocated - allocated) * sizeof (new_pos[0]));",
+                "    pos = new_pos;",
+                "  }"
+              ]
+            },
+            {
+              "line_number": 152,
+              "content": [
+                "    allocated = new_allocated;",
+                "  }",
+                ""
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `realloc` calls in `hb_buffer_t::enlarge` allocate uninitialized memory for `pos` and `info`. This uninitialized data is later accessed, leading to a use-of-uninitialized-value crash during font table processing. The fix is to zero-initialize the newly allocated portions of the `pos` and `info` arrays to prevent reading garbage values.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/hb-buffer.cc",
+          "diff": [
+            {
+              "line_number": 149,
+              "content": [
+                "  if (likely (new_info))",
+                "  {",
+                "    /* New parts of info and pos are uninitialized; zero them. */",
+                "    if (unlikely (new_allocated > allocated)) {",
+                "      memset (new_info + allocated, 0, (new_allocated - allocated) * sizeof (new_info[0]));",
+                "      memset (new_pos + allocated, 0, (new_allocated - allocated) * sizeof (new_pos[0]));",
+                "    }",
+                "    info = new_info;",
+                "  }"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

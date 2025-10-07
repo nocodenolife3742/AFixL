@@ -1,0 +1,113 @@
+{
+  "id": "42471294",
+  "stage": "evaluate",
+  "repo_addr": "https://github.com/libgit2/libgit2",
+  "fix_commit": "41863a00f0d811c659c9ba87ae2cc0c3aae5a77f",
+  "project": "libgit2",
+  "report": "RVJST1I6IEFkZHJlc3NTYW5pdGl6ZXI6IGhlYXAtYnVmZmVyLW92ZXJmbG93IG9uIGFkZHJlc3MgMHg2MDYwMDAwMDAyZmEgYXQgcGMgMHgwMDAwMDA2N2JmNzIgYnAgMHg3ZmZmZmZmZmQ5NzAgc3AgMHg3ZmZmZmZmZmQ5NjgNClJFQUQgb2Ygc2l6ZSAxIGF0IDB4NjA2MDAwMDAwMmZhIHRocmVhZCBUMA0KU0NBUklORVNTOiAxMiAoMS1ieXRlLXJlYWQtaGVhcC1idWZmZXItb3ZlcmZsb3cpDQogICAgIzAgMHg2N2JmNzEgaW4gZ2l0X19zdHJudG9sNjQgL3NyYy9saWJnaXQyL3NyYy91dGlsLmM6ODY6MjINCiAgICAjMSAweDczMzZmZSBpbiBnaXRfc2lnbmF0dXJlX19wYXJzZSAvc3JjL2xpYmdpdDIvc3JjL3NpZ25hdHVyZS5jOjIzNDo3DQogICAgIzIgMHg1ODk1OTcgaW4gZ2l0X2NvbW1pdF9fcGFyc2VfcmF3IC9zcmMvbGliZ2l0Mi9zcmMvY29tbWl0LmM6NDE5OjYNCiAgICAjMyAweDU0ZDFkMSBpbiBnaXRfb2JqZWN0X19mcm9tX3JhdyAvc3JjL2xpYmdpdDIvc3JjL29iamVjdC5jOjk0OjE1DQogICAgIzQgMHg1MzJiMDcgaW4gTExWTUZ1enplclRlc3RPbmVJbnB1dCAvc3JjL2xpYmdpdDIvYnVpbGQvLi4vZnV6emVycy9vYmplY3RzX2Z1enplci5jOjQwOjcNCiAgICAjNSAweDUzMGM0ZSBpbiBFeGVjdXRlRmlsZXNPbnlCeU9uZShpbnQsIGNoYXIqKikgL3NyYy9saWJmdXp6ZXIvYWZsL2FmbF9kcml2ZXIuY3BwOjMwMTo1DQogICAgIzYgMHg1MzExYmUgaW4gbWFpbiAvc3JjL2xpYmZ1enplci9hZmwvYWZsX2RyaXZlci5jcHA6MzM5OjEyDQogICAgIzcgMHg3ZmZmZjZlZTU4MmYgaW4gX19saWJjX3N0YXJ0X21haW4gKC9saWIveDg2XzY0LWxpbnV4LWdudS9saWJjLnNvLjYrMHgyMDgyZikNCiAgICAjOCAweDQxZDVjOCBpbiBfc3RhcnQgKC9vdXQvb2JqZWN0c19mdXp6ZXIrMHg0MWQ1YzgpDQoNCkRFRFVQX1RPS0VOOiBnaXRfX3N0cm50b2w2NC0tZ2l0X3NpZ25hdHVyZV9fcGFyc2UtLWdpdF9jb21taXRfX3BhcnNlX3Jhdw0KMHg2MDYwMDAwMDAyZmEgaXMgbG9jYXRlZCAwIGJ5dGVzIHRvIHRoZSByaWdodCBvZiA1OC1ieXRlIHJlZ2lvbiBbMHg2MDYwMDAwMDAyYzAsMHg2MDYwMDAwMDAyZmEpDQphbGxvY2F0ZWQgYnkgdGhyZWFkIFQwIGhlcmU6DQogICAgIzAgMHg1MmM0MzggaW4gb3BlcmF0b3IgbmV3KHVuc2lnbmVkIGxvbmcpIC9zcmMvbGx2bS9wcm9qZWN0cy9jb21waWxlci1ydC9saWIvYXNhbi9hc2FuX25ld19kZWxldGUuY2M6MTA2DQogICAgIzEgMHg1MzBiNjkgaW4gX19saWJjcHBfYWxsb2NhdGUgL3Vzci9sb2NhbC9iaW4vLi4vaW5jbHVkZS9jKysvdjEvbmV3OjI1NzoxMA0KICAgICMyIDB4NTMwYjY5IGluIGFsbG9jYXRlIC91c3IvbG9jYWwvYmluLy4uL2luY2x1ZGUvYysrL3YxL21lbW9yeToxODAwDQogICAgIzMgMHg1MzBiNjkgaW4gYWxsb2NhdGUgL3Vzci9sb2NhbC9iaW4vLi4vaW5jbHVkZS9jKysvdjEvbWVtb3J5OjE1NDkNCiAgICAjNCAweDUzMGI2OSBpbiBfX3ZhbGxvY2F0ZSAvdXNyL2xvY2FsL2Jpbi8uLi9pbmNsdWRlL2MrKy92MS92ZWN0b3I6OTcyDQogICAgIzUgMHg1MzBiNjkgaW4gdmVjdG9yIC91c3IvbG9jYWwvYmluLy4uL2luY2x1ZGUvYysrL3YxL3ZlY3RvcjoxMTE1DQogICAgIzYgMHg1MzBiNjkgaW4gRXhlY3V0ZUZpbGVzT255QnlPbmUoaW50LCBjaGFyKiopIC9zcmMvbGliZnV6emVyL2FmbC9hZmxfZHJpdmVyLmNwcDoyOTgNCiAgICAjNyAweDUzMTFiZSBpbiBtYWluIC9zcmMvbGliZnV6emVyL2FmbC9hZmxfZHJpdmVyLmNwcDozMzk6MTINCiAgICAjOCAweDdmZmZmNmVlNTgyZiBpbiBfX2xpYmNfc3RhcnRfbWFpbiAoL2xpYi94ODZfNjQtbGludXgtZ251L2xpYmMuc28uNisweDIwODJmKQ0KDQpERURVUF9UT0tFTjogb3BlcmF0b3IgbmV3KHVuc2lnbmVkIGxvbmcpLS1fX2xpYmNwcF9hbGxvY2F0ZS0tYWxsb2NhdGUNClNVTU1BUlk6IEFkZHJlc3NTYW5pdGl6ZXI6IGhlYXAtYnVmZmVyLW92ZXJmbG93IC9zcmMvbGliZ2l0Mi9zcmMvdXRpbC5jOjg2OjIyIGluIGdpdF9fc3RybnRvbDY0DQpTaGFkb3cgYnl0ZXMgYXJvdW5kIHRoZSBidWdneSBhZGRyZXNzOg0KICAweDBjMGM3ZmZmODAwMDogZmEgZmEgZmEgZmEgZmQgZmQgZmQgZmQgZmQgZmQgZmQgZmEgZmEgZmEgZmEgZmENCiAgMHgwYzBjN2ZmZjgwMTA6IDAwIDAwIDAwIDAwIDAwIDAwIDA2IGZhIGZhIGZhIGZhIGZhIDAwIDAwIDAwIDAwDQogIDB4MGMwYzdmZmY4MDIwOiAwMCAwMCAwMCAwMCBmYSBmYSBmYSBmYSAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMA0KICAweDBjMGM3ZmZmODAzMDogZmEgZmEgZmEgZmEgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgZmEgZmEgZmEgZmENCiAgMHgwYzBjN2ZmZjgwNDA6IDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIGZhIGZhIGZhIGZhIDAwIDAwIDAwIDAwDQo9PjB4MGMwYzdmZmY4MDUwOiAwMCAwMCAwMCAwMCBmYSBmYSBmYSBmYSAwMCAwMCAwMCAwMCAwMCAwMCAwMFswMl0NCiAgMHgwYzBjN2ZmZjgwNjA6IGZhIGZhIGZhIGZhIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIGZhIGZhIGZhIGZhDQogIDB4MGMwYzdmZmY4MDcwOiBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYQ0KICAweDBjMGM3ZmZmODA4MDogZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmENCiAgMHgwYzBjN2ZmZjgwOTA6IGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhDQogIDB4MGMwYzdmZmY4MGEwOiBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYQ0KU2hhZG93IGJ5dGUgbGVnZW5kIChvbmUgc2hhZG93IGJ5dGUgcmVwcmVzZW50cyA4IGFwcGxpY2F0aW9uIGJ5dGVzKToNCiAgQWRkcmVzc2FibGU6ICAgICAgICAgICAwMA0KICBQYXJ0aWFsbHkgYWRkcmVzc2FibGU6IDAxIDAyIDAzIDA0IDA1IDA2IDA3IA0KICBIZWFwIGxlZnQgcmVkem9uZTogICAgICAgZmENCiAgRnJlZWQgaGVhcCByZWdpb246ICAgICAgIGZkDQogIFN0YWNrIGxlZnQgcmVkem9uZTogICAgICBmMQ0KICBTdGFjayBtaWQgcmVkem9uZTogICAgICAgZjINCiAgU3RhY2sgcmlnaHQgcmVkem9uZTogICAgIGYzDQogIFN0YWNrIGFmdGVyIHJldHVybjogICAgICBmNQ0KICBTdGFjayB1c2UgYWZ0ZXIgc2NvcGU6ICAgZjgNCiAgR2xvYmFsIHJlZHpvbmU6ICAgICAgICAgIGY5DQogIEdsb2JhbCBpbml0IG9yZGVyOiAgICAgICBmNg0KICBQb2lzb25lZCBieSB1c2VyOiAgICAgICAgZjcNCiAgQ29udGFpbmVyIG92ZXJmbG93OiAgICAgIGZjDQogIEFycmF5IGNvb2tpZTogICAgICAgICAgICBhYw0KICBJbnRyYSBvYmplY3QgcmVkem9uZTogICAgYmINCiAgQVNhbiBpbnRlcm5hbDogICAgICAgICAgIGZlDQogIExlZnQgYWxsb2NhIHJlZHpvbmU6ICAgICBjYQ0KICBSaWdodCBhbGxvY2EgcmVkem9uZTogICAgY2INCiAgU2hhZG93IGdhcDogICAgICAgICAgICAgIGNjDQpBQk9SVElORw==",
+  "requested_content": {
+    "/src/libgit2/src/util.c": {
+      "56": "line   56 : \t\t\tcontinue;",
+      "57": "line   57 : ",
+      "58": "line   58 : \t\ttgt->strings[tgt->count] = git__strdup(src->strings[i]);",
+      "59": "line   59 : \t\tif (!tgt->strings[tgt->count]) {",
+      "60": "line   60 : \t\t\tgit_strarray_free(tgt);",
+      "61": "line   61 : \t\t\tmemset(tgt, 0, sizeof(*tgt));",
+      "62": "line   62 : \t\t\treturn -1;",
+      "63": "line   63 : \t\t}",
+      "64": "line   64 : ",
+      "65": "line   65 : \t\ttgt->count++;",
+      "66": "line   66 : \t}",
+      "67": "line   67 : ",
+      "68": "line   68 : \treturn 0;",
+      "69": "line   69 : }",
+      "70": "line   70 : ",
+      "71": "line   71 : int git__strntol64(int64_t *result, const char *nptr, size_t nptr_len, const char **endptr, int base)",
+      "72": "line   72 : {",
+      "73": "line   73 : \tconst char *p;",
+      "74": "line   74 : \tint64_t n, nn;",
+      "75": "line   75 : \tint c, ovfl, v, neg, ndig;",
+      "76": "line   76 : ",
+      "77": "line   77 : \tp = nptr;",
+      "78": "line   78 : \tneg = 0;",
+      "79": "line   79 : \tn = 0;",
+      "80": "line   80 : \tndig = 0;",
+      "81": "line   81 : \tovfl = 0;",
+      "82": "line   82 : ",
+      "83": "line   83 : \t/*",
+      "84": "line   84 : \t * White space",
+      "85": "line   85 : \t */",
+      "86": "line   86 : \twhile (git__isspace(*p))",
+      "87": "line   87 : \t\tp++;",
+      "88": "line   88 : ",
+      "89": "line   89 : \t/*",
+      "90": "line   90 : \t * Sign",
+      "91": "line   91 : \t */",
+      "92": "line   92 : \tif (*p == '-' || *p == '+')",
+      "93": "line   93 : \t\tif (*p++ == '-')",
+      "94": "line   94 : \t\t\tneg = 1;",
+      "95": "line   95 : ",
+      "96": "line   96 : \t/*",
+      "97": "line   97 : \t * Base",
+      "98": "line   98 : \t */",
+      "99": "line   99 : \tif (base == 0) {",
+      "100": "line  100 : \t\tif (*p != '0')",
+      "101": "line  101 : \t\t\tbase = 10;",
+      "102": "line  102 : \t\telse {",
+      "103": "line  103 : \t\t\tbase = 8;",
+      "104": "line  104 : \t\t\tif (p[1] == 'x' || p[1] == 'X') {",
+      "105": "line  105 : \t\t\t\tp += 2;",
+      "106": "line  106 : \t\t\t\tbase = 16;",
+      "107": "line  107 : \t\t\t}",
+      "108": "line  108 : \t\t}",
+      "109": "line  109 : \t} else if (base == 16 && *p == '0') {",
+      "110": "line  110 : \t\tif (p[1] == 'x' || p[1] == 'X')",
+      "111": "line  111 : \t\t\tp += 2;",
+      "112": "line  112 : \t} else if (base < 0 || 36 < base)",
+      "113": "line  113 : \t\tgoto Return;",
+      "114": "line  114 : ",
+      "115": "line  115 : \t/*",
+      "871": "line  871 : <End of File>"
+    }
+  },
+  "note": [
+    "Reason for requesting line 86 of /src/libgit2/src/util.c: To understand the logic of `git__strntol64` and how it handles string parsing and length. This will help identify why a read past the buffer occurs."
+  ],
+  "valid_patches": [
+    {
+      "file": "/src/libgit2/src/util.c",
+      "diff": [
+        {
+          "line_number": 86,
+          "content": [
+            "\twhile ((p - nptr) < nptr_len && git__isspace(*p))"
+          ]
+        }
+      ]
+    }
+  ],
+  "retry_count": 2,
+  "history": [
+    {
+      "reason": "To understand the logic of `git__strntol64` and how it handles string parsing and length. This will help identify why a read past the buffer occurs.",
+      "line": 86,
+      "file": "/src/libgit2/src/util.c"
+    },
+    {
+      "reason": "The `git__strntol64` function performs a read past the end of the input buffer (`nptr`) because it does not properly respect the `nptr_len` parameter. The `while` loop at line 86 increments `p` and dereferences it without checking if `p` has exceeded the bounds defined by `nptr_len`.",
+      "patches": [
+        {
+          "file": "/src/libgit2/src/util.c",
+          "diff": [
+            {
+              "line_number": 86,
+              "content": [
+                "\twhile ((p - nptr) < nptr_len && git__isspace(*p))"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

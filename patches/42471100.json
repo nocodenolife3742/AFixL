@@ -1,0 +1,171 @@
+{
+  "id": "42471100",
+  "stage": "evaluate",
+  "repo_addr": "https://github.com/libgit2/libgit2",
+  "fix_commit": "ee11d47e3d907b66eeff99e0ba1e1c71e05164b7",
+  "project": "libgit2",
+  "report": "RVJST1I6IEFkZHJlc3NTYW5pdGl6ZXI6IGhlYXAtYnVmZmVyLW92ZXJmbG93IG9uIGFkZHJlc3MgMHg2MDcwMDAwMDAwZDkgYXQgcGMgMHgwMDAwMDA0ODNiN2MgYnAgMHg3ZmZmZmZmZmRiODAgc3AgMHg3ZmZmZmZmZmQzMzANClJFQUQgb2Ygc2l6ZSAyIGF0IDB4NjA3MDAwMDAwMGQ5IHRocmVhZCBUMA0KU0NBUklORVNTOiAxNCAoMi1ieXRlLXJlYWQtaGVhcC1idWZmZXItb3ZlcmZsb3cpDQogICAgIzAgMHg0ODNiN2IgaW4gU3Ryc3RyQ2hlY2sodm9pZCosIGNoYXIqLCBjaGFyIGNvbnN0KiwgY2hhciBjb25zdCopIC9zcmMvbGx2bS9wcm9qZWN0cy9jb21waWxlci1ydC9saWIvYXNhbi8uLi9zYW5pdGl6ZXJfY29tbW9uL3Nhbml0aXplcl9jb21tb25faW50ZXJjZXB0b3JzLmluYzo1NDUNCiAgICAjMSAweDRjMTdlMCBpbiBfX2ludGVyY2VwdG9yX3N0cnN0ciAvc3JjL2xsdm0vcHJvamVjdHMvY29tcGlsZXItcnQvbGliL2FzYW4vLi4vc2FuaXRpemVyX2NvbW1vbi9zYW5pdGl6ZXJfY29tbW9uX2ludGVyY2VwdG9ycy5pbmM6NTYyDQogICAgIzIgMHg3OTU1MWEgaW4gdGFnX3BhcnNlIC9zcmMvbGliZ2l0Mi9zcmMvdGFnLmM6MTQyOjEzDQogICAgIzMgMHg3OTQzYzYgaW4gZ2l0X3RhZ19fcGFyc2VfcmF3IC9zcmMvbGliZ2l0Mi9zcmMvdGFnLmM6MTY0OjkNCiAgICAjNCAweDVkZDAxMCBpbiBnaXRfb2JqZWN0X19mcm9tX3JhdyAvc3JjL2xpYmdpdDIvc3JjL29iamVjdC5jOjk0OjE1DQogICAgIzUgMHg1YzAzY2IgaW4gTExWTUZ1enplclRlc3RPbmVJbnB1dCAvc3JjL2xpYmdpdDIvYnVpbGQvLi4vZnV6emVycy9vYmplY3RzX2Z1enplci5jOjQwOjcNCiAgICAjNiAweDU1Yjc2NSBpbiBmdXp6ZXI6OkZ1enplcjo6RXhlY3V0ZUNhbGxiYWNrKHVuc2lnbmVkIGNoYXIgY29uc3QqLCB1bnNpZ25lZCBsb25nKSAvc3JjL2xpYmZ1enplci9GdXp6ZXJMb29wLmNwcDo1NzA6MTUNCiAgICAjNyAweDUzMTY2ZCBpbiBmdXp6ZXI6OlJ1bk9uZVRlc3QoZnV6emVyOjpGdXp6ZXIqLCBjaGFyIGNvbnN0KiwgdW5zaWduZWQgbG9uZykgL3NyYy9saWJmdXp6ZXIvRnV6emVyRHJpdmVyLmNwcDoyODA6Ng0KICAgICM4IDB4NTNjZWI2IGluIGZ1enplcjo6RnV6emVyRHJpdmVyKGludCosIGNoYXIqKiosIGludCAoKikodW5zaWduZWQgY2hhciBjb25zdCosIHVuc2lnbmVkIGxvbmcpKSAvc3JjL2xpYmZ1enplci9GdXp6ZXJEcml2ZXIuY3BwOjcxMzo5DQogICAgIzkgMHg1MzBjZWMgaW4gbWFpbiAvc3JjL2xpYmZ1enplci9GdXp6ZXJNYWluLmNwcDoyMDoxMA0KICAgICMxMCAweDdmZmZmNmVlNTgyZiBpbiBfX2xpYmNfc3RhcnRfbWFpbiAoL2xpYi94ODZfNjQtbGludXgtZ251L2xpYmMuc28uNisweDIwODJmKQ0KICAgICMxMSAweDQxZDkxOCBpbiBfc3RhcnQgKC9vdXQvb2JqZWN0c19mdXp6ZXIrMHg0MWQ5MTgpDQoNCkRFRFVQX1RPS0VOOiBTdHJzdHJDaGVjayh2b2lkKiwgY2hhciosIGNoYXIgY29uc3QqLCBjaGFyIGNvbnN0KiktLV9faW50ZXJjZXB0b3Jfc3Ryc3RyLS10YWdfcGFyc2UNCjB4NjA3MDAwMDAwMGQ5IGlzIGxvY2F0ZWQgMCBieXRlcyB0byB0aGUgcmlnaHQgb2YgNzMtYnl0ZSByZWdpb24gWzB4NjA3MDAwMDAwMDkwLDB4NjA3MDAwMDAwMGQ5KQ0KYWxsb2NhdGVkIGJ5IHRocmVhZCBUMCBoZXJlOg0KICAgICMwIDB4NTJjOTU4IGluIG9wZXJhdG9yIG5ld1tdKHVuc2lnbmVkIGxvbmcpIC9zcmMvbGx2bS9wcm9qZWN0cy9jb21waWxlci1ydC9saWIvYXNhbi9hc2FuX25ld19kZWxldGUuY2M6MTA5DQogICAgIzEgMHg1NWI1MTcgaW4gZnV6emVyOjpGdXp6ZXI6OkV4ZWN1dGVDYWxsYmFjayh1bnNpZ25lZCBjaGFyIGNvbnN0KiwgdW5zaWduZWQgbG9uZykgL3NyYy9saWJmdXp6ZXIvRnV6emVyTG9vcC5jcHA6NTU3OjIzDQogICAgIzIgMHg1MzE2NmQgaW4gZnV6emVyOjpSdW5PbmVUZXN0KGZ1enplcjo6RnV6emVyKiwgY2hhciBjb25zdCosIHVuc2lnbmVkIGxvbmcpIC9zcmMvbGliZnV6emVyL0Z1enplckRyaXZlci5jcHA6MjgwOjYNCiAgICAjMyAweDUzY2ViNiBpbiBmdXp6ZXI6OkZ1enplckRyaXZlcihpbnQqLCBjaGFyKioqLCBpbnQgKCopKHVuc2lnbmVkIGNoYXIgY29uc3QqLCB1bnNpZ25lZCBsb25nKSkgL3NyYy9saWJmdXp6ZXIvRnV6emVyRHJpdmVyLmNwcDo3MTM6OQ0KICAgICM0IDB4NTMwY2VjIGluIG1haW4gL3NyYy9saWJmdXp6ZXIvRnV6emVyTWFpbi5jcHA6MjA6MTANCiAgICAjNSAweDdmZmZmNmVlNTgyZiBpbiBfX2xpYmNfc3RhcnRfbWFpbiAoL2xpYi94ODZfNjQtbGludXgtZ251L2xpYmMuc28uNisweDIwODJmKQ0KDQpERURVUF9UT0tFTjogb3BlcmF0b3IgbmV3W10odW5zaWduZWQgbG9uZyktLWZ1enplcjo6RnV6emVyOjpFeGVjdXRlQ2FsbGJhY2sodW5zaWduZWQgY2hhciBjb25zdCosIHVuc2lnbmVkIGxvbmcpLS1mdXp6ZXI6OlJ1bk9uZVRlc3QoZnV6emVyOjpGdXp6ZXIqLCBjaGFyIGNvbnN0KiwgdW5zaWduZWQgbG9uZykNClNVTU1BUlk6IEFkZHJlc3NTYW5pdGl6ZXI6IGhlYXAtYnVmZmVyLW92ZXJmbG93IC9zcmMvbGx2bS9wcm9qZWN0cy9jb21waWxlci1ydC9saWIvYXNhbi8uLi9zYW5pdGl6ZXJfY29tbW9uL3Nhbml0aXplcl9jb21tb25faW50ZXJjZXB0b3JzLmluYzo1NDUgaW4gU3Ryc3RyQ2hlY2sodm9pZCosIGNoYXIqLCBjaGFyIGNvbnN0KiwgY2hhciBjb25zdCopDQpTaGFkb3cgYnl0ZXMgYXJvdW5kIHRoZSBidWdneSBhZGRyZXNzOg0KICAweDBjMGU3ZmZmN2ZjMDogMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDANCiAgMHgwYzBlN2ZmZjdmZDA6IDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwDQogIDB4MGMwZTdmZmY3ZmUwOiAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMA0KICAweDBjMGU3ZmZmN2ZmMDogMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDANCiAgMHgwYzBlN2ZmZjgwMDA6IGZhIGZhIGZhIGZhIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAxIGZhIGZhDQo9PjB4MGMwZTdmZmY4MDEwOiBmYSBmYSAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMFswMV1mYSBmYSBmYSBmYQ0KICAweDBjMGU3ZmZmODAyMDogZmQgZmQgZmQgZmQgZmQgZmQgZmQgZmQgZmQgZmEgZmEgZmEgZmEgZmEgZmQgZmQNCiAgMHgwYzBlN2ZmZjgwMzA6IGZkIGZkIGZkIGZkIGZkIGZkIGZkIGZkIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhDQogIDB4MGMwZTdmZmY4MDQwOiBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYQ0KICAweDBjMGU3ZmZmODA1MDogZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmENCiAgMHgwYzBlN2ZmZjgwNjA6IGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhDQpTaGFkb3cgYnl0ZSBsZWdlbmQgKG9uZSBzaGFkb3cgYnl0ZSByZXByZXNlbnRzIDggYXBwbGljYXRpb24gYnl0ZXMpOg0KICBBZGRyZXNzYWJsZTogICAgICAgICAgIDAwDQogIFBhcnRpYWxseSBhZGRyZXNzYWJsZTogMDEgMDIgMDMgMDQgMDUgMDYgMDcgDQogIEhlYXAgbGVmdCByZWR6b25lOiAgICAgICBmYQ0KICBGcmVlZCBoZWFwIHJlZ2lvbjogICAgICAgZmQNCiAgU3RhY2sgbGVmdCByZWR6b25lOiAgICAgIGYxDQogIFN0YWNrIG1pZCByZWR6b25lOiAgICAgICBmMg0KICBTdGFjayByaWdodCByZWR6b25lOiAgICAgZjMNCiAgU3RhY2sgYWZ0ZXIgcmV0dXJuOiAgICAgIGY1DQogIFN0YWNrIHVzZSBhZnRlciBzY29wZTogICBmOA0KICBHbG9iYWwgcmVkem9uZTogICAgICAgICAgZjkNCiAgR2xvYmFsIGluaXQgb3JkZXI6ICAgICAgIGY2DQogIFBvaXNvbmVkIGJ5IHVzZXI6ICAgICAgICBmNw0KICBDb250YWluZXIgb3ZlcmZsb3c6ICAgICAgZmMNCiAgQXJyYXkgY29va2llOiAgICAgICAgICAgIGFjDQogIEludHJhIG9iamVjdCByZWR6b25lOiAgICBiYg0KICBBU2FuIGludGVybmFsOiAgICAgICAgICAgZmUNCiAgTGVmdCBhbGxvY2EgcmVkem9uZTogICAgIGNhDQogIFJpZ2h0IGFsbG9jYSByZWR6b25lOiAgICBjYg0KICBTaGFkb3cgZ2FwOiAgICAgICAgICAgICAgY2MNCkFCT1JUSU5H",
+  "requested_content": {
+    "/src/libgit2/src/tag.c": {
+      "112": "line  112 : \tbuffer += 4;",
+      "113": "line  113 : ",
+      "114": "line  114 : \tsearch = memchr(buffer, '\\n', buffer_end - buffer);",
+      "115": "line  115 : \tif (search == NULL)",
+      "116": "line  116 : \t\treturn tag_error(\"object too short\");",
+      "117": "line  117 : ",
+      "118": "line  118 : \ttext_len = search - buffer;",
+      "119": "line  119 : ",
+      "120": "line  120 : \tGITERR_CHECK_ALLOC_ADD(&alloc_len, text_len, 1);",
+      "121": "line  121 : \ttag->tag_name = git__malloc(alloc_len);",
+      "122": "line  122 : \tGITERR_CHECK_ALLOC(tag->tag_name);",
+      "123": "line  123 : ",
+      "124": "line  124 : \tmemcpy(tag->tag_name, buffer, text_len);",
+      "125": "line  125 : \ttag->tag_name[text_len] = '\\0';",
+      "126": "line  126 : ",
+      "127": "line  127 : \tbuffer = search + 1;",
+      "128": "line  128 : ",
+      "129": "line  129 : \ttag->tagger = NULL;",
+      "130": "line  130 : \tif (buffer < buffer_end && *buffer != '\\n') {",
+      "131": "line  131 : \t\ttag->tagger = git__malloc(sizeof(git_signature));",
+      "132": "line  132 : \t\tGITERR_CHECK_ALLOC(tag->tagger);",
+      "133": "line  133 : ",
+      "134": "line  134 : \t\tif (git_signature__parse(tag->tagger, &buffer, buffer_end, \"tagger \", '\\n') < 0)",
+      "135": "line  135 : \t\t\treturn -1;",
+      "136": "line  136 : \t}",
+      "137": "line  137 : ",
+      "138": "line  138 : \ttag->message = NULL;",
+      "139": "line  139 : \tif (buffer < buffer_end) {",
+      "140": "line  140 : \t\t/* If we're not at the end of the header, search for it */",
+      "141": "line  141 : \t\tif( *buffer != '\\n' ) {",
+      "142": "line  142 : \t\t\tsearch = strstr(buffer, \"\\n\\n\");",
+      "143": "line  143 : \t\t\tif (search)",
+      "144": "line  144 : \t\t\t\tbuffer = search + 1;",
+      "145": "line  145 : \t\t\telse",
+      "146": "line  146 : \t\t\t\treturn tag_error(\"tag contains no message\");",
+      "147": "line  147 : \t\t}",
+      "148": "line  148 : ",
+      "149": "line  149 : \t\ttext_len = buffer_end - ++buffer;",
+      "150": "line  150 : ",
+      "151": "line  151 : \t\tGITERR_CHECK_ALLOC_ADD(&alloc_len, text_len, 1);",
+      "152": "line  152 : \t\ttag->message = git__malloc(alloc_len);",
+      "153": "line  153 : \t\tGITERR_CHECK_ALLOC(tag->message);",
+      "154": "line  154 : ",
+      "155": "line  155 : \t\tmemcpy(tag->message, buffer, text_len);",
+      "156": "line  156 : \t\ttag->message[text_len] = '\\0';",
+      "157": "line  157 : \t}",
+      "158": "line  158 : ",
+      "159": "line  159 : \treturn 0;",
+      "160": "line  160 : }",
+      "161": "line  161 : ",
+      "162": "line  162 : int git_tag__parse_raw(void *_tag, const char *data, size_t size)",
+      "163": "line  163 : {",
+      "164": "line  164 : \treturn tag_parse(_tag, data, data + size);",
+      "165": "line  165 : }",
+      "166": "line  166 : ",
+      "167": "line  167 : int git_tag__parse(void *_tag, git_odb_object *odb_obj)",
+      "168": "line  168 : {",
+      "169": "line  169 : \tgit_tag *tag = _tag;",
+      "170": "line  170 : \tconst char *buffer = git_odb_object_data(odb_obj);",
+      "171": "line  171 : \tconst char *buffer_end = buffer + git_odb_object_size(odb_obj);",
+      "524": "line  524 : <End of File>"
+    }
+  },
+  "note": [
+    "Reason for requesting line 142 of /src/libgit2/src/tag.c: To understand how strings are handled and passed to strstr, potentially leading to a heap-buffer-overflow.",
+    "The crash is a heap-buffer-overflow caused by `strstr` reading past the end of a non-null-terminated buffer. The input data, supplied by the fuzzer, is not guaranteed to be null-terminated."
+  ],
+  "valid_patches": [
+    {
+      "file": "/src/libgit2/src/tag.c",
+      "diff": [
+        {
+          "line_number": 142,
+          "content": [
+            "\t\t\tconst char *trailer = \"\\n\\n\";",
+            "\t\t\tconst size_t trailer_len = strlen(trailer);",
+            "\t\t\tconst char *nl = buffer;",
+            "\t\t\twhile ((nl = memchr(nl, '\\n', buffer_end - nl)) != NULL) {",
+            "\t\t\t\tif ((size_t)(buffer_end - nl) >= trailer_len && !memcmp(nl, trailer, trailer_len)) {",
+            "\t\t\t\t\tsearch = nl;",
+            "\t\t\t\t\tbreak;",
+            "\t\t\t\t}",
+            "\t\t\t\tnl++; // Move past the current newline to find the next one",
+            "\t\t\t}",
+            "\t\t\tif (search)",
+            "\t\t\t\tbuffer = search + 1;"
+          ]
+        },
+        {
+          "line_number": 143,
+          "content": []
+        },
+        {
+          "line_number": 144,
+          "content": []
+        },
+        {
+          "line_number": 145,
+          "content": []
+        },
+        {
+          "line_number": 146,
+          "content": []
+        }
+      ]
+    }
+  ],
+  "retry_count": 3,
+  "history": [
+    {
+      "reason": "To understand how strings are handled and passed to strstr, potentially leading to a heap-buffer-overflow.",
+      "line": 142,
+      "file": "/src/libgit2/src/tag.c"
+    },
+    {
+      "content": "The crash is a heap-buffer-overflow caused by `strstr` reading past the end of a non-null-terminated buffer. The input data, supplied by the fuzzer, is not guaranteed to be null-terminated."
+    },
+    {
+      "reason": "The `strstr` function is called with a buffer (`buffer`) that is not guaranteed to be null-terminated within its valid bounds, leading to a heap-buffer-overflow if `strstr` reads past `buffer_end`. To fix this, we replace `strstr` with a bounded search for `\"\\n\\n\"` using `memchr`.",
+      "patches": [
+        {
+          "file": "/src/libgit2/src/tag.c",
+          "diff": [
+            {
+              "line_number": 142,
+              "content": [
+                "\t\t\tconst char *trailer = \"\\n\\n\";",
+                "\t\t\tconst size_t trailer_len = strlen(trailer);",
+                "\t\t\tconst char *nl = buffer;",
+                "\t\t\twhile ((nl = memchr(nl, '\\n', buffer_end - nl)) != NULL) {",
+                "\t\t\t\tif ((size_t)(buffer_end - nl) >= trailer_len && !memcmp(nl, trailer, trailer_len)) {",
+                "\t\t\t\t\tsearch = nl;",
+                "\t\t\t\t\tbreak;",
+                "\t\t\t\t}",
+                "\t\t\t\tnl++; // Move past the current newline to find the next one",
+                "\t\t\t}",
+                "\t\t\tif (search)",
+                "\t\t\t\tbuffer = search + 1;"
+              ]
+            },
+            {
+              "line_number": 143,
+              "content": []
+            },
+            {
+              "line_number": 144,
+              "content": []
+            },
+            {
+              "line_number": 145,
+              "content": []
+            },
+            {
+              "line_number": 146,
+              "content": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

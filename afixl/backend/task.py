@@ -1,7 +1,6 @@
 from abc import ABC, abstractmethod
 
 from afixl.orchestration.crash import CrashRepository
-from afixl.orchestration.models import Config
 
 
 class Task(ABC):
@@ -9,18 +8,16 @@ class Task(ABC):
     Abstract base class for tasks.
     """
 
-    def __init__(self, repository: CrashRepository, config: Config, name: str):
+    def __init__(self, repository: CrashRepository, name: str):
         """
-        Initialize the Task with a reference to the CrashRepository, configuration, and a name.
+        Initialize the Task with a reference to the CrashRepository and a name.
 
         Args:
             repository (CrashRepository): The CrashRepository instance to manage the task.
-            config (Config): The configuration object for the task.
             name (str): The name of the task.
         """
-        # Initialize the Task with the given repository, config, and name
+        # Initialize the Task with the given repository and name
         self._crash_repository = repository
-        self._config = config
         self._name = name
 
     def __enter__(self):

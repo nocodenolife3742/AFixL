@@ -1,0 +1,110 @@
+{
+  "id": "42470925",
+  "stage": "repair",
+  "repo_addr": "https://github.com/wireshark/wireshark.git",
+  "fix_commit": "d9231144b652362eaf62f8595df7d4886dbaf44d",
+  "project": "wireshark",
+  "note": [
+    "Reason for requesting line 263 of /src/wireshark/epan/except.c: To understand why except_pop is performing an 8-byte read on the global string literal.",
+    "Reason for requesting line 1 of /src/wireshark/epan/except.c: To understand how get_top and set_top manage the exception stack and if there is any potential for misusing global string literals.",
+    "Reason for requesting line 224 of /src/wireshark/epan/except.c: To understand how get_top and set_top are implemented and if they interact with any global variables that might be corrupted.",
+    "Reason for requesting line 38 of /src/wireshark/epan/except.c: To understand the definition of `struct except_stacknode` and `struct except_stacknode *get_top()` to determine the layout of `except_down` and how `top` might be pointing to a string literal.",
+    "Reason for requesting line 148 of /src/wireshark/epan/dissectors/packet-data.c: To understand how the global string literal 'Data' is used and if it's ever accidentally stored in thread-local storage `top_key`.",
+    "Reason for requesting line 1 of /src/wireshark/epan/except.h: To understand the definition of `except_t` and `except_id_t` and how `except_dyndata` is used and freed.",
+    "Reason for requesting line 102 of /src/wireshark/epan/except.h: To understand the definition of `struct except_stacknode` which is manipulated by `except_pop` and stored in thread-local storage."
+  ],
+  "valid_patches": null,
+  "history": [
+    {
+      "reason": "To understand why except_pop is performing an 8-byte read on the global string literal.",
+      "line": 263,
+      "file": "/src/wireshark/epan/except.c"
+    },
+    {
+      "reason": "To understand how get_top and set_top manage the exception stack and if there is any potential for misusing global string literals.",
+      "line": 1,
+      "file": "/src/wireshark/epan/except.c"
+    },
+    {
+      "reason": "To understand how get_top and set_top manage the exception stack and how a global string literal could become the 'top' of the stack.",
+      "line": 1,
+      "file": "/src/wireshark/epan/except.c"
+    },
+    {
+      "reason": "To understand the structure of the exception stack node and the type of `except_down`.",
+      "line": 1,
+      "file": "/src/wireshark/epan/except.c"
+    },
+    {
+      "reason": "To understand how get_top and set_top manage the exception stack and where the global string literal might be used or misused in relation to the exception stack. I also need the definition of struct except_stacknode.",
+      "line": 1,
+      "file": "/src/wireshark/epan/except.c"
+    },
+    {
+      "reason": "To understand how get_top and set_top manage the exception stack and how the global string literal might be involved.",
+      "line": 1,
+      "file": "/src/wireshark/epan/except.c"
+    },
+    {
+      "reason": "To understand how get_top and set_top are implemented and if they interact with any global variables that might be corrupted.",
+      "line": 224,
+      "file": "/src/wireshark/epan/except.c"
+    },
+    {
+      "reason": "To understand the definition of `struct except_stacknode` and `struct except_stacknode *get_top()` to determine the layout of `except_down` and how `top` might be pointing to a string literal.",
+      "line": 38,
+      "file": "/src/wireshark/epan/except.c"
+    },
+    {
+      "reason": "To understand how the global string literal 'Data' is used and if it's ever accidentally stored in thread-local storage `top_key`.",
+      "line": 148,
+      "file": "/src/wireshark/epan/dissectors/packet-data.c"
+    },
+    {
+      "reason": "The crash occurs in `except_pop` when `top->except_down` is accessed, where `top` points to the string literal \"Data\". This implies that an incorrect pointer (a `const char*` instead of `struct except_stacknode*`) was pushed onto the exception stack, likely using `set_top`. I need to examine `except_throw` to see if `except.except_message` or `except.except_dyndata` could be inadvertently stored as `struct except_stacknode*` in `top_key`.",
+      "line": 277,
+      "file": "/src/wireshark/epan/except.c"
+    },
+    {
+      "reason": "To understand the definition of `except_t` and `except_id_t` and how `except_dyndata` is used and freed.",
+      "line": 1,
+      "file": "/src/wireshark/epan/except.h"
+    },
+    {
+      "reason": "To understand how the `top_key` thread-local storage is initialized and managed, and to see if there are any points where a non-`except_stacknode` pointer could be stored there.",
+      "line": 55,
+      "file": "/src/wireshark/epan/except.c"
+    },
+    {
+      "reason": "To understand the definition of `struct except_stacknode` which is manipulated by `except_pop` and stored in thread-local storage.",
+      "line": 102,
+      "file": "/src/wireshark/epan/except.h"
+    },
+    {
+      "reason": "To understand how the `top_key` thread-local storage is initialized and if any non-`except_stacknode` pointers, particularly string literals, could be inadvertently stored.",
+      "line": 55,
+      "file": "/src/wireshark/epan/except.c"
+    },
+    {
+      "reason": "The crash occurs because the thread-local `top_key` (which stores `struct except_stacknode *`) is erroneously set to point to a global string literal. This happens in `except_throwf` when formatting a message. The `g_strdup_printf` function allocates memory for the formatted string, but this dynamically allocated string is then assigned to `except.except_message`, and crucially, also used to initialize `except.except_dyndata` when passing it to `do_throw`. However, the current code in `except_throwf` directly passes the `const char *fmt` (the format string, which can be a literal) to `except.except_message` and does not handle the allocation for `except.except_dyndata`. This leads to `except.except_dyndata` being `NULL` and `except_free` being called on `NULL`, or if `fmt` is directly copied to `except_dyndata` it will try to free a global string literal. The `global-buffer-overflow` happens because `top->except_down` tries to read an 8-byte pointer from a 5-byte string literal `\"Data\"` when `top` points to it. This suggests that the address of `\"Data\"` somehow made its way into `top_key`.",
+      "patches": [
+        {
+          "file": "/src/wireshark/epan/except.c",
+          "diff": [
+            {
+              "line_number": 283,
+              "content": [
+                "    except.except_message = g_strdup(msg);",
+                "    except.except_dyndata = except.except_message;"
+              ]
+            },
+            {
+              "line_number": 284,
+              "content": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

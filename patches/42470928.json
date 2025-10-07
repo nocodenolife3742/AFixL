@@ -1,0 +1,121 @@
+{
+  "id": "42470928",
+  "stage": "evaluate",
+  "repo_addr": "https://github.com/darktable-org/rawspeed.git",
+  "fix_commit": "27808d5a8dc8d13c64e88c0a819f5cd29b274979",
+  "project": "librawspeed",
+  "report": "V0FSTklORzogTWVtb3J5U2FuaXRpemVyOiB1c2Utb2YtdW5pbml0aWFsaXplZC12YWx1ZQ0KICAgICMwIDB4NGU0NDZkIGluIHJhd3NwZWVkOjpNU2FuOjpDaGVja01lbUlzSW5pdGlhbGl6ZWQodm9pZCBjb25zdCB2b2xhdGlsZSosIHVuc2lnbmVkIGxvbmcpIC9zcmMvbGlicmF3c3BlZWQvc3JjL2V4dGVybmFsL01lbW9yeVNhbml0aXplci5oOjU2OjMNCiAgICAjMSAweDRlNDQ2ZCBpbiByYXdzcGVlZDo6UmF3SW1hZ2VEYXRhOjpjaGVja1Jvd0lzSW5pdGlhbGl6ZWQoaW50KSAvc3JjL2xpYnJhd3NwZWVkL3NyYy9saWJyYXdzcGVlZC9jb21tb24vUmF3SW1hZ2UuY3BwOjE3OQ0KICAgICMyIDB4NGU0NDZkIGluIHJhd3NwZWVkOjpSYXdJbWFnZURhdGE6OmNoZWNrTWVtSXNJbml0aWFsaXplZCgpIC9zcmMvbGlicmF3c3BlZWQvc3JjL2xpYnJhd3NwZWVkL2NvbW1vbi9SYXdJbWFnZS5jcHA6MTg1DQogICAgIzMgMHg0ZGMxZGEgaW4gTExWTUZ1enplclRlc3RPbmVJbnB1dCAvc3JjL2xpYnJhd3NwZWVkL2Z1enovbGlicmF3c3BlZWQvZGVjb21wcmVzc29ycy9QaGFzZU9uZURlY29tcHJlc3Nvci5jcHA6NjA6MTENCiAgICAjNCAweDU1ZTI2YiBpbiBmdXp6ZXI6OkZ1enplcjo6RXhlY3V0ZUNhbGxiYWNrKHVuc2lnbmVkIGNoYXIgY29uc3QqLCB1bnNpZ25lZCBsb25nKSAvc3JjL2xpYmZ1enplci9GdXp6ZXJMb29wLmNwcDo1NzA6MTUNCiAgICAjNSAweDUxNmZlNiBpbiBmdXp6ZXI6OlJ1bk9uZVRlc3QoZnV6emVyOjpGdXp6ZXIqLCBjaGFyIGNvbnN0KiwgdW5zaWduZWQgbG9uZykgL3NyYy9saWJmdXp6ZXIvRnV6emVyRHJpdmVyLmNwcDoyODA6Ng0KICAgICM2IDB4NTI3ZTBhIGluIGZ1enplcjo6RnV6emVyRHJpdmVyKGludCosIGNoYXIqKiosIGludCAoKikodW5zaWduZWQgY2hhciBjb25zdCosIHVuc2lnbmVkIGxvbmcpKSAvc3JjL2xpYmZ1enplci9GdXp6ZXJEcml2ZXIuY3BwOjcxMzo5DQogICAgIzcgMHg1MTYxMTEgaW4gbWFpbiAvc3JjL2xpYmZ1enplci9GdXp6ZXJNYWluLmNwcDoyMDoxMA0KICAgICM4IDB4N2ZmZmY2ZWU1ODJmIGluIF9fbGliY19zdGFydF9tYWluICgvbGliL3g4Nl82NC1saW51eC1nbnUvbGliYy5zby42KzB4MjA4MmYpDQogICAgIzkgMHg0NTc5NzggaW4gX3N0YXJ0ICgvb3V0L1BoYXNlT25lRGVjb21wcmVzc29yRnV6emVyKzB4NDU3OTc4KQ0KDQpERURVUF9UT0tFTjogcmF3c3BlZWQ6Ok1TYW46OkNoZWNrTWVtSXNJbml0aWFsaXplZCh2b2lkIGNvbnN0IHZvbGF0aWxlKiwgdW5zaWduZWQgbG9uZyktLXJhd3NwZWVkOjpSYXdJbWFnZURhdGE6OmNoZWNrUm93SXNJbml0aWFsaXplZChpbnQpLS1yYXdzcGVlZDo6UmF3SW1hZ2VEYXRhOjpjaGVja01lbUlzSW5pdGlhbGl6ZWQoKQ0KICBVbmluaXRpYWxpemVkIHZhbHVlIHdhcyBjcmVhdGVkIGJ5IGEgaGVhcCBhbGxvY2F0aW9uDQogICAgIzAgMHg0YTQ3ZTQgaW4gX19pbnRlcmNlcHRvcl9wb3NpeF9tZW1hbGlnbiAvc3JjL2xsdm0vcHJvamVjdHMvY29tcGlsZXItcnQvbGliL21zYW4vbXNhbl9pbnRlcmNlcHRvcnMuY2M6MTY5DQogICAgIzEgMHg1MDRmMGUgaW4gcmF3c3BlZWQ6OmFsaWduZWRNYWxsb2ModW5zaWduZWQgbG9uZywgdW5zaWduZWQgbG9uZykgL3NyYy9saWJyYXdzcGVlZC9zcmMvbGlicmF3c3BlZWQvY29tbW9uL01lbW9yeS5jcHA6NjI6MTINCiAgICAjMiAweDRlMTlhNCBpbiB1bnNpZ25lZCBjaGFyKiByYXdzcGVlZDo6YWxpZ25lZE1hbGxvYzx1bnNpZ25lZCBjaGFyLCAxNnVsPih1bnNpZ25lZCBsb25nKSAvc3JjL2xpYnJhd3NwZWVkL3NyYy9saWJyYXdzcGVlZC9jb21tb24vTWVtb3J5Lmg6NjA6MzENCiAgICAjMyAweDRlMTlhNCBpbiB1bnNpZ25lZCBjaGFyKiByYXdzcGVlZDo6YWxpZ25lZE1hbGxvY0FycmF5PHVuc2lnbmVkIGNoYXIsIDE2dWwsIGZhbHNlPih1bnNpZ25lZCBsb25nLCB1bnNpZ25lZCBsb25nKSAvc3JjL2xpYnJhd3NwZWVkL3NyYy9saWJyYXdzcGVlZC9jb21tb24vTWVtb3J5Lmg6NzgNCiAgICAjNCAweDRlMTlhNCBpbiByYXdzcGVlZDo6UmF3SW1hZ2VEYXRhOjpjcmVhdGVEYXRhKCkgL3NyYy9saWJyYXdzcGVlZC9zcmMvbGlicmF3c3BlZWQvY29tbW9uL1Jhd0ltYWdlLmNwcDoxMDYNCiAgICAjNSAweDRkYzE5NyBpbiBMTFZNRnV6emVyVGVzdE9uZUlucHV0IC9zcmMvbGlicmF3c3BlZWQvZnV6ei9saWJyYXdzcGVlZC9kZWNvbXByZXNzb3JzL1BoYXNlT25lRGVjb21wcmVzc29yLmNwcDo1NzoxMQ0KICAgICM2IDB4NTVlMjZiIGluIGZ1enplcjo6RnV6emVyOjpFeGVjdXRlQ2FsbGJhY2sodW5zaWduZWQgY2hhciBjb25zdCosIHVuc2lnbmVkIGxvbmcpIC9zcmMvbGliZnV6emVyL0Z1enplckxvb3AuY3BwOjU3MDoxNQ0KICAgICM3IDB4NTE2ZmU2IGluIGZ1enplcjo6UnVuT25lVGVzdChmdXp6ZXI6OkZ1enplciosIGNoYXIgY29uc3QqLCB1bnNpZ25lZCBsb25nKSAvc3JjL2xpYmZ1enplci9GdXp6ZXJEcml2ZXIuY3BwOjI4MDo2DQogICAgIzggMHg1MjdlMGEgaW4gZnV6emVyOjpGdXp6ZXJEcml2ZXIoaW50KiwgY2hhcioqKiwgaW50ICgqKSh1bnNpZ25lZCBjaGFyIGNvbnN0KiwgdW5zaWduZWQgbG9uZykpIC9zcmMvbGliZnV6emVyL0Z1enplckRyaXZlci5jcHA6NzEzOjkNCiAgICAjOSAweDUxNjExMSBpbiBtYWluIC9zcmMvbGliZnV6emVyL0Z1enplck1haW4uY3BwOjIwOjEwDQogICAgIzEwIDB4N2ZmZmY2ZWU1ODJmIGluIF9fbGliY19zdGFydF9tYWluICgvbGliL3g4Nl82NC1saW51eC1nbnUvbGliYy5zby42KzB4MjA4MmYpDQoNCkRFRFVQX1RPS0VOOiBfX2ludGVyY2VwdG9yX3Bvc2l4X21lbWFsaWduLS1yYXdzcGVlZDo6YWxpZ25lZE1hbGxvYyh1bnNpZ25lZCBsb25nLCB1bnNpZ25lZCBsb25nKS0tdW5zaWduZWQgY2hhciogcmF3c3BlZWQ6OmFsaWduZWRNYWxsb2M8dW5zaWduZWQgY2hhciwgMTZ1bD4odW5zaWduZWQgbG9uZykNClNVTU1BUlk6IE1lbW9yeVNhbml0aXplcjogdXNlLW9mLXVuaW5pdGlhbGl6ZWQtdmFsdWUgL3NyYy9saWJyYXdzcGVlZC9zcmMvZXh0ZXJuYWwvTWVtb3J5U2FuaXRpemVyLmg6NTY6MyBpbiByYXdzcGVlZDo6TVNhbjo6Q2hlY2tNZW1Jc0luaXRpYWxpemVkKHZvaWQgY29uc3Qgdm9sYXRpbGUqLCB1bnNpZ25lZCBsb25nKQ0KRXhpdGluZw==",
+  "requested_content": {
+    "/src/librawspeed/src/librawspeed/common/RawImage.cpp": {
+      "76": "line   76 : ",
+      "77": "line   77 : ",
+      "78": "line   78 : void RawImageData::createData() {",
+      "79": "line   79 :   static constexpr const auto alignment = 16;",
+      "80": "line   80 : ",
+      "81": "line   81 :   if (dim.x > 65535 || dim.y > 65535)",
+      "82": "line   82 :     ThrowRDE(\"Dimensions too large for allocation.\");",
+      "83": "line   83 :   if (dim.x <= 0 || dim.y <= 0)",
+      "84": "line   84 :     ThrowRDE(\"Dimension of one sides is less than 1 - cannot allocate image.\");",
+      "85": "line   85 :   if (data)",
+      "86": "line   86 :     ThrowRDE(\"Duplicate data allocation in createData.\");",
+      "87": "line   87 : ",
+      "88": "line   88 :   // want each line to start at 16-byte aligned address",
+      "89": "line   89 :   pitch = roundUp(static_cast<size_t>(dim.x) * bpp, alignment);",
+      "90": "line   90 :   assert(isAligned(pitch, alignment));",
+      "91": "line   91 : ",
+      "92": "line   92 : #if defined(DEBUG) || __has_feature(address_sanitizer) ||                      \\",
+      "93": "line   93 :     defined(__SANITIZE_ADDRESS__)",
+      "94": "line   94 :   // want to ensure that we have some padding",
+      "95": "line   95 :   pitch += alignment * alignment;",
+      "96": "line   96 :   assert(isAligned(pitch, alignment));",
+      "97": "line   97 : #endif",
+      "98": "line   98 : ",
+      "99": "line   99 :   padding = pitch - dim.x * bpp;",
+      "100": "line  100 : ",
+      "101": "line  101 : #if defined(DEBUG) || __has_feature(address_sanitizer) ||                      \\",
+      "102": "line  102 :     defined(__SANITIZE_ADDRESS__)",
+      "103": "line  103 :   assert(padding > 0);",
+      "104": "line  104 : #endif",
+      "105": "line  105 : ",
+      "106": "line  106 :   data = alignedMallocArray<uchar8, alignment>(dim.y, pitch);",
+      "107": "line  107 : ",
+      "108": "line  108 :   if (!data)",
+      "109": "line  109 :     ThrowRDE(\"Memory Allocation failed.\");",
+      "110": "line  110 : ",
+      "111": "line  111 :   uncropped_dim = dim;",
+      "112": "line  112 : ",
+      "113": "line  113 : #ifndef NDEBUG",
+      "114": "line  114 :   if (dim.y > 1) {",
+      "115": "line  115 :     // padding is the size of the area after last pixel of line n",
+      "116": "line  116 :     // and before the first pixel of line n+1",
+      "117": "line  117 :     assert(getData(dim.x - 1, 0) + bpp + padding == getData(0, 1));",
+      "118": "line  118 :   }",
+      "119": "line  119 : ",
+      "120": "line  120 :   for (int j = 0; j < dim.y; j++) {",
+      "121": "line  121 :     const uchar8* const line = getData(0, j);",
+      "122": "line  122 :     // each line is indeed 16-byte aligned",
+      "123": "line  123 :     assert(isAligned(line, alignment));",
+      "124": "line  124 :   }",
+      "125": "line  125 : #endif",
+      "126": "line  126 : ",
+      "127": "line  127 :   poisonPadding();",
+      "128": "line  128 : }",
+      "129": "line  129 : ",
+      "130": "line  130 : #if __has_feature(address_sanitizer) || defined(__SANITIZE_ADDRESS__)",
+      "131": "line  131 : void RawImageData::poisonPadding() {",
+      "132": "line  132 :   if (padding <= 0)",
+      "133": "line  133 :     return;",
+      "134": "line  134 : ",
+      "135": "line  135 :   for (int j = 0; j < uncropped_dim.y; j++) {",
+      "624": "line  624 : <End of File>"
+    }
+  },
+  "note": [
+    "Reason for requesting line 106 of /src/librawspeed/src/librawspeed/common/RawImage.cpp: To understand how RawImageData allocates and (potentially) initializes its internal data buffer, which is reported as uninitialized."
+  ],
+  "valid_patches": [
+    {
+      "file": "/src/librawspeed/src/librawspeed/common/RawImage.cpp",
+      "diff": [
+        {
+          "line_number": 107,
+          "content": [
+            "  if (!data)",
+            "    ThrowRDE(\"Memory Allocation failed.\");",
+            "",
+            "  // Zero-initialize the allocated memory to prevent uninitialized reads",
+            "  memset(data, 0, static_cast<size_t>(dim.y) * pitch);"
+          ]
+        }
+      ]
+    }
+  ],
+  "retry_count": 2,
+  "history": [
+    {
+      "reason": "To understand how RawImageData allocates and (potentially) initializes its internal data buffer, which is reported as uninitialized.",
+      "line": 106,
+      "file": "/src/librawspeed/src/librawspeed/common/RawImage.cpp"
+    },
+    {
+      "reason": "The allocated memory for `data` is not initialized after `alignedMallocArray`. MemorySanitizer reports a use-of-uninitialized-value when `checkMemIsInitialized` is called. The `alignedMalloc` function, which is ultimately called, does not guarantee zero-initialization. Therefore, the allocated data buffer should be explicitly zero-initialized to prevent reading uninitialized values.",
+      "patches": [
+        {
+          "file": "/src/librawspeed/src/librawspeed/common/RawImage.cpp",
+          "diff": [
+            {
+              "line_number": 107,
+              "content": [
+                "  if (!data)",
+                "    ThrowRDE(\"Memory Allocation failed.\");",
+                "",
+                "  // Zero-initialize the allocated memory to prevent uninitialized reads",
+                "  memset(data, 0, static_cast<size_t>(dim.y) * pitch);"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,350 @@
+{
+  "id": "42470994",
+  "stage": "evaluate",
+  "repo_addr": "https://github.com/harfbuzz/harfbuzz.git",
+  "fix_commit": "ca54eba4846d0afda4601929556617a7ebe51714",
+  "project": "harfbuzz",
+  "report": "RVJST1I6IEFkZHJlc3NTYW5pdGl6ZXI6IFNFR1Ygb24gdW5rbm93biBhZGRyZXNzIDB4NjExMDA3ZGZmYzk1IChwYyAweDAwMDAwMDVjNjdlNiBicCAweDdmZmZmZmZmZGEzMCBzcCAweDdmZmZmZmZmZGEyMCBUMCkNClRoZSBzaWduYWwgaXMgY2F1c2VkIGJ5IGEgUkVBRCBtZW1vcnkgYWNjZXNzLg0KU0NBUklORVNTOiAyMCAod2lsZC1hZGRyLXJlYWQpDQogICAgIzAgMHg1YzY3ZTUgaW4gQkVJbnQ8aW50LCA0Pjo6b3BlcmF0b3IgaW50KCkgY29uc3QgL3NyYy9oYXJmYnV6ei9zcmMvLi9oYi1tYWNoaW5lcnkuaGg6NzExOjEzDQogICAgIzEgMHg1ZWE0MTIgaW4gQUFUOjpLZXJ4U3ViVGFibGVGb3JtYXQ2OjpnZXRfa2VybmluZyh1bnNpZ25lZCBpbnQsIHVuc2lnbmVkIGludCwgdW5zaWduZWQgaW50KSBjb25zdCAvc3JjL2hhcmZidXp6L3NyYy8uL2hiLWFhdC1sYXlvdXQta2VyeC10YWJsZS5oaDoyNDY6MTQNCiAgICAjMiAweDVlOWU0MyBpbiBoYl9rZXJuX21hY2hpbmVfdDxBQVQ6OktlcnhTdWJUYWJsZUZvcm1hdDY6OmFjY2VsZXJhdG9yX3Q-OjprZXJuKGhiX2ZvbnRfdCosIGhiX2J1ZmZlcl90KiwgdW5zaWduZWQgaW50KSBjb25zdCAvc3JjL2hhcmZidXp6L3NyYy8uL2hiLW90LWtlcm4tdGFibGUuaGg6NzM6MzUNCiAgICAjMyAweDVlOTljZiBpbiBBQVQ6OktlcnhTdWJUYWJsZUZvcm1hdDY6OmFwcGx5KEFBVDo6aGJfYWF0X2FwcGx5X2NvbnRleHRfdCopIGNvbnN0IC9zcmMvaGFyZmJ1enovc3JjLy4vaGItYWF0LWxheW91dC1rZXJ4LXRhYmxlLmhoOjI3MjoxMw0KICAgICM0IDB4NWU3NWQ0IGluIEFBVDo6aGJfYWF0X2FwcGx5X2NvbnRleHRfdDo6cmV0dXJuX3QgQUFUOjpLZXJ4VGFibGU6OmRpc3BhdGNoPEFBVDo6aGJfYWF0X2FwcGx5X2NvbnRleHRfdD4oQUFUOjpoYl9hYXRfYXBwbHlfY29udGV4dF90KikgY29uc3QgL3NyYy9oYXJmYnV6ei9zcmMvLi9oYi1hYXQtbGF5b3V0LWtlcngtdGFibGUuaGg6MzYzOjE1DQogICAgIzUgMHg1ZDI2NWUgaW4gQUFUOjprZXJ4OjphcHBseShBQVQ6OmhiX2FhdF9hcHBseV9jb250ZXh0X3QqKSBjb25zdCAvc3JjL2hhcmZidXp6L3NyYy8uL2hiLWFhdC1sYXlvdXQta2VyeC10YWJsZS5oaDo0MzQ6MTQNCiAgICAjNiAweDVkMjM5ZCBpbiBoYl9hYXRfbGF5b3V0X3Bvc2l0aW9uKGhiX290X3NoYXBlX3BsYW5fdCosIGhiX2ZvbnRfdCosIGhiX2J1ZmZlcl90KikgL3NyYy9oYXJmYnV6ei9zcmMvaGItYWF0LWxheW91dC5jYzoxMDc6OA0KICAgICM3IDB4NTg2ZDQ0IGluIGhiX290X3Bvc2l0aW9uX2NvbXBsZXgoaGJfb3Rfc2hhcGVfY29udGV4dF90IGNvbnN0KikgL3NyYy9oYXJmYnV6ei9zcmMvaGItb3Qtc2hhcGUuY2M6ODM4OjUNCiAgICAjOCAweDU4MzFiMCBpbiBoYl9vdF9wb3NpdGlvbihoYl9vdF9zaGFwZV9jb250ZXh0X3QgY29uc3QqKSAvc3JjL2hhcmZidXp6L3NyYy9oYi1vdC1zaGFwZS5jYzo4NzI6Mw0KICAgICM5IDB4NTgxMDg3IGluIGhiX290X3NoYXBlX2ludGVybmFsKGhiX290X3NoYXBlX2NvbnRleHRfdCopIC9zcmMvaGFyZmJ1enovc3JjL2hiLW90LXNoYXBlLmNjOjk1MzozDQogICAgIzEwIDB4NTgwYjZhIGluIF9oYl9vdF9zaGFwZSAvc3JjL2hhcmZidXp6L3NyYy9oYi1vdC1zaGFwZS5jYzo5ODA6Mw0KICAgICMxMSAweDU2N2MxNiBpbiBoYl9zaGFwZV9wbGFuX2V4ZWN1dGUgL3NyYy9oYXJmYnV6ei9zcmMvLi9oYi1zaGFwZXItbGlzdC5oaDo0MjoxDQogICAgIzEyIDB4NTY2NjE4IGluIGhiX3NoYXBlX2Z1bGwgL3NyYy9oYXJmYnV6ei9zcmMvaGItc2hhcGUuY2M6MTQxOjE5DQogICAgIzEzIDB4NTMwMWQ3IGluIExMVk1GdXp6ZXJUZXN0T25lSW5wdXQgL3NyYy9oYXJmYnV6ei8uL3Rlc3QvZnV6emluZy9oYi1zaGFwZS1mdXp6ZXIuY2M6MjA6NQ0KICAgICMxNCAweDUzMDc2ZSBpbiBFeGVjdXRlRmlsZXNPbnlCeU9uZShpbnQsIGNoYXIqKikgL3NyYy9saWJmdXp6ZXIvYWZsL2FmbF9kcml2ZXIuY3BwOjMwMTo1DQogICAgIzE1IDB4NTMwY2RlIGluIG1haW4gL3NyYy9saWJmdXp6ZXIvYWZsL2FmbF9kcml2ZXIuY3BwOjMzOToxMg0KICAgICMxNiAweDdmZmZmNmVlNTgyZiBpbiBfX2xpYmNfc3RhcnRfbWFpbiAoL2xpYi94ODZfNjQtbGludXgtZ251L2xpYmMuc28uNisweDIwODJmKQ0KICAgICMxNyAweDQxY2QxOCBpbiBfc3RhcnQgKC9vdXQvaGItc2hhcGUtZnV6emVyKzB4NDFjZDE4KQ0KDQpERURVUF9UT0tFTjogQkVJbnQ8aW50LCA0Pjo6b3BlcmF0b3IgaW50KCkgY29uc3QtLUFBVDo6S2VyeFN1YlRhYmxlRm9ybWF0Njo6Z2V0X2tlcm5pbmcodW5zaWduZWQgaW50LCB1bnNpZ25lZCBpbnQsIHVuc2lnbmVkIGludCkgY29uc3QtLWhiX2tlcm5fbWFjaGluZV90PEFBVDo6S2VyeFN1YlRhYmxlRm9ybWF0Njo6YWNjZWxlcmF0b3JfdD46Omtlcm4oaGJfZm9udF90KiwgaGJfYnVmZmVyX3QqLCB1bnNpZ25lZCBpbnQpIGNvbnN0DQpBZGRyZXNzU2FuaXRpemVyIGNhbiBub3QgcHJvdmlkZSBhZGRpdGlvbmFsIGluZm8uDQpTVU1NQVJZOiBBZGRyZXNzU2FuaXRpemVyOiBTRUdWIC9zcmMvaGFyZmJ1enovc3JjLy4vaGItbWFjaGluZXJ5LmhoOjcxMToxMyBpbiBCRUludDxpbnQsIDQ-OjpvcGVyYXRvciBpbnQoKSBjb25zdA0KQUJPUlRJTkc=",
+  "requested_content": {
+    "/src/harfbuzz/src/./hb-machinery.hh": {
+      "681": "line  681 : struct BEInt<Type, 3>",
+      "682": "line  682 : {",
+      "683": "line  683 :   public:",
+      "684": "line  684 :   inline void set (Type V)",
+      "685": "line  685 :   {",
+      "686": "line  686 :     v[0] = (V >> 16) & 0xFF;",
+      "687": "line  687 :     v[1] = (V >>  8) & 0xFF;",
+      "688": "line  688 :     v[2] = (V      ) & 0xFF;",
+      "689": "line  689 :   }",
+      "690": "line  690 :   inline operator Type (void) const",
+      "691": "line  691 :   {",
+      "692": "line  692 :     return (v[0] << 16)",
+      "693": "line  693 :          + (v[1] <<  8)",
+      "694": "line  694 :          + (v[2]      );",
+      "695": "line  695 :   }",
+      "696": "line  696 :   private: uint8_t v[3];",
+      "697": "line  697 : };",
+      "698": "line  698 : template <typename Type>",
+      "699": "line  699 : struct BEInt<Type, 4>",
+      "700": "line  700 : {",
+      "701": "line  701 :   public:",
+      "702": "line  702 :   inline void set (Type V)",
+      "703": "line  703 :   {",
+      "704": "line  704 :     v[0] = (V >> 24) & 0xFF;",
+      "705": "line  705 :     v[1] = (V >> 16) & 0xFF;",
+      "706": "line  706 :     v[2] = (V >>  8) & 0xFF;",
+      "707": "line  707 :     v[3] = (V      ) & 0xFF;",
+      "708": "line  708 :   }",
+      "709": "line  709 :   inline operator Type (void) const",
+      "710": "line  710 :   {",
+      "711": "line  711 :     return (v[0] << 24)",
+      "712": "line  712 :          + (v[1] << 16)",
+      "713": "line  713 :          + (v[2] <<  8)",
+      "714": "line  714 :          + (v[3]      );",
+      "715": "line  715 :   }",
+      "716": "line  716 :   private: uint8_t v[4];",
+      "717": "line  717 : };",
+      "718": "line  718 : ",
+      "719": "line  719 : ",
+      "720": "line  720 : /*",
+      "721": "line  721 :  * Lazy loaders.",
+      "722": "line  722 :  */",
+      "723": "line  723 : ",
+      "724": "line  724 : template <typename Data, unsigned int WheresData>",
+      "725": "line  725 : struct hb_data_wrapper_t",
+      "726": "line  726 : {",
+      "727": "line  727 :   static_assert (WheresData > 0, \"\");",
+      "728": "line  728 : ",
+      "729": "line  729 :   inline Data * get_data (void) const",
+      "730": "line  730 :   {",
+      "731": "line  731 :     return *(((Data **) (void *) this) - WheresData);",
+      "732": "line  732 :   }",
+      "733": "line  733 : ",
+      "734": "line  734 :   template <typename Stored, typename Subclass>",
+      "735": "line  735 :   inline Stored * call_create (void) const",
+      "736": "line  736 :   {",
+      "737": "line  737 :     Data *data = this->get_data ();",
+      "738": "line  738 :     return likely (data) ? Subclass::create (data) : nullptr;",
+      "739": "line  739 :   }",
+      "740": "line  740 : };",
+      "930": "line  930 : <End of File>"
+    },
+    "/src/harfbuzz/src/./hb-aat-layout-kerx-table.hh": {
+      "216": "line  216 :   }",
+      "217": "line  217 : ",
+      "218": "line  218 :   protected:",
+      "219": "line  219 :   KerxSubTableHeader\theader;",
+      "220": "line  220 :   public:",
+      "221": "line  221 :   DEFINE_SIZE_STATIC (12);",
+      "222": "line  222 : };",
+      "223": "line  223 : ",
+      "224": "line  224 : struct KerxSubTableFormat6",
+      "225": "line  225 : {",
+      "226": "line  226 :   enum Flags",
+      "227": "line  227 :   {",
+      "228": "line  228 :     ValuesAreLong\t= 0x00000001,",
+      "229": "line  229 :   };",
+      "230": "line  230 : ",
+      "231": "line  231 :   inline bool is_long (void) const { return flags & ValuesAreLong; }",
+      "232": "line  232 : ",
+      "233": "line  233 :   inline int get_kerning (hb_codepoint_t left, hb_codepoint_t right,",
+      "234": "line  234 : \t\t\t  unsigned int num_glyphs) const",
+      "235": "line  235 :   {",
+      "236": "line  236 :     if (is_long ())",
+      "237": "line  237 :     {",
+      "238": "line  238 :       const U::Long &t = u.l;",
+      "239": "line  239 :       unsigned int l = (this+t.rowIndexTable).get_value_or_null (left, num_glyphs);",
+      "240": "line  240 :       unsigned int r = (this+t.columnIndexTable).get_value_or_null (right, num_glyphs);",
+      "241": "line  241 :       unsigned int offset = l + r;",
+      "242": "line  242 :       const FWORD32 *v = &StructAtOffset<FWORD32> (&(this+t.array), offset * sizeof (FWORD32));",
+      "243": "line  243 :       if (unlikely ((const char *) v < (const char *) &t.array ||",
+      "244": "line  244 : \t\t    (const char *) v + v->static_size - (const char *) this <= header.length))",
+      "245": "line  245 : \treturn 0;",
+      "246": "line  246 :       return *v;",
+      "247": "line  247 :     }",
+      "248": "line  248 :     else",
+      "249": "line  249 :     {",
+      "250": "line  250 :       const U::Short &t = u.s;",
+      "251": "line  251 :       unsigned int l = (this+t.rowIndexTable).get_value_or_null (left, num_glyphs);",
+      "252": "line  252 :       unsigned int r = (this+t.columnIndexTable).get_value_or_null (right, num_glyphs);",
+      "253": "line  253 :       unsigned int offset = l + r;",
+      "254": "line  254 :       const FWORD *v = &StructAtOffset<FWORD> (&(this+t.array), offset * sizeof (FWORD));",
+      "255": "line  255 :       if (unlikely ((const char *) v < (const char *) &t.array ||",
+      "256": "line  256 : \t\t    (const char *) v + v->static_size - (const char *) this <= header.length))",
+      "257": "line  257 : \treturn 0;",
+      "258": "line  258 :       return *v;",
+      "259": "line  259 :     }",
+      "260": "line  260 :   }",
+      "261": "line  261 : ",
+      "262": "line  262 :   inline bool apply (hb_aat_apply_context_t *c) const",
+      "263": "line  263 :   {",
+      "264": "line  264 :     TRACE_APPLY (this);",
+      "265": "line  265 : ",
+      "266": "line  266 :     if (!c->plan->requested_kerning)",
+      "267": "line  267 :       return false;",
+      "268": "line  268 : ",
+      "269": "line  269 :     accelerator_t accel (*this,",
+      "270": "line  270 : \t\t\t c->face->get_num_glyphs ());",
+      "271": "line  271 :     hb_kern_machine_t<accelerator_t> machine (accel);",
+      "272": "line  272 :     machine.kern (c->font, c->buffer, c->plan->kern_mask);",
+      "273": "line  273 : ",
+      "274": "line  274 :     return_trace (true);",
+      "275": "line  275 :   }",
+      "483": "line  483 : <End of File>"
+    },
+    "/src/harfbuzz/src/./hb-ot-layout.hh": {
+      "1": "line    1 : /*",
+      "2": "line    2 :  * Copyright © 2007,2008,2009  Red Hat, Inc.",
+      "3": "line    3 :  * Copyright © 2012,2013  Google, Inc.",
+      "4": "line    4 :  *",
+      "5": "line    5 :  *  This is part of HarfBuzz, a text shaping library.",
+      "6": "line    6 :  *",
+      "7": "line    7 :  * Permission is hereby granted, without written agreement and without",
+      "8": "line    8 :  * license or royalty fees, to use, copy, modify, and distribute this",
+      "9": "line    9 :  * software and its documentation for any purpose, provided that the",
+      "10": "line   10 :  * above copyright notice and the following two paragraphs appear in",
+      "11": "line   11 :  * all copies of this software.",
+      "12": "line   12 :  *",
+      "13": "line   13 :  * IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE TO ANY PARTY FOR",
+      "14": "line   14 :  * DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES",
+      "15": "line   15 :  * ARISING OUT OF THE USE OF THIS SOFTWARE AND ITS DOCUMENTATION, EVEN",
+      "16": "line   16 :  * IF THE COPYRIGHT HOLDER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH",
+      "17": "line   17 :  * DAMAGE.",
+      "18": "line   18 :  *",
+      "19": "line   19 :  * THE COPYRIGHT HOLDER SPECIFICALLY DISCLAIMS ANY WARRANTIES, INCLUDING,",
+      "20": "line   20 :  * BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND",
+      "21": "line   21 :  * FITNESS FOR A PARTICULAR PURPOSE.  THE SOFTWARE PROVIDED HEREUNDER IS",
+      "22": "line   22 :  * ON AN \"AS IS\" BASIS, AND THE COPYRIGHT HOLDER HAS NO OBLIGATION TO",
+      "23": "line   23 :  * PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.",
+      "24": "line   24 :  *",
+      "25": "line   25 :  * Red Hat Author(s): Behdad Esfahbod",
+      "26": "line   26 :  * Google Author(s): Behdad Esfahbod",
+      "27": "line   27 :  */",
+      "28": "line   28 : ",
+      "29": "line   29 : #ifndef HB_OT_LAYOUT_HH",
+      "30": "line   30 : #define HB_OT_LAYOUT_HH",
+      "613": "line  613 : <End of File>"
+    },
+    "/src/harfbuzz/src/./hb-open-type.hh": {
+      "1": "line    1 : /*",
+      "2": "line    2 :  * Copyright © 2007,2008,2009,2010  Red Hat, Inc.",
+      "3": "line    3 :  * Copyright © 2012  Google, Inc.",
+      "4": "line    4 :  *",
+      "5": "line    5 :  *  This is part of HarfBuzz, a text shaping library.",
+      "6": "line    6 :  *",
+      "7": "line    7 :  * Permission is hereby granted, without written agreement and without",
+      "8": "line    8 :  * license or royalty fees, to use, copy, modify, and distribute this",
+      "9": "line    9 :  * software and its documentation for any purpose, provided that the",
+      "10": "line   10 :  * above copyright notice and the following two paragraphs appear in",
+      "11": "line   11 :  * all copies of this software.",
+      "12": "line   12 :  *",
+      "13": "line   13 :  * IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE TO ANY PARTY FOR",
+      "14": "line   14 :  * DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES",
+      "15": "line   15 :  * ARISING OUT OF THE USE OF THIS SOFTWARE AND ITS DOCUMENTATION, EVEN",
+      "16": "line   16 :  * IF THE COPYRIGHT HOLDER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH",
+      "17": "line   17 :  * DAMAGE.",
+      "18": "line   18 :  *",
+      "19": "line   19 :  * THE COPYRIGHT HOLDER SPECIFICALLY DISCLAIMS ANY WARRANTIES, INCLUDING,",
+      "20": "line   20 :  * BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND",
+      "21": "line   21 :  * FITNESS FOR A PARTICULAR PURPOSE.  THE SOFTWARE PROVIDED HEREUNDER IS",
+      "22": "line   22 :  * ON AN \"AS IS\" BASIS, AND THE COPYRIGHT HOLDER HAS NO OBLIGATION TO",
+      "23": "line   23 :  * PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.",
+      "24": "line   24 :  *",
+      "25": "line   25 :  * Red Hat Author(s): Behdad Esfahbod",
+      "26": "line   26 :  * Google Author(s): Behdad Esfahbod",
+      "27": "line   27 :  */",
+      "28": "line   28 : ",
+      "29": "line   29 : #ifndef HB_OPEN_TYPE_HH",
+      "30": "line   30 : #define HB_OPEN_TYPE_HH",
+      "853": "line  853 : <End of File>"
+    },
+    "/src/harfbuzz/src/hb-open-type.hh": {
+      "1": "line    1 : /*",
+      "2": "line    2 :  * Copyright © 2007,2008,2009,2010  Red Hat, Inc.",
+      "3": "line    3 :  * Copyright © 2012  Google, Inc.",
+      "4": "line    4 :  *",
+      "5": "line    5 :  *  This is part of HarfBuzz, a text shaping library.",
+      "6": "line    6 :  *",
+      "7": "line    7 :  * Permission is hereby granted, without written agreement and without",
+      "8": "line    8 :  * license or royalty fees, to use, copy, modify, and distribute this",
+      "9": "line    9 :  * software and its documentation for any purpose, provided that the",
+      "10": "line   10 :  * above copyright notice and the following two paragraphs appear in",
+      "11": "line   11 :  * all copies of this software.",
+      "12": "line   12 :  *",
+      "13": "line   13 :  * IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE TO ANY PARTY FOR",
+      "14": "line   14 :  * DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES",
+      "15": "line   15 :  * ARISING OUT OF THE USE OF THIS SOFTWARE AND ITS DOCUMENTATION, EVEN",
+      "16": "line   16 :  * IF THE COPYRIGHT HOLDER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH",
+      "17": "line   17 :  * DAMAGE.",
+      "18": "line   18 :  *",
+      "19": "line   19 :  * THE COPYRIGHT HOLDER SPECIFICALLY DISCLAIMS ANY WARRANTIES, INCLUDING,",
+      "20": "line   20 :  * BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND",
+      "21": "line   21 :  * FITNESS FOR A PARTICULAR PURPOSE.  THE SOFTWARE PROVIDED HEREUNDER IS",
+      "22": "line   22 :  * ON AN \"AS IS\" BASIS, AND THE COPYRIGHT HOLDER HAS NO OBLIGATION TO",
+      "23": "line   23 :  * PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.",
+      "24": "line   24 :  *",
+      "25": "line   25 :  * Red Hat Author(s): Behdad Esfahbod",
+      "26": "line   26 :  * Google Author(s): Behdad Esfahbod",
+      "27": "line   27 :  */",
+      "28": "line   28 : ",
+      "29": "line   29 : #ifndef HB_OPEN_TYPE_HH",
+      "30": "line   30 : #define HB_OPEN_TYPE_HH",
+      "853": "line  853 : <End of File>"
+    }
+  },
+  "note": [
+    "Reason for requesting line 711 of /src/harfbuzz/src/./hb-machinery.hh: To understand how BEInt<int, 4>::operator int() const reads memory, which is causing the SEGV.",
+    "Reason for requesting line 246 of /src/harfbuzz/src/./hb-aat-layout-kerx-table.hh: To understand how the BEInt object is accessed and constructed, leading to the SEGV.",
+    "Reason for requesting line 1 of /src/harfbuzz/src/./hb-ot-layout.hh: To understand how FWORD and FWORD32 are defined, as they are being dereferenced at the crash site.",
+    "Reason for requesting line 1 of /src/harfbuzz/src/./hb-open-type.hh: To understand the definition of FWORD32 and FWORD, as these types are dereferenced and their static_size is used in bounds checks.",
+    "Reason for requesting line 1 of /src/harfbuzz/src/hb-open-type.hh: To understand how FWORD and FWORD32 are defined, including their underlying type and static_size, which are crucial for the memory access in KerxSubTableFormat6::get_kerning and the crash in BEInt::operator int().",
+    "The crash is a SEGV caused by reading an out-of-bounds FWORD32 value at hb-machinery.hh:711. The bounds check at hb-aat-layout-kerx-table.hh:244 is incorrect as it subtracts 'this' from the total size, leading to an effective check against header.length rather than the correct boundary. This allows an out-of-bounds `v` pointer to be dereferenced."
+  ],
+  "valid_patches": [
+    {
+      "file": "/src/harfbuzz/src/./hb-aat-layout-kerx-table.hh",
+      "diff": [
+        {
+          "line_number": 244,
+          "content": [
+            "             (const char *) v + v->static_size > (const char *) this + header.length))"
+          ]
+        },
+        {
+          "line_number": 256,
+          "content": [
+            "             (const char *) v + v->static_size > (const char *) this + header.length))"
+          ]
+        }
+      ]
+    }
+  ],
+  "retry_count": 14,
+  "history": [
+    {
+      "reason": "To understand how BEInt<int, 4>::operator int() const reads memory, which is causing the SEGV.",
+      "line": 711,
+      "file": "/src/harfbuzz/src/./hb-machinery.hh"
+    },
+    {
+      "reason": "To understand how the BEInt object is accessed and constructed, leading to the SEGV.",
+      "line": 246,
+      "file": "/src/harfbuzz/src/./hb-aat-layout-kerx-table.hh"
+    },
+    {
+      "reason": "To understand how FWORD and FWORD32 are defined, as they are being dereferenced at the crash site.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/./hb-ot-layout.hh"
+    },
+    {
+      "reason": "To understand the definitions of FWORD, FWORD32, and the StructAtOffset helper function, which are crucial for analyzing the memory access at the crash site.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/./hb-ot-layout.hh"
+    },
+    {
+      "reason": "To understand how FWORD32 is defined, specifically if it's a BEInt<int, 4>.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/./hb-ot-layout.hh"
+    },
+    {
+      "reason": "To understand the definition of FWORD and FWORD32, especially their `static_size` and if they are simple types or structs/classes that could have methods that read memory.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/./hb-ot-layout.hh"
+    },
+    {
+      "reason": "To understand the structure of FWORD and FWORD32, which are the types being dereferenced, and how StructAtOffset works.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/./hb-ot-layout.hh"
+    },
+    {
+      "reason": "To understand the definition of FWORD32 and FWORD, as these types are dereferenced and their static_size is used in bounds checks.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/./hb-open-type.hh"
+    },
+    {
+      "reason": "To understand how FWORD and FWORD32 are defined, including their underlying type and static_size, which are crucial for the memory access in KerxSubTableFormat6::get_kerning and the crash in BEInt::operator int().",
+      "line": 1,
+      "file": "/src/harfbuzz/src/hb-open-type.hh"
+    },
+    {
+      "reason": "To understand the definition of FWORD32, which is an alias for BEInt<int, 4>, and how it's used in memory layout. This should be in hb-open-type.hh, but the provided snippets for that file were empty. Specifically, I need to see where FWORD32 is defined in relation to BEInt<int, 4> and if it includes any custom `static_size` or other members that could affect the pointer arithmetic.",
+      "line": 30,
+      "file": "/src/harfbuzz/src/hb-open-type.hh"
+    },
+    {
+      "reason": "To understand the definition of FWORD32 and FWORD, including their underlying type and static_size, which are crucial for the memory access in KerxSubTableFormat6::get_kerning and the crash in BEInt::operator int().",
+      "line": 1,
+      "file": "/src/harfbuzz/src/hb-open-type.hh"
+    },
+    {
+      "content": "The crash is a SEGV caused by reading an out-of-bounds FWORD32 value at hb-machinery.hh:711. The bounds check at hb-aat-layout-kerx-table.hh:244 is incorrect as it subtracts 'this' from the total size, leading to an effective check against header.length rather than the correct boundary. This allows an out-of-bounds `v` pointer to be dereferenced."
+    },
+    {
+      "reason": "To understand the definition of FWORD32 and FWORD, including their underlying type and static_size, which are crucial for the memory access in KerxSubTableFormat6::get_kerning and the crash in BEInt::operator int().",
+      "line": 1,
+      "file": "/src/harfbuzz/src/hb-open-type.hh"
+    },
+    {
+      "reason": "The bounds check in KerxSubTableFormat6::get_kerning is incorrect. It should ensure that the accessed data `v` and its `static_size` are entirely within the bounds of the `KerxSubTableFormat6` object, which is `header.length`. The original check `(const char *) v + v->static_size - (const char *) this <= header.length` calculates the offset of the end of `v` *relative to `this`* and compares it to `header.length`, which is correct. The previous note incorrectly stated the issue.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/./hb-aat-layout-kerx-table.hh",
+          "diff": [
+            {
+              "line_number": 244,
+              "content": [
+                "             (const char *) v + v->static_size > (const char *) this + header.length))"
+              ]
+            },
+            {
+              "line_number": 256,
+              "content": [
+                "             (const char *) v + v->static_size > (const char *) this + header.length))"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

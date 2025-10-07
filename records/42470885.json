@@ -1,0 +1,126 @@
+{
+  "id": "42470885",
+  "stage": "replay",
+  "repo_addr": "https://github.com/openvswitch/ovs.git",
+  "fix_commit": "2c022949efff7f135686bd9007fffaaa6147f935",
+  "project": "openvswitch",
+  "note": [
+    "Reason for requesting line 290 of /src/openvswitch/lib/ofpbuf.c: To understand how `ofpbuf_prealloc_tailroom` uses the buffer and what might be uninitialized.",
+    "Reason for requesting line 240 of /src/openvswitch/lib/ofpbuf.c: To examine how `ofpbuf_resize__` reallocates the buffer and updates the `ofpbuf` structure, particularly its size and allocated members, which are crucial for `ofpbuf_tailroom`.",
+    "Reason for requesting line 122 of /src/openvswitch/lib/ofpbuf.c: To understand how ofpbuf_tailroom calculates the available tailroom and if it accesses uninitialized memory after a realloc.",
+    "Reason for requesting line 200 of /src/openvswitch/lib/ofpbuf.c: To understand how ofpbuf_tailroom calculates the available tailroom and if it accesses uninitialized memory, leading to the reported use-of-uninitialized-value.",
+    "The crash occurs when `ofpbuf_tailroom(b)` reads uninitialized memory after `ofpbuf_resize__` has reallocated the buffer. Specifically, when `xrealloc` is called, a portion of the newly allocated memory is not initialized."
+  ],
+  "valid_patches": null,
+  "history": [
+    {
+      "reason": "To understand how `ofpbuf_prealloc_tailroom` uses the buffer and what might be uninitialized.",
+      "line": 290,
+      "file": "/src/openvswitch/lib/ofpbuf.c"
+    },
+    {
+      "reason": "To examine how `ofpbuf_resize__` reallocates the buffer and updates the `ofpbuf` structure, particularly its size and allocated members, which are crucial for `ofpbuf_tailroom`.",
+      "line": 240,
+      "file": "/src/openvswitch/lib/ofpbuf.c"
+    },
+    {
+      "reason": "To understand the definition of ofpbuf_tailroom and how it calculates the available tailroom, which is directly involved in the uninitialized value use at line 290.",
+      "line": 100,
+      "file": "/src/openvswitch/lib/ofpbuf.h"
+    },
+    {
+      "reason": "To understand how ofpbuf_tailroom is calculated and confirm if it reads potentially uninitialized parts of the buffer after realloc.",
+      "line": 300,
+      "file": "/src/openvswitch/lib/ofpbuf.c"
+    },
+    {
+      "reason": "The `ofpbuf_resize__` function reallocates the buffer but does not fully initialize the new tailroom if `new_tailroom` is greater than `old_tailroom` and `new_headroom` is the same as `old_headroom`. In this specific case, `xrealloc` is used (line 244), which might return an uninitialized buffer for the newly allocated part. The `ofpbuf_put_uninit` and `ofpbuf_put_zeros` functions expect the tailroom to be valid memory. By explicitly calling `memset` for the newly allocated tailroom, we ensure it's initialized to zero, preventing use-of-uninitialized-value issues.",
+      "patches": [
+        {
+          "file": "/src/openvswitch/lib/ofpbuf.c",
+          "diff": [
+            {
+              "line_number": 244,
+              "content": [
+                "            new_base = xrealloc(b->base, new_allocated);",
+                "            if (new_tailroom > ofpbuf_tailroom(b)) {",
+                "                memset((char *) new_base + new_headroom + b->size + ofpbuf_tailroom(b), 0, new_tailroom - ofpbuf_tailroom(b));",
+                "            }"
+              ]
+            },
+            {
+              "line_number": 248,
+              "content": [
+                "            ofpbuf_copy__(b, new_base, new_headroom, new_tailroom);",
+                "            if (new_tailroom > old_tailroom) {",
+                "                memset((char *) new_base + new_headroom + b->size + old_tailroom, 0, new_tailroom - old_tailroom);",
+                "            }",
+                "            free(b->base);"
+              ]
+            },
+            {
+              "line_number": 258,
+              "content": [
+                "        new_base = xmalloc(new_allocated);",
+                "        ofpbuf_copy__(b, new_base, new_headroom, new_tailroom);",
+                "        if (new_tailroom > old_tailroom) {",
+                "            memset((char *) new_base + new_headroom + b->size + old_tailroom, 0, new_tailroom - old_tailroom);",
+                "        }",
+                "        free(b->base);",
+                "        break;"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "To understand the implementation of ofpbuf_tailroom, which is reported to use uninitialized value.",
+      "line": 121,
+      "file": "/src/openvswitch/lib/ofpbuf.h"
+    },
+    {
+      "reason": "To understand how ofpbuf_tailroom is calculated and what members of the struct ofpbuf it accesses, which could be uninitialized.",
+      "line": 50,
+      "file": "/src/openvswitch/lib/ofpbuf.h"
+    },
+    {
+      "reason": "To understand the definition of `ofpbuf_tailroom` and `ofpbuf_headroom`.",
+      "line": 1,
+      "file": "/src/openvswitch/lib/ofpbuf.h"
+    },
+    {
+      "reason": "To understand how `ofpbuf_tailroom` is calculated and identify the source of uninitialized memory access.",
+      "line": 1,
+      "file": "/src/openvswitch/lib/ofpbuf.h"
+    },
+    {
+      "reason": "To understand the implementation of `ofpbuf_tailroom`, as the crash occurs when evaluating this function. It's likely a macro or a small helper function.",
+      "line": 290,
+      "file": "/src/openvswitch/lib/ofpbuf.c"
+    },
+    {
+      "reason": "To understand how ofpbuf_tailroom calculates the available tailroom and if it accesses uninitialized memory after a realloc.",
+      "line": 122,
+      "file": "/src/openvswitch/lib/ofpbuf.c"
+    },
+    {
+      "reason": "To understand how `ofpbuf_tailroom` is calculated and if the `ofpbuf` members are properly initialized or updated after reallocation.",
+      "line": 33,
+      "file": "/src/openvswitch/lib/ofpbuf.h"
+    },
+    {
+      "reason": "To understand how ofpbuf_tailroom is calculated and what members of the `struct ofpbuf` it accesses.",
+      "line": 1,
+      "file": "/src/openvswitch/lib/ofpbuf.h"
+    },
+    {
+      "reason": "To understand how ofpbuf_tailroom calculates the available tailroom and if it accesses uninitialized memory, leading to the reported use-of-uninitialized-value.",
+      "line": 200,
+      "file": "/src/openvswitch/lib/ofpbuf.c"
+    },
+    {
+      "content": "The crash occurs when `ofpbuf_tailroom(b)` reads uninitialized memory after `ofpbuf_resize__` has reallocated the buffer. Specifically, when `xrealloc` is called, a portion of the newly allocated memory is not initialized."
+    }
+  ]
+}

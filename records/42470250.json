@@ -1,0 +1,89 @@
+{
+  "id": "42470250",
+  "stage": "replay",
+  "repo_addr": "https://github.com/radare/radare2",
+  "fix_commit": "533da1306534ece22d67eaa3c32e46b717cd9199",
+  "project": "radare2",
+  "note": [
+    "Reason for requesting line 33 of /src/radare2/libr/bin/format/mdmp/mdmp.c: To understand the read operation causing the heap-buffer-overflow.",
+    "Reason for requesting line 835 of /src/radare2/libr/bin/format/mdmp/mdmp.c: To understand how the 'obj->streams.memory_infos' list is populated and how the size of its elements is determined, as this is where the `mem_info` pointers originate."
+  ],
+  "valid_patches": null,
+  "history": [
+    {
+      "reason": "To understand the read operation causing the heap-buffer-overflow.",
+      "line": 33,
+      "file": "/src/radare2/libr/bin/format/mdmp/mdmp.c"
+    },
+    {
+      "reason": "To understand how the 'obj->streams.memory_infos' list is populated and how the size of its elements is determined, as this is where the `mem_info` pointers originate.",
+      "line": 835,
+      "file": "/src/radare2/libr/bin/format/mdmp/mdmp.c"
+    },
+    {
+      "reason": "To understand how the `obj->streams.memory_infos` list is populated with `minidump_memory_info` structures, as the crash occurs when accessing an element of this list.",
+      "line": 840,
+      "file": "/src/radare2/libr/bin/format/mdmp/mdmp.c"
+    },
+    {
+      "reason": "To understand how the minidump_memory_info structures are parsed and added to obj->streams.memory_infos, which is the source of the crashing pointer.",
+      "line": 840,
+      "file": "/src/radare2/libr/bin/format/mdmp/mdmp.c"
+    },
+    {
+      "reason": "To understand how the `obj->streams.memory_infos` list is populated and how the `minidump_memory_info` structures are parsed and added to this list. This will reveal how the size of these structures is determined.",
+      "line": 840,
+      "file": "/src/radare2/libr/bin/format/mdmp/mdmp.c"
+    },
+    {
+      "reason": "To understand how the 'obj->streams.memory_infos' list is populated by parsing the minidump file, which is crucial for identifying why a 'minidump_memory_info' pointer might be out of bounds.",
+      "line": 840,
+      "file": "/src/radare2/libr/bin/format/mdmp/mdmp.c"
+    },
+    {
+      "reason": "To understand how the `obj->streams.memory_infos` list is populated and how the `minidump_memory_info` structs are read from the buffer, which is crucial for identifying the root cause of the heap-buffer-overflow.",
+      "line": 840,
+      "file": "/src/radare2/libr/bin/format/mdmp/mdmp.c"
+    },
+    {
+      "reason": "To understand how the `obj->streams.memory_infos` list is populated with `minidump_memory_info` structures, specifically looking at the size of the elements added to the list and their origin in the buffer.",
+      "line": 840,
+      "file": "/src/radare2/libr/bin/format/mdmp/mdmp.c"
+    },
+    {
+      "reason": "To understand how the 'obj->streams.memory_infos' list is populated with `minidump_memory_info` structs, specifically where these structs are allocated and read from the input buffer. This will help determine if the size of the allocated structs is correct.",
+      "line": 840,
+      "file": "/src/radare2/libr/bin/format/mdmp/mdmp.c"
+    },
+    {
+      "reason": "To understand how the 'obj->streams.memory_infos' list is populated with `minidump_memory_info` structures from the buffer, and how their sizes are determined.",
+      "line": 840,
+      "file": "/src/radare2/libr/bin/format/mdmp/mdmp.c"
+    },
+    {
+      "reason": "To understand how the `obj->streams.memory_infos` list is populated in `r_bin_mdmp_init` and how the size of `minidump_memory_info` structures are determined and read from the buffer, leading to the heap-buffer-overflow during access.",
+      "line": 840,
+      "file": "/src/radare2/libr/bin/format/mdmp/mdmp.c"
+    },
+    {
+      "reason": "To understand how the 'obj->streams.memory_infos' list is populated with `minidump_memory_info` structs. This will help determine if the pointers within the list are correctly offset or if the data is being read beyond the allocated buffer.",
+      "line": 840,
+      "file": "/src/radare2/libr/bin/format/mdmp/mdmp.c"
+    },
+    {
+      "reason": "To understand how the obj->streams.memory_infos list is populated, specifically how individual minidump_memory_info structures are read from the buffer and added to the list. This will help identify potential issues with size calculations or boundary checks during parsing.",
+      "line": 840,
+      "file": "/src/radare2/libr/bin/format/mdmp/mdmp.c"
+    },
+    {
+      "reason": "To understand how the 'obj->streams.memory_infos' list is populated and how the size of its elements is determined during parsing in `r_bin_mdmp_init`.",
+      "line": 840,
+      "file": "/src/radare2/libr/bin/format/mdmp/mdmp.c"
+    },
+    {
+      "reason": "To understand how the `obj->streams.memory_infos` list is populated and how the `minidump_memory_info` structures are read from the buffer, which could lead to an incorrect size or pointer.",
+      "line": 840,
+      "file": "/src/radare2/libr/bin/format/mdmp/mdmp.c"
+    }
+  ]
+}

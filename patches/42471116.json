@@ -1,0 +1,350 @@
+{
+  "id": "42471116",
+  "stage": "evaluate",
+  "repo_addr": "https://github.com/libarchive/libarchive.git",
+  "fix_commit": "b52dd6c9e4ef7cf95c2a6ae5ab7ccac7f6d462a1",
+  "project": "libarchive",
+  "report": "RVJST1I6IEFkZHJlc3NTYW5pdGl6ZXI6IGhlYXAtYnVmZmVyLW92ZXJmbG93IG9uIGFkZHJlc3MgMHg2MDIwMDAwMDAwNTEgYXQgcGMgMHgwMDAwMDA1OWFiNDQgYnAgMHg3ZmZmZmZmZmRjOTAgc3AgMHg3ZmZmZmZmZmRjODgNCldSSVRFIG9mIHNpemUgMSBhdCAweDYwMjAwMDAwMDA1MSB0aHJlYWQgVDANClNDQVJJTkVTUzogMzEgKDEtYnl0ZS13cml0ZS1oZWFwLWJ1ZmZlci1vdmVyZmxvdykNCiAgICAjMCAweDU5YWI0MyBpbiBkb191bmNvbXByZXNzX2Jsb2NrIC9zcmMvbGliYXJjaGl2ZS9saWJhcmNoaXZlL2FyY2hpdmVfcmVhZF9zdXBwb3J0X2Zvcm1hdF9yYXI1LmM6MjQyNDo1NQ0KICAgICMxIDB4NTk4MmE5IGluIHByb2Nlc3NfYmxvY2sgL3NyYy9saWJhcmNoaXZlL2xpYmFyY2hpdmUvYXJjaGl2ZV9yZWFkX3N1cHBvcnRfZm9ybWF0X3JhcjUuYzoyODQxOjExDQogICAgIzIgMHg1OTdjMTIgaW4gZG9fdW5jb21wcmVzc19maWxlIC9zcmMvbGliYXJjaGl2ZS9saWJhcmNoaXZlL2FyY2hpdmVfcmVhZF9zdXBwb3J0X2Zvcm1hdF9yYXI1LmM6MzAxMToxOQ0KICAgICMzIDB4NTk3NTYxIGluIHVuY29tcHJlc3NfZmlsZSAvc3JjL2xpYmFyY2hpdmUvbGliYXJjaGl2ZS9hcmNoaXZlX3JlYWRfc3VwcG9ydF9mb3JtYXRfcmFyNS5jOjMwODM6MTUNCiAgICAjNCAweDU5MmFjZiBpbiByYXI1X3JlYWRfZGF0YSAvc3JjL2xpYmFyY2hpdmUvbGliYXJjaGl2ZS9hcmNoaXZlX3JlYWRfc3VwcG9ydF9mb3JtYXRfcmFyNS5jOjMyODQ6MTENCiAgICAjNSAweDUzNmVmMSBpbiBhcmNoaXZlX3JlYWRfZGF0YSAvc3JjL2xpYmFyY2hpdmUvbGliYXJjaGl2ZS9hcmNoaXZlX3JlYWQuYzo4NDI6OA0KICAgICM2IDB4NTMxYWRiIGluIExMVk1GdXp6ZXJUZXN0T25lSW5wdXQgL3NyYy9saWJhcmNoaXZlX2Z1enplci5jYzo0OToxNw0KICAgICM3IDB4NTMyODJlIGluIEV4ZWN1dGVGaWxlc09ueUJ5T25lKGludCwgY2hhcioqKSAvc3JjL2xpYmZ1enplci9hZmwvYWZsX2RyaXZlci5jcHA6MzAxOjUNCiAgICAjOCAweDUzMmQ5ZSBpbiBtYWluIC9zcmMvbGliZnV6emVyL2FmbC9hZmxfZHJpdmVyLmNwcDozMzk6MTINCiAgICAjOSAweDdmZmZmNmVlNTgyZiBpbiBfX2xpYmNfc3RhcnRfbWFpbiAoL2xpYi94ODZfNjQtbGludXgtZ251L2xpYmMuc28uNisweDIwODJmKQ0KICAgICMxMCAweDQxZTYxOCBpbiBfc3RhcnQgKC9vdXQvbGliYXJjaGl2ZV9mdXp6ZXIrMHg0MWU2MTgpDQoNCkRFRFVQX1RPS0VOOiBkb191bmNvbXByZXNzX2Jsb2NrLS1wcm9jZXNzX2Jsb2NrLS1kb191bmNvbXByZXNzX2ZpbGUNCjB4NjAyMDAwMDAwMDUxIGlzIGxvY2F0ZWQgMCBieXRlcyB0byB0aGUgcmlnaHQgb2YgMS1ieXRlIHJlZ2lvbiBbMHg2MDIwMDAwMDAwNTAsMHg2MDIwMDAwMDAwNTEpDQphbGxvY2F0ZWQgYnkgdGhyZWFkIFQwIGhlcmU6DQogICAgIzAgMHg0ZWQ1NzcgaW4gY2FsbG9jIC9zcmMvbGx2bS9wcm9qZWN0cy9jb21waWxlci1ydC9saWIvYXNhbi9hc2FuX21hbGxvY19saW51eC5jYzoxNTUNCiAgICAjMSAweDU5ODA1ZCBpbiBpbml0X3VucGFjayAvc3JjL2xpYmFyY2hpdmUvbGliYXJjaGl2ZS9hcmNoaXZlX3JlYWRfc3VwcG9ydF9mb3JtYXRfcmFyNS5jOjE4MzQ6MzANCiAgICAjMiAweDU5N2JhMSBpbiBkb191bmNvbXByZXNzX2ZpbGUgL3NyYy9saWJhcmNoaXZlL2xpYmFyY2hpdmUvYXJjaGl2ZV9yZWFkX3N1cHBvcnRfZm9ybWF0X3JhcjUuYzoyOTk4OjEzDQogICAgIzMgMHg1OTc1NjEgaW4gdW5jb21wcmVzc19maWxlIC9zcmMvbGliYXJjaGl2ZS9saWJhcmNoaXZlL2FyY2hpdmVfcmVhZF9zdXBwb3J0X2Zvcm1hdF9yYXI1LmM6MzA4MzoxNQ0KICAgICM0IDB4NTkyYWNmIGluIHJhcjVfcmVhZF9kYXRhIC9zcmMvbGliYXJjaGl2ZS9saWJhcmNoaXZlL2FyY2hpdmVfcmVhZF9zdXBwb3J0X2Zvcm1hdF9yYXI1LmM6MzI4NDoxMQ0KICAgICM1IDB4NTM2ZWYxIGluIGFyY2hpdmVfcmVhZF9kYXRhIC9zcmMvbGliYXJjaGl2ZS9saWJhcmNoaXZlL2FyY2hpdmVfcmVhZC5jOjg0Mjo4DQogICAgIzYgMHg1MzFhZGIgaW4gTExWTUZ1enplclRlc3RPbmVJbnB1dCAvc3JjL2xpYmFyY2hpdmVfZnV6emVyLmNjOjQ5OjE3DQogICAgIzcgMHg1MzI4MmUgaW4gRXhlY3V0ZUZpbGVzT255QnlPbmUoaW50LCBjaGFyKiopIC9zcmMvbGliZnV6emVyL2FmbC9hZmxfZHJpdmVyLmNwcDozMDE6NQ0KICAgICM4IDB4NTMyZDllIGluIG1haW4gL3NyYy9saWJmdXp6ZXIvYWZsL2FmbF9kcml2ZXIuY3BwOjMzOToxMg0KICAgICM5IDB4N2ZmZmY2ZWU1ODJmIGluIF9fbGliY19zdGFydF9tYWluICgvbGliL3g4Nl82NC1saW51eC1nbnUvbGliYy5zby42KzB4MjA4MmYpDQoNCkRFRFVQX1RPS0VOOiBjYWxsb2MtLWluaXRfdW5wYWNrLS1kb191bmNvbXByZXNzX2ZpbGUNClNVTU1BUlk6IEFkZHJlc3NTYW5pdGl6ZXI6IGhlYXAtYnVmZmVyLW92ZXJmbG93IC9zcmMvbGliYXJjaGl2ZS9saWJhcmNoaXZlL2FyY2hpdmVfcmVhZF9zdXBwb3J0X2Zvcm1hdF9yYXI1LmM6MjQyNDo1NSBpbiBkb191bmNvbXByZXNzX2Jsb2NrDQpTaGFkb3cgYnl0ZXMgYXJvdW5kIHRoZSBidWdneSBhZGRyZXNzOg0KICAweDBjMDQ3ZmZmN2ZiMDogMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDANCiAgMHgwYzA0N2ZmZjdmYzA6IDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwDQogIDB4MGMwNDdmZmY3ZmQwOiAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMA0KICAweDBjMDQ3ZmZmN2ZlMDogMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDANCiAgMHgwYzA0N2ZmZjdmZjA6IDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwDQo9PjB4MGMwNDdmZmY4MDAwOiBmYSBmYSBmZCBmYSBmYSBmYSBmZCBmZCBmYSBmYVswMV1mYSBmYSBmYSAwMSBmYQ0KICAweDBjMDQ3ZmZmODAxMDogZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmENCiAgMHgwYzA0N2ZmZjgwMjA6IGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhDQogIDB4MGMwNDdmZmY4MDMwOiBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYQ0KICAweDBjMDQ3ZmZmODA0MDogZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmENCiAgMHgwYzA0N2ZmZjgwNTA6IGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhDQpTaGFkb3cgYnl0ZSBsZWdlbmQgKG9uZSBzaGFkb3cgYnl0ZSByZXByZXNlbnRzIDggYXBwbGljYXRpb24gYnl0ZXMpOg0KICBBZGRyZXNzYWJsZTogICAgICAgICAgIDAwDQogIFBhcnRpYWxseSBhZGRyZXNzYWJsZTogMDEgMDIgMDMgMDQgMDUgMDYgMDcgDQogIEhlYXAgbGVmdCByZWR6b25lOiAgICAgICBmYQ0KICBGcmVlZCBoZWFwIHJlZ2lvbjogICAgICAgZmQNCiAgU3RhY2sgbGVmdCByZWR6b25lOiAgICAgIGYxDQogIFN0YWNrIG1pZCByZWR6b25lOiAgICAgICBmMg0KICBTdGFjayByaWdodCByZWR6b25lOiAgICAgZjMNCiAgU3RhY2sgYWZ0ZXIgcmV0dXJuOiAgICAgIGY1DQogIFN0YWNrIHVzZSBhZnRlciBzY29wZTogICBmOA0KICBHbG9iYWwgcmVkem9uZTogICAgICAgICAgZjkNCiAgR2xvYmFsIGluaXQgb3JkZXI6ICAgICAgIGY2DQogIFBvaXNvbmVkIGJ5IHVzZXI6ICAgICAgICBmNw0KICBDb250YWluZXIgb3ZlcmZsb3c6ICAgICAgZmMNCiAgQXJyYXkgY29va2llOiAgICAgICAgICAgIGFjDQogIEludHJhIG9iamVjdCByZWR6b25lOiAgICBiYg0KICBBU2FuIGludGVybmFsOiAgICAgICAgICAgZmUNCiAgTGVmdCBhbGxvY2EgcmVkem9uZTogICAgIGNhDQogIFJpZ2h0IGFsbG9jYSByZWR6b25lOiAgICBjYg0KICBTaGFkb3cgZ2FwOiAgICAgICAgICAgICAgY2MNCkFCT1JUSU5H",
+  "requested_content": {
+    "/src/libarchive/libarchive/archive_read_support_format_rar5.c": {
+      "2394": "line 2394 :              * finished processing the block. */",
+      "2395": "line 2395 :             rar->cstate.block_parsing_finished = 1;",
+      "2396": "line 2396 :             break;",
+      "2397": "line 2397 :         }",
+      "2398": "line 2398 : ",
+      "2399": "line 2399 :         /* Decode the next literal. */",
+      "2400": "line 2400 :         if(ARCHIVE_OK != decode_number(a, &rar->cstate.ld, p, &num)) {",
+      "2401": "line 2401 :             return ARCHIVE_EOF;",
+      "2402": "line 2402 :         }",
+      "2403": "line 2403 : ",
+      "2404": "line 2404 :         /* Num holds a decompression literal, or 'command code'.",
+      "2405": "line 2405 :          *",
+      "2406": "line 2406 :          * - Values lower than 256 are just bytes. Those codes can be stored",
+      "2407": "line 2407 :          *   in the output buffer directly.",
+      "2408": "line 2408 :          *",
+      "2409": "line 2409 :          * - Code 256 defines a new filter, which is later used to transform",
+      "2410": "line 2410 :          *   the data block accordingly to the filter type. The data block",
+      "2411": "line 2411 :          *   needs to be fully uncompressed first.",
+      "2412": "line 2412 :          *",
+      "2413": "line 2413 :          * - Code bigger than 257 and smaller than 262 define a repetition",
+      "2414": "line 2414 :          *   pattern that should be copied from an already uncompressed chunk",
+      "2415": "line 2415 :          *   of data.",
+      "2416": "line 2416 :          */",
+      "2417": "line 2417 : ",
+      "2418": "line 2418 :         if(num < 256) {",
+      "2419": "line 2419 :             /* Directly store the byte. */",
+      "2420": "line 2420 : ",
+      "2421": "line 2421 :             int64_t write_idx = rar->cstate.solid_offset +",
+      "2422": "line 2422 :                 rar->cstate.write_ptr++;",
+      "2423": "line 2423 : ",
+      "2424": "line 2424 :             rar->cstate.window_buf[write_idx & cmask] = (uint8_t) num;",
+      "2425": "line 2425 :             continue;",
+      "2426": "line 2426 :         } else if(num >= 262) {",
+      "2427": "line 2427 :             uint16_t dist_slot;",
+      "2428": "line 2428 :             int len = decode_code_length(rar, p, num - 262),",
+      "2429": "line 2429 :                 dbits,",
+      "2430": "line 2430 :                 dist = 1;",
+      "2431": "line 2431 : ",
+      "2432": "line 2432 :             if(len == -1) {",
+      "2433": "line 2433 :                 archive_set_error(&a->archive, ARCHIVE_ERRNO_PROGRAMMER,",
+      "2434": "line 2434 :                     \"Failed to decode the code length\");",
+      "2435": "line 2435 : ",
+      "2436": "line 2436 :                 return ARCHIVE_FATAL;",
+      "2437": "line 2437 :             }",
+      "2438": "line 2438 : ",
+      "2439": "line 2439 :             if(ARCHIVE_OK != decode_number(a, &rar->cstate.dd, p, &dist_slot))",
+      "2440": "line 2440 :             {",
+      "2441": "line 2441 :                 archive_set_error(&a->archive, ARCHIVE_ERRNO_PROGRAMMER,",
+      "2442": "line 2442 :                     \"Failed to decode the distance slot\");",
+      "2443": "line 2443 : ",
+      "2444": "line 2444 :                 return ARCHIVE_FATAL;",
+      "2445": "line 2445 :             }",
+      "2446": "line 2446 : ",
+      "2447": "line 2447 :             if(dist_slot < 4) {",
+      "2448": "line 2448 :                 dbits = 0;",
+      "2449": "line 2449 :                 dist += dist_slot;",
+      "2450": "line 2450 :             } else {",
+      "2451": "line 2451 :                 dbits = dist_slot / 2 - 1;",
+      "2452": "line 2452 :                 dist += (2 | (dist_slot & 1)) << dbits;",
+      "2453": "line 2453 :             }",
+      "3459": "line 3459 : <End of File>",
+      "1804": "line 1804 :         init_header(a);",
+      "1805": "line 1805 :         rar->header_initialized = 1;",
+      "1806": "line 1806 :     }",
+      "1807": "line 1807 : ",
+      "1808": "line 1808 :     if(rar->skipped_magic == 0) {",
+      "1809": "line 1809 :         if(ARCHIVE_OK != consume(a, rar5_signature_size)) {",
+      "1810": "line 1810 :             return ARCHIVE_EOF;",
+      "1811": "line 1811 :         }",
+      "1812": "line 1812 : ",
+      "1813": "line 1813 :         rar->skipped_magic = 1;",
+      "1814": "line 1814 :     }",
+      "1815": "line 1815 : ",
+      "1816": "line 1816 :     do {",
+      "1817": "line 1817 :         ret = process_base_block(a, entry);",
+      "1818": "line 1818 :     } while(ret == ARCHIVE_RETRY ||",
+      "1819": "line 1819 :             (rar->main.endarc > 0 && ret == ARCHIVE_OK));",
+      "1820": "line 1820 : ",
+      "1821": "line 1821 :     return ret;",
+      "1822": "line 1822 : }",
+      "1823": "line 1823 : ",
+      "1824": "line 1824 : static void init_unpack(struct rar5* rar) {",
+      "1825": "line 1825 :     rar->file.calculated_crc32 = 0;",
+      "1826": "line 1826 :     rar->cstate.window_mask = rar->cstate.window_size - 1;",
+      "1827": "line 1827 : ",
+      "1828": "line 1828 :     if(rar->cstate.window_buf)",
+      "1829": "line 1829 :         free(rar->cstate.window_buf);",
+      "1830": "line 1830 : ",
+      "1831": "line 1831 :     if(rar->cstate.filtered_buf)",
+      "1832": "line 1832 :         free(rar->cstate.filtered_buf);",
+      "1833": "line 1833 : ",
+      "1834": "line 1834 :     rar->cstate.window_buf = calloc(1, rar->cstate.window_size);",
+      "1835": "line 1835 :     rar->cstate.filtered_buf = calloc(1, rar->cstate.window_size);",
+      "1836": "line 1836 : ",
+      "1837": "line 1837 :     rar->cstate.write_ptr = 0;",
+      "1838": "line 1838 :     rar->cstate.last_write_ptr = 0;",
+      "1839": "line 1839 : ",
+      "1840": "line 1840 :     memset(&rar->cstate.bd, 0, sizeof(rar->cstate.bd));",
+      "1841": "line 1841 :     memset(&rar->cstate.ld, 0, sizeof(rar->cstate.ld));",
+      "1842": "line 1842 :     memset(&rar->cstate.dd, 0, sizeof(rar->cstate.dd));",
+      "1843": "line 1843 :     memset(&rar->cstate.ldd, 0, sizeof(rar->cstate.ldd));",
+      "1844": "line 1844 :     memset(&rar->cstate.rd, 0, sizeof(rar->cstate.rd));",
+      "1845": "line 1845 : }",
+      "1846": "line 1846 : ",
+      "1847": "line 1847 : static void update_crc(struct rar5* rar, const uint8_t* p, size_t to_read) {",
+      "1848": "line 1848 :     int verify_crc;",
+      "1849": "line 1849 : ",
+      "1850": "line 1850 :     if(rar->skip_mode) {",
+      "1851": "line 1851 : #if defined CHECK_CRC_ON_SOLID_SKIP",
+      "1852": "line 1852 :         verify_crc = 1;",
+      "1853": "line 1853 : #else",
+      "1854": "line 1854 :         verify_crc = 0;",
+      "1855": "line 1855 : #endif",
+      "1856": "line 1856 :     } else",
+      "1857": "line 1857 :         verify_crc = 1;",
+      "1858": "line 1858 : ",
+      "1859": "line 1859 :     if(verify_crc) {",
+      "1860": "line 1860 :         /* Don't update CRC32 if the file doesn't have the `stored_crc32` info",
+      "1861": "line 1861 :            filled in. */",
+      "1862": "line 1862 :         if(rar->file.stored_crc32 > 0) {",
+      "1863": "line 1863 :             rar->file.calculated_crc32 =",
+      "2270": "line 2270 :     if(ARCHIVE_OK != parse_filter_data(rar, p, &block_length))",
+      "2271": "line 2271 :         return ARCHIVE_EOF;",
+      "2272": "line 2272 : ",
+      "2273": "line 2273 :     if(ARCHIVE_OK != read_bits_16(rar, p, &filter_type))",
+      "2274": "line 2274 :         return ARCHIVE_EOF;",
+      "2275": "line 2275 : ",
+      "2276": "line 2276 :     filter_type >>= 13;",
+      "2277": "line 2277 :     skip_bits(rar, 3);",
+      "2278": "line 2278 : ",
+      "2279": "line 2279 :     /* Perform some sanity checks on this filter parameters. Note that we",
+      "2280": "line 2280 :      * allow only DELTA, E8/E9 and ARM filters here, because rest of filters",
+      "2281": "line 2281 :      * are not used in RARv5. */",
+      "2282": "line 2282 : ",
+      "2283": "line 2283 :     if(block_length < 4 ||",
+      "2284": "line 2284 :         block_length > 0x400000 ||",
+      "2285": "line 2285 :         filter_type > FILTER_ARM ||",
+      "2286": "line 2286 :         !is_valid_filter_block_start(rar, block_start))",
+      "2287": "line 2287 :     {",
+      "2288": "line 2288 :         archive_set_error(&ar->archive, ARCHIVE_ERRNO_FILE_FORMAT, \"Invalid \"",
+      "2289": "line 2289 :                 \"filter encountered\");",
+      "2290": "line 2290 :         return ARCHIVE_FATAL;",
+      "2291": "line 2291 :     }",
+      "2292": "line 2292 : ",
+      "2293": "line 2293 :     /* Allocate a new filter. */",
+      "2294": "line 2294 :     struct filter_info* filt = add_new_filter(rar);",
+      "2295": "line 2295 :     if(filt == NULL) {",
+      "2296": "line 2296 :         archive_set_error(&ar->archive, ENOMEM, \"Can't allocate memory for a \"",
+      "2297": "line 2297 :                 \"filter descriptor.\");",
+      "2298": "line 2298 :         return ARCHIVE_FATAL;",
+      "2299": "line 2299 :     }",
+      "2300": "line 2300 : ",
+      "2301": "line 2301 :     filt->type = filter_type;",
+      "2302": "line 2302 :     filt->block_start = rar->cstate.write_ptr + block_start;",
+      "2303": "line 2303 :     filt->block_length = block_length;",
+      "2304": "line 2304 : ",
+      "2305": "line 2305 :     rar->cstate.last_block_start = filt->block_start;",
+      "2306": "line 2306 :     rar->cstate.last_block_length = filt->block_length;",
+      "2307": "line 2307 : ",
+      "2308": "line 2308 :     /* Read some more data in case this is a DELTA filter. Other filter types",
+      "2309": "line 2309 :      * don't require any additional data over what was already read. */",
+      "2310": "line 2310 :     if(filter_type == FILTER_DELTA) {",
+      "2311": "line 2311 :         int channels;",
+      "2312": "line 2312 : ",
+      "2313": "line 2313 :         if(ARCHIVE_OK != read_consume_bits(rar, p, 5, &channels))",
+      "2314": "line 2314 :             return ARCHIVE_EOF;",
+      "2315": "line 2315 : ",
+      "2316": "line 2316 :         filt->channels = channels + 1;",
+      "2317": "line 2317 :     }",
+      "2318": "line 2318 : ",
+      "2319": "line 2319 :     return ARCHIVE_OK;",
+      "2320": "line 2320 : }",
+      "2321": "line 2321 : ",
+      "2322": "line 2322 : static int decode_code_length(struct rar5* rar, const uint8_t* p,",
+      "2323": "line 2323 :         uint16_t code)",
+      "2324": "line 2324 : {",
+      "2325": "line 2325 :     int lbits, length = 2;",
+      "2326": "line 2326 :     if(code < 8) {",
+      "2327": "line 2327 :         lbits = 0;",
+      "2328": "line 2328 :         length += code;",
+      "2329": "line 2329 :     } else {",
+      "2362": "line 2362 :         rar->cstate.window_buf[write_idx] = rar->cstate.window_buf[read_idx];",
+      "2363": "line 2363 :     }",
+      "2364": "line 2364 : ",
+      "2365": "line 2365 :     rar->cstate.write_ptr += len;",
+      "2366": "line 2366 :     return ARCHIVE_OK;",
+      "2367": "line 2367 : }",
+      "2368": "line 2368 : ",
+      "2369": "line 2369 : static int do_uncompress_block(struct archive_read* a, const uint8_t* p) {",
+      "2370": "line 2370 :     struct rar5* rar = get_context(a);",
+      "2371": "line 2371 :     uint16_t num;",
+      "2372": "line 2372 :     int ret;",
+      "2373": "line 2373 : ",
+      "2374": "line 2374 :     const int cmask = rar->cstate.window_mask;",
+      "2375": "line 2375 :     const struct compressed_block_header* hdr = &rar->last_block_hdr;",
+      "2376": "line 2376 :     const uint8_t bit_size = 1 + hdr->block_flags.bit_size;",
+      "2377": "line 2377 : ",
+      "2378": "line 2378 :     while(1) {",
+      "2379": "line 2379 :         if(rar->cstate.write_ptr - rar->cstate.last_write_ptr >",
+      "2380": "line 2380 :                 (rar->cstate.window_size >> 1)) {",
+      "2381": "line 2381 : ",
+      "2382": "line 2382 :             /* Don't allow growing data by more than half of the window size",
+      "2383": "line 2383 :              * at a time. In such case, break the loop; next call to this",
+      "2384": "line 2384 :              * function will continue processing from this moment. */",
+      "2385": "line 2385 : ",
+      "2386": "line 2386 :             break;",
+      "2387": "line 2387 :         }",
+      "2388": "line 2388 : ",
+      "2389": "line 2389 :         if(rar->bits.in_addr > rar->cstate.cur_block_size - 1 ||",
+      "2390": "line 2390 :                 (rar->bits.in_addr == rar->cstate.cur_block_size - 1 &&",
+      "2391": "line 2391 :                  rar->bits.bit_addr >= bit_size))",
+      "2392": "line 2392 :         {",
+      "2393": "line 2393 :             /* If the program counter is here, it means the function has"
+    }
+  },
+  "note": [
+    "Reason for requesting line 2424 of /src/libarchive/libarchive/archive_read_support_format_rar5.c: To understand the write operation causing the heap-buffer-overflow.",
+    "Reason for requesting line 1834 of /src/libarchive/libarchive/archive_read_support_format_rar5.c: To understand how rar->cstate.window_buf is allocated and how cmask is initialized, which are crucial for the buffer overflow.",
+    "The crash is a heap-buffer-overflow caused by writing past a 1-byte allocated buffer. The buffer rar->cstate.window_buf is allocated with size rar->cstate.window_size. The crash report indicates rar->cstate.window_size was 1. The write happens at rar->cstate.window_buf[write_idx & cmask]. If window_size is 1, then window_mask is 0, so write_idx & cmask should be 0. The overflow means write_idx & cmask became 1. This happens if window_size is 0, which would make window_mask -1, leading to an out-of-bounds access.",
+    "Reason for requesting line 2300 of /src/libarchive/libarchive/archive_read_support_format_rar5.c: To understand how `cmask` is defined and used in `do_uncompress_block`.",
+    "Reason for requesting line 2392 of /src/libarchive/libarchive/archive_read_support_format_rar5.c: To understand how `cmask` is defined and used within the `do_uncompress_block` function. It seems to be a local variable or a macro whose definition is crucial to understanding the heap-buffer-overflow."
+  ],
+  "valid_patches": [
+    {
+      "file": "/src/libarchive/libarchive/archive_read_support_format_rar5.c",
+      "diff": [
+        {
+          "line_number": 1826,
+          "content": [
+            "    if (rar->cstate.window_size == 0) {",
+            "        rar->cstate.window_size = 1;",
+            "    }",
+            "    rar->cstate.window_mask = rar->cstate.window_size - 1;"
+          ]
+        }
+      ]
+    }
+  ],
+  "retry_count": 14,
+  "history": [
+    {
+      "reason": "To understand the write operation causing the heap-buffer-overflow.",
+      "line": 2424,
+      "file": "/src/libarchive/libarchive/archive_read_support_format_rar5.c"
+    },
+    {
+      "reason": "To understand how rar->cstate.window_buf is allocated and how cmask is initialized, which are crucial for the buffer overflow.",
+      "line": 1834,
+      "file": "/src/libarchive/libarchive/archive_read_support_format_rar5.c"
+    },
+    {
+      "reason": "To understand how rar->cstate.solid_offset and rar->cstate.write_ptr are initialized and updated, as they contribute to the index calculation.",
+      "line": 2421,
+      "file": "/src/libarchive/libarchive/archive_read_support_format_rar5.c"
+    },
+    {
+      "reason": "To understand how rar->cstate.window_size is initialized and if its value can be 1, which leads to a 1-byte allocation and potential heap-buffer-overflow.",
+      "line": 1826,
+      "file": "/src/libarchive/libarchive/archive_read_support_format_rar5.c"
+    },
+    {
+      "reason": "I need to see the definition and initialization of 'cmask' to understand its role in indexing 'rar->cstate.window_buf'. The current crash implies 'cmask' is not properly limiting the index.",
+      "line": 2424,
+      "file": "/src/libarchive/libarchive/archive_read_support_format_rar5.c"
+    },
+    {
+      "reason": "To understand how cmask is defined and used in relation to rar->cstate.window_size. The crash suggests cmask allows access beyond the allocated 1-byte buffer.",
+      "line": 2424,
+      "file": "/src/libarchive/libarchive/archive_read_support_format_rar5.c"
+    },
+    {
+      "content": "The crash is a heap-buffer-overflow caused by writing past a 1-byte allocated buffer. The buffer rar->cstate.window_buf is allocated with size rar->cstate.window_size. The crash report indicates rar->cstate.window_size was 1. The write happens at rar->cstate.window_buf[write_idx & cmask]. If window_size is 1, then window_mask is 0, so write_idx & cmask should be 0. The overflow means write_idx & cmask became 1. This happens if window_size is 0, which would make window_mask -1, leading to an out-of-bounds access."
+    },
+    {
+      "reason": "To understand how `cmask` is defined and used in `do_uncompress_block`.",
+      "line": 2300,
+      "file": "/src/libarchive/libarchive/archive_read_support_format_rar5.c"
+    },
+    {
+      "reason": "The `window_size` can be zero, which results in `window_mask` being `(unsigned int)-1`. This makes `write_idx & window_mask` evaluate to `write_idx` directly, leading to an out-of-bounds access when `write_idx` is greater than or equal to the actual allocated buffer size (which could be 1 if `calloc` is called with size 0). The fix is to ensure `window_size` is at least 1, if it's used as a buffer size.",
+      "patches": [
+        {
+          "file": "/src/libarchive/libarchive/archive_read_support_format_rar5.c",
+          "diff": [
+            {
+              "line_number": 1834,
+              "content": [
+                "    rar->cstate.window_buf = calloc(1, (rar->cstate.window_size > 0) ? rar->cstate.window_size : 1);"
+              ]
+            },
+            {
+              "line_number": 1835,
+              "content": [
+                "    rar->cstate.filtered_buf = calloc(1, (rar->cstate.window_size > 0) ? rar->cstate.window_size : 1);"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "To understand how cmask and write_idx are defined and used in do_uncompress_block, as the previous note's assumption about cmask might be incorrect given the crash details.",
+      "line": 2424,
+      "file": "/src/libarchive/libarchive/archive_read_support_format_rar5.c"
+    },
+    {
+      "reason": "To understand how cmask is used in the do_uncompress_block function, as it is a critical part of the indexing calculation.",
+      "line": 2424,
+      "file": "/src/libarchive/libarchive/archive_read_support_format_rar5.c"
+    },
+    {
+      "reason": "To understand how `cmask` is defined and initialized.",
+      "line": 2424,
+      "file": "/src/libarchive/libarchive/archive_read_support_format_rar5.c"
+    },
+    {
+      "reason": "To understand how `cmask` is defined and used within the `do_uncompress_block` function. It seems to be a local variable or a macro whose definition is crucial to understanding the heap-buffer-overflow.",
+      "line": 2392,
+      "file": "/src/libarchive/libarchive/archive_read_support_format_rar5.c"
+    },
+    {
+      "reason": "The heap-buffer-overflow occurs because `rar->cstate.window_size` can be 0. When `rar->cstate.window_size` is 0, `rar->cstate.window_mask` becomes -1 (or `0xFFFFFFFF` for `uint32_t`). This results in an incorrect mask, allowing `write_idx & cmask` to produce an out-of-bounds index (e.g., 1) on a buffer of size 0, which `calloc` might still allocate as a minimum size (e.g., 1 byte) or return NULL. The fix is to ensure `rar->cstate.window_size` is at least 1 before computing `window_mask` and allocating `window_buf` and `filtered_buf` to prevent an invalid mask and potential zero-sized allocation.",
+      "patches": [
+        {
+          "file": "/src/libarchive/libarchive/archive_read_support_format_rar5.c",
+          "diff": [
+            {
+              "line_number": 1826,
+              "content": [
+                "    if (rar->cstate.window_size == 0) {",
+                "        rar->cstate.window_size = 1;",
+                "    }",
+                "    rar->cstate.window_mask = rar->cstate.window_size - 1;"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

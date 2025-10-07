@@ -1,0 +1,395 @@
+{
+  "id": "42471052",
+  "stage": "evaluate",
+  "repo_addr": "https://github.com/harfbuzz/harfbuzz.git",
+  "fix_commit": "1c76c8f6ff7877e486f6e94d04b2dc65348b26d5",
+  "project": "harfbuzz",
+  "report": "V0FSTklORzogTWVtb3J5U2FuaXRpemVyOiB1c2Utb2YtdW5pbml0aWFsaXplZC12YWx1ZQ0KICAgICMwIDB4NWZmNmE2IGluIE9UOjpobXR4dm10eDxPVDo6aG10eCwgT1Q6OmhoZWE-OjphY2NlbGVyYXRvcl90OjpnZXRfYWR2YW5jZSh1bnNpZ25lZCBpbnQpIGNvbnN0IC9zcmMvaGFyZmJ1enovc3JjLy4vaGItb3QtaG10eC10YWJsZS5oaDoyNTQ6MTENCiAgICAjMSAweDVmZjA0NyBpbiBPVDo6aG10eHZtdHg8T1Q6OmhtdHgsIE9UOjpoaGVhPjo6YWNjZWxlcmF0b3JfdDo6Z2V0X2FkdmFuY2UodW5zaWduZWQgaW50LCBoYl9mb250X3QqKSBjb25zdCAvc3JjL2hhcmZidXp6L3NyYy8uL2hiLW90LWhtdHgtdGFibGUuaGg6MjcxOjMwDQogICAgIzIgMHg1ZmMzZWMgaW4gaGJfb3RfZ2V0X2dseXBoX2hfYWR2YW5jZXMoaGJfZm9udF90Kiwgdm9pZCosIHVuc2lnbmVkIGludCwgdW5zaWduZWQgaW50KiwgdW5zaWduZWQgaW50LCBpbnQqLCB1bnNpZ25lZCBpbnQsIHZvaWQqKSAvc3JjL2hhcmZidXp6L3NyYy9oYi1vdC1mb250LmNjOjgwOjQ1DQogICAgIzMgMHg1ZTRlMTcgaW4gaGJfZm9udF90OjpnZXRfZ2x5cGhfaF9hZHZhbmNlcyh1bnNpZ25lZCBpbnQsIHVuc2lnbmVkIGludCosIHVuc2lnbmVkIGludCwgaW50KiwgdW5zaWduZWQgaW50KSAvc3JjL2hhcmZidXp6L3NyYy8uL2hiLWZvbnQuaGg6MjQ1OjEyDQogICAgIzQgMHg2MzcxNjYgaW4gaGJfb3RfcG9zaXRpb25fZGVmYXVsdChoYl9vdF9zaGFwZV9jb250ZXh0X3QqKSAvc3JjL2hhcmZidXp6L3NyYy9oYi1vdC1zaGFwZS5jYzo3MzU6MTQNCiAgICAjNSAweDYzMGIwZCBpbiBoYl9vdF9wb3NpdGlvbihoYl9vdF9zaGFwZV9jb250ZXh0X3QqKSAvc3JjL2hhcmZidXp6L3NyYy9oYi1vdC1zaGFwZS5jYzo4MzU6Mw0KICAgICM2IDB4NjJjYjYyIGluIGhiX290X3NoYXBlX2ludGVybmFsKGhiX290X3NoYXBlX2NvbnRleHRfdCopIC9zcmMvaGFyZmJ1enovc3JjL2hiLW90LXNoYXBlLmNjOjkxODozDQogICAgIzcgMHg2MmMzZTUgaW4gX2hiX290X3NoYXBlIC9zcmMvaGFyZmJ1enovc3JjL2hiLW90LXNoYXBlLmNjOjk0NTozDQogICAgIzggMHg1ZjI2NmYgaW4gaGJfc2hhcGVfcGxhbl9leGVjdXRlIC9zcmMvaGFyZmJ1enovc3JjLy4vaGItc2hhcGVyLWxpc3QuaGg6NDM6MQ0KICAgICM5IDB4NWVmMjY4IGluIGhiX3NoYXBlX2Z1bGwgL3NyYy9oYXJmYnV6ei9zcmMvaGItc2hhcGUuY2M6MTQxOjE5DQogICAgIzEwIDB4NGEyNmM0IGluIExMVk1GdXp6ZXJUZXN0T25lSW5wdXQgL3NyYy9oYXJmYnV6ei8uL3Rlc3QvZnV6emluZy9oYi1zaGFwZS1mdXp6ZXIuY2M6MjA6NQ0KICAgICMxMSAweDRlYWRhYiBpbiBmdXp6ZXI6OkZ1enplcjo6RXhlY3V0ZUNhbGxiYWNrKHVuc2lnbmVkIGNoYXIgY29uc3QqLCB1bnNpZ25lZCBsb25nKSAvc3JjL2xpYmZ1enplci9GdXp6ZXJMb29wLmNwcDo1NzA6MTUNCiAgICAjMTIgMHg0YTNhZjYgaW4gZnV6emVyOjpSdW5PbmVUZXN0KGZ1enplcjo6RnV6emVyKiwgY2hhciBjb25zdCosIHVuc2lnbmVkIGxvbmcpIC9zcmMvbGliZnV6emVyL0Z1enplckRyaXZlci5jcHA6MjgwOjYNCiAgICAjMTMgMHg0YjQ5MWEgaW4gZnV6emVyOjpGdXp6ZXJEcml2ZXIoaW50KiwgY2hhcioqKiwgaW50ICgqKSh1bnNpZ25lZCBjaGFyIGNvbnN0KiwgdW5zaWduZWQgbG9uZykpIC9zcmMvbGliZnV6emVyL0Z1enplckRyaXZlci5jcHA6NzEzOjkNCiAgICAjMTQgMHg0YTJjMjEgaW4gbWFpbiAvc3JjL2xpYmZ1enplci9GdXp6ZXJNYWluLmNwcDoyMDoxMA0KICAgICMxNSAweDdmZDI2NTAyYTgyZiBpbiBfX2xpYmNfc3RhcnRfbWFpbiAoL2xpYi94ODZfNjQtbGludXgtZ251L2xpYmMuc28uNisweDIwODJmKQ0KICAgICMxNiAweDQxZWY3OCBpbiBfc3RhcnQgKC9vdXQvaGItc2hhcGUtZnV6emVyKzB4NDFlZjc4KQ0KDQpERURVUF9UT0tFTjogT1Q6OmhtdHh2bXR4PE9UOjpobXR4LCBPVDo6aGhlYT46OmFjY2VsZXJhdG9yX3Q6OmdldF9hZHZhbmNlKHVuc2lnbmVkIGludCkgY29uc3QtLU9UOjpobXR4dm10eDxPVDo6aG10eCwgT1Q6OmhoZWE-OjphY2NlbGVyYXRvcl90OjpnZXRfYWR2YW5jZSh1bnNpZ25lZCBpbnQsIGhiX2ZvbnRfdCopIGNvbnN0LS1oYl9vdF9nZXRfZ2x5cGhfaF9hZHZhbmNlcyhoYl9mb250X3QqLCB2b2lkKiwgdW5zaWduZWQgaW50LCB1bnNpZ25lZCBpbnQqLCB1bnNpZ25lZCBpbnQsIGludCosIHVuc2lnbmVkIGludCwgdm9pZCopDQogIFVuaW5pdGlhbGl6ZWQgdmFsdWUgd2FzIHN0b3JlZCB0byBtZW1vcnkgYXQNCiAgICAjMCAweDQ1ZjNiZCBpbiBfX21zYW5fbWVtY3B5LnBhcnQuNTEgL3NyYy9sbHZtL3Byb2plY3RzL2NvbXBpbGVyLXJ0L2xpYi9tc2FuL21zYW5faW50ZXJjZXB0b3JzLmNjOjE0ODgNCiAgICAjMSAweDZkMzFjMCBpbiBoYl9idWZmZXJfdDo6Y29weV9nbHlwaCgpIC9zcmMvaGFyZmJ1enovc3JjLy4vaGItYnVmZmVyLmhoOjI1MToyMw0KICAgICMyIDB4NmQyYjYzIGluIEFBVDo6SW5zZXJ0aW9uU3VidGFibGU6OmRyaXZlcl9jb250ZXh0X3Q6OnRyYW5zaXRpb24oQUFUOjpTdGF0ZVRhYmxlRHJpdmVyPEFBVDo6SW5zZXJ0aW9uU3VidGFibGU6OkVudHJ5RGF0YT4qLCBBQVQ6OkVudHJ5PEFBVDo6SW5zZXJ0aW9uU3VidGFibGU6OkVudHJ5RGF0YT4gY29uc3QqKSAvc3JjL2hhcmZidXp6L3NyYy8uL2hiLWFhdC1sYXlvdXQtbW9yeC10YWJsZS5oaDo2NDg6MTINCiAgICAjMyAweDZkMTBlZCBpbiB2b2lkIEFBVDo6U3RhdGVUYWJsZURyaXZlcjxBQVQ6Okluc2VydGlvblN1YnRhYmxlOjpFbnRyeURhdGE-Ojpkcml2ZTxBQVQ6Okluc2VydGlvblN1YnRhYmxlOjpkcml2ZXJfY29udGV4dF90PihBQVQ6Okluc2VydGlvblN1YnRhYmxlOjpkcml2ZXJfY29udGV4dF90KikgL3NyYy9oYXJmYnV6ei9zcmMvLi9oYi1hYXQtbGF5b3V0LWNvbW1vbi5oaDo1ODU6MTENCiAgICAjNCAweDZkMDM2ZiBpbiBBQVQ6Okluc2VydGlvblN1YnRhYmxlOjphcHBseShBQVQ6OmhiX2FhdF9hcHBseV9jb250ZXh0X3QqKSBjb25zdCAvc3JjL2hhcmZidXp6L3NyYy8uL2hiLWFhdC1sYXlvdXQtbW9yeC10YWJsZS5oaDo2OTY6MTINCiAgICAjNSAweDZjNGVhYyBpbiBBQVQ6OmhiX2FhdF9hcHBseV9jb250ZXh0X3Q6OnJldHVybl90IEFBVDo6Q2hhaW5TdWJ0YWJsZTo6ZGlzcGF0Y2g8QUFUOjpoYl9hYXRfYXBwbHlfY29udGV4dF90PihBQVQ6OmhiX2FhdF9hcHBseV9jb250ZXh0X3QqKSBjb25zdCAvc3JjL2hhcmZidXp6L3NyYy8uL2hiLWFhdC1sYXlvdXQtbW9yeC10YWJsZS5oaDo3ODQ6MjINCiAgICAjNiAweDZjNDNiZCBpbiBBQVQ6OkNoYWluOjphcHBseShBQVQ6OmhiX2FhdF9hcHBseV9jb250ZXh0X3QqKSBjb25zdCAvc3JjL2hhcmZidXp6L3NyYy8uL2hiLWFhdC1sYXlvdXQtbW9yeC10YWJsZS5oaDo4ODc6MTcNCiAgICAjNyAweDZiNjQ2MCBpbiBBQVQ6Om1vcng6OmFwcGx5KEFBVDo6aGJfYWF0X2FwcGx5X2NvbnRleHRfdCopIGNvbnN0IC9zcmMvaGFyZmJ1enovc3JjLy4vaGItYWF0LWxheW91dC1tb3J4LXRhYmxlLmhoOjk2MDoxNA0KICAgICM4IDB4NmI1ZWZkIGluIGhiX2FhdF9sYXlvdXRfc3Vic3RpdHV0ZShoYl9mb250X3QqLCBoYl9idWZmZXJfdCopIC9zcmMvaGFyZmJ1enovc3JjL2hiLWFhdC1sYXlvdXQuY2M6NzE6OA0KICAgICM5IDB4NjJjYjRkIGluIGhiX290X3NoYXBlX2ludGVybmFsKGhiX290X3NoYXBlX2NvbnRleHRfdCopIC9zcmMvaGFyZmJ1enovc3JjL2hiLW90LXNoYXBlLmNjOjkxNzozDQogICAgIzEwIDB4NjJjM2U1IGluIF9oYl9vdF9zaGFwZSAvc3JjL2hhcmZidXp6L3NyYy9oYi1vdC1zaGFwZS5jYzo5NDU6Mw0KICAgICMxMSAweDVmMjY2ZiBpbiBoYl9zaGFwZV9wbGFuX2V4ZWN1dGUgL3NyYy9oYXJmYnV6ei9zcmMvLi9oYi1zaGFwZXItbGlzdC5oaDo0MzoxDQogICAgIzEyIDB4NWVmMjY4IGluIGhiX3NoYXBlX2Z1bGwgL3NyYy9oYXJmYnV6ei9zcmMvaGItc2hhcGUuY2M6MTQxOjE5DQogICAgIzEzIDB4NGEyNmM0IGluIExMVk1GdXp6ZXJUZXN0T25lSW5wdXQgL3NyYy9oYXJmYnV6ei8uL3Rlc3QvZnV6emluZy9oYi1zaGFwZS1mdXp6ZXIuY2M6MjA6NQ0KICAgICMxNCAweDRlYWRhYiBpbiBmdXp6ZXI6OkZ1enplcjo6RXhlY3V0ZUNhbGxiYWNrKHVuc2lnbmVkIGNoYXIgY29uc3QqLCB1bnNpZ25lZCBsb25nKSAvc3JjL2xpYmZ1enplci9GdXp6ZXJMb29wLmNwcDo1NzA6MTUNCiAgICAjMTUgMHg0YTNhZjYgaW4gZnV6emVyOjpSdW5PbmVUZXN0KGZ1enplcjo6RnV6emVyKiwgY2hhciBjb25zdCosIHVuc2lnbmVkIGxvbmcpIC9zcmMvbGliZnV6emVyL0Z1enplckRyaXZlci5jcHA6MjgwOjYNCiAgICAjMTYgMHg0YjQ5MWEgaW4gZnV6emVyOjpGdXp6ZXJEcml2ZXIoaW50KiwgY2hhcioqKiwgaW50ICgqKSh1bnNpZ25lZCBjaGFyIGNvbnN0KiwgdW5zaWduZWQgbG9uZykpIC9zcmMvbGliZnV6emVyL0Z1enplckRyaXZlci5jcHA6NzEzOjkNCiAgICAjMTcgMHg0YTJjMjEgaW4gbWFpbiAvc3JjL2xpYmZ1enplci9GdXp6ZXJNYWluLmNwcDoyMDoxMA0KICAgICMxOCAweDdmZDI2NTAyYTgyZiBpbiBfX2xpYmNfc3RhcnRfbWFpbiAoL2xpYi94ODZfNjQtbGludXgtZ251L2xpYmMuc28uNisweDIwODJmKQ0KDQpERURVUF9UT0tFTjogX19tc2FuX21lbWNweS5wYXJ0LjUxLS1oYl9idWZmZXJfdDo6Y29weV9nbHlwaCgpLS1BQVQ6Okluc2VydGlvblN1YnRhYmxlOjpkcml2ZXJfY29udGV4dF90Ojp0cmFuc2l0aW9uKEFBVDo6U3RhdGVUYWJsZURyaXZlcjxBQVQ6Okluc2VydGlvblN1YnRhYmxlOjpFbnRyeURhdGE-KiwgQUFUOjpFbnRyeTxBQVQ6Okluc2VydGlvblN1YnRhYmxlOjpFbnRyeURhdGE-IGNvbnN0KikNCiAgVW5pbml0aWFsaXplZCB2YWx1ZSB3YXMgc3RvcmVkIHRvIG1lbW9yeSBhdA0KICAgICMwIDB4NDVlZTc1IGluIHJlYWxsb2MgL3NyYy9sbHZtL3Byb2plY3RzL2NvbXBpbGVyLXJ0L2xpYi9tc2FuL21zYW5faW50ZXJjZXB0b3JzLmNjOjg5Mg0KICAgICMxIDB4NTkwZjAwIGluIGhiX2J1ZmZlcl90OjplbmxhcmdlKHVuc2lnbmVkIGludCkgL3NyYy9oYXJmYnV6ei9zcmMvaGItYnVmZmVyLmNjOjEzODozNA0KICAgICMyIDB4NTkxOGZjIGluIGhiX2J1ZmZlcl90OjplbnN1cmUodW5zaWduZWQgaW50KSAvc3JjL2hhcmZidXp6L3NyYy8uL2hiLWJ1ZmZlci5oaDozMTc6NTYNCiAgICAjMyAweDU5MTRhMiBpbiBoYl9idWZmZXJfdDo6bWFrZV9yb29tX2Zvcih1bnNpZ25lZCBpbnQsIHVuc2lnbmVkIGludCkgL3NyYy9oYXJmYnV6ei9zcmMvaGItYnVmZmVyLmNjOjE2MTo3DQogICAgIzQgMHg2NzRiMWMgaW4gaGJfYnVmZmVyX3Q6Om91dHB1dF9nbHlwaCh1bnNpZ25lZCBpbnQpIC9zcmMvaGFyZmJ1enovc3JjLy4vaGItYnVmZmVyLmhoOjIyOTo5DQogICAgIzUgMHg2ZDJjNTUgaW4gQUFUOjpJbnNlcnRpb25TdWJ0YWJsZTo6ZHJpdmVyX2NvbnRleHRfdDo6dHJhbnNpdGlvbihBQVQ6OlN0YXRlVGFibGVEcml2ZXI8QUFUOjpJbnNlcnRpb25TdWJ0YWJsZTo6RW50cnlEYXRhPiosIEFBVDo6RW50cnk8QUFUOjpJbnNlcnRpb25TdWJ0YWJsZTo6RW50cnlEYXRhPiBjb25zdCopIC9zcmMvaGFyZmJ1enovc3JjLy4vaGItYWF0LWxheW91dC1tb3J4LXRhYmxlLmhoOjY1MToxMg0KICAgICM2IDB4NmQxMGVkIGluIHZvaWQgQUFUOjpTdGF0ZVRhYmxlRHJpdmVyPEFBVDo6SW5zZXJ0aW9uU3VidGFibGU6OkVudHJ5RGF0YT46OmRyaXZlPEFBVDo6SW5zZXJ0aW9uU3VidGFibGU6OmRyaXZlcl9jb250ZXh0X3Q-KEFBVDo6SW5zZXJ0aW9uU3VidGFibGU6OmRyaXZlcl9jb250ZXh0X3QqKSAvc3JjL2hhcmZidXp6L3NyYy8uL2hiLWFhdC1sYXlvdXQtY29tbW9uLmhoOjU4NToxMQ0KICAgICM3IDB4NmQwMzZmIGluIEFBVDo6SW5zZXJ0aW9uU3VidGFibGU6OmFwcGx5KEFBVDo6aGJfYWF0X2FwcGx5X2NvbnRleHRfdCopIGNvbnN0IC9zcmMvaGFyZmJ1enovc3JjLy4vaGItYWF0LWxheW91dC1tb3J4LXRhYmxlLmhoOjY5NjoxMg0KICAgICM4IDB4NmM0ZWFjIGluIEFBVDo6aGJfYWF0X2FwcGx5X2NvbnRleHRfdDo6cmV0dXJuX3QgQUFUOjpDaGFpblN1YnRhYmxlOjpkaXNwYXRjaDxBQVQ6OmhiX2FhdF9hcHBseV9jb250ZXh0X3Q-KEFBVDo6aGJfYWF0X2FwcGx5X2NvbnRleHRfdCopIGNvbnN0IC9zcmMvaGFyZmJ1enovc3JjLy4vaGItYWF0LWxheW91dC1tb3J4LXRhYmxlLmhoOjc4NDoyMg0KICAgICM5IDB4NmM0M2JkIGluIEFBVDo6Q2hhaW46OmFwcGx5KEFBVDo6aGJfYWF0X2FwcGx5X2NvbnRleHRfdCopIGNvbnN0IC9zcmMvaGFyZmJ1enovc3JjLy4vaGItYWF0LWxheW91dC1tb3J4LXRhYmxlLmhoOjg4NzoxNw0KICAgICMxMCAweDZiNjQ2MCBpbiBBQVQ6Om1vcng6OmFwcGx5KEFBVDo6aGJfYWF0X2FwcGx5X2NvbnRleHRfdCopIGNvbnN0IC9zcmMvaGFyZmJ1enovc3JjLy4vaGItYWF0LWxheW91dC1tb3J4LXRhYmxlLmhoOjk2MDoxNA0KICAgICMxMSAweDZiNWVmZCBpbiBoYl9hYXRfbGF5b3V0X3N1YnN0aXR1dGUoaGJfZm9udF90KiwgaGJfYnVmZmVyX3QqKSAvc3JjL2hhcmZidXp6L3NyYy9oYi1hYXQtbGF5b3V0LmNjOjcxOjgNCiAgICAjMTIgMHg2MmNiNGQgaW4gaGJfb3Rfc2hhcGVfaW50ZXJuYWwoaGJfb3Rfc2hhcGVfY29udGV4dF90KikgL3NyYy9oYXJmYnV6ei9zcmMvaGItb3Qtc2hhcGUuY2M6OTE3OjMNCiAgICAjMTMgMHg2MmMzZTUgaW4gX2hiX290X3NoYXBlIC9zcmMvaGFyZmJ1enovc3JjL2hiLW90LXNoYXBlLmNjOjk0NTozDQogICAgIzE0IDB4NWYyNjZmIGluIGhiX3NoYXBlX3BsYW5fZXhlY3V0ZSAvc3JjL2hhcmZidXp6L3NyYy8uL2hiLXNoYXBlci1saXN0LmhoOjQzOjENCiAgICAjMTUgMHg1ZWYyNjggaW4gaGJfc2hhcGVfZnVsbCAvc3JjL2hhcmZidXp6L3NyYy9oYi1zaGFwZS5jYzoxNDE6MTkNCiAgICAjMTYgMHg0YTI2YzQgaW4gTExWTUZ1enplclRlc3RPbmVJbnB1dCAvc3JjL2hhcmZidXp6Ly4vdGVzdC9mdXp6aW5nL2hiLXNoYXBlLWZ1enplci5jYzoyMDo1DQogICAgIzE3IDB4NGVhZGFiIGluIGZ1enplcjo6RnV6emVyOjpFeGVjdXRlQ2FsbGJhY2sodW5zaWduZWQgY2hhciBjb25zdCosIHVuc2lnbmVkIGxvbmcpIC9zcmMvbGliZnV6emVyL0Z1enplckxvb3AuY3BwOjU3MDoxNQ0KICAgICMxOCAweDRhM2FmNiBpbiBmdXp6ZXI6OlJ1bk9uZVRlc3QoZnV6emVyOjpGdXp6ZXIqLCBjaGFyIGNvbnN0KiwgdW5zaWduZWQgbG9uZykgL3NyYy9saWJmdXp6ZXIvRnV6emVyRHJpdmVyLmNwcDoyODA6Ng0KICAgICMxOSAweDRiNDkxYSBpbiBmdXp6ZXI6OkZ1enplckRyaXZlcihpbnQqLCBjaGFyKioqLCBpbnQgKCopKHVuc2lnbmVkIGNoYXIgY29uc3QqLCB1bnNpZ25lZCBsb25nKSkgL3NyYy9saWJmdXp6ZXIvRnV6emVyRHJpdmVyLmNwcDo3MTM6OQ0KDQpERURVUF9UT0tFTjogcmVhbGxvYy0taGJfYnVmZmVyX3Q6OmVubGFyZ2UodW5zaWduZWQgaW50KS0taGJfYnVmZmVyX3Q6OmVuc3VyZSh1bnNpZ25lZCBpbnQpDQogIFVuaW5pdGlhbGl6ZWQgdmFsdWUgd2FzIGNyZWF0ZWQgYnkgYSBoZWFwIGFsbG9jYXRpb24NCiAgICAjMCAweDQ1ZWU3NSBpbiByZWFsbG9jIC9zcmMvbGx2bS9wcm9qZWN0cy9jb21waWxlci1ydC9saWIvbXNhbi9tc2FuX2ludGVyY2VwdG9ycy5jYzo4OTINCiAgICAjMSAweDU5MGYwMCBpbiBoYl9idWZmZXJfdDo6ZW5sYXJnZSh1bnNpZ25lZCBpbnQpIC9zcmMvaGFyZmJ1enovc3JjL2hiLWJ1ZmZlci5jYzoxMzg6MzQNCiAgICAjMiAweDU5MThmYyBpbiBoYl9idWZmZXJfdDo6ZW5zdXJlKHVuc2lnbmVkIGludCkgL3NyYy9oYXJmYnV6ei9zcmMvLi9oYi1idWZmZXIuaGg6MzE3OjU2DQogICAgIzMgMHg1OWJhZWQgaW4gdm9pZCBoYl9idWZmZXJfYWRkX3V0ZjxoYl91dGY4X3Q-KGhiX2J1ZmZlcl90KiwgaGJfdXRmOF90Ojpjb2RlcG9pbnRfdCBjb25zdCosIGludCwgdW5zaWduZWQgaW50LCBpbnQpIC9zcmMvaGFyZmJ1enovc3JjL2hiLWJ1ZmZlci5jYzoxNDkyOjExDQogICAgIzQgMHg0YTI2NjEgaW4gTExWTUZ1enplclRlc3RPbmVJbnB1dCAvc3JjL2hhcmZidXp6Ly4vdGVzdC9mdXp6aW5nL2hiLXNoYXBlLWZ1enplci5jYzoxODo1DQogICAgIzUgMHg0ZWFkYWIgaW4gZnV6emVyOjpGdXp6ZXI6OkV4ZWN1dGVDYWxsYmFjayh1bnNpZ25lZCBjaGFyIGNvbnN0KiwgdW5zaWduZWQgbG9uZykgL3NyYy9saWJmdXp6ZXIvRnV6emVyTG9vcC5jcHA6NTcwOjE1DQogICAgIzYgMHg0YTNhZjYgaW4gZnV6emVyOjpSdW5PbmVUZXN0KGZ1enplcjo6RnV6emVyKiwgY2hhciBjb25zdCosIHVuc2lnbmVkIGxvbmcpIC9zcmMvbGliZnV6emVyL0Z1enplckRyaXZlci5jcHA6MjgwOjYNCiAgICAjNyAweDRiNDkxYSBpbiBmdXp6ZXI6OkZ1enplckRyaXZlcihpbnQqLCBjaGFyKioqLCBpbnQgKCopKHVuc2lnbmVkIGNoYXIgY29uc3QqLCB1bnNpZ25lZCBsb25nKSkgL3NyYy9saWJmdXp6ZXIvRnV6emVyRHJpdmVyLmNwcDo3MTM6OQ0KICAgICM4IDB4NGEyYzIxIGluIG1haW4gL3NyYy9saWJmdXp6ZXIvRnV6emVyTWFpbi5jcHA6MjA6MTANCiAgICAjOSAweDdmZDI2NTAyYTgyZiBpbiBfX2xpYmNfc3RhcnRfbWFpbiAoL2xpYi94ODZfNjQtbGludXgtZ251L2xpYmMuc28uNisweDIwODJmKQ0KDQpERURVUF9UT0tFTjogcmVhbGxvYy0taGJfYnVmZmVyX3Q6OmVubGFyZ2UodW5zaWduZWQgaW50KS0taGJfYnVmZmVyX3Q6OmVuc3VyZSh1bnNpZ25lZCBpbnQpDQpTVU1NQVJZOiBNZW1vcnlTYW5pdGl6ZXI6IHVzZS1vZi11bmluaXRpYWxpemVkLXZhbHVlIC9zcmMvaGFyZmJ1enovc3JjLy4vaGItb3QtaG10eC10YWJsZS5oaDoyNTQ6MTEgaW4gT1Q6OmhtdHh2bXR4PE9UOjpobXR4LCBPVDo6aGhlYT46OmFjY2VsZXJhdG9yX3Q6OmdldF9hZHZhbmNlKHVuc2lnbmVkIGludCkgY29uc3QNClVuaXF1ZSBoZWFwIG9yaWdpbnM6IDQ3DQpTdGFjayBkZXBvdCBhbGxvY2F0ZWQgYnl0ZXM6IDQyMzINClVuaXF1ZSBvcmlnaW4gaGlzdG9yaWVzOiAxMg0KSGlzdG9yeSBkZXBvdCBhbGxvY2F0ZWQgYnl0ZXM6IDI4OA0KRXhpdGluZw==",
+  "requested_content": {
+    "/src/harfbuzz/src/hb-buffer.cc": {
+      "108": "line  108 : ",
+      "109": "line  109 : /* Internal API */",
+      "110": "line  110 : ",
+      "111": "line  111 : bool",
+      "112": "line  112 : hb_buffer_t::enlarge (unsigned int size)",
+      "113": "line  113 : {",
+      "114": "line  114 :   if (unlikely (!successful))",
+      "115": "line  115 :     return false;",
+      "116": "line  116 :   if (unlikely (size > max_len))",
+      "117": "line  117 :   {",
+      "118": "line  118 :     successful = false;",
+      "119": "line  119 :     return false;",
+      "120": "line  120 :   }",
+      "121": "line  121 : ",
+      "122": "line  122 :   unsigned int new_allocated = allocated;",
+      "123": "line  123 :   hb_glyph_position_t *new_pos = nullptr;",
+      "124": "line  124 :   hb_glyph_info_t *new_info = nullptr;",
+      "125": "line  125 :   bool separate_out = out_info != info;",
+      "126": "line  126 : ",
+      "127": "line  127 :   if (unlikely (hb_unsigned_mul_overflows (size, sizeof (info[0]))))",
+      "128": "line  128 :     goto done;",
+      "129": "line  129 : ",
+      "130": "line  130 :   while (size >= new_allocated)",
+      "131": "line  131 :     new_allocated += (new_allocated >> 1) + 32;",
+      "132": "line  132 : ",
+      "133": "line  133 :   static_assert ((sizeof (info[0]) == sizeof (pos[0])), \"\");",
+      "134": "line  134 :   if (unlikely (hb_unsigned_mul_overflows (new_allocated, sizeof (info[0]))))",
+      "135": "line  135 :     goto done;",
+      "136": "line  136 : ",
+      "137": "line  137 :   new_pos = (hb_glyph_position_t *) realloc (pos, new_allocated * sizeof (pos[0]));",
+      "138": "line  138 :   new_info = (hb_glyph_info_t *) realloc (info, new_allocated * sizeof (info[0]));",
+      "139": "line  139 : ",
+      "140": "line  140 : done:",
+      "141": "line  141 :   if (unlikely (!new_pos || !new_info))",
+      "142": "line  142 :     successful = false;",
+      "143": "line  143 : ",
+      "144": "line  144 :   if (likely (new_pos))",
+      "145": "line  145 :     pos = new_pos;",
+      "146": "line  146 : ",
+      "147": "line  147 :   if (likely (new_info))",
+      "148": "line  148 :     info = new_info;",
+      "149": "line  149 : ",
+      "150": "line  150 :   out_info = separate_out ? (hb_glyph_info_t *) pos : info;",
+      "151": "line  151 :   if (likely (successful))",
+      "152": "line  152 :     allocated = new_allocated;",
+      "153": "line  153 : ",
+      "154": "line  154 :   return likely (successful);",
+      "155": "line  155 : }",
+      "156": "line  156 : ",
+      "157": "line  157 : bool",
+      "158": "line  158 : hb_buffer_t::make_room_for (unsigned int num_in,",
+      "159": "line  159 : \t\t\t    unsigned int num_out)",
+      "160": "line  160 : {",
+      "161": "line  161 :   if (unlikely (!ensure (out_len + num_out))) return false;",
+      "162": "line  162 : ",
+      "163": "line  163 :   if (out_info == info &&",
+      "164": "line  164 :       out_len + num_out > idx + num_in)",
+      "165": "line  165 :   {",
+      "166": "line  166 :     assert (have_output);",
+      "167": "line  167 : ",
+      "1979": "line 1979 : <End of File>"
+    },
+    "/src/harfbuzz/src/./hb-buffer.hh": {
+      "221": "line  221 :     out_info[out_len].codepoint = glyph_index;",
+      "222": "line  222 : ",
+      "223": "line  223 :     idx++;",
+      "224": "line  224 :     out_len++;",
+      "225": "line  225 :   }",
+      "226": "line  226 :   /* Makes a copy of the glyph at idx to output and replace glyph_index */",
+      "227": "line  227 :   inline hb_glyph_info_t & output_glyph (hb_codepoint_t glyph_index)",
+      "228": "line  228 :   {",
+      "229": "line  229 :     if (unlikely (!make_room_for (0, 1))) return Crap(hb_glyph_info_t);",
+      "230": "line  230 : ",
+      "231": "line  231 :     out_info[out_len] = info[idx];",
+      "232": "line  232 :     out_info[out_len].codepoint = glyph_index;",
+      "233": "line  233 : ",
+      "234": "line  234 :     out_len++;",
+      "235": "line  235 : ",
+      "236": "line  236 :     return out_info[out_len - 1];",
+      "237": "line  237 :   }",
+      "238": "line  238 :   inline void output_info (const hb_glyph_info_t &glyph_info)",
+      "239": "line  239 :   {",
+      "240": "line  240 :     if (unlikely (!make_room_for (0, 1))) return;",
+      "241": "line  241 : ",
+      "242": "line  242 :     out_info[out_len] = glyph_info;",
+      "243": "line  243 : ",
+      "244": "line  244 :     out_len++;",
+      "245": "line  245 :   }",
+      "246": "line  246 :   /* Copies glyph at idx to output but doesn't advance idx */",
+      "247": "line  247 :   inline void copy_glyph (void)",
+      "248": "line  248 :   {",
+      "249": "line  249 :     if (unlikely (!make_room_for (0, 1))) return;",
+      "250": "line  250 : ",
+      "251": "line  251 :     out_info[out_len] = info[idx];",
+      "252": "line  252 : ",
+      "253": "line  253 :     out_len++;",
+      "254": "line  254 :   }",
+      "255": "line  255 :   /* Copies glyph at idx to output and advance idx.",
+      "256": "line  256 :    * If there's no output, just advance idx. */",
+      "257": "line  257 :   inline void",
+      "258": "line  258 :   next_glyph (void)",
+      "259": "line  259 :   {",
+      "260": "line  260 :     if (have_output)",
+      "261": "line  261 :     {",
+      "262": "line  262 :       if (unlikely (out_info != info || out_len != idx)) {",
+      "263": "line  263 : \tif (unlikely (!make_room_for (1, 1))) return;",
+      "264": "line  264 : \tout_info[out_len] = info[idx];",
+      "265": "line  265 :       }",
+      "266": "line  266 :       out_len++;",
+      "267": "line  267 :     }",
+      "268": "line  268 : ",
+      "269": "line  269 :     idx++;",
+      "270": "line  270 :   }",
+      "271": "line  271 :   /* Advance idx without copying to output. */",
+      "272": "line  272 :   inline void skip_glyph (void)",
+      "273": "line  273 :   {",
+      "274": "line  274 :     idx++;",
+      "275": "line  275 :   }",
+      "276": "line  276 :   inline void reset_masks (hb_mask_t mask)",
+      "277": "line  277 :   {",
+      "278": "line  278 :     for (unsigned int j = 0; j < len; j++)",
+      "279": "line  279 :       info[j].mask = mask;",
+      "280": "line  280 :   }",
+      "427": "line  427 : <End of File>"
+    }
+  },
+  "note": [
+    "Reason for requesting line 138 of /src/harfbuzz/src/hb-buffer.cc: To understand how the buffer is managed and how glyphs are copied, specifically looking for uninitialized data issues when the buffer is enlarged or when glyphs are inserted/copied.",
+    "Reason for requesting line 251 of /src/harfbuzz/src/./hb-buffer.hh: To understand how glyph data is copied and if any uninitialized memory might be read during this process after the buffer is enlarged."
+  ],
+  "valid_patches": [
+    {
+      "file": "/src/harfbuzz/src/hb-buffer.cc",
+      "diff": [
+        {
+          "line_number": 145,
+          "content": [
+            "  if (likely (new_pos))",
+            "  {",
+            "    if (new_allocated > allocated) /* Zero-initialize new portion. */",
+            "      memset ((char *) new_pos + allocated * sizeof (new_pos[0]), 0, (new_allocated - allocated) * sizeof (new_pos[0]));",
+            "    pos = new_pos;",
+            "  }",
+            ""
+          ]
+        },
+        {
+          "line_number": 148,
+          "content": [
+            "  if (likely (new_info))",
+            "  {",
+            "    if (new_allocated > allocated) /* Zero-initialize new portion. */",
+            "      memset ((char *) new_info + allocated * sizeof (new_info[0]), 0, (new_allocated - allocated) * sizeof (new_info[0]));",
+            "    info = new_info;",
+            "  }",
+            ""
+          ]
+        }
+      ]
+    }
+  ],
+  "retry_count": 9,
+  "history": [
+    {
+      "reason": "To understand how the buffer is managed and how glyphs are copied, specifically looking for uninitialized data issues when the buffer is enlarged or when glyphs are inserted/copied.",
+      "line": 138,
+      "file": "/src/harfbuzz/src/hb-buffer.cc"
+    },
+    {
+      "reason": "The `hb_buffer_t::enlarge` function reallocates memory for `info` and `pos` arrays. When `realloc` expands the allocation, the new memory is uninitialized. Later operations, specifically `hb_buffer_t::copy_glyph()` and `hb_buffer_t::output_glyph()`, can read these uninitialized parts of the `info` array, leading to a MemorySanitizer error. The fix is to zero-initialize the newly allocated portions of both `info` and `pos` arrays.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/hb-buffer.cc",
+          "diff": [
+            {
+              "line_number": 139,
+              "content": [
+                "  new_info = (hb_glyph_info_t *) realloc (info, new_allocated * sizeof (info[0]));",
+                "",
+                "  if (likely (new_info) && new_allocated > allocated)",
+                "  {",
+                "    /* Zero-initialize new portion. */",
+                "    memset (new_info + allocated, 0, (new_allocated - allocated) * sizeof (new_info[0]));",
+                "  }",
+                "  if (likely (new_pos) && new_allocated > allocated)",
+                "  {",
+                "    /* Zero-initialize new portion. */",
+                "    memset (new_pos + allocated, 0, (new_allocated - allocated) * sizeof (new_pos[0]));",
+                "  }",
+                ""
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `hb_buffer_t::enlarge` function uses `realloc` for `info` (array of `hb_glyph_info_t`). When `realloc` increases the buffer size, the newly allocated portion is not initialized. This uninitialized memory is later accessed, leading to a MemorySanitizer error. The fix is to zero-initialize the newly added portion of the `info` array to prevent use of uninitialized values.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/hb-buffer.cc",
+          "diff": [
+            {
+              "line_number": 149,
+              "content": [
+                "  if (likely (new_info))",
+                "  {",
+                "    if (info != new_info) /* Realloc moved memory. */",
+                "    {",
+                "      info = new_info;",
+                "      /* Zero-initialize the newly allocated portion. */",
+                "      memset (info + old_allocated, 0, (new_allocated - old_allocated) * sizeof (info[0]));",
+                "    }",
+                "  }"
+              ]
+            },
+            {
+              "line_number": 122,
+              "content": [
+                "  unsigned int old_allocated = allocated;",
+                "  unsigned int new_allocated = allocated;"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `realloc` call for `info` on line 138 in `hb-buffer.cc` can return a larger memory block that is not initialized. When the buffer is enlarged, the newly allocated portion of `hb_glyph_info_t` array `info` needs to be zero-initialized to prevent `use-of-uninitialized-value` issues later when glyph information is copied or accessed. The patch adds a `memset` call to initialize the new part of the `info` array if it was successfully reallocated and grew in size.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/hb-buffer.cc",
+          "diff": [
+            {
+              "line_number": 149,
+              "content": [
+                "  if (likely (new_info))",
+                "  {",
+                "    if (new_allocated > allocated)",
+                "      memset ((char *) new_info + allocated * sizeof (new_info[0]), 0, (new_allocated - allocated) * sizeof (new_info[0]));",
+                "    info = new_info;",
+                "  }",
+                ""
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `hb_buffer_t::enlarge` function reallocates memory for `info` and `pos` arrays but does not initialize the newly allocated portions. This leads to use-of-uninitialized-value errors when these uninitialized parts are later accessed. The fix is to zero-initialize the newly allocated memory in both `info` and `pos` buffers after successful reallocation.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/hb-buffer.cc",
+          "diff": [
+            {
+              "line_number": 145,
+              "content": [
+                "    pos = new_pos;",
+                "    if (new_allocated > allocated) memset (pos + allocated, 0, (new_allocated - allocated) * sizeof (pos[0]));"
+              ]
+            },
+            {
+              "line_number": 148,
+              "content": [
+                "    info = new_info;",
+                "    if (new_allocated > allocated) memset (info + allocated, 0, (new_allocated - allocated) * sizeof (info[0]));"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "To understand how glyph data is copied and if any uninitialized memory might be read during this process after the buffer is enlarged.",
+      "line": 251,
+      "file": "/src/harfbuzz/src/./hb-buffer.hh"
+    },
+    {
+      "reason": "The `hb_buffer_t::enlarge` function reallocates memory for `pos` and `info` arrays. When `realloc` expands a memory block, the newly allocated portion is uninitialized. The code currently only assigns the `pos` and `info` pointers if `realloc` succeeds, but it does not initialize the newly allocated parts. This leads to uninitialized values being propagated when glyphs are copied or outputted, eventually causing a crash.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/hb-buffer.cc",
+          "diff": [
+            {
+              "line_number": 146,
+              "content": [
+                "    pos = new_pos;"
+              ]
+            },
+            {
+              "line_number": 147,
+              "content": [
+                "  if (likely (new_info))",
+                "    info = new_info;"
+              ]
+            },
+            {
+              "line_number": 149,
+              "content": [
+                "  if (likely (successful)) {",
+                "    /* If info and pos were separate, and become non-separate now, we just copied garbage into out_info.",
+                "     * That's fine, since next line fixes it.",
+                "     * If separate_out, out_info will be pointing to the old pos buffer, while it should be the new pos buffer. */",
+                "    if (separate_out && out_info == (hb_glyph_info_t *) pos)",
+                "      out_info = (hb_glyph_info_t *) new_pos;",
+                "    allocated = new_allocated;",
+                "    /* Zero-initialize the new allocated memory. */",
+                "    if (unlikely (old_allocated < new_allocated))",
+                "    {",
+                "      memset (info + old_allocated, 0, (new_allocated - old_allocated) * sizeof (info[0]));",
+                "      memset (pos + old_allocated, 0, (new_allocated - old_allocated) * sizeof (pos[0]));",
+                "    }",
+                "  } else {",
+                "    /* If new_pos or new_info is NULL, then it means they failed, and",
+                "     * we should be using the old value. Otherwise, we can use the new",
+                "     * value. */",
+                "    if (new_pos) pos = new_pos;",
+                "    if (new_info) info = new_info;",
+                "  }"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `hb_buffer_t::enlarge` function reallocates memory for `info` and `pos` arrays. If the buffer grows, the newly allocated memory is uninitialized. When `hb_buffer_t::copy_glyph` attempts to copy a glyph from the `info` array, it might read from this uninitialized memory, leading to a `use-of-uninitialized-value` crash. The fix is to zero-initialize the newly allocated portions of the `info` and `pos` arrays to prevent reading uninitialized data.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/hb-buffer.cc",
+          "diff": [
+            {
+              "line_number": 149,
+              "content": [
+                "  if (likely (new_info))",
+                "  {",
+                "    if (info != new_info) /* The realloc call returned a new pointer */",
+                "      info = new_info;",
+                "    /* Zero-initialize the newly allocated portion. */",
+                "    if (new_allocated > allocated)",
+                "      memset ((void *) (info + allocated), 0, (new_allocated - allocated) * sizeof (info[0]));",
+                "  }",
+                ""
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `realloc` function can return uninitialized memory if the allocated size is larger than the original size. The crash report indicates that uninitialized memory from `realloc` in `hb_buffer_t::enlarge` is later used. To prevent use-of-uninitialized-value, the newly allocated portion of the `info` and `pos` arrays must be zero-initialized when `realloc` increases their size.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/hb-buffer.cc",
+          "diff": [
+            {
+              "line_number": 145,
+              "content": [
+                "  if (likely (new_pos))",
+                "  {",
+                "    if (new_allocated > allocated) /* Zero-initialize new portion. */",
+                "      memset ((char *) new_pos + allocated * sizeof (new_pos[0]), 0, (new_allocated - allocated) * sizeof (new_pos[0]));",
+                "    pos = new_pos;",
+                "  }",
+                ""
+              ]
+            },
+            {
+              "line_number": 148,
+              "content": [
+                "  if (likely (new_info))",
+                "  {",
+                "    if (new_allocated > allocated) /* Zero-initialize new portion. */",
+                "      memset ((char *) new_info + allocated * sizeof (new_info[0]), 0, (new_allocated - allocated) * sizeof (new_info[0]));",
+                "    info = new_info;",
+                "  }",
+                ""
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

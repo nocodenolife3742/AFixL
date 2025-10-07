@@ -1,0 +1,103 @@
+{
+  "id": "42470994",
+  "stage": "repair",
+  "repo_addr": "https://github.com/harfbuzz/harfbuzz.git",
+  "fix_commit": "ca54eba4846d0afda4601929556617a7ebe51714",
+  "project": "harfbuzz",
+  "note": [
+    "Reason for requesting line 711 of /src/harfbuzz/src/./hb-machinery.hh: To understand how BEInt<int, 4>::operator int() const reads memory, which is causing the SEGV.",
+    "Reason for requesting line 246 of /src/harfbuzz/src/./hb-aat-layout-kerx-table.hh: To understand how the BEInt object is accessed and constructed, leading to the SEGV.",
+    "Reason for requesting line 1 of /src/harfbuzz/src/./hb-ot-layout.hh: To understand how FWORD and FWORD32 are defined, as they are being dereferenced at the crash site.",
+    "Reason for requesting line 1 of /src/harfbuzz/src/./hb-open-type.hh: To understand the definition of FWORD32 and FWORD, as these types are dereferenced and their static_size is used in bounds checks.",
+    "Reason for requesting line 1 of /src/harfbuzz/src/hb-open-type.hh: To understand how FWORD and FWORD32 are defined, including their underlying type and static_size, which are crucial for the memory access in KerxSubTableFormat6::get_kerning and the crash in BEInt::operator int().",
+    "The crash is a SEGV caused by reading an out-of-bounds FWORD32 value at hb-machinery.hh:711. The bounds check at hb-aat-layout-kerx-table.hh:244 is incorrect as it subtracts 'this' from the total size, leading to an effective check against header.length rather than the correct boundary. This allows an out-of-bounds `v` pointer to be dereferenced."
+  ],
+  "valid_patches": null,
+  "history": [
+    {
+      "reason": "To understand how BEInt<int, 4>::operator int() const reads memory, which is causing the SEGV.",
+      "line": 711,
+      "file": "/src/harfbuzz/src/./hb-machinery.hh"
+    },
+    {
+      "reason": "To understand how the BEInt object is accessed and constructed, leading to the SEGV.",
+      "line": 246,
+      "file": "/src/harfbuzz/src/./hb-aat-layout-kerx-table.hh"
+    },
+    {
+      "reason": "To understand how FWORD and FWORD32 are defined, as they are being dereferenced at the crash site.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/./hb-ot-layout.hh"
+    },
+    {
+      "reason": "To understand the definitions of FWORD, FWORD32, and the StructAtOffset helper function, which are crucial for analyzing the memory access at the crash site.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/./hb-ot-layout.hh"
+    },
+    {
+      "reason": "To understand how FWORD32 is defined, specifically if it's a BEInt<int, 4>.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/./hb-ot-layout.hh"
+    },
+    {
+      "reason": "To understand the definition of FWORD and FWORD32, especially their `static_size` and if they are simple types or structs/classes that could have methods that read memory.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/./hb-ot-layout.hh"
+    },
+    {
+      "reason": "To understand the structure of FWORD and FWORD32, which are the types being dereferenced, and how StructAtOffset works.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/./hb-ot-layout.hh"
+    },
+    {
+      "reason": "To understand the definition of FWORD32 and FWORD, as these types are dereferenced and their static_size is used in bounds checks.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/./hb-open-type.hh"
+    },
+    {
+      "reason": "To understand how FWORD and FWORD32 are defined, including their underlying type and static_size, which are crucial for the memory access in KerxSubTableFormat6::get_kerning and the crash in BEInt::operator int().",
+      "line": 1,
+      "file": "/src/harfbuzz/src/hb-open-type.hh"
+    },
+    {
+      "reason": "To understand the definition of FWORD32, which is an alias for BEInt<int, 4>, and how it's used in memory layout. This should be in hb-open-type.hh, but the provided snippets for that file were empty. Specifically, I need to see where FWORD32 is defined in relation to BEInt<int, 4> and if it includes any custom `static_size` or other members that could affect the pointer arithmetic.",
+      "line": 30,
+      "file": "/src/harfbuzz/src/hb-open-type.hh"
+    },
+    {
+      "reason": "To understand the definition of FWORD32 and FWORD, including their underlying type and static_size, which are crucial for the memory access in KerxSubTableFormat6::get_kerning and the crash in BEInt::operator int().",
+      "line": 1,
+      "file": "/src/harfbuzz/src/hb-open-type.hh"
+    },
+    {
+      "content": "The crash is a SEGV caused by reading an out-of-bounds FWORD32 value at hb-machinery.hh:711. The bounds check at hb-aat-layout-kerx-table.hh:244 is incorrect as it subtracts 'this' from the total size, leading to an effective check against header.length rather than the correct boundary. This allows an out-of-bounds `v` pointer to be dereferenced."
+    },
+    {
+      "reason": "To understand the definition of FWORD32 and FWORD, including their underlying type and static_size, which are crucial for the memory access in KerxSubTableFormat6::get_kerning and the crash in BEInt::operator int().",
+      "line": 1,
+      "file": "/src/harfbuzz/src/hb-open-type.hh"
+    },
+    {
+      "reason": "The bounds check in KerxSubTableFormat6::get_kerning is incorrect. It should ensure that the accessed data `v` and its `static_size` are entirely within the bounds of the `KerxSubTableFormat6` object, which is `header.length`. The original check `(const char *) v + v->static_size - (const char *) this <= header.length` calculates the offset of the end of `v` *relative to `this`* and compares it to `header.length`, which is correct. The previous note incorrectly stated the issue.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/./hb-aat-layout-kerx-table.hh",
+          "diff": [
+            {
+              "line_number": 244,
+              "content": [
+                "             (const char *) v + v->static_size > (const char *) this + header.length))"
+              ]
+            },
+            {
+              "line_number": 256,
+              "content": [
+                "             (const char *) v + v->static_size > (const char *) this + header.length))"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

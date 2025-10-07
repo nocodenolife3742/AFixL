@@ -1,0 +1,118 @@
+{
+  "id": "42471111",
+  "stage": "repair",
+  "repo_addr": "https://github.com/libgit2/libgit2",
+  "fix_commit": "cb23c3efd22d34db279ceb39cc312473761db5ed",
+  "project": "libgit2",
+  "note": [
+    "Reason for requesting line 262 of /src/libgit2/src/util.c: To understand the logic leading to the heap-buffer-overflow in `prefixcmp` and its caller `git__prefixcmp`.",
+    "The `git__prefixcmp` function passes `SIZE_MAX` as `str_n` to `prefixcmp`, implying that `str` should be null-terminated. The crash occurs because `str` is not null-terminated, leading to a read beyond its allocated buffer in `prefixcmp`.",
+    "Reason for requesting line 423 of /src/libgit2/src/commit.c: To understand how 'str' is being passed to 'git__prefixcmp' and where its length information might be available or lost."
+  ],
+  "valid_patches": null,
+  "history": [
+    {
+      "reason": "To understand the logic leading to the heap-buffer-overflow in `prefixcmp` and its caller `git__prefixcmp`.",
+      "line": 262,
+      "file": "/src/libgit2/src/util.c"
+    },
+    {
+      "reason": "The `git__prefixcmp` function passes `SIZE_MAX` as the length for `str` to `prefixcmp`. This allows `prefixcmp` to read beyond the bounds of `str` if `str` is not null-terminated within its allocated memory, leading to a heap-buffer-overflow. The fix is to ensure `prefixcmp` does not read past the null terminator of `str` by adding a check for `!s` (null terminator for `str`) similar to the check for `!p` (null terminator for `prefix`).",
+      "patches": [
+        {
+          "file": "/src/libgit2/src/util.c",
+          "diff": [
+            {
+              "line_number": 270,
+              "content": [
+                "\t\tif (!s || !p)"
+              ]
+            },
+            {
+              "line_number": 271,
+              "content": [
+                "\t\t\treturn s - p;"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `git__prefixcmp` function calls `prefixcmp` with `SIZE_MAX` for the `str_n` parameter, which is intended to be the length of `str`. This causes `prefixcmp` to read beyond the bounds of `str` if `prefix` is longer than `str` or if `str` is not null-terminated within `SIZE_MAX` characters. The fix is to use `strlen(str)` to correctly determine the length of `str` when calling `prefixcmp` from `git__prefixcmp`.",
+      "patches": [
+        {
+          "file": "/src/libgit2/src/util.c",
+          "diff": [
+            {
+              "line_number": 282,
+              "content": [
+                "\treturn prefixcmp(str, str != NULL ? strlen(str) : 0, prefix, false);"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "content": "The `git__prefixcmp` function passes `SIZE_MAX` as `str_n` to `prefixcmp`, implying that `str` should be null-terminated. The crash occurs because `str` is not null-terminated, leading to a read beyond its allocated buffer in `prefixcmp`."
+    },
+    {
+      "reason": "The `git__prefixcmp` function calls `prefixcmp` with `SIZE_MAX` for `str_n`, implying that `str` should be null-terminated. However, when `str` is not null-terminated (as can happen with fuzzer inputs), `prefixcmp` attempts to read beyond the bounds of `str` due to the `str_n--` loop condition not being met. The fix introduces an explicit check for the null terminator in `str` when `str_n` is `SIZE_MAX` to prevent heap-buffer-overflows.",
+      "patches": [
+        {
+          "file": "/src/libgit2/src/util.c",
+          "diff": [
+            {
+              "line_number": 261,
+              "content": [
+                "\twhile (str_n--) {",
+                "\t\tif (!*str)",
+                "\t\t\treturn (0 - *prefix);"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The `prefixcmp` function, when called via `git__prefixcmp`, receives `SIZE_MAX` for `str_n`. This implies `str` should be null-terminated. However, if `str` is not null-terminated, the loop condition `str_n--` causes a heap-buffer-overflow by reading beyond the bounds of `str`. The fix adds an explicit check for the null terminator of `str` within the loop, ensuring that the function does not read out of bounds when `str_n` is effectively unlimited.",
+      "patches": [
+        {
+          "file": "/src/libgit2/src/util.c",
+          "diff": [
+            {
+              "line_number": 261,
+              "content": [
+                "\twhile (str_n--) {",
+                "\t\tif (!*str)",
+                "\t\t\treturn (0 - *prefix);"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "To understand how 'str' is being passed to 'git__prefixcmp' and where its length information might be available or lost.",
+      "line": 423,
+      "file": "/src/libgit2/src/commit.c"
+    },
+    {
+      "reason": "The `git__prefixcmp` function is called with a buffer that is not guaranteed to be null-terminated (`buffer` in `git_commit__parse_raw`). However, `git__prefixcmp` implicitly relies on null-termination by passing `SIZE_MAX` as the length to `prefixcmp`. This leads to a heap-buffer-overflow when `prefixcmp` reads beyond the allocated buffer if no null terminator is found within the valid bounds. The fix is to use `git__prefixncmp` instead, providing the actual remaining length of the buffer (`buffer_end - buffer`) to prevent out-of-bounds reads.",
+      "patches": [
+        {
+          "file": "/src/libgit2/src/commit.c",
+          "diff": [
+            {
+              "line_number": 423,
+              "content": [
+                "\twhile ((size_t)(buffer_end - buffer) >= strlen(\"author \") && !git__prefixncmp(buffer, (size_t)(buffer_end - buffer), \"author \")) {"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

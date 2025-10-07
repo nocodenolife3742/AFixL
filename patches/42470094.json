@@ -1,0 +1,182 @@
+{
+  "id": "42470094",
+  "stage": "evaluate",
+  "repo_addr": "https://github.com/harfbuzz/harfbuzz.git",
+  "fix_commit": "2dde6c803a9e50c5bff74095187b0cb2e12eebdd",
+  "project": "harfbuzz",
+  "report": "RVJST1I6IEFkZHJlc3NTYW5pdGl6ZXI6IHN0YWNrLXVzZS1hZnRlci1yZXR1cm4gb24gYWRkcmVzcyAweDdmZmZmN2YyOWRhMiBhdCBwYyAweDAwMDAwMDUzNjVhZSBicCAweDdmZmZmZmZmZDkzMCBzcCAweDdmZmZmZmZmZDkyOA0KUkVBRCBvZiBzaXplIDEgYXQgMHg3ZmZmZjdmMjlkYTIgdGhyZWFkIFQwDQpTQ0FSSU5FU1M6IDUwICgxLWJ5dGUtcmVhZC1zdGFjay11c2UtYWZ0ZXItcmV0dXJuKQ0KICAgICMwIDB4NTM2NWFkIGluIEJFSW50PHVuc2lnbmVkIHNob3J0LCAyPjo6b3BlcmF0b3IgdW5zaWduZWQgc2hvcnQoKSBjb25zdCAvc3JjL2hhcmZidXp6L3NyYy8uL2hiLW1hY2hpbmVyeS5oaDo2MjU6MTMNCiAgICAjMSAweDU4ZjA3YSBpbiBPVDo6Q292ZXJhZ2VGb3JtYXQyOjpJdGVyOjptb3JlKCkgL3NyYy9oYXJmYnV6ei9zcmMvLi9oYi1vdC1sYXlvdXQtY29tbW9uLmhoOjg2NDo0Mg0KICAgICMyIDB4NTljMTI5IGluIE9UOjpTaW5nbGVTdWJzdEZvcm1hdDI6OmNsb3N1cmUoT1Q6OmhiX2Nsb3N1cmVfY29udGV4dF90KikgY29uc3QgL3NyYy9oYXJmYnV6ei9zcmMvLi9oYi1vdC1sYXlvdXQtZ3N1Yi10YWJsZS5oaDoxMjc6NjMNCiAgICAjMyAweDU5YmM2MyBpbiBfaGJfdm9pZF90IGNvbnN0KiBPVDo6aGJfY2xvc3VyZV9jb250ZXh0X3Q6OmRpc3BhdGNoPE9UOjpTaW5nbGVTdWJzdEZvcm1hdDI-KE9UOjpTaW5nbGVTdWJzdEZvcm1hdDIgY29uc3QmKSAvc3JjL2hhcmZidXp6L3NyYy8uL2hiLW90LWxheW91dC1nc3ViZ3Bvcy5oaDo0OTo0OQ0KICAgICM0IDB4NTliMDlhIGluIE9UOjpoYl9jbG9zdXJlX2NvbnRleHRfdDo6cmV0dXJuX3QgT1Q6OlNpbmdsZVN1YnN0OjpkaXNwYXRjaDxPVDo6aGJfY2xvc3VyZV9jb250ZXh0X3Q-KE9UOjpoYl9jbG9zdXJlX2NvbnRleHRfdCopIGNvbnN0IC9zcmMvaGFyZmJ1enovc3JjLy4vaGItb3QtbGF5b3V0LWdzdWItdGFibGUuaGg6MjQxOjEzDQogICAgIzUgMHg1OWFkOTQgaW4gT1Q6OmhiX2Nsb3N1cmVfY29udGV4dF90OjpyZXR1cm5fdCBPVDo6U3Vic3RMb29rdXBTdWJUYWJsZTo6ZGlzcGF0Y2g8T1Q6OmhiX2Nsb3N1cmVfY29udGV4dF90PihPVDo6aGJfY2xvc3VyZV9jb250ZXh0X3QqLCB1bnNpZ25lZCBpbnQpIGNvbnN0IC9zcmMvaGFyZmJ1enovc3JjLy4vaGItb3QtbGF5b3V0LWdzdWItdGFibGUuaGg6MTA5ODoxOQ0KICAgICM2IDB4NTlhYmQ1IGluIE9UOjpoYl9jbG9zdXJlX2NvbnRleHRfdDo6cmV0dXJuX3QgT1Q6Okxvb2t1cDo6ZGlzcGF0Y2g8T1Q6OlN1YnN0TG9va3VwU3ViVGFibGUsIE9UOjpoYl9jbG9zdXJlX2NvbnRleHRfdD4oT1Q6OmhiX2Nsb3N1cmVfY29udGV4dF90KikgY29uc3QgL3NyYy9oYXJmYnV6ei9zcmMvLi9oYi1vdC1sYXlvdXQtY29tbW9uLmhoOjY0Mzo3MQ0KICAgICM3IDB4NTdmYTEwIGluIE9UOjpTdWJzdExvb2t1cDo6Y2xvc3VyZShPVDo6aGJfY2xvc3VyZV9jb250ZXh0X3QqLCB1bnNpZ25lZCBpbnQpIGNvbnN0IC9zcmMvaGFyZmJ1enovc3JjLy4vaGItb3QtbGF5b3V0LWdzdWItdGFibGUuaGg6MTE1Nzo0Mg0KICAgICM4IDB4NTczY2RlIGluIGhiX290X2xheW91dF9sb29rdXBzX3N1YnN0aXR1dGVfY2xvc3VyZSAvc3JjL2hhcmZidXp6L3NyYy9oYi1vdC1sYXlvdXQuY2M6OTcyOjQwDQogICAgIzkgMHg1NTFkNmEgaW4gX2dzdWJfY2xvc3VyZShoYl9mYWNlX3QqLCBoYl9zZXRfdCopIC9zcmMvaGFyZmJ1enovc3JjL2hiLXN1YnNldC1wbGFuLmNjOjY2OjMNCiAgICAjMTAgMHg1NTE3MmUgaW4gX3BvcHVsYXRlX2dpZHNfdG9fcmV0YWluKGhiX2ZhY2VfdCosIGhiX3NldF90IGNvbnN0KiwgYm9vbCwgaGJfc2V0X3QqLCBoYl9tYXBfdCosIGhiX3ZlY3Rvcl90PHVuc2lnbmVkIGludCwgOHU-KikgL3NyYy9oYXJmYnV6ei9zcmMvaGItc3Vic2V0LXBsYW4uY2M6MTA0OjUNCiAgICAjMTEgMHg1NTEyNzQgaW4gaGJfc3Vic2V0X3BsYW5fY3JlYXRlKGhiX2ZhY2VfdCosIGhiX3N1YnNldF9wcm9maWxlX3QqLCBoYl9zdWJzZXRfaW5wdXRfdCopIC9zcmMvaGFyZmJ1enovc3JjL2hiLXN1YnNldC1wbGFuLmNjOjE2MTozDQogICAgIzEyIDB4NTMyNzU5IGluIGhiX3N1YnNldCAvc3JjL2hhcmZidXp6L3NyYy9oYi1zdWJzZXQuY2M6MjEzOjI4DQogICAgIzEzIDB4NTMwMDY0IGluIHRyeVN1YnNldChoYl9mYWNlX3QqLCB1bnNpZ25lZCBpbnQgY29uc3QqLCBpbnQsIGJvb2wsIGJvb2wpIC9zcmMvaGFyZmJ1enovLi90ZXN0L2Z1enppbmcvaGItc3Vic2V0LWZ1enplci5jYzoyNzoyMw0KICAgICMxNCAweDUzMDEyYiBpbiB0cnlTdWJzZXQoaGJfZmFjZV90KiwgdW5zaWduZWQgaW50IGNvbnN0KiwgaW50KSAvc3JjL2hhcmZidXp6Ly4vdGVzdC9mdXp6aW5nL2hiLXN1YnNldC1mdXp6ZXIuY2M6NDI6Nw0KICAgICMxNSAweDUzMDJhMiBpbiBMTFZNRnV6emVyVGVzdE9uZUlucHV0IC9zcmMvaGFyZmJ1enovLi90ZXN0L2Z1enppbmcvaGItc3Vic2V0LWZ1enplci5jYzo2MDozDQogICAgIzE2IDB4NTMwNzkxIGluIEV4ZWN1dGVGaWxlc09ueUJ5T25lKGludCwgY2hhcioqKSAvc3JjL2xpYmZ1enplci9hZmwvYWZsX2RyaXZlci5jcHA6MzAxOjUNCiAgICAjMTcgMHg1MzBkM2UgaW4gbWFpbiAvc3JjL2xpYmZ1enplci9hZmwvYWZsX2RyaXZlci5jcHA6MzM5OjEyDQogICAgIzE4IDB4N2ZmZmY2ZWU1ODJmIGluIF9fbGliY19zdGFydF9tYWluICgvbGliL3g4Nl82NC1saW51eC1nbnUvbGliYy5zby42KzB4MjA4MmYpDQogICAgIzE5IDB4NDFjZDY4IGluIF9zdGFydCAoL291dC9oYi1zdWJzZXQtZnV6emVyKzB4NDFjZDY4KQ0KDQpERURVUF9UT0tFTjogQkVJbnQ8dW5zaWduZWQgc2hvcnQsIDI-OjpvcGVyYXRvciB1bnNpZ25lZCBzaG9ydCgpIGNvbnN0LS1PVDo6Q292ZXJhZ2VGb3JtYXQyOjpJdGVyOjptb3JlKCktLU9UOjpTaW5nbGVTdWJzdEZvcm1hdDI6OmNsb3N1cmUoT1Q6OmhiX2Nsb3N1cmVfY29udGV4dF90KikgY29uc3QNCkFkZHJlc3MgMHg3ZmZmZjdmMjlkYTIgaXMgbG9jYXRlZCBpbiBzdGFjayBvZiB0aHJlYWQgVDAgYXQgb2Zmc2V0IDM0IGluIGZyYW1lDQogICAgIzAgMHg1OGU2MWYgaW4gaGJfYXV0b190PE9UOjpDb3ZlcmFnZTo6SXRlcj46OmhiX2F1dG9fdDxPVDo6Q292ZXJhZ2U-KE9UOjpDb3ZlcmFnZSkgL3NyYy9oYXJmYnV6ei9zcmMvLi9oYi1kc2FsZ3MuaGg6NDk1DQoNCkRFRFVQX1RPS0VOOiBoYl9hdXRvX3Q8T1Q6OkNvdmVyYWdlOjpJdGVyPjo6aGJfYXV0b190PE9UOjpDb3ZlcmFnZT4oT1Q6OkNvdmVyYWdlKQ0KICBUaGlzIGZyYW1lIGhhcyAxIG9iamVjdChzKToNCiAgICBbMzIsIDQyKSAndDEnIDw9PSBNZW1vcnkgYWNjZXNzIGF0IG9mZnNldCAzNCBpcyBpbnNpZGUgdGhpcyB2YXJpYWJsZQ0KSElOVDogdGhpcyBtYXkgYmUgYSBmYWxzZSBwb3NpdGl2ZSBpZiB5b3VyIHByb2dyYW0gdXNlcyBzb21lIGN1c3RvbSBzdGFjayB1bndpbmQgbWVjaGFuaXNtLCBzd2FwY29udGV4dCBvciB2Zm9yaw0KICAgICAgKGxvbmdqbXAgYW5kIEMrKyBleGNlcHRpb25zICphcmUqIHN1cHBvcnRlZCkNClNVTU1BUlk6IEFkZHJlc3NTYW5pdGl6ZXI6IHN0YWNrLXVzZS1hZnRlci1yZXR1cm4gL3NyYy9oYXJmYnV6ei9zcmMvLi9oYi1tYWNoaW5lcnkuaGg6NjI1OjEzIGluIEJFSW50PHVuc2lnbmVkIHNob3J0LCAyPjo6b3BlcmF0b3IgdW5zaWduZWQgc2hvcnQoKSBjb25zdA0KU2hhZG93IGJ5dGVzIGFyb3VuZCB0aGUgYnVnZ3kgYWRkcmVzczoNCiAgMHgxMDAwN2VmZGQzNjA6IGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1DQogIDB4MTAwMDdlZmRkMzcwOiBmNSBmNSBmNSBmNSBmNSBmNSBmNSBmNSBmMSBmMSBmMSBmMSAwMSBmMyBmMyBmMw0KICAweDEwMDA3ZWZkZDM4MDogZjUgZjUgZjUgZjUgZjUgZjUgZjUgZjUgZjUgZjUgZjUgZjUgZjUgZjUgZjUgZjUNCiAgMHgxMDAwN2VmZGQzOTA6IGYxIGYxIGYxIGYxIDAxIGYzIGYzIGYzIGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1DQogIDB4MTAwMDdlZmRkM2EwOiBmMSBmMSBmMSBmMSAwMSBmMyBmMyBmMyBmMSBmMSBmMSBmMSAwMSBmMyBmMyBmMw0KPT4weDEwMDA3ZWZkZDNiMDogZjUgZjUgZjUgZjVbZjVdZjUgZjUgZjUgZjUgZjUgZjUgZjUgZjUgZjUgZjUgZjUNCiAgMHgxMDAwN2VmZGQzYzA6IGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1DQogIDB4MTAwMDdlZmRkM2QwOiBmNSBmNSBmNSBmNSBmNSBmNSBmNSBmNSBmNSBmNSBmNSBmNSBmNSBmNSBmNSBmNQ0KICAweDEwMDA3ZWZkZDNlMDogZjUgZjUgZjUgZjUgZjUgZjUgZjUgZjUgZjUgZjUgZjUgZjUgZjUgZjUgZjUgZjUNCiAgMHgxMDAwN2VmZGQzZjA6IGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1IGY1DQogIDB4MTAwMDdlZmRkNDAwOiBmNSBmNSBmNSBmNSBmNSBmNSBmNSBmNSBmNSBmNSBmNSBmNSBmNSBmNSBmNSBmNQ0KU2hhZG93IGJ5dGUgbGVnZW5kIChvbmUgc2hhZG93IGJ5dGUgcmVwcmVzZW50cyA4IGFwcGxpY2F0aW9uIGJ5dGVzKToNCiAgQWRkcmVzc2FibGU6ICAgICAgICAgICAwMA0KICBQYXJ0aWFsbHkgYWRkcmVzc2FibGU6IDAxIDAyIDAzIDA0IDA1IDA2IDA3IA0KICBIZWFwIGxlZnQgcmVkem9uZTogICAgICAgZmENCiAgRnJlZWQgaGVhcCByZWdpb246ICAgICAgIGZkDQogIFN0YWNrIGxlZnQgcmVkem9uZTogICAgICBmMQ0KICBTdGFjayBtaWQgcmVkem9uZTogICAgICAgZjINCiAgU3RhY2sgcmlnaHQgcmVkem9uZTogICAgIGYzDQogIFN0YWNrIGFmdGVyIHJldHVybjogICAgICBmNQ0KICBTdGFjayB1c2UgYWZ0ZXIgc2NvcGU6ICAgZjgNCiAgR2xvYmFsIHJlZHpvbmU6ICAgICAgICAgIGY5DQogIEdsb2JhbCBpbml0IG9yZGVyOiAgICAgICBmNg0KICBQb2lzb25lZCBieSB1c2VyOiAgICAgICAgZjcNCiAgQ29udGFpbmVyIG92ZXJmbG93OiAgICAgIGZjDQogIEFycmF5IGNvb2tpZTogICAgICAgICAgICBhYw0KICBJbnRyYSBvYmplY3QgcmVkem9uZTogICAgYmINCiAgQVNhbiBpbnRlcm5hbDogICAgICAgICAgIGZlDQogIExlZnQgYWxsb2NhIHJlZHpvbmU6ICAgICBjYQ0KICBSaWdodCBhbGxvY2EgcmVkem9uZTogICAgY2INCiAgU2hhZG93IGdhcDogICAgICAgICAgICAgIGNjDQpBQk9SVElORw==",
+  "requested_content": {
+    "/src/harfbuzz/src/./hb-dsalgs.hh": {
+      "465": "line  465 : ",
+      "466": "line  466 : template <typename T> static inline void",
+      "467": "line  467 : hb_stable_sort (T *array, unsigned int len, int(*compar)(const T *, const T *))",
+      "468": "line  468 : {",
+      "469": "line  469 :   hb_stable_sort (array, len, compar, (int *) nullptr);",
+      "470": "line  470 : }",
+      "471": "line  471 : ",
+      "472": "line  472 : static inline hb_bool_t",
+      "473": "line  473 : hb_codepoint_parse (const char *s, unsigned int len, int base, hb_codepoint_t *out)",
+      "474": "line  474 : {",
+      "475": "line  475 :   /* Pain because we don't know whether s is nul-terminated. */",
+      "476": "line  476 :   char buf[64];",
+      "477": "line  477 :   len = MIN (ARRAY_LENGTH (buf) - 1, len);",
+      "478": "line  478 :   strncpy (buf, s, len);",
+      "479": "line  479 :   buf[len] = '\\0';",
+      "480": "line  480 : ",
+      "481": "line  481 :   char *end;",
+      "482": "line  482 :   errno = 0;",
+      "483": "line  483 :   unsigned long v = strtoul (buf, &end, base);",
+      "484": "line  484 :   if (errno) return false;",
+      "485": "line  485 :   if (*end) return false;",
+      "486": "line  486 :   *out = v;",
+      "487": "line  487 :   return true;",
+      "488": "line  488 : }",
+      "489": "line  489 : ",
+      "490": "line  490 : ",
+      "491": "line  491 : template <typename Type>",
+      "492": "line  492 : struct hb_auto_t : Type",
+      "493": "line  493 : {",
+      "494": "line  494 :   hb_auto_t (void) { Type::init (); }",
+      "495": "line  495 :   template <typename T1> hb_auto_t (T1 t1) { Type::init (t1); }",
+      "496": "line  496 :   ~hb_auto_t (void) { Type::fini (); }",
+      "497": "line  497 :   private: /* Hide */",
+      "498": "line  498 :   void init (void) {}",
+      "499": "line  499 :   void fini (void) {}",
+      "500": "line  500 : };",
+      "501": "line  501 : ",
+      "502": "line  502 : struct hb_bytes_t",
+      "503": "line  503 : {",
+      "504": "line  504 :   inline hb_bytes_t (void) : bytes (nullptr), len (0) {}",
+      "505": "line  505 :   inline hb_bytes_t (const char *bytes_, unsigned int len_) : bytes (bytes_), len (len_) {}",
+      "506": "line  506 :   inline hb_bytes_t (const void *bytes_, unsigned int len_) : bytes ((const char *) bytes_), len (len_) {}",
+      "507": "line  507 : ",
+      "508": "line  508 :   inline void free (void) { ::free ((void *) bytes); bytes = nullptr; len = 0; }",
+      "509": "line  509 : ",
+      "510": "line  510 :   inline int cmp (const hb_bytes_t &a) const",
+      "511": "line  511 :   {",
+      "512": "line  512 :     if (len != a.len)",
+      "513": "line  513 :       return (int) a.len - (int) len;",
+      "514": "line  514 : ",
+      "515": "line  515 :     return memcmp (a.bytes, bytes, len);",
+      "516": "line  516 :   }",
+      "517": "line  517 :   static inline int cmp (const void *pa, const void *pb)",
+      "518": "line  518 :   {",
+      "519": "line  519 :     hb_bytes_t *a = (hb_bytes_t *) pa;",
+      "520": "line  520 :     hb_bytes_t *b = (hb_bytes_t *) pb;",
+      "521": "line  521 :     return b->cmp (*a);",
+      "522": "line  522 :   }",
+      "523": "line  523 : ",
+      "524": "line  524 :   const char *bytes;",
+      "613": "line  613 : <End of File>"
+    },
+    "/src/harfbuzz/src/./hb-ot-layout-common.hh": {
+      "834": "line  834 :     }",
+      "835": "line  835 :     return false;",
+      "836": "line  836 :   }",
+      "837": "line  837 : ",
+      "838": "line  838 :   template <typename set_t>",
+      "839": "line  839 :   inline bool add_coverage (set_t *glyphs) const {",
+      "840": "line  840 :     unsigned int count = rangeRecord.len;",
+      "841": "line  841 :     for (unsigned int i = 0; i < count; i++)",
+      "842": "line  842 :       if (unlikely (!rangeRecord[i].add_coverage (glyphs)))",
+      "843": "line  843 :         return false;",
+      "844": "line  844 :     return true;",
+      "845": "line  845 :   }",
+      "846": "line  846 : ",
+      "847": "line  847 :   public:",
+      "848": "line  848 :   /* Older compilers need this to be public. */",
+      "849": "line  849 :   struct Iter",
+      "850": "line  850 :   {",
+      "851": "line  851 :     inline void init (const CoverageFormat2 &c_)",
+      "852": "line  852 :     {",
+      "853": "line  853 :       c = &c_;",
+      "854": "line  854 :       coverage = 0;",
+      "855": "line  855 :       i = 0;",
+      "856": "line  856 :       j = c->rangeRecord.len ? c->rangeRecord[0].start : 0;",
+      "857": "line  857 :       if (unlikely (c->rangeRecord[0].start > c->rangeRecord[0].end))",
+      "858": "line  858 :       {",
+      "859": "line  859 :         /* Broken table. Skip. */",
+      "860": "line  860 :         i = c->rangeRecord.len;",
+      "861": "line  861 :       }",
+      "862": "line  862 :     }",
+      "863": "line  863 :     inline void fini (void) {};",
+      "864": "line  864 :     inline bool more (void) { return i < c->rangeRecord.len; }",
+      "865": "line  865 :     inline void next (void)",
+      "866": "line  866 :     {",
+      "867": "line  867 :       if (j >= c->rangeRecord[i].end)",
+      "868": "line  868 :       {",
+      "869": "line  869 :         i++;",
+      "870": "line  870 : \tif (more ())",
+      "871": "line  871 : \t{",
+      "872": "line  872 : \t  hb_codepoint_t old = j;",
+      "873": "line  873 : \t  j = c->rangeRecord[i].start;",
+      "874": "line  874 : \t  if (unlikely (j <= old))",
+      "875": "line  875 : \t  {",
+      "876": "line  876 : \t    /* Broken table. Skip. Important to avoid DoS. */",
+      "877": "line  877 : \t   i = c->rangeRecord.len;",
+      "878": "line  878 : \t   return;",
+      "879": "line  879 : \t  }",
+      "880": "line  880 : \t  coverage = c->rangeRecord[i].value;",
+      "881": "line  881 : \t}",
+      "882": "line  882 : \treturn;",
+      "883": "line  883 :       }",
+      "884": "line  884 :       coverage++;",
+      "885": "line  885 :       j++;",
+      "886": "line  886 :     }",
+      "887": "line  887 :     inline hb_codepoint_t get_glyph (void) { return j; }",
+      "888": "line  888 :     inline unsigned int get_coverage (void) { return coverage; }",
+      "889": "line  889 : ",
+      "890": "line  890 :     private:",
+      "891": "line  891 :     const struct CoverageFormat2 *c;",
+      "892": "line  892 :     unsigned int i, coverage;",
+      "893": "line  893 :     hb_codepoint_t j;",
+      "1827": "line 1827 : <End of File>"
+    }
+  },
+  "note": [
+    "Reason for requesting line 495 of /src/harfbuzz/src/./hb-dsalgs.hh: To understand the definition of `hb_auto_t` and how the variable `t1` is initialized.",
+    "Reason for requesting line 864 of /src/harfbuzz/src/./hb-ot-layout-common.hh: To understand how OT::CoverageFormat2::Iter is initialized and how 't1' is passed and potentially stored."
+  ],
+  "valid_patches": [
+    {
+      "file": "/src/harfbuzz/src/./hb-dsalgs.hh",
+      "diff": [
+        {
+          "line_number": 495,
+          "content": [
+            "  template <typename T1> hb_auto_t (const T1 &t1) { Type::init (t1); }"
+          ]
+        }
+      ]
+    }
+  ],
+  "retry_count": 3,
+  "history": [
+    {
+      "reason": "To understand the definition of `hb_auto_t` and how the variable `t1` is initialized.",
+      "line": 495,
+      "file": "/src/harfbuzz/src/./hb-dsalgs.hh"
+    },
+    {
+      "reason": "To understand how OT::CoverageFormat2::Iter is initialized and how 't1' is passed and potentially stored.",
+      "line": 864,
+      "file": "/src/harfbuzz/src/./hb-ot-layout-common.hh"
+    },
+    {
+      "reason": "The `hb_auto_t` constructor for `OT::Coverage::Iter` takes `T1 t1` by value, creating a temporary object. The `OT::Coverage::Iter::init` method then stores a pointer (`c`) to a member of this temporary object. When the `hb_auto_t` constructor finishes, the temporary `t1` is destroyed, leading to a stack-use-after-return if `c` is accessed later. Changing the constructor to take `T1` by `const &` prevents the creation of a temporary and ensures the pointer remains valid as long as the object passed to `hb_auto_t` is alive.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/./hb-dsalgs.hh",
+          "diff": [
+            {
+              "line_number": 495,
+              "content": [
+                "  template <typename T1> hb_auto_t (const T1 &t1) { Type::init (t1); }"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

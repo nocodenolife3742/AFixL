@@ -1,0 +1,89 @@
+{
+  "id": "42470972",
+  "stage": "replay",
+  "repo_addr": "https://github.com/harfbuzz/harfbuzz.git",
+  "fix_commit": "210f899acad1959d60892538ac1968a36dbbb51b",
+  "project": "harfbuzz",
+  "note": [
+    "Reason for requesting line 693 of /src/harfbuzz/src/./hb-machinery.hh: To understand the heap-buffer-overflow at the reported location.",
+    "Reason for requesting line 419 of /src/harfbuzz/src/./hb-ot-kern-table.hh: To understand how BEInt<unsigned int, 4> is used within OT::kern::has_data() and to see the memory layout of the surrounding structure that might be 28 bytes in size."
+  ],
+  "valid_patches": null,
+  "history": [
+    {
+      "reason": "To understand the heap-buffer-overflow at the reported location.",
+      "line": 693,
+      "file": "/src/harfbuzz/src/./hb-machinery.hh"
+    },
+    {
+      "reason": "To understand how BEInt<unsigned int, 4> is used within OT::kern::has_data() and to see the memory layout of the surrounding structure that might be 28 bytes in size.",
+      "line": 419,
+      "file": "/src/harfbuzz/src/./hb-ot-kern-table.hh"
+    },
+    {
+      "reason": "To understand the structure of 'kern' and its union member 'u', and to see how 'u.version32' is defined and used.",
+      "line": 419,
+      "file": "/src/harfbuzz/src/./hb-ot-kern-table.hh"
+    },
+    {
+      "reason": "To understand the structure of the `kern` object, specifically how `u` is defined, as it contains `version32` and `major` members, and how they relate to the `BEInt` type.",
+      "line": 414,
+      "file": "/src/harfbuzz/src/./hb-ot-kern-table.hh"
+    },
+    {
+      "reason": "To understand the structure of the `kern` union and its `version32` member, which is involved in the heap-buffer-overflow when accessed as a `BEInt<unsigned int, 4>`.",
+      "line": 414,
+      "file": "/src/harfbuzz/src/./hb-ot-kern-table.hh"
+    },
+    {
+      "reason": "To understand the structure of OT::kern and specifically how u.version32 is declared and accessed, as the overflow happens when dereferencing it.",
+      "line": 419,
+      "file": "/src/harfbuzz/src/./hb-ot-kern-table.hh"
+    },
+    {
+      "reason": "The crash occurs when accessing `u.version32` in `OT::kern::has_data()`. The definition of `struct kern` and its `u` member is necessary to understand the memory layout and potential misalignment or size issues that lead to the heap-buffer-overflow when `BEInt<unsigned int, 4>` is read.",
+      "line": 414,
+      "file": "/src/harfbuzz/src/./hb-ot-kern-table.hh"
+    },
+    {
+      "reason": "To understand the full definition of the `kern` struct and its member `u`, which is accessed in `has_data()`. This is crucial to understand the memory layout leading to the heap-buffer-overflow.",
+      "line": 414,
+      "file": "/src/harfbuzz/src/./hb-ot-kern-table.hh"
+    },
+    {
+      "reason": "To understand the structure of `kern` and `union u` to determine how `u.version32` is defined and how it relates to the 28-byte allocated region.",
+      "line": 414,
+      "file": "/src/harfbuzz/src/./hb-ot-kern-table.hh"
+    },
+    {
+      "reason": "To understand the structure containing the `BEInt<unsigned int, 4>` that causes the heap-buffer-overflow. This is likely within the `kern` struct based on the stack trace.",
+      "line": 414,
+      "file": "/src/harfbuzz/src/./hb-ot-kern-table.hh"
+    },
+    {
+      "reason": "To understand the type and definition of `u` in the `kern` struct and specifically `u.version32` to see if it is a `BEInt<unsigned int, 4>` that could lead to an out-of-bounds read.",
+      "line": 419,
+      "file": "/src/harfbuzz/src/./hb-ot-kern-table.hh"
+    },
+    {
+      "reason": "To understand the structure of the `kern` object and its `u` member, and to see what `u.version32` refers to, which is causing the heap-buffer-overflow.",
+      "line": 414,
+      "file": "/src/harfbuzz/src/./hb-ot-kern-table.hh"
+    },
+    {
+      "reason": "To understand the structure of OT::kern, specifically the `u` union, and its size, which might be related to the 28-byte allocated region. I suspect the `u` member within the kern struct is being accessed beyond its allocated bounds, leading to the heap-buffer-overflow.",
+      "line": 414,
+      "file": "/src/harfbuzz/src/./hb-ot-kern-table.hh"
+    },
+    {
+      "reason": "To understand the structure of the `kern` struct and its union `u`, specifically how `version32` and `major` are defined and their sizes, to determine if `u` is properly sized for its members.",
+      "line": 414,
+      "file": "/src/harfbuzz/src/./hb-ot-kern-table.hh"
+    },
+    {
+      "reason": "To understand the structure of OT::kern and specifically the 'u' union, which contains the BEInt<unsigned int, 4> member that caused the crash. We need to see how the object is laid out in memory.",
+      "line": 414,
+      "file": "/src/harfbuzz/src/./hb-ot-kern-table.hh"
+    }
+  ]
+}

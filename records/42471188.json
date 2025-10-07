@@ -1,0 +1,87 @@
+{
+  "id": "42471188",
+  "stage": "repair",
+  "repo_addr": "https://github.com/darktable-org/rawspeed.git",
+  "fix_commit": "7473d21494834f72f984b0e2a06346bd68fb6e1c",
+  "project": "librawspeed",
+  "note": [
+    "Reason for requesting line 569 of /src/librawspeed/src/librawspeed/decompressors/VC5Decompressor.cpp: To understand what is being accessed uninitialized in parseLargeCodeblock.",
+    "Reason for requesting line 30 of /src/librawspeed/fuzz/librawspeed/decompressors/VC5Decompressor.cpp: To understand how 'v' is allocated and used to initialize the VC5Decompressor, which might lead to an uninitialized 'mVC5.iSubband'.",
+    "Reason for requesting line 326 of /src/librawspeed/src/librawspeed/decompressors/VC5Decompressor.cpp: To understand how the `mVC5` member, specifically `mVC5.iSubband`, is initialized within the VC5Decompressor constructor.",
+    "Reason for requesting line 31 of /src/librawspeed/src/librawspeed/decompressors/VC5Decompressor.h: To understand the definition of `mVC5` and how its members, specifically `iSubband`, are initialized within the `VC5Decompressor` class, and also the `parseVC5` method to see where `iSubband` is populated.",
+    "Reason for requesting line 467 of /src/librawspeed/src/librawspeed/decompressors/VC5Decompressor.cpp: To understand how mVC5.iSubband is populated, specifically in the parseVC5 method."
+  ],
+  "valid_patches": null,
+  "history": [
+    {
+      "reason": "To understand what is being accessed uninitialized in parseLargeCodeblock.",
+      "line": 569,
+      "file": "/src/librawspeed/src/librawspeed/decompressors/VC5Decompressor.cpp"
+    },
+    {
+      "reason": "To understand how 'v' is allocated and used to initialize the VC5Decompressor, which might lead to an uninitialized 'mVC5.iSubband'.",
+      "line": 30,
+      "file": "/src/librawspeed/fuzz/librawspeed/decompressors/VC5Decompressor.cpp"
+    },
+    {
+      "reason": "To understand how the `mVC5` member, specifically `mVC5.iSubband`, is initialized within the VC5Decompressor constructor.",
+      "line": 326,
+      "file": "/src/librawspeed/src/librawspeed/decompressors/VC5Decompressor.cpp"
+    },
+    {
+      "reason": "To understand the definition of `mVC5` and how its members, specifically `iSubband`, are initialized within the `VC5Decompressor` class, and also the `parseVC5` method to see where `iSubband` is populated.",
+      "line": 31,
+      "file": "/src/librawspeed/src/librawspeed/decompressors/VC5Decompressor.h"
+    },
+    {
+      "reason": "To understand how mVC5.iSubband is populated, specifically in the parseVC5 method.",
+      "line": 467,
+      "file": "/src/librawspeed/src/librawspeed/decompressors/VC5Decompressor.cpp"
+    },
+    {
+      "reason": "To confirm how `mVC5` and its members, specifically `iSubband`, are declared and initialized within the `VC5Decompressor` class.",
+      "line": 60,
+      "file": "/src/librawspeed/src/librawspeed/decompressors/VC5Decompressor.h"
+    },
+    {
+      "reason": "The `mVC5.iSubband` member of `VC5Decompressor` is not initialized by default and may be used before being assigned a value from the input stream. This leads to a use-of-uninitialized-value error when `parseLargeCodeblock` is called if the `VC5Tag::SubbandNumber` is not present in the input. The fix is to initialize `mVC5.iSubband` to a safe default value (0) in the constructor initializer list.",
+      "patches": [
+        {
+          "file": "/src/librawspeed/src/librawspeed/decompressors/VC5Decompressor.cpp",
+          "diff": [
+            {
+              "line_number": 325,
+              "content": [
+                "  assert(outputBits <= 16);",
+                "",
+                "  // Initialize all values that might be read from the bytestream later",
+                "  // to safe defaults. This avoids use-of-uninitialized-value if an",
+                "  // optional tag is missing from a fuzzer input.",
+                "  mVC5.iSubband = 0;",
+                "",
+                "  parseVC5();"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The member `mVC5.iSubband` is used in `parseLargeCodeblock` at line 569 without guaranteed initialization. The fuzzer input may not always provide a `VC5Tag::SubbandNumber` before a `VC5Tag::LargeCodeblock`, leading to an uninitialized read. Initializing `mVC5.iSubband` to a default safe value (e.g., 0) in the `VC5Decompressor` constructor ensures it always has a defined state.",
+      "patches": [
+        {
+          "file": "/src/librawspeed/src/librawspeed/decompressors/VC5Decompressor.cpp",
+          "diff": [
+            {
+              "line_number": 325,
+              "content": [
+                "  assert(outputBits <= 16);",
+                "  mVC5.iSubband = 0; // Initialize iSubband to a safe default"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

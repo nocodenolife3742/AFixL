@@ -1,0 +1,217 @@
+{
+  "id": "42470989",
+  "stage": "replay",
+  "repo_addr": "https://github.com/harfbuzz/harfbuzz.git",
+  "fix_commit": "e940530c9723c3a581a5d5b31e5f419865dd6cc7",
+  "project": "harfbuzz",
+  "note": [
+    "Reason for requesting line 675 of /src/harfbuzz/src/./hb-machinery.hh: To understand how the `BEInt` operator causes a read and what data it accesses.",
+    "Reason for requesting line 403 of /src/harfbuzz/src/./hb-aat-layout-common.hh: To understand how the `BEInt` object causing the crash is used within the AAT::StateTable::sanitize method and how it relates to the allocated memory.",
+    "Reason for requesting line 356 of /src/harfbuzz/src/./hb-aat-layout-common.hh: To understand the structure of the Entry template and how it uses BEInt, as the crash is related to reading BEInt objects within an array.",
+    "Reason for requesting line 1 of /src/harfbuzz/src/./hb-ot-layout.hh: To confirm the definition of HBUINT16 and better understand its structure in relation to the BEInt specialization.",
+    "The heap-buffer-overflow occurs when dereferencing `p` in `StateTable::sanitize`, which calls `BEInt::operator unsigned short()`. The `p` pointer likely points beyond the allocated memory for `states` array. The maximum `num_entries` is determined by `*p + 1`, which could lead to an out-of-bounds read.",
+    "Reason for requesting line 1 of /src/harfbuzz/src/hb-ot-layout.hh: To understand the definition of HBUINT16, as it's a `BEInt<unsigned short, 2>` object and its access causes the crash. The current definition in the provided snippets is implicitly `OT::IntType<unsigned short, 2u>` but a direct definition is needed.",
+    "The crash occurs in `BEInt::operator unsigned short()` when dereferencing `p` in `StateTable::sanitize`. This suggests `p` is out-of-bounds, specifically `states[num_states * nClasses]` or subsequent reads. The error is a 1-byte read past a 49-byte region.",
+    "Reason for requesting line 1 of /src/harfbuzz/src/hb-aat-layout.cc: To understand the definition of HBUINT16 and how it's defined, which will confirm if it is a `BEInt<unsigned short, 2>` and its exact size.",
+    "The crash is a 1-byte heap-buffer-overflow during a 2-byte read of HBUINT16. This happens when dereferencing `p` in `StateTable::sanitize`, where `p` is `states[num_states * nClasses]`. The `stop` pointer in the loop is set one element past the valid array boundary, causing an out-of-bounds read when `p` reaches `stop`."
+  ],
+  "valid_patches": null,
+  "history": [
+    {
+      "reason": "To understand how the `BEInt` operator causes a read and what data it accesses.",
+      "line": 675,
+      "file": "/src/harfbuzz/src/./hb-machinery.hh"
+    },
+    {
+      "reason": "To understand how the `BEInt` object causing the crash is used within the AAT::StateTable::sanitize method and how it relates to the allocated memory.",
+      "line": 403,
+      "file": "/src/harfbuzz/src/./hb-aat-layout-common.hh"
+    },
+    {
+      "reason": "To understand how the `stateArrayTable` is calculated and what it points to, as well as the structure of `HBUINT16` and how `static_size` is determined.",
+      "line": 386,
+      "file": "/src/harfbuzz/src/./hb-aat-layout-common.hh"
+    },
+    {
+      "reason": "To understand the structure of the Entry template and how it uses BEInt, as the crash is related to reading BEInt objects within an array.",
+      "line": 356,
+      "file": "/src/harfbuzz/src/./hb-aat-layout-common.hh"
+    },
+    {
+      "reason": "To understand how 'nClasses' is initialized and its role in calculating the array bounds in StateTable::sanitize, especially since it's used in the overflowed loop.",
+      "line": 383,
+      "file": "/src/harfbuzz/src/./hb-aat-layout-common.hh"
+    },
+    {
+      "reason": "To confirm the definition of HBUINT16 and better understand its structure in relation to the BEInt specialization.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/./hb-ot-layout.hh"
+    },
+    {
+      "content": "The heap-buffer-overflow occurs when dereferencing `p` in `StateTable::sanitize`, which calls `BEInt::operator unsigned short()`. The `p` pointer likely points beyond the allocated memory for `states` array. The maximum `num_entries` is determined by `*p + 1`, which could lead to an out-of-bounds read."
+    },
+    {
+      "reason": "To understand the definition of HBUINT16, as it's a `BEInt<unsigned short, 2>` object and its access causes the crash. The current definition in the provided snippets is implicitly `OT::IntType<unsigned short, 2u>` but a direct definition is needed.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/hb-ot-layout.hh"
+    },
+    {
+      "reason": "The loop condition `p < stop` allows `p` to point one element past the valid array bounds. When `p` is equal to `stop`, dereferencing `*p` at line 403 will cause a heap-buffer-overflow if `stop` itself is out-of-bounds. The fix is to ensure `p` stays within the valid bounds by changing the loop condition to `p < stop - 1` if the intention is to access `*p` or to ensure `stop` is never out of bounds. In this case, the `c->check_array` is supposed to prevent this, but the logic in `stop` calculation needs to be safe for array access up to `stop - 1`.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/./hb-aat-layout-common.hh",
+          "diff": [
+            {
+              "line_number": 402,
+              "content": [
+                "\tfor (const HBUINT16 *p = &states[state * nClasses]; p < stop; p++)"
+              ]
+            },
+            {
+              "line_number": 403,
+              "content": [
+                "\t  num_entries = MAX<unsigned int> (num_entries, (unsigned int)*p + 1);"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "content": "The crash occurs in `BEInt::operator unsigned short()` when dereferencing `p` in `StateTable::sanitize`. This suggests `p` is out-of-bounds, specifically `states[num_states * nClasses]` or subsequent reads. The error is a 1-byte read past a 49-byte region."
+    },
+    {
+      "reason": "The heap-buffer-overflow occurs because the loop iterates one element too far due to incorrect calculation of 'stop'. The `states` array contains `HBUINT16` elements, which are 2 bytes each. The `check_array` function checks the total size in bytes. The calculation for `stop` should account for the size of each element. The fix adjusts the loop to iterate one element less by using `c->end_of (states, num_states * nClasses)` to get the safe boundary.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/./hb-aat-layout-common.hh",
+          "diff": [
+            {
+              "line_number": 401,
+              "content": [
+                "\tconst HBUINT16 *stop = c->end_of (states, num_states * nClasses);"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "The loop condition `p < stop` allows `p` to point to the address *at* `stop` if the loop runs for `num_states * nClasses` iterations, and the final `p` increments past the last valid element. The `stop` pointer marks one-past-the-end of the valid memory. Accessing `*p` when `p` equals `stop` results in an out-of-bounds read. The fix is to use `+ c->get_len (states)` to ensure `stop` is within the valid bounds of the `states` array checked by `c->check_array`. Additionally, `num_states` needs to be checked when updating, as it is used to calculate `stop`.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/./hb-aat-layout-common.hh",
+          "diff": [
+            {
+              "line_number": 396,
+              "content": [
+                "      if (unlikely (!c->check_array (states,",
+                "                                     num_states,",
+                "                                     states[0].static_size * nClasses)))"
+              ]
+            },
+            {
+              "line_number": 399,
+              "content": [
+                "        return_trace (false);"
+              ]
+            },
+            {
+              "line_number": 401,
+              "content": [
+                "        const HBUINT16 *stop = states + c->get_len (states);"
+              ]
+            },
+            {
+              "line_number": 402,
+              "content": [
+                "        for (const HBUINT16 *p = states + state * nClasses; p < stop; p++)",
+                "          if (unlikely (!c->check_safe (*p))) return_trace (false);"
+              ]
+            },
+            {
+              "line_number": 403,
+              "content": [
+                "          num_entries = MAX<unsigned int> (num_entries, *p + 1);"
+              ]
+            },
+            {
+              "line_number": 404,
+              "content": [
+                "        state = num_states;"
+              ]
+            },
+            {
+              "line_number": 407,
+              "content": [
+                "      if (unlikely (!c->check_array (entries, num_entries)))",
+                "        return_trace (false);"
+              ]
+            },
+            {
+              "line_number": 410,
+              "content": [
+                "        const Entry<Extra> *stop = entries + c->get_len (entries);"
+              ]
+            },
+            {
+              "line_number": 411,
+              "content": [
+                "        for (const Entry<Extra> *p = entries + entry; p < stop; p++)",
+                "          if (unlikely (!c->check_safe (p->newState))) return_trace (false);"
+              ]
+            },
+            {
+              "line_number": 412,
+              "content": [
+                "          num_states = MAX<unsigned int> (num_states, p->newState + 1);"
+              ]
+            },
+            {
+              "line_number": 413,
+              "content": [
+                "        entry = num_entries;"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "reason": "To understand the definition of HBUINT16 and how it's defined, which will confirm if it is a `BEInt<unsigned short, 2>` and its exact size.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/hb-aat-layout.cc"
+    },
+    {
+      "reason": "The loop condition `p < stop` allows `p` to point to the address of `states[num_states * nClasses]`, which is one element past the valid range if `num_states * nClasses` represents the total number of elements. The `check_array` call on line 396 uses `states[0].static_size * nClasses` which is incorrect. The `check_array` should check `num_states * nClasses` elements. The `MAX` calculation then dereferences `*p` which can be out of bounds. The fix is to ensure the loop iterates over valid indices by changing the stop condition and correcting the size check in `c->check_array`.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/./hb-aat-layout-common.hh",
+          "diff": [
+            {
+              "line_number": 396,
+              "content": [
+                "      if (unlikely (!c->check_array (states, num_states * nClasses)))"
+              ]
+            },
+            {
+              "line_number": 401,
+              "content": [
+                "    const HBUINT16 *stop = &states[num_states * nClasses];"
+              ]
+            },
+            {
+              "line_number": 402,
+              "content": [
+                "    for (const HBUINT16 *p = &states[state * nClasses]; p < stop; p++)"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "content": "The crash is a 1-byte heap-buffer-overflow during a 2-byte read of HBUINT16. This happens when dereferencing `p` in `StateTable::sanitize`, where `p` is `states[num_states * nClasses]`. The `stop` pointer in the loop is set one element past the valid array boundary, causing an out-of-bounds read when `p` reaches `stop`."
+    }
+  ]
+}

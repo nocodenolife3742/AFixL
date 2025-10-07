@@ -1,0 +1,65 @@
+{
+  "id": "42471100",
+  "stage": "repair",
+  "repo_addr": "https://github.com/libgit2/libgit2",
+  "fix_commit": "ee11d47e3d907b66eeff99e0ba1e1c71e05164b7",
+  "project": "libgit2",
+  "note": [
+    "Reason for requesting line 142 of /src/libgit2/src/tag.c: To understand how strings are handled and passed to strstr, potentially leading to a heap-buffer-overflow.",
+    "The crash is a heap-buffer-overflow caused by `strstr` reading past the end of a non-null-terminated buffer. The input data, supplied by the fuzzer, is not guaranteed to be null-terminated."
+  ],
+  "valid_patches": null,
+  "history": [
+    {
+      "reason": "To understand how strings are handled and passed to strstr, potentially leading to a heap-buffer-overflow.",
+      "line": 142,
+      "file": "/src/libgit2/src/tag.c"
+    },
+    {
+      "content": "The crash is a heap-buffer-overflow caused by `strstr` reading past the end of a non-null-terminated buffer. The input data, supplied by the fuzzer, is not guaranteed to be null-terminated."
+    },
+    {
+      "reason": "The `strstr` function is called with a buffer (`buffer`) that is not guaranteed to be null-terminated within its valid bounds, leading to a heap-buffer-overflow if `strstr` reads past `buffer_end`. To fix this, we replace `strstr` with a bounded search for `\"\\n\\n\"` using `memchr`.",
+      "patches": [
+        {
+          "file": "/src/libgit2/src/tag.c",
+          "diff": [
+            {
+              "line_number": 142,
+              "content": [
+                "\t\t\tconst char *trailer = \"\\n\\n\";",
+                "\t\t\tconst size_t trailer_len = strlen(trailer);",
+                "\t\t\tconst char *nl = buffer;",
+                "\t\t\twhile ((nl = memchr(nl, '\\n', buffer_end - nl)) != NULL) {",
+                "\t\t\t\tif ((size_t)(buffer_end - nl) >= trailer_len && !memcmp(nl, trailer, trailer_len)) {",
+                "\t\t\t\t\tsearch = nl;",
+                "\t\t\t\t\tbreak;",
+                "\t\t\t\t}",
+                "\t\t\t\tnl++; // Move past the current newline to find the next one",
+                "\t\t\t}",
+                "\t\t\tif (search)",
+                "\t\t\t\tbuffer = search + 1;"
+              ]
+            },
+            {
+              "line_number": 143,
+              "content": []
+            },
+            {
+              "line_number": 144,
+              "content": []
+            },
+            {
+              "line_number": 145,
+              "content": []
+            },
+            {
+              "line_number": 146,
+              "content": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

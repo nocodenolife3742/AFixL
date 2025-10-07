@@ -1,0 +1,100 @@
+{
+  "id": "42471394",
+  "stage": "repair",
+  "repo_addr": "https://github.com/harfbuzz/harfbuzz.git",
+  "fix_commit": "6482fda519ca7d173e3bcb3717aa30e237f04b25",
+  "project": "harfbuzz",
+  "note": [
+    "Reason for requesting line 214 of /src/harfbuzz/src/./hb-ot-post-table.hh: To understand how the comparison is made and why memcmp reads past the allocated buffer.",
+    "Reason for requesting line 244 of /src/harfbuzz/src/./hb-ot-post-table.hh: To understand how the `name_storage` and `index_to_offset` are structured and used to form `hb_bytes_t` objects, and to verify array access bounds."
+  ],
+  "valid_patches": null,
+  "history": [
+    {
+      "reason": "To understand how the comparison is made and why memcmp reads past the allocated buffer.",
+      "line": 214,
+      "file": "/src/harfbuzz/src/./hb-ot-post-table.hh"
+    },
+    {
+      "reason": "To understand how the `format1_names` function works and how it constructs the `hb_bytes_t` object, as this is a potential source of incorrect pointers or lengths leading to the heap-buffer-overflow.",
+      "line": 232,
+      "file": "/src/harfbuzz/src/./hb-ot-post-table.hh"
+    },
+    {
+      "reason": "To understand how the `format1_names` function constructs `hb_bytes_t` and specifically how `name` and `len` are determined, as this is a potential source of the reported heap-buffer-overflow during `memcmp`.",
+      "line": 232,
+      "file": "/src/harfbuzz/src/./hb-ot-post-table.hh"
+    },
+    {
+      "reason": "To understand how the `hb_bytes_t` `cmp` method is implemented and how `find_glyph_name` constructs the `hb_bytes_t` object, especially for `format1_names`.",
+      "line": 232,
+      "file": "/src/harfbuzz/src/./hb-ot-post-table.hh"
+    },
+    {
+      "reason": "To understand how `hb_bytes_t` is defined and how its `cmp` method works, specifically how it determines the length for `memcmp`.",
+      "line": 0,
+      "file": "/src/harfbuzz/src/./hb-bytes.hh"
+    },
+    {
+      "reason": "To understand how the `hb_bytes_t` objects are constructed, particularly the `format1_names` function and the structure of `glyphNameIndex` and `index_to_offset`.",
+      "line": 232,
+      "file": "/src/harfbuzz/src/./hb-ot-post-table.hh"
+    },
+    {
+      "reason": "To understand how the `name_storage` and `index_to_offset` are structured and used to form `hb_bytes_t` objects, and to verify array access bounds.",
+      "line": 244,
+      "file": "/src/harfbuzz/src/./hb-ot-post-table.hh"
+    },
+    {
+      "reason": "To understand how the `pool` member is initialized and its size defined, specifically where the buffer for glyph names is allocated and how its size is determined.",
+      "line": 259,
+      "file": "/src/harfbuzz/src/./hb-ot-post-table.hh"
+    },
+    {
+      "reason": "To understand how the 'pool' member is initialized and its size, which is critical for the heap-buffer-overflow.",
+      "line": 259,
+      "file": "/src/harfbuzz/src/./hb-ot-post-table.hh"
+    },
+    {
+      "reason": "To understand how the `hb_bytes_t` constructor works and how the `cmp` method is implemented, as it's the direct caller of `memcmp`.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/./hb-bytes.hh"
+    },
+    {
+      "reason": "To understand how `hb_bytes_t` is constructed and compare its contents, specifically where `hb_bytes_t::cmp` is defined and how it uses the provided data and length.",
+      "line": 1,
+      "file": "/src/harfbuzz/src/hb-bytes.hh"
+    },
+    {
+      "reason": "To understand the structure of the `index_to_offset` member and how it relates to the `pool` buffer.",
+      "line": 258,
+      "file": "/src/harfbuzz/src/./hb-ot-post-table.hh"
+    },
+    {
+      "reason": "To understand how the `pool` pointer, `index_to_offset`, and `glyphNameIndex` are initialized and how the `format1_names` function works.",
+      "line": 255,
+      "file": "/src/harfbuzz/src/./hb-ot-post-table.hh"
+    },
+    {
+      "reason": "To understand how the `pool` member is initialized and its relation to the allocated region.",
+      "line": 259,
+      "file": "/src/harfbuzz/src/./hb-ot-post-table.hh"
+    },
+    {
+      "reason": "The heap-buffer-overflow occurs because the `name_length` is read from `pool + offset`, but the `hb_bytes_t` object is then constructed with the data starting at `pool + offset + 1` with `name_length` bytes. This means the `name_length` includes the length byte itself, leading to `memcmp` reading one byte past the allocated region. The fix is to ensure the length used for comparison correctly reflects the available data.",
+      "patches": [
+        {
+          "file": "/src/harfbuzz/src/./hb-ot-post-table.hh",
+          "diff": [
+            {
+              "line_number": 251,
+              "content": [
+                "      return hb_bytes_t ((const char *) data, name_length + 1);"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

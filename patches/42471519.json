@@ -1,0 +1,115 @@
+{
+  "id": "42471519",
+  "stage": "evaluate",
+  "repo_addr": "https://github.com/openthread/openthread",
+  "fix_commit": "bf72fd8f8d4a898c019f279c8605e66fc0b42878",
+  "project": "openthread",
+  "report": "RVJST1I6IEFkZHJlc3NTYW5pdGl6ZXI6IGhlYXAtYnVmZmVyLW92ZXJmbG93IG9uIGFkZHJlc3MgMHg2MDIwMDAwMDAwNDIgYXQgcGMgMHgwMDAwMDA1NzFkM2UgYnAgMHg3ZmZmZmZmZmRkNzAgc3AgMHg3ZmZmZmZmZmRkNjgNClJFQUQgb2Ygc2l6ZSA4IGF0IDB4NjAyMDAwMDAwMDQyIHRocmVhZCBUMA0KU0NBUklORVNTOiAyMyAoOC1ieXRlLXJlYWQtaGVhcC1idWZmZXItb3ZlcmZsb3cpDQogICAgIzAgMHg1NzFkM2QgaW4gb3Q6Ok1lc2hGb3J3YXJkZXI6OkdldEZyYW1lUHJpb3JpdHkodW5zaWduZWQgY2hhciosIHVuc2lnbmVkIGNoYXIsIG90OjpNYWM6OkFkZHJlc3MgY29uc3QmLCBvdDo6TWFjOjpBZGRyZXNzIGNvbnN0JiwgdW5zaWduZWQgY2hhciYpIC9zcmMvb3BlbnRocmVhZC9zcmMvY29yZS90aHJlYWQvbWVzaF9mb3J3YXJkZXIuY3BwOjE1ODY6OQ0KICAgICMxIDB4NTcxMDY5IGluIG90OjpNZXNoRm9yd2FyZGVyOjpIYW5kbGVGcmFnbWVudCh1bnNpZ25lZCBjaGFyKiwgdW5zaWduZWQgY2hhciwgb3Q6Ok1hYzo6QWRkcmVzcyBjb25zdCYsIG90OjpNYWM6OkFkZHJlc3MgY29uc3QmLCBvdFRocmVhZExpbmtJbmZvIGNvbnN0JikgL3NyYy9vcGVudGhyZWFkL3NyYy9jb3JlL3RocmVhZC9tZXNoX2ZvcndhcmRlci5jcHA6MTMyMjo5DQogICAgIzIgMHg1NzBjZDUgaW4gb3Q6Ok1lc2hGb3J3YXJkZXI6OkhhbmRsZVJlY2VpdmVkRnJhbWUob3Q6Ok1hYzo6RnJhbWUmKSAvc3JjL29wZW50aHJlYWQvc3JjL2NvcmUvdGhyZWFkL21lc2hfZm9yd2FyZGVyLmNwcDoxMjQ4OjEzDQogICAgIzMgMHg1NDUzZjggaW4gb3Q6Ok1hYzo6TWFjOjpIYW5kbGVSZWNlaXZlZEZyYW1lKG90OjpNYWM6OkZyYW1lKiwgb3RFcnJvcikgL3NyYy9vcGVudGhyZWFkL3NyYy9jb3JlL21hYy9tYWMuY3BwOjIwMjg6MzQNCiAgICAjNCAweDUzMDQyNCBpbiBMTFZNRnV6emVyVGVzdE9uZUlucHV0IC9zcmMvb3BlbnRocmVhZC90ZXN0cy9mdXp6L3JhZGlvX3JlY2VpdmVfZG9uZS5jcHA6NzA6NQ0KICAgICM1IDB4NjRjYmZhIGluIEV4ZWN1dGVGaWxlc09ueUJ5T25lKGludCwgY2hhcioqKSAvc3JjL2xpYmZ1enplci9hZmwvYWZsX2RyaXZlci5jcHA6MzAxOjUNCiAgICAjNiAweDY0ZDE1ZSBpbiBtYWluIC9zcmMvbGliZnV6emVyL2FmbC9hZmxfZHJpdmVyLmNwcDozMzk6MTINCiAgICAjNyAweDdmZmZmNmVlNTgyZiBpbiBfX2xpYmNfc3RhcnRfbWFpbiAoL2xpYi94ODZfNjQtbGludXgtZ251L2xpYmMuc28uNisweDIwODJmKQ0KICAgICM4IDB4NDFjYTQ4IGluIF9zdGFydCAoL291dC9yYWRpby1yZWNlaXZlLWRvbmUtZnV6emVyKzB4NDFjYTQ4KQ0KDQpERURVUF9UT0tFTjogb3Q6Ok1lc2hGb3J3YXJkZXI6OkdldEZyYW1lUHJpb3JpdHkodW5zaWduZWQgY2hhciosIHVuc2lnbmVkIGNoYXIsIG90OjpNYWM6OkFkZHJlc3MgY29uc3QmLCBvdDo6TWFjOjpBZGRyZXNzIGNvbnN0JiwgdW5zaWduZWQgY2hhciYpLS1vdDo6TWVzaEZvcndhcmRlcjo6SGFuZGxlRnJhZ21lbnQodW5zaWduZWQgY2hhciosIHVuc2lnbmVkIGNoYXIsIG90OjpNYWM6OkFkZHJlc3MgY29uc3QmLCBvdDo6TWFjOjpBZGRyZXNzIGNvbnN0Jiwgb3RUaHJlYWRMaW5rSW5mbyBjb25zdCYpLS1vdDo6TWVzaEZvcndhcmRlcjo6SGFuZGxlUmVjZWl2ZWRGcmFtZShvdDo6TWFjOjpGcmFtZSYpDQoweDYwMjAwMDAwMDA0MiBpcyBsb2NhdGVkIDUgYnl0ZXMgdG8gdGhlIHJpZ2h0IG9mIDEzLWJ5dGUgcmVnaW9uIFsweDYwMjAwMDAwMDAzMCwweDYwMjAwMDAwMDAzZCkNCmFsbG9jYXRlZCBieSB0aHJlYWQgVDAgaGVyZToNCiAgICAjMCAweDRlYjc5ZiBpbiBtYWxsb2MgL3NyYy9sbHZtL3Byb2plY3RzL2NvbXBpbGVyLXJ0L2xpYi9hc2FuL2FzYW5fbWFsbG9jX2xpbnV4LmNjOjE0Ng0KICAgICMxIDB4NTMwMzk5IGluIExMVk1GdXp6ZXJUZXN0T25lSW5wdXQgL3NyYy9vcGVudGhyZWFkL3Rlc3RzL2Z1enovcmFkaW9fcmVjZWl2ZV9kb25lLmNwcDo2MTozNA0KICAgICMyIDB4NjRjYmZhIGluIEV4ZWN1dGVGaWxlc09ueUJ5T25lKGludCwgY2hhcioqKSAvc3JjL2xpYmZ1enplci9hZmwvYWZsX2RyaXZlci5jcHA6MzAxOjUNCiAgICAjMyAweDY0ZDE1ZSBpbiBtYWluIC9zcmMvbGliZnV6emVyL2FmbC9hZmxfZHJpdmVyLmNwcDozMzk6MTINCiAgICAjNCAweDdmZmZmNmVlNTgyZiBpbiBfX2xpYmNfc3RhcnRfbWFpbiAoL2xpYi94ODZfNjQtbGludXgtZ251L2xpYmMuc28uNisweDIwODJmKQ0KDQpERURVUF9UT0tFTjogbWFsbG9jLS1MTFZNRnV6emVyVGVzdE9uZUlucHV0LS1FeGVjdXRlRmlsZXNPbnlCeU9uZShpbnQsIGNoYXIqKikNClNVTU1BUlk6IEFkZHJlc3NTYW5pdGl6ZXI6IGhlYXAtYnVmZmVyLW92ZXJmbG93IC9zcmMvb3BlbnRocmVhZC9zcmMvY29yZS90aHJlYWQvbWVzaF9mb3J3YXJkZXIuY3BwOjE1ODY6OSBpbiBvdDo6TWVzaEZvcndhcmRlcjo6R2V0RnJhbWVQcmlvcml0eSh1bnNpZ25lZCBjaGFyKiwgdW5zaWduZWQgY2hhciwgb3Q6Ok1hYzo6QWRkcmVzcyBjb25zdCYsIG90OjpNYWM6OkFkZHJlc3MgY29uc3QmLCB1bnNpZ25lZCBjaGFyJikNClNoYWRvdyBieXRlcyBhcm91bmQgdGhlIGJ1Z2d5IGFkZHJlc3M6DQogIDB4MGMwNDdmZmY3ZmIwOiAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMA0KICAweDBjMDQ3ZmZmN2ZjMDogMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDANCiAgMHgwYzA0N2ZmZjdmZDA6IDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwIDAwDQogIDB4MGMwNDdmZmY3ZmUwOiAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMCAwMA0KICAweDBjMDQ3ZmZmN2ZmMDogMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDANCj0-MHgwYzA0N2ZmZjgwMDA6IGZhIGZhIDAwIDA1IGZhIGZhIDAwIDA1W2ZhXWZhIGZhIGZhIGZhIGZhIGZhIGZhDQogIDB4MGMwNDdmZmY4MDEwOiBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYQ0KICAweDBjMDQ3ZmZmODAyMDogZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmENCiAgMHgwYzA0N2ZmZjgwMzA6IGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhIGZhDQogIDB4MGMwNDdmZmY4MDQwOiBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYSBmYQ0KICAweDBjMDQ3ZmZmODA1MDogZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmEgZmENClNoYWRvdyBieXRlIGxlZ2VuZCAob25lIHNoYWRvdyBieXRlIHJlcHJlc2VudHMgOCBhcHBsaWNhdGlvbiBieXRlcyk6DQogIEFkZHJlc3NhYmxlOiAgICAgICAgICAgMDANCiAgUGFydGlhbGx5IGFkZHJlc3NhYmxlOiAwMSAwMiAwMyAwNCAwNSAwNiAwNyANCiAgSGVhcCBsZWZ0IHJlZHpvbmU6ICAgICAgIGZhDQogIEZyZWVkIGhlYXAgcmVnaW9uOiAgICAgICBmZA0KICBTdGFjayBsZWZ0IHJlZHpvbmU6ICAgICAgZjENCiAgU3RhY2sgbWlkIHJlZHpvbmU6ICAgICAgIGYyDQogIFN0YWNrIHJpZ2h0IHJlZHpvbmU6ICAgICBmMw0KICBTdGFjayBhZnRlciByZXR1cm46ICAgICAgZjUNCiAgU3RhY2sgdXNlIGFmdGVyIHNjb3BlOiAgIGY4DQogIEdsb2JhbCByZWR6b25lOiAgICAgICAgICBmOQ0KICBHbG9iYWwgaW5pdCBvcmRlcjogICAgICAgZjYNCiAgUG9pc29uZWQgYnkgdXNlcjogICAgICAgIGY3DQogIENvbnRhaW5lciBvdmVyZmxvdzogICAgICBmYw0KICBBcnJheSBjb29raWU6ICAgICAgICAgICAgYWMNCiAgSW50cmEgb2JqZWN0IHJlZHpvbmU6ICAgIGJiDQogIEFTYW4gaW50ZXJuYWw6ICAgICAgICAgICBmZQ0KICBMZWZ0IGFsbG9jYSByZWR6b25lOiAgICAgY2ENCiAgUmlnaHQgYWxsb2NhIHJlZHpvbmU6ICAgIGNiDQogIFNoYWRvdyBnYXA6ICAgICAgICAgICAgICBjYw0KQUJPUlRJTkc=",
+  "requested_content": {
+    "/src/openthread/src/core/thread/mesh_forwarder.cpp": {
+      "1556": "line 1556 : ",
+      "1557": "line 1557 :     return netif.GetIp6().HandleDatagram(aMessage, &netif, netif.GetInterfaceId(), &aLinkInfo, false);",
+      "1558": "line 1558 : }",
+      "1559": "line 1559 : ",
+      "1560": "line 1560 : otError MeshForwarder::GetFramePriority(uint8_t *           aFrame,",
+      "1561": "line 1561 :                                         uint8_t             aFrameLength,",
+      "1562": "line 1562 :                                         const Mac::Address &aMacSource,",
+      "1563": "line 1563 :                                         const Mac::Address &aMacDest,",
+      "1564": "line 1564 :                                         uint8_t &           aPriority)",
+      "1565": "line 1565 : {",
+      "1566": "line 1566 :     otError        error = OT_ERROR_NONE;",
+      "1567": "line 1567 :     Ip6::Header    ip6Header;",
+      "1568": "line 1568 :     Ip6::UdpHeader udpHeader;",
+      "1569": "line 1569 :     uint8_t        headerLength;",
+      "1570": "line 1570 :     bool           nextHeaderCompressed;",
+      "1571": "line 1571 : ",
+      "1572": "line 1572 :     SuccessOrExit(error = DecompressIp6Header(aFrame, aFrameLength, aMacSource, aMacDest, ip6Header, headerLength,",
+      "1573": "line 1573 :                                               nextHeaderCompressed));",
+      "1574": "line 1574 :     aPriority = GetNetif().GetIp6().DscpToPriority(ip6Header.GetDscp());",
+      "1575": "line 1575 :     VerifyOrExit(ip6Header.GetNextHeader() == Ip6::kProtoUdp);",
+      "1576": "line 1576 : ",
+      "1577": "line 1577 :     aFrame += headerLength;",
+      "1578": "line 1578 :     aFrameLength -= headerLength;",
+      "1579": "line 1579 : ",
+      "1580": "line 1580 :     if (nextHeaderCompressed)",
+      "1581": "line 1581 :     {",
+      "1582": "line 1582 :         VerifyOrExit(GetNetif().GetLowpan().DecompressUdpHeader(udpHeader, aFrame, aFrameLength) >= 0);",
+      "1583": "line 1583 :     }",
+      "1584": "line 1584 :     else",
+      "1585": "line 1585 :     {",
+      "1586": "line 1586 :         memcpy(&udpHeader, aFrame, sizeof(Ip6::UdpHeader));",
+      "1587": "line 1587 :     }",
+      "1588": "line 1588 : ",
+      "1589": "line 1589 :     if (udpHeader.GetDestinationPort() == Mle::kUdpPort || udpHeader.GetDestinationPort() == kCoapUdpPort)",
+      "1590": "line 1590 :     {",
+      "1591": "line 1591 :         aPriority = Message::kPriorityNet;",
+      "1592": "line 1592 :     }",
+      "1593": "line 1593 : ",
+      "1594": "line 1594 : exit:",
+      "1595": "line 1595 :     return error;",
+      "1596": "line 1596 : }",
+      "1597": "line 1597 : ",
+      "1598": "line 1598 : #if (OPENTHREAD_CONFIG_LOG_LEVEL >= OT_LOG_LEVEL_NOTE) && (OPENTHREAD_CONFIG_LOG_MAC == 1)",
+      "1599": "line 1599 : ",
+      "1600": "line 1600 : otError MeshForwarder::ParseIp6UdpTcpHeader(const Message &aMessage,",
+      "1601": "line 1601 :                                             Ip6::Header &  aIp6Header,",
+      "1602": "line 1602 :                                             uint16_t &     aChecksum,",
+      "1603": "line 1603 :                                             uint16_t &     aSourcePort,",
+      "1604": "line 1604 :                                             uint16_t &     aDestPort)",
+      "1605": "line 1605 : {",
+      "1606": "line 1606 :     otError error = OT_ERROR_PARSE;",
+      "1607": "line 1607 :     union",
+      "1608": "line 1608 :     {",
+      "1609": "line 1609 :         Ip6::UdpHeader udp;",
+      "1610": "line 1610 :         Ip6::TcpHeader tcp;",
+      "1611": "line 1611 :     } header;",
+      "1612": "line 1612 : ",
+      "1613": "line 1613 :     aChecksum   = 0;",
+      "1614": "line 1614 :     aSourcePort = 0;",
+      "1615": "line 1615 :     aDestPort   = 0;",
+      "1878": "line 1878 : <End of File>"
+    }
+  },
+  "note": [
+    "Reason for requesting line 1586 of /src/openthread/src/core/thread/mesh_forwarder.cpp: To understand the context of the 8-byte read causing the heap-buffer-overflow."
+  ],
+  "valid_patches": [
+    {
+      "file": "/src/openthread/src/core/thread/mesh_forwarder.cpp",
+      "diff": [
+        {
+          "line_number": 1586,
+          "content": [
+            "        VerifyOrExit(aFrameLength >= sizeof(Ip6::UdpHeader), error = OT_ERROR_PARSE);",
+            "        memcpy(&udpHeader, aFrame, sizeof(Ip6::UdpHeader));"
+          ]
+        }
+      ]
+    }
+  ],
+  "retry_count": 2,
+  "history": [
+    {
+      "reason": "To understand the context of the 8-byte read causing the heap-buffer-overflow.",
+      "line": 1586,
+      "file": "/src/openthread/src/core/thread/mesh_forwarder.cpp"
+    },
+    {
+      "reason": "The heap-buffer-overflow occurs because `memcpy` attempts to read 8 bytes (size of `Ip6::UdpHeader`) from `aFrame` after the IPv6 header, but `aFrameLength` (remaining length) is less than 8 bytes. The `VerifyOrExit` macro should check if `aFrameLength` is sufficient for the `Ip6::UdpHeader` before the `memcpy` operation.",
+      "patches": [
+        {
+          "file": "/src/openthread/src/core/thread/mesh_forwarder.cpp",
+          "diff": [
+            {
+              "line_number": 1586,
+              "content": [
+                "        VerifyOrExit(aFrameLength >= sizeof(Ip6::UdpHeader), error = OT_ERROR_PARSE);",
+                "        memcpy(&udpHeader, aFrame, sizeof(Ip6::UdpHeader));"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
