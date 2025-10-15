@@ -52,7 +52,7 @@ class FuzzTask(Task):
         """
         # Start the fuzzing process if not already running
         if not self._fuzz_handle:
-            fuzz_command = f"afl-fuzz -i {'-' if self._is_resuming else '/eval'} -o /out -V 60 -- ./{self._config.project.executable} @@"
+            fuzz_command = f"afl-fuzz -i {'-' if self._is_resuming else '/eval'} -o /out -V 30 -- ./{self._config.project.executable} @@"
             self._fuzz_handle = self._docker_instance.execute(
                 command=fuzz_command,
                 workdir="/exe",
