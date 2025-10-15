@@ -111,7 +111,7 @@ def create_patch_branch(file_path, repo_path, patches_dir, base_branch):
             "--head",
             branch_name,
             "--title",
-            f"Patch {file_path.split('.')[0]}",
+            f"\"Patch {file_path.split('.')[0]}\"",
             "--body-file",
             os.path.join(repo_path, "PATCH_REPORT.md"),
         ],
