@@ -96,29 +96,37 @@ def create_patch_branch(file_path, repo_path, patches_dir, base_branch):
         crash_report=base64_decode(data["report"]).decode("utf-8", errors="replace"),
         fix_description=data["history"][-1]["reason"],
     )
-    
+
     with open(os.path.join(repo_path, "PATCH_REPORT.md"), "w") as f:
         f.write(report_content)
 
     # # pull request creation can be automated using GitHub CLI
-    subprocess.run(
-        [
-            "gh",
-            "pr",
-            "create",
-            "--base",
-            base_branch,
-            "--head",
-            branch_name,
-            "--title",
-            f"\"Patch {file_path.split('.')[0]}\"",
-            "--body-file",
-            os.path.join(repo_path, "PATCH_REPORT.md"),
-        ],
-        check=True,
-        cwd=repo_path,
-    )
-    print(f"Pull request created for branch: {branch_name}")
+    try:
+        subprocess.run(
+            [
+                "gh",
+                "pr",
+                "create",
+                "--base",
+                base_branch,
+                "--head",
+                branch_name,
+                "--title",
+                f"\"Patch {file_path.split('.')[0]}\"",
+                "--body-file",
+                os.path.join(repo_path, "PATCH_REPORT.md"),
+            ],
+            check=True,
+            cwd=repo_path,
+            text=True,  # auto-decode stdout/stderr
+            capture_output=True,  # capture both stdout and stderr
+        )
+    except subprocess.CalledProcessError as e:
+        print("Return code:", e.returncode)
+        print("--- STDOUT ---")
+        print(e.stdout)
+        print("--- STDERR ---")
+        print(e.stderr)
 
 
 def main():
