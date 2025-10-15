@@ -26,6 +26,7 @@ class EvaluateTask(Task):
         self._docker_instance: Instance = None
         self._evaluate_handle = None
         self._evaluating_crash: Crash = None
+        self._build_handle = None
 
     @override
     def close(self):
@@ -44,14 +45,13 @@ class EvaluateTask(Task):
         """
         crashes = self._crash_repository.get_crashes(lambda c: c.stage == "repair")
         if len(crashes) > 0 and self._docker_instance is None:
+            self._evaluating_crash = crashes[0]
+            logger.info(f"Evaluating crash {self._evaluating_crash.id}")
 
             self._docker_instance = Instance(
                 source=pathlib.Path(self._config.path),
                 mode="build",
             )
-
-            self._evaluating_crash = crashes[0]
-            logger.info(f"Evaluating crash {self._evaluating_crash.id}")
 
             success = self._patch_application()
             if not success:
@@ -65,8 +65,38 @@ class EvaluateTask(Task):
                 self._evaluating_crash = None
                 return
 
-            self._build_target()
+            # Set up environment variables for the build process
+            base_env_vars = {
+                "CXX": "g++",
+                "CC": "gcc",
+                "CXXFLAGS": f"-Wall -Wextra -std={self._config.project.standard} -fsanitize=address,undefined -g",
+                "CFLAGS": f"-Wall -Wextra -std={self._config.project.standard} -fsanitize=address,undefined -g",
+                "LD": f"{self._config.project.standard.startswith('c++') and 'g++' or 'gcc'}",
+            }
+            env_var = self._config.environment.build.copy()
+            env_var.update(base_env_vars)
 
+            # Execute the build command inside the Docker container
+            self._build_handle = self._docker_instance.execute(
+                command="./build.sh",
+                workdir="/src",
+                environment=env_var,
+            )
+
+        if self._build_handle and not self._build_handle.running:
+            exit_code = self._build_handle.exit_code
+            self._build_handle = None
+            if exit_code != 0:
+                logger.info(
+                    f"Failed to build the application for crash {self._evaluating_crash.id}"
+                )
+                self._evaluating_crash.stage = "replay"
+                self._crash_repository.update_crash(self._evaluating_crash)
+                self._docker_instance.close()
+                self._docker_instance = None
+                self._evaluating_crash = None
+                return
+            
             tar_bytes = io.BytesIO()
             with tarfile.open(fileobj=tar_bytes, mode="w") as tar:
                 info = tarfile.TarInfo(name=self._evaluating_crash.id)
@@ -93,13 +123,13 @@ class EvaluateTask(Task):
 
                 # Save the valid patches to a file
                 patches_file = (
-                    PROJECT_ROOT
-                    / "patches"
-                    / f"{self._evaluating_crash.id}.json"
+                    PROJECT_ROOT / "patches" / f"{self._evaluating_crash.id}.json"
                 )
                 patches_file.parent.mkdir(parents=True, exist_ok=True)
                 with open(patches_file, "w") as f:
-                    json_bytes = self._evaluating_crash.model_dump_json(indent=2).encode("utf-8")
+                    json_bytes = self._evaluating_crash.model_dump_json(
+                        indent=2
+                    ).encode("utf-8")
                     f.write(json_bytes.decode("utf-8"))
             else:
                 logger.info(f"Crash {self._evaluating_crash.id} is not fixed.")
@@ -153,37 +183,6 @@ class EvaluateTask(Task):
             self._docker_instance.write(str(pathlib.Path(file_path).parent), tar_bytes)
 
         return True
-
-    def _build_target(self):
-        """
-        Build the target for fuzzing.
-        This method should contain the logic for building the target application.
-        """
-        # Set up environment variables for the build process
-        base_env_vars = {
-            "CXX": "g++",
-            "CC": "gcc",
-            "CXXFLAGS": f"-Wall -Wextra -std={self._config.project.standard} -fsanitize=address,undefined -g",
-            "CFLAGS": f"-Wall -Wextra -std={self._config.project.standard} -fsanitize=address,undefined -g",
-            "LD": f"{self._config.project.standard.startswith('c++') and 'g++' or 'gcc'}",
-        }
-        env_var = self._config.environment.build.copy()
-        env_var.update(base_env_vars)
-
-        # Execute the build command inside the Docker container
-        result = self._docker_instance.execute(
-            command="./build.sh",
-            workdir="/src",
-            environment=env_var,
-        )
-        while result.running:
-            pass
-
-        # Check the result of the build command
-        if result.exit_code != 0:
-            logger.error(f"Task {self._name} build failed.")
-            raise RuntimeError("Build failed.")
-        logger.info(f"Task {self._name} build completed successfully.")
 
     def _get_file_content(self, file_path: str, raw: bool = False) -> str:
         """
