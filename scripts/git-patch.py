@@ -116,7 +116,6 @@ def create_patch_branch(file_path, repo_path, patches_dir, base_branch):
             os.path.join(repo_path, "PATCH_REPORT.md"),
         ],
         check=True,
-        cwd=repo_path,
     )
     print(f"Pull request created for branch: {branch_name}")
 
