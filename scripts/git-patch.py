@@ -3,6 +3,7 @@ import os
 import json
 import argparse
 import base64
+import re
 
 
 REPORT_TEMPLATE = """
@@ -26,6 +27,11 @@ REPORT_TEMPLATE = """
 - Some characters in the crash input and report may not render properly due to encoding issues. Please refer to the raw files for accurate representation.
 """
 
+def remove_ansi_escape_sequences(text):
+
+
+    ansi_escape = re.compile(r"\x1B[@-_][0-?]*[ -/]*[@-~]")
+    return ansi_escape.sub("", text)
 
 def base64_decode(data):
     """Decode base64, padding being optional.
@@ -93,7 +99,7 @@ def create_patch_branch(file_path, repo_path, patches_dir, base_branch):
     report_content = REPORT_TEMPLATE.format(
         patch_id=file_path.split(".")[0],
         crash_input=base64_decode(data["input"]).decode("utf-8", errors="replace"),
-        crash_report=base64_decode(data["report"]).decode("utf-8", errors="replace"),
+        crash_report=remove_ansi_escape_sequences(base64_decode(data["report"]).decode("utf-8", errors="replace")),
         fix_description=data["history"][-1]["reason"],
     )
 
