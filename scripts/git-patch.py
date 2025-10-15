@@ -74,8 +74,8 @@ def patch_application(patches, repo_path):
 
 def create_patch_branch(file_path, repo_path, patches_dir, base_branch):
     branch_name = f"patch/{file_path.split('.')[0]}"
-    print(f"Creating and switching to branch: {branch_name}")
-    subprocess.run(["git", "-C", repo_path, "checkout", "-b", branch_name])
+    print(f"Creating and switching to branch: {branch_name} from {base_branch}")
+    subprocess.run(["git", "-C", repo_path, "checkout", "-b", branch_name, base_branch])
 
     # read the JSON file
     with open(os.path.join(patches_dir, file_path), "r") as f:
@@ -166,8 +166,9 @@ def main():
     for file in os.listdir(args.patches_dir):
         if file.endswith(".json"):
             print(f"Processing file: {file}")
-            subprocess.run(["git", "-C", args.repo_dir, "checkout", current_branch])
             create_patch_branch(file, args.repo_dir, args.patches_dir, current_branch)
+            # Switch back to the base branch to clean the state for the next iteration
+            subprocess.run(["git", "-C", args.repo_dir, "checkout", current_branch])
 
 
 if __name__ == "__main__":
