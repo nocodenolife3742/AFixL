@@ -112,7 +112,9 @@ def create_patch_branch(file_path, repo_path, patches_dir, base_branch):
             f"Patch {file_path.split('.')[0]}",
             "--body",
             report_content,
-        ]
+        ],
+        check=True,
+        cwd=repo_path,
     )
     print(f"Pull request created for branch: {branch_name}")
 
