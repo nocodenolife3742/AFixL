@@ -89,11 +89,6 @@ def create_patch_branch(file_path, repo_path, patches_dir, base_branch):
     )
     subprocess.run(["git", "-C", repo_path, "push", "-u", "origin", branch_name])
 
-    print(f"Patch ID: {file_path.split('.')[0]}")
-    print(f"Input: {data['input']}")
-    print(f"Report: {data['report']}")
-    print(f"Description: {data['history'][-1]['reason']}")
-
     # create a markdown report in the temporary directory
     report_content = REPORT_TEMPLATE.format(
         patch_id=file_path.split(".")[0],
@@ -101,7 +96,7 @@ def create_patch_branch(file_path, repo_path, patches_dir, base_branch):
         crash_report=base64_decode(data["report"]).decode("utf-8", errors="replace"),
         fix_description=data["history"][-1]["reason"],
     )
-    # print(report_content)
+    print(report_content)
 
     # # pull request creation can be automated using GitHub CLI
     subprocess.run(
@@ -119,6 +114,7 @@ def create_patch_branch(file_path, repo_path, patches_dir, base_branch):
             report_content,
         ]
     )
+    print(f"Pull request created for branch: {branch_name}")
 
 
 def main():
