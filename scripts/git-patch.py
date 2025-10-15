@@ -34,9 +34,6 @@ def base64_decode(data):
     :returns: The decoded byte string.
 
     """
-    missing_padding = len(data) % 4
-    if missing_padding:
-        data += b"=" * (4 - missing_padding)
     return base64.b64decode(data)
 
 
@@ -91,6 +88,11 @@ def create_patch_branch(file_path, repo_path, patches_dir, base_branch):
         ]
     )
     subprocess.run(["git", "-C", repo_path, "push", "-u", "origin", branch_name])
+
+    print(f"Patch ID: {file_path.split('.')[0]}")
+    print(f"Input: {data['input']}")
+    print(f"Report: {data['report']}")
+    print(f"Description: {data['history'][-1]['reason']}")
 
     # create a markdown report in the temporary directory
     report_content = REPORT_TEMPLATE.format(
