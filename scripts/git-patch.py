@@ -99,24 +99,24 @@ def create_patch_branch(file_path, repo_path, patches_dir, base_branch):
         crash_report=base64_decode(data["report"]).decode("utf-8", errors="replace"),
         fix_description=data["history"][-1]["reason"],
     )
-    print(report_content)
+    # print(report_content)
 
-    # pull request creation can be automated using GitHub CLI
-    subprocess.run(
-        [
-            "gh",
-            "pr",
-            "create",
-            "--base",
-            base_branch,
-            "--head",
-            branch_name,
-            "--title",
-            f"Patch {file_path.split('.')[0]}",
-            "--body",
-            report_content,
-        ]
-    )
+    # # pull request creation can be automated using GitHub CLI
+    # subprocess.run(
+    #     [
+    #         "gh",
+    #         "pr",
+    #         "create",
+    #         "--base",
+    #         base_branch,
+    #         "--head",
+    #         branch_name,
+    #         "--title",
+    #         f"Patch {file_path.split('.')[0]}",
+    #         "--body",
+    #         report_content,
+    #     ]
+    # )
 
 
 def main():
