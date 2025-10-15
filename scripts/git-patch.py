@@ -175,6 +175,7 @@ def main():
             create_patch_branch(file, args.repo_dir, args.patches_dir, current_branch)
             # Switch back to the base branch to clean the state for the next iteration
             subprocess.run(["git", "-C", args.repo_dir, "checkout", current_branch])
+            subprocess.run(["git", "-C", args.repo_dir, "reset", "--hard"])
 
 
 if __name__ == "__main__":
