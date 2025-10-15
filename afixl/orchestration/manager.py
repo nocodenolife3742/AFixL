@@ -81,7 +81,7 @@ class Manager:
         while (left_time := timeout_seconds - (time.time() - self._start_time)) > 0:
             for task in self._tasks:
                 task.run()
-            time.sleep(min(10, left_time))
+            time.sleep(min(1, left_time))
 
     def __enter__(self):
         """
