@@ -96,7 +96,9 @@ def create_patch_branch(file_path, repo_path, patches_dir, base_branch):
         crash_report=base64_decode(data["report"]).decode("utf-8", errors="replace"),
         fix_description=data["history"][-1]["reason"],
     )
-    print(report_content)
+    
+    with open(os.path.join(repo_path, "PATCH_REPORT.md"), "w") as f:
+        f.write(report_content)
 
     # # pull request creation can be automated using GitHub CLI
     subprocess.run(
@@ -110,8 +112,8 @@ def create_patch_branch(file_path, repo_path, patches_dir, base_branch):
             branch_name,
             "--title",
             f"Patch {file_path.split('.')[0]}",
-            "--body",
-            report_content,
+            "--body-file",
+            os.path.join(repo_path, "PATCH_REPORT.md"),
         ],
         check=True,
         cwd=repo_path,
