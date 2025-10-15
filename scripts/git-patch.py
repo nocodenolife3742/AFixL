@@ -86,6 +86,14 @@ def create_patch_branch(file_path, repo_path, patches_dir, base_branch):
         data = json.load(f)
     patch_application(data["valid_patches"], repo_path)
 
+    try:
+        input = base64_decode(data["input"]).decode("utf-8", errors="replace")
+        report = base64_decode(data["report"]).decode("utf-8", errors="replace")
+
+    except Exception as e:
+        print("Error decoding base64 data:", e)
+        return
+    
     subprocess.run(["git", "-C", repo_path, "add", "."])
     subprocess.run(
         [
@@ -102,10 +110,8 @@ def create_patch_branch(file_path, repo_path, patches_dir, base_branch):
     # create a markdown report in the temporary directory
     report_content = REPORT_TEMPLATE.format(
         patch_id=file_path.split(".")[0],
-        crash_input=base64_decode(data["input"]).decode("utf-8", errors="replace"),
-        crash_report=remove_ansi_escape_sequences(
-            base64_decode(data["report"]).decode("utf-8", errors="replace")
-        ),
+        crash_input=input,
+        crash_report=remove_ansi_escape_sequences(report),
         fix_description=data["history"][-1]["reason"],
     )
 
